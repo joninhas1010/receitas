@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus #1: Cardapio Semanal Completo - receitas-da-bia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #FF6B4A;
+    --secondary: #5A3522;
+    --bg: #FFF6E3;
+    --cafe: #F9A825;
+    --almoco: #FF6B4A;
+    --lanche: #8BC34A;
+    --jantar: #5C6BC0;
+    --cafe-bg: #FFF8E1;
+    --almoco-bg: #FFF3E0;
+    --lanche-bg: #F1F8E9;
+    --jantar-bg: #E8EAF6;
+    --white: #FFFFFF;
+    --gray-light: #F5F0E5;
+    --gray-text: #8B7D6B;
+    --tip-bg: #FEF3E2;
+    --batch-bg: #E8F5E9;
+    --grocery-bg: #E3F2FD;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--secondary);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 0.7; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--secondary), #3d2315);
+    border-radius: 20px;
+    padding: 40px 24px;
+    text-align: center;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(90, 53, 34, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: rgba(255,107,74,0.2);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: -20px;
+    width: 80px; height: 80px;
+    background: rgba(255,107,74,0.15);
+    border-radius: 50%;
+  }
+
+  .bonus-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .cover p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .intro {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--primary);
+  }
+  .intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 12px;
+  }
+  .intro p {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .week-section {
+    margin-bottom: 48px;
+  }
+  .week-header {
+    background: linear-gradient(135deg, var(--secondary), #3d2315);
+    color: var(--white);
+    padding: 20px 24px;
+    border-radius: 16px 16px 0 0;
+  }
+  .week-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .week-header p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .week-content {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }
+
+  /* Batch Cooking */
+  .batch-section {
+    background: var(--batch-bg);
+    padding: 16px 20px;
+    border-bottom: 1px solid #C8E6C9;
+  }
+  .batch-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2E7D32;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .batch-list {
+    list-style: none;
+    padding: 0;
+  }
+  .batch-list li {
+    font-size: 0.85rem;
+    color: #33691E;
+    padding: 3px 0 3px 18px;
+    position: relative;
+  }
+  .batch-list li::before {
+    content: '\25B6';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-size: 0.6rem;
+    top: 6px;
+  }
+
+  /* Grocery List */
+  .grocery-section {
+    background: var(--grocery-bg);
+    padding: 16px 20px;
+    border-bottom: 1px solid #BBDEFB;
+  }
+  .grocery-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1565C0;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .grocery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+  }
+  .grocery-item {
+    font-size: 0.8rem;
+    color: #1A237E;
+    padding: 2px 0 2px 16px;
+    position: relative;
+  }
+  .grocery-item::before {
+    content: '\25A2';
+    position: absolute;
+    left: 0;
+    color: #42A5F5;
+  }
+
+  /* Day cards */
+  .day-card {
+    border-bottom: 1px solid #f0ebe0;
+    padding: 16px 20px;
+  }
+  .day-card:last-child { border-bottom: none; }
+
+  .day-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .day-title .day-num {
+    background: var(--primary);
+    color: var(--white);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .meals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .meal-card {
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .meal-card.cafe { background: var(--cafe-bg); border-left: 3px solid var(--cafe); }
+  .meal-card.almoco { background: var(--almoco-bg); border-left: 3px solid var(--almoco); }
+  .meal-card.lanche { background: var(--lanche-bg); border-left: 3px solid var(--lanche); }
+  .meal-card.jantar { background: var(--jantar-bg); border-left: 3px solid var(--jantar); }
+
+  .meal-type {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .cafe .meal-type { color: #F57F17; }
+  .almoco .meal-type { color: #E64A19; }
+  .lanche .meal-type { color: #558B2F; }
+  .jantar .meal-type { color: #3949AB; }
+
+  .meal-name {
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 2px;
+  }
+  .meal-detail {
+    font-size: 0.75rem;
+    color: var(--gray-text);
+    font-style: italic;
+  }
+
+  .day-tip {
+    background: var(--tip-bg);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: #E65100;
+    grid-column: 1 / -1;
+  }
+  .day-tip strong {
+    color: var(--primary);
+  }
+
+  .final-tips {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 32px;
+    border: 2px dashed var(--primary);
+  }
+  .final-tips h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+  }
+  .final-tips ul {
+    list-style: none;
+    padding: 0;
+  }
+  .final-tips li {
+    padding: 6px 0 6px 22px;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    position: relative;
+    line-height: 1.5;
+  }
+  .final-tips li::before {
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+  }
+
+  .footer-note {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--gray-text);
+    font-size: 0.85rem;
+  }
+  .footer-note strong {
+    color: var(--primary);
+  }
+
+  @media (max-width: 640px) {
+    .cover h1 { font-size: 1.4rem; }
+    .cover { padding: 32px 16px; }
+    .meals-grid { grid-template-columns: 1fr; }
+    .grocery-grid { grid-template-columns: 1fr; }
+    .day-card { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+  <div class="cover">
+    <div class="bonus-badge">Bonus Exclusivo</div>
+    <h1>Cardapio Semanal Completo</h1>
+    <p>4 semanas com lista de compras, preparo antecipado e dicas do dia</p>
+  </div>
+
+  <div class="intro">
+    <h2>Seu planejamento completo</h2>
+    <p>Este bonus traz 4 semanas de cardapios detalhados, diferentes dos cardapios basicos. Cada semana inclui: sugestoes de preparo antecipado (batch cooking) para o domingo, lista de compras com quantidades para 4 pessoas, e dicas praticas para cada dia.</p>
+    <p>As receitas foram pensadas para serem rapidas no dia a dia, com o preparo pesado concentrado no fim de semana.</p>
+  </div>
+
+  <!-- =================== SEMANA 1 =================== -->
+  <div class="week-section">
+    <div class="week-header">
+      <h2>Semana 1 &mdash; Comida de Raiz</h2>
+      <p>Receitas tradicionais com ingredientes acessiveis</p>
+    </div>
+    <div class="week-content">
+
+      <div class="batch-section">
+        <h3>Preparo Antecipado (Domingo)</h3>
+        <ul class="batch-list">
+          <li>Cozinhar 1 kg de feijao carioca e dividir em 4 potes (segunda a quinta)</li>
+          <li>Temperar e porcionar 1 kg de sobrecoxa desossada em 3 saquinhos</li>
+          <li>Cortar legumes (cenoura, chuchu, abobrinha) e guardar em potes com agua</li>
+          <li>Fazer molho de tomate caseiro (2 latas de tomate pelado + cebola + alho) e guardar</li>
+          <li>Lavar e secar folhas verdes para a semana toda</li>
+        </ul>
+      </div>
+
+      <div class="grocery-section">
+        <h3>Lista de Compras (4 pessoas)</h3>
+        <div class="grocery-grid">
+          <div class="grocery-item">Arroz 2 kg</div>
+          <div class="grocery-item">Feijao carioca 1 kg</div>
+          <div class="grocery-item">Sobrecoxa desossada 1 kg</div>
+          <div class="grocery-item">Carne moida 500 g</div>
+          <div class="grocery-item">Linguica calabresa 400 g</div>
+          <div class="grocery-item">Ovos 1 dz</div>
+          <div class="grocery-item">Batata 1 kg</div>
+          <div class="grocery-item">Mandioca 500 g</div>
+          <div class="grocery-item">Cenoura 500 g</div>
+          <div class="grocery-item">Chuchu 3 un.</div>
+          <div class="grocery-item">Abobrinha 2 un.</div>
+          <div class="grocery-item">Tomate 6 un.</div>
+          <div class="grocery-item">Cebola 6 un.</div>
+          <div class="grocery-item">Alho 2 cabecas</div>
+          <div class="grocery-item">Alface 2 pes</div>
+          <div class="grocery-item">Couve 2 macos</div>
+          <div class="grocery-item">Banana 1 dz</div>
+          <div class="grocery-item">Laranja 12 un.</div>
+          <div class="grocery-item">Pao frances 28 un.</div>
+          <div class="grocery-item">Leite 3 litros</div>
+          <div class="grocery-item">Queijo mussarela 300 g</div>
+          <div class="grocery-item">Requeijao 1 pote</div>
+          <div class="grocery-item">Manteiga 200 g</div>
+          <div class="grocery-item">Macarrao 500 g</div>
+          <div class="grocery-item">Farinha de mandioca 500 g</div>
+          <div class="grocery-item">Tapioca 500 g</div>
+          <div class="grocery-item">Aveia 250 g</div>
+          <div class="grocery-item">Cafe 500 g</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">2a</span> Segunda-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao na chapa com manteiga</div>
+            <div class="meal-detail">+ cafe com leite + banana</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, frango grelhado ao limao</div>
+            <div class="meal-detail">Salada de alface e tomate, farofa simples</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Tapioca com queijo e oregano</div>
+            <div class="meal-detail">+ suco de laranja natural</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Caldo de mandioca com calabresa</div>
+            <div class="meal-detail">Mandioca ja cozida do preparo de domingo</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> O frango ja esta temperado do domingo. So grelhar 5 min de cada lado.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">3a</span> Terca-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Mingau de aveia com canela</div>
+            <div class="meal-detail">+ banana fatiada por cima</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, carne moida refogada</div>
+            <div class="meal-detail">Chuchu cozido com cheiro-verde, salada</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao com requeijao + cafe</div>
+            <div class="meal-detail">Simples e rapido</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Omelete de queijo e tomate</div>
+            <div class="meal-detail">+ salada verde com azeite e limao</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Use o chuchu ja picado do domingo. Cozinha em 10 min na agua com sal.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">4a</span> Quarta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao com queijo quente na frigideira</div>
+            <div class="meal-detail">+ cafe com leite + laranja</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Macarrao ao molho de tomate caseiro</div>
+            <div class="meal-detail">Molho feito no domingo, so aquecer. Salada de repolho</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Vitamina de banana com aveia</div>
+            <div class="meal-detail">Banana + leite + aveia + mel no liquidificador</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa de legumes com macarrao</div>
+            <div class="meal-detail">Legumes cortados do domingo + macarrao parafuso</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> O molho esta pronto. So esquentar e cozinhar o macarrao. Jantar em 15 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">5a</span> Quinta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Tapioca com manteiga e cafe</div>
+            <div class="meal-detail">+ suco de laranja</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, frango desfiado com molho</div>
+            <div class="meal-detail">Abobrinha refogada com alho, farofa</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao com ovo mexido</div>
+            <div class="meal-detail">+ suco de laranja</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Crepioca de frango com requeijao</div>
+            <div class="meal-detail">Use sobra do frango desfiado do almoco</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Ultimo saquinho de frango do domingo. Desfie apos cozinhar e use no almoco e jantar.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">6a</span> Sexta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao frances com manteiga + cafe</div>
+            <div class="meal-detail">+ fruta da estacao</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, linguica calabresa fatiada</div>
+            <div class="meal-detail">Couve refogada no alho, farofa de ovo</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pipoca no fogao com sal</div>
+            <div class="meal-detail">+ limonada caseira</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Pizza de frigideira</div>
+            <div class="meal-detail">Massa: farinha, fermento, agua. Cobertura com sobra de molho</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sexta pede praticidade. Linguica so cortar e dourar. Pizza de frigideira fica pronta em 15 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">S</span> Sabado</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Cuscuz com ovo cozido</div>
+            <div class="meal-detail">+ cafe com leite + mamao</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Escondidinho de carne moida</div>
+            <div class="meal-detail">Pure de batata por cima, gratinado. Salada verde</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolo de cenoura com cobertura</div>
+            <div class="meal-detail">Calda de chocolate simples + cafe</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sanduiche natural de frango</div>
+            <div class="meal-detail">Pao de forma, frango desfiado, milho, cenoura ralada, maionese</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sabado e dia de cozinhar com mais calma. Aproveite para fazer o bolo e ja deixar para o lanche de domingo.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">D</span> Domingo</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao de queijo caseiro + suco</div>
+            <div class="meal-detail">+ cafe com leite</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Macarronada com frango assado</div>
+            <div class="meal-detail">Macarrao ao molho vermelho, frango no forno, salada</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Sobra do bolo de cenoura + cafe</div>
+            <div class="meal-detail">Aproveitar o bolo do sabado</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Canja de galinha</div>
+            <div class="meal-detail">Use a carcaca do frango do almoco para o caldo</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Enquanto o frango assa, prepare o batch cooking da semana seguinte!</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== SEMANA 2 =================== -->
+  <div class="week-section">
+    <div class="week-header">
+      <h2>Semana 2 &mdash; Economia e Sabor</h2>
+      <p>Receitas que rendem e cabem no orcamento</p>
+    </div>
+    <div class="week-content">
+
+      <div class="batch-section">
+        <h3>Preparo Antecipado (Domingo)</h3>
+        <ul class="batch-list">
+          <li>Cozinhar 1 kg de feijao preto e dividir em potes para a semana</li>
+          <li>Fazer refogado base (cebola + alho + tomate) em quantidade e guardar</li>
+          <li>Cozinhar 1 peito de frango inteiro, desfiar e guardar em 3 porcoes</li>
+          <li>Descascar e picar abobora, batata-doce e cenoura para sopas rapidas</li>
+          <li>Preparar farofa pronta (farinha + manteiga + ovo + cheiro-verde) e guardar</li>
+        </ul>
+      </div>
+
+      <div class="grocery-section">
+        <h3>Lista de Compras (4 pessoas)</h3>
+        <div class="grocery-grid">
+          <div class="grocery-item">Arroz 2 kg</div>
+          <div class="grocery-item">Feijao preto 1 kg</div>
+          <div class="grocery-item">Peito de frango inteiro 1.2 kg</div>
+          <div class="grocery-item">Carne de acougue (acem) 800 g</div>
+          <div class="grocery-item">Salsicha 500 g</div>
+          <div class="grocery-item">Ovos 1 dz e meia</div>
+          <div class="grocery-item">Batata 1.5 kg</div>
+          <div class="grocery-item">Batata-doce 500 g</div>
+          <div class="grocery-item">Abobora cabotia 1 pedaco (500 g)</div>
+          <div class="grocery-item">Cenoura 500 g</div>
+          <div class="grocery-item">Tomate 8 un.</div>
+          <div class="grocery-item">Cebola 8 un.</div>
+          <div class="grocery-item">Alho 2 cabecas</div>
+          <div class="grocery-item">Repolho 1 un.</div>
+          <div class="grocery-item">Alface 2 pes</div>
+          <div class="grocery-item">Limao 6 un.</div>
+          <div class="grocery-item">Banana 1 dz</div>
+          <div class="grocery-item">Maca 6 un.</div>
+          <div class="grocery-item">Leite 4 litros</div>
+          <div class="grocery-item">Queijo prato 200 g</div>
+          <div class="grocery-item">Presunto 200 g</div>
+          <div class="grocery-item">Creme de leite 2 cx</div>
+          <div class="grocery-item">Pao de forma 1 pacote</div>
+          <div class="grocery-item">Pao frances 20 un.</div>
+          <div class="grocery-item">Farinha de mandioca 500 g</div>
+          <div class="grocery-item">Farinha de trigo 1 kg</div>
+          <div class="grocery-item">Milho em lata 2 un.</div>
+          <div class="grocery-item">Cafe 500 g</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">2a</span> Segunda-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao de forma com presunto e queijo</div>
+            <div class="meal-detail">+ cafe com leite + maca</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao preto, frango desfiado ao molho</div>
+            <div class="meal-detail">Farofa pronta, salada de alface e tomate</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolo de banana na caneca (micro-ondas)</div>
+            <div class="meal-detail">5 minutos! + cafe</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa creme de abobora</div>
+            <div class="meal-detail">Abobora ja picada, bater com creme de leite. Torradas</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Frango ja desfiado do domingo. Molho: refogado base + creme de leite. Pronto em 10 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">3a</span> Terca-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Ovo cozido + pao com manteiga</div>
+            <div class="meal-detail">+ cafe com leite + banana</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao preto, carne de panela com batata</div>
+            <div class="meal-detail">Carne do acem cozida. Salada de repolho cru</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao com requeijao + suco de limao</div>
+            <div class="meal-detail">Limonada com acucar</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Torta de liquidificador de frango</div>
+            <div class="meal-detail">Frango desfiado do domingo + massa rapida no liquidificador</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Coloque a carne na panela de pressao cedo. Cozinha em 30 min sem esforco. Rende para quarta tambem.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">4a</span> Quarta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Vitamina de banana com leite</div>
+            <div class="meal-detail">+ torrada com manteiga</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao preto, sobra da carne de panela</div>
+            <div class="meal-detail">Batata-doce assada, salada de tomate com cebola</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pipoca de panela + suco de manga</div>
+            <div class="meal-detail">Lanche barato e gostoso para as criancas</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Omelete caprichada</div>
+            <div class="meal-detail">Ovo + queijo + tomate + cheiro-verde. Salada verde</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sobra de carne de panela desfiada fica otima. Batata-doce: corte, tempere e leve ao forno por 25 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">5a</span> Quinta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao frances com ovo mexido</div>
+            <div class="meal-detail">+ cafe + fruta</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao preto, frango ao creme de milho</div>
+            <div class="meal-detail">Ultimo pote de frango desfiado + milho em lata + creme de leite. Salada</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Tapioca com queijo</div>
+            <div class="meal-detail">+ cafe com leite</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa de batata com cenoura</div>
+            <div class="meal-detail">Legumes ja picados do domingo. Cozinhar e bater</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Ultimo pote de frango. Misture com milho e creme de leite na panela: cremoso em 10 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">6a</span> Sexta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao com manteiga + cafe + banana</div>
+            <div class="meal-detail">Cafe da manha classico e rapido</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, salsicha ao molho</div>
+            <div class="meal-detail">Salsicha cortada com refogado base + pure de batata</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Milho cozido + limonada</div>
+            <div class="meal-detail">Se tiver espiga; senao, curau do milho em lata</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Cachorro-quente caseiro</div>
+            <div class="meal-detail">Pao de forma, salsicha, milho, batata palha, maionese, ketchup</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sexta e dia de moleza! Salsicha no almoco e no jantar em versoes diferentes. Criancada ama.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">S</span> Sabado</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Panqueca de banana e aveia</div>
+            <div class="meal-detail">+ mel + cafe com leite</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Strogonoff de frango economico</div>
+            <div class="meal-detail">Arroz, batata palha, salada de alface e tomate</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolo de fuba simples + cafe</div>
+            <div class="meal-detail">Rende muito, sobra para domingo</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Wrap de frango com salada</div>
+            <div class="meal-detail">Sobra do strogonoff em tortilha de trigo com alface</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Strogonoff rende. Guarde um pouco para o jantar em formato de wrap.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">D</span> Domingo</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Bolo de fuba do sabado + cafe</div>
+            <div class="meal-detail">+ suco de laranja natural</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Feijoada completa com arroz</div>
+            <div class="meal-detail">Couve refogada, farofa, laranja fatiada, vinagrete</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Gelatina com frutas picadas</div>
+            <div class="meal-detail">Sobremesa leve + biscoito</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Caldo de feijao da feijoada</div>
+            <div class="meal-detail">Bater o caldo que sobrou. Servir com torradas</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Feijoada rende o caldo do jantar. Enquanto cozinha, prepare o batch cooking da proxima semana.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== SEMANA 3 =================== -->
+  <div class="week-section">
+    <div class="week-header">
+      <h2>Semana 3 &mdash; Leveza e Variedade</h2>
+      <p>Refeicoes equilibradas com mais verduras e legumes</p>
+    </div>
+    <div class="week-content">
+
+      <div class="batch-section">
+        <h3>Preparo Antecipado (Domingo)</h3>
+        <ul class="batch-list">
+          <li>Cozinhar 500 g de lentilha e guardar em 2 potes</li>
+          <li>Assar 1 kg de peito de frango no forno com ervas. Fatiar e guardar em 3 potes</li>
+          <li>Fazer vinagrete grande (tomate, cebola, pimentao, salsa, azeite, vinagre) para 3 dias</li>
+          <li>Cozinhar beterraba e cenoura inteiras. Guardar descascadas na geladeira</li>
+          <li>Lavar quinoa ou couscous marroquino e deixar seco pronto para uso rapido</li>
+        </ul>
+      </div>
+
+      <div class="grocery-section">
+        <h3>Lista de Compras (4 pessoas)</h3>
+        <div class="grocery-grid">
+          <div class="grocery-item">Arroz integral 1 kg</div>
+          <div class="grocery-item">Arroz branco 1 kg</div>
+          <div class="grocery-item">Lentilha 500 g</div>
+          <div class="grocery-item">Peito de frango 1 kg</div>
+          <div class="grocery-item">File de tilapia 600 g</div>
+          <div class="grocery-item">Carne moida magra 500 g</div>
+          <div class="grocery-item">Ovos 2 dz</div>
+          <div class="grocery-item">Beterraba 4 un.</div>
+          <div class="grocery-item">Cenoura 500 g</div>
+          <div class="grocery-item">Brocolis 2 macos</div>
+          <div class="grocery-item">Abobrinha 3 un.</div>
+          <div class="grocery-item">Pimentao 3 un. (cores variadas)</div>
+          <div class="grocery-item">Tomate 10 un.</div>
+          <div class="grocery-item">Cebola 6 un.</div>
+          <div class="grocery-item">Rucula 2 macos</div>
+          <div class="grocery-item">Alface americana 1 pe</div>
+          <div class="grocery-item">Abacate 2 un.</div>
+          <div class="grocery-item">Manga 3 un.</div>
+          <div class="grocery-item">Morango 1 bandeja</div>
+          <div class="grocery-item">Iogurte natural 2 potes</div>
+          <div class="grocery-item">Ricota 200 g</div>
+          <div class="grocery-item">Queijo minas 200 g</div>
+          <div class="grocery-item">Pao integral 1 pacote</div>
+          <div class="grocery-item">Couscous marroquino 300 g</div>
+          <div class="grocery-item">Granola 300 g</div>
+          <div class="grocery-item">Mel 1 pote</div>
+          <div class="grocery-item">Azeite de oliva 500 ml</div>
+          <div class="grocery-item">Cafe 250 g</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">2a</span> Segunda-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Iogurte natural com granola e morango</div>
+            <div class="meal-detail">+ cafe preto</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz integral, lentilha, frango fatiado</div>
+            <div class="meal-detail">Brocolis no vapor, vinagrete</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao integral com ricota e mel</div>
+            <div class="meal-detail">+ cha verde</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Salada completa com frango</div>
+            <div class="meal-detail">Alface, tomate, cenoura ralada, frango fatiado, azeite</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Tudo pronto do domingo! So montar os pratos. Brocolis: 5 min no vapor.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">3a</span> Terca-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao integral com ovo mexido</div>
+            <div class="meal-detail">+ suco de manga + cafe</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Couscous marroquino com legumes salteados</div>
+            <div class="meal-detail">Abobrinha, pimentao, cenoura. Frango fatiado por cima</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Vitamina de abacate com leite e mel</div>
+            <div class="meal-detail">Cremosa e nutritiva</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa de lentilha com legumes</div>
+            <div class="meal-detail">Lentilha pronta + cenoura + batata. Temperar e servir</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Couscous hidrata em 5 min com agua fervente. Saltear os legumes leva mais 10 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">4a</span> Quarta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Smoothie de morango com banana e aveia</div>
+            <div class="meal-detail">+ torrada com queijo minas</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, lentilha, carne moida com legumes</div>
+            <div class="meal-detail">Beterraba ralada (ja cozida), salada de rucula</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao integral com pasta de abacate</div>
+            <div class="meal-detail">Abacate amassado com limao e sal + cafe</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Omelete de forno com legumes</div>
+            <div class="meal-detail">Ovo, abobrinha, pimentao, queijo. Forno 180 graus, 20 min</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Beterraba ja cozida do domingo: so ralar. Omelete de forno: misture tudo e esqueca no forno.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">5a</span> Quinta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Iogurte com mel e banana fatiada</div>
+            <div class="meal-detail">+ cafe com leite</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Peixe grelhado com arroz e brocolis</div>
+            <div class="meal-detail">Tilapia temperada com limao e ervas. Vinagrete</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Salada de frutas com granola</div>
+            <div class="meal-detail">Morango, banana, manga picada</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Wrap de pao integral com atum e salada</div>
+            <div class="meal-detail">Atum em lata, alface, tomate, milho</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Tilapia grelhada: 4 min de cada lado na frigideira quente. Rapido e saudavel!</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">6a</span> Sexta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao integral com queijo minas e tomate</div>
+            <div class="meal-detail">+ cafe + fruta da estacao</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao (lata), bife de carne moida (hamburguer caseiro)</div>
+            <div class="meal-detail">Salada de alface americana, beterraba e cenoura</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Crepioca com queijo e oregano</div>
+            <div class="meal-detail">+ suco de manga</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Panqueca de carne moida</div>
+            <div class="meal-detail">Massa de panqueca simples + sobra da carne temperada</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Faca o dobro de carne moida temperada no almoco: metade vira hamburguer, metade vai para a panqueca.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">S</span> Sabado</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Acai na tigela com banana e granola</div>
+            <div class="meal-detail">+ cafe</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Yakissoba de frango e legumes</div>
+            <div class="meal-detail">Macarrao, frango (comprar mais), legumes salteados com shoyu</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolo de banana integral</div>
+            <div class="meal-detail">Aveia + banana + ovo + canela no forno. Rende para domingo</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Bruschetta de tomate e manjericao</div>
+            <div class="meal-detail">Pao italiano torrado + tomate picado + azeite + rucula</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sabado e dia de cozinhar algo diferente. Yakissoba fica pronto em 20 min e a familia ama!</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">D</span> Domingo</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Bolo de banana do sabado + cafe</div>
+            <div class="meal-detail">+ suco de laranja</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Frango assado com batatas ao forno</div>
+            <div class="meal-detail">Arroz, salada completa, farofa</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Mousse de maracuja rapido</div>
+            <div class="meal-detail">Suco de maracuja + leite condensado + creme de leite</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa de legumes com frango</div>
+            <div class="meal-detail">Sobra do frango + legumes + macarrao. Leve e reconfortante</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Frango assado: tempere e leve ao forno por 1h. Sobra vira sopa no jantar e batch cooking da semana!</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== SEMANA 4 =================== -->
+  <div class="week-section">
+    <div class="week-header">
+      <h2>Semana 4 &mdash; Sabores Regionais</h2>
+      <p>O melhor da cozinha brasileira de Norte a Sul</p>
+    </div>
+    <div class="week-content">
+
+      <div class="batch-section">
+        <h3>Preparo Antecipado (Domingo)</h3>
+        <ul class="batch-list">
+          <li>Cozinhar feijao-de-corda (ou carioca) 1 kg e separar em 4 potes</li>
+          <li>Fazer carne seca dessalgada: deixar de molho trocando a agua (sabado a noite ate domingo)</li>
+          <li>Preparar tempero verde (salsinha + cebolinha + coentro picados) e guardar em pote</li>
+          <li>Cozinhar mandioca 1 kg: metade para pure/escondidinho, metade para fritar na semana</li>
+          <li>Fazer leite de coco caseiro ou separar 2 latas de leite de coco para a semana</li>
+        </ul>
+      </div>
+
+      <div class="grocery-section">
+        <h3>Lista de Compras (4 pessoas)</h3>
+        <div class="grocery-grid">
+          <div class="grocery-item">Arroz 2 kg</div>
+          <div class="grocery-item">Feijao-de-corda 1 kg</div>
+          <div class="grocery-item">Carne seca (charque) 500 g</div>
+          <div class="grocery-item">Peixe (cacao ou merluza) 600 g</div>
+          <div class="grocery-item">Frango (coxa e sobrecoxa) 1.5 kg</div>
+          <div class="grocery-item">Linguica toscana 500 g</div>
+          <div class="grocery-item">Ovos 1 dz e meia</div>
+          <div class="grocery-item">Mandioca 1 kg</div>
+          <div class="grocery-item">Quiabo 300 g</div>
+          <div class="grocery-item">Maxixe ou jilo 200 g</div>
+          <div class="grocery-item">Tomate 8 un.</div>
+          <div class="grocery-item">Cebola 6 un.</div>
+          <div class="grocery-item">Pimentao 3 un.</div>
+          <div class="grocery-item">Coentro 2 macos</div>
+          <div class="grocery-item">Salsinha e cebolinha 2 macos</div>
+          <div class="grocery-item">Couve 2 macos</div>
+          <div class="grocery-item">Leite de coco 2 latas</div>
+          <div class="grocery-item">Azeite de dende 100 ml</div>
+          <div class="grocery-item">Fuba 1 kg</div>
+          <div class="grocery-item">Farinha de mandioca 500 g</div>
+          <div class="grocery-item">Tapioca 500 g</div>
+          <div class="grocery-item">Queijo coalho 300 g</div>
+          <div class="grocery-item">Manteiga 200 g</div>
+          <div class="grocery-item">Leite 3 litros</div>
+          <div class="grocery-item">Pao frances 20 un.</div>
+          <div class="grocery-item">Banana 1 dz</div>
+          <div class="grocery-item">Goiaba 4 un.</div>
+          <div class="grocery-item">Cafe 500 g</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">2a</span> Segunda-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Cuscuz nordestino com ovo</div>
+            <div class="meal-detail">+ cafe com leite + goiaba fatiada</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Baiao de dois com carne seca</div>
+            <div class="meal-detail">Arroz + feijao-de-corda cozidos juntos. Vinagrete, couve</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Tapioca com queijo coalho</div>
+            <div class="meal-detail">+ suco de goiaba</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Escondidinho de carne seca</div>
+            <div class="meal-detail">Carne seca desfiada com pure de mandioca (ja cozida)</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Carne seca ja dessalgada e a mandioca ja cozida desde domingo. O escondidinho monta em 15 min.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">3a</span> Terca-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Bolo de fuba com goiabada</div>
+            <div class="meal-detail">+ cafe puro (estilo mineiro)</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Frango com quiabo, arroz, angu</div>
+            <div class="meal-detail">Prato tipico mineiro. Tempero verde por cima</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Pao de queijo + cafezinho</div>
+            <div class="meal-detail">Pao de queijo de liquidificador, facil e rapido</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Caldo de frango com mandioca</div>
+            <div class="meal-detail">Caldo do frango do almoco + mandioca. Tempero verde</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Frango com quiabo na pressao: 25 min. O caldo que sobra vira base do jantar, so acrescentar mandioca.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">4a</span> Quarta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao com manteiga na chapa + cafe</div>
+            <div class="meal-detail">+ banana + suco de manga</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Moqueca de peixe com arroz e pirao</div>
+            <div class="meal-detail">Peixe + leite de coco + dende + pimentao + tomate + coentro</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Mandioca frita com cafe</div>
+            <div class="meal-detail">Usar a mandioca reservada do domingo</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Tapioca recheada de carne moida</div>
+            <div class="meal-detail">Carne seca que sobrou, desfiada e refogada com cebola</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Moqueca fica pronta em 20 min. Segredo: nao mexer demais para o peixe nao desfazer.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">5a</span> Quinta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Tapioca com coco ralado e cafe</div>
+            <div class="meal-detail">+ fruta picada (goiaba ou manga)</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz, feijao, linguica toscana assada</div>
+            <div class="meal-detail">Farofa de ovo, vinagrete, couve refogada</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Mingau de fuba (curau salgado)</div>
+            <div class="meal-detail">Fuba + leite + sal. Cremoso e reconfortante</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sopa de feijao com couve e linguica</div>
+            <div class="meal-detail">Feijao + linguica que sobrou + couve picada</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Guarde 2 rodelas de linguica do almoco para a sopa do jantar. Tudo na mesma panela!</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">6a</span> Sexta-feira</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Pao frances com ovo frito</div>
+            <div class="meal-detail">+ cafe com leite + banana</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Galinhada caipira com pequi (ou milho)</div>
+            <div class="meal-detail">Arroz, frango, acafrao, milho. Salada simples</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolinho de chuva + cafe</div>
+            <div class="meal-detail">Classico da vovo! Polvilhar canela e acucar</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Sobra da galinhada requentada</div>
+            <div class="meal-detail">+ ovo frito por cima e salada fresca</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Galinhada rende bastante. Faca a mais para o jantar. Bolinho de chuva: 15 min e as criancas ajudam!</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">S</span> Sabado</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Queijo coalho grelhado com mel</div>
+            <div class="meal-detail">+ cafe com leite + goiaba</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Arroz carreteiro com charque</div>
+            <div class="meal-detail">Prato gaucho: arroz + carne seca + temperos. Salada</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Bolo de mandioca cremoso</div>
+            <div class="meal-detail">Mandioca ralada + leite de coco + acucar. Rende para domingo</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Acaraje de forno (versao light)</div>
+            <div class="meal-detail">Massa de feijao-fradinho assada + vatapa simples</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Sabado e dia de experimentar. O acaraje de forno e mais leve e menos trabalhoso que o frito.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-title"><span class="day-num">D</span> Domingo</div>
+        <div class="meals-grid">
+          <div class="meal-card cafe">
+            <div class="meal-type">Cafe da Manha</div>
+            <div class="meal-name">Bolo de mandioca do sabado + cafe</div>
+            <div class="meal-detail">+ suco de acerola</div>
+          </div>
+          <div class="meal-card almoco">
+            <div class="meal-type">Almoco</div>
+            <div class="meal-name">Vatapa com arroz branco</div>
+            <div class="meal-detail">Frango desfiado, leite de coco, amendoim, dende. Farofa</div>
+          </div>
+          <div class="meal-card lanche">
+            <div class="meal-type">Lanche</div>
+            <div class="meal-name">Cocada de forno + cafezinho</div>
+            <div class="meal-detail">Coco ralado + leite condensado. 20 min no forno</div>
+          </div>
+          <div class="meal-card jantar">
+            <div class="meal-type">Jantar</div>
+            <div class="meal-name">Canja nordestina</div>
+            <div class="meal-detail">Caldo do frango + arroz + tempero verde. Leve e perfeita</div>
+          </div>
+          <div class="day-tip"><strong>Dica do dia:</strong> Vatapa congela bem. Faca porcoes extras para ter refeicao pronta na proxima semana!</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== DICAS FINAIS =================== -->
+  <div class="final-tips">
+    <h3>Dicas de Ouro para o Planejamento Semanal</h3>
+    <ul>
+      <li><strong>Domingo e o dia-chave:</strong> reserve 1-2 horas para o preparo antecipado. Isso salva sua semana inteira.</li>
+      <li><strong>Congele em porcoes:</strong> feijao, molhos e carnes desfiadas congelam por ate 3 meses. Tenha sempre reserva.</li>
+      <li><strong>Sobras sao aliadas:</strong> o frango do almoco vira recheio de tapioca, a sopa vira caldo, a carne vira escondidinho.</li>
+      <li><strong>Lista de compras e lei:</strong> va ao mercado com a lista pronta e nao compre por impulso. Economia garantida.</li>
+      <li><strong>Varie as proteinas:</strong> alterne frango, carne, peixe e ovo ao longo da semana para uma alimentacao equilibrada.</li>
+      <li><strong>Envolva a familia:</strong> criancas podem ajudar a lavar folhas, picar temperos macios e montar seus proprios pratos.</li>
+      <li><strong>Adapte ao seu bolso:</strong> substitua proteinas caras por ovos ou sardinha quando precisar economizar.</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    <p>Material exclusivo <strong>receitas-da-bia</strong></p>
+    <p>Planeje com amor, cozinhe com prazer!</p>
+  </div>
+</div>
+</body>
+</html>

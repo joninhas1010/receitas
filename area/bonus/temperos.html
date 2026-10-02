@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Temperos Essenciais - receitas-da-bia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #FF6B4A;
+  --secondary: #5A3522;
+  --bg: #FFF6E3;
+  --border: #EEE3C8;
+  --white: #FFFFFF;
+  --text: #3D2E22;
+  --text-light: #7A6855;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 20px 0;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+/* Cover */
+.book-cover {
+  background: linear-gradient(135deg, var(--secondary) 0%, #3D2115 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.book-cover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(255,107,74,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.bonus-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.book-cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.book-cover .author {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  font-weight: 300;
+}
+.book-cover .subtitle {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* TOC */
+.toc {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+}
+.toc ol li {
+  counter-increment: toc-counter;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.toc ol li:last-child { border-bottom: none; }
+.toc ol li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.2s;
+}
+.toc ol li a:hover { color: var(--primary); }
+.toc ol li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+  min-width: 28px;
+}
+
+/* Content sections */
+.chapter {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+}
+.chapter-number {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.chapter h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--secondary);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.chapter h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+.chapter p {
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.chapter ul, .chapter ol {
+  margin-bottom: 16px;
+  padding-left: 20px;
+}
+.chapter li {
+  margin-bottom: 8px;
+}
+
+/* Spice card */
+.spice-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary);
+}
+.spice-card h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.spice-card p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.spice-card .uso {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Combo box */
+.combo-box {
+  background: linear-gradient(135deg, #FFF6E3 0%, #FFF0D4 100%);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+.combo-box h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.combo-box ul {
+  list-style: none;
+  padding: 0;
+}
+.combo-box li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.95rem;
+}
+.combo-box li::before {
+  content: '~';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Blend recipe */
+.blend-recipe {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.blend-recipe h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--secondary);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+.blend-recipe .ingredients {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.blend-recipe .ingredients h5 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* Tip box */
+.tip-box {
+  background: linear-gradient(135deg, #FF6B4A10 0%, #FF6B4A05 100%);
+  border: 1px solid #FF6B4A30;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.tip-box .tip-label {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+/* Footer */
+.book-footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.book-footer .brand {
+  font-family: 'Playfair Display', serif;
+  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .book-cover { padding: 40px 24px; }
+  .book-cover h1 { font-size: 1.8rem; }
+  .chapter { padding: 28px 20px; }
+  .toc { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+<div class="book-cover">
+  <div class="bonus-badge">Bonus #2</div>
+  <h1>Guia de Temperos Essenciais</h1>
+  <p class="author">por Bia Alcântara</p>
+  <p class="subtitle">Domine a arte de temperar e transforme qualquer prato em uma experiencia inesquecivel</p>
+</div>
+
+<div class="toc">
+  <h2>Sumario</h2>
+  <ol>
+    <li><a href="#cap1">Os 20 temperos que nao podem faltar na sua cozinha</a></li>
+    <li><a href="#cap2">Combinacoes perfeitas de temperos</a></li>
+    <li><a href="#cap3">Como armazenar temperos corretamente</a></li>
+    <li><a href="#cap4">Fazendo seus proprios blends</a></li>
+    <li><a href="#cap5">Ervas frescas vs secas - quando usar cada uma</a></li>
+  </ol>
+</div>
+
+<!-- CAPITULO 1 -->
+<div class="chapter" id="cap1">
+  <div class="chapter-number">Capitulo 1</div>
+  <h2>Os 20 Temperos que Nao Podem Faltar na Sua Cozinha</h2>
+  <p>Ter uma boa variedade de temperos e o segredo para transformar ingredientes simples em pratos extraordinarios. Aqui estao os 20 essenciais que toda cozinha precisa ter:</p>
+
+  <div class="spice-card">
+    <h4>1. Sal</h4>
+    <p>O mais fundamental de todos os temperos. Realca o sabor natural dos alimentos e equilibra o paladar. Prefira o sal grosso para carnes e o sal refinado para finalizacoes.</p>
+    <p class="uso"><strong>Uso:</strong> Em praticamente tudo. Use com moderacao e sempre prove antes de adicionar mais.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>2. Pimenta-do-reino</h4>
+    <p>A rainha dos temperos. Tem sabor picante e aromatico que complementa qualquer prato salgado. A pimenta moida na hora tem muito mais sabor que a pre-moida.</p>
+    <p class="uso"><strong>Uso:</strong> Carnes, molhos, sopas, saladas, ovos. Adicione no final do cozimento para preservar o aroma.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>3. Alho</h4>
+    <p>Indispensavel na culinaria brasileira. Pode ser usado fresco (picado, amassado ou em laminas), em po ou desidratado. O alho fresco tem sabor mais intenso e complexo.</p>
+    <p class="uso"><strong>Uso:</strong> Refogados, molhos, marinadas, carnes, arroz, feijao. Refogue em fogo baixo para nao amargar.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>4. Cebola</h4>
+    <p>Base de sabor para a maioria dos pratos brasileiros. Quando refogada, desenvolve uma docura natural que enriquece molhos e ensopados.</p>
+    <p class="uso"><strong>Uso:</strong> Refogados, molhos, sopas, saladas, carnes. A cebola roxa e mais suave para consumo cru.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>5. Oregano</h4>
+    <p>Erva aromatica com sabor levemente amargo e terroso. E um dos temperos mais versateis e combina especialmente bem com tomate.</p>
+    <p class="uso"><strong>Uso:</strong> Pizzas, massas, molhos de tomate, saladas, carnes grelhadas, legumes assados.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>6. Cominho</h4>
+    <p>Tempero com aroma quente e terroso, muito usado na culinaria nordestina. Pequenas quantidades fazem grande diferenca no sabor.</p>
+    <p class="uso"><strong>Uso:</strong> Feijao, carnes de panela, ensopados, farofas, carne moida, cuscuz.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>7. Paprica (doce e defumada)</h4>
+    <p>Da cor vermelha vibrante e sabor adocicado aos pratos. A paprica defumada adiciona um toque de defumado irresistivel.</p>
+    <p class="uso"><strong>Uso:</strong> Frango, carnes, arroz, molhos, batatas, legumes. A defumada e otima para churrasco.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>8. Louro</h4>
+    <p>Folha aromatica que libera sabor lentamente durante o cozimento. Essencial para caldos e cozimentos longos.</p>
+    <p class="uso"><strong>Uso:</strong> Feijao, sopas, ensopados, caldos, molhos. Adicione no inicio do cozimento e retire antes de servir.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>9. Salsinha (Cheiro-verde)</h4>
+    <p>Erva fresca com sabor suave e levemente apimentado. Adiciona frescor e cor verde vibrante aos pratos.</p>
+    <p class="uso"><strong>Uso:</strong> Finalizacao de pratos, saladas, molhos, sopas, farofas. Sempre adicione por ultimo.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>10. Cebolinha</h4>
+    <p>Companheira inseparavel da salsinha no cheiro-verde brasileiro. Tem sabor suave de cebola e aroma delicado.</p>
+    <p class="uso"><strong>Uso:</strong> Finalizacao de sopas, caldos, feijao, arroz, omeletes, saladas.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>11. Curcuma (Acafrao-da-terra)</h4>
+    <p>Raiz com cor amarela intensa e sabor levemente amargo e terroso. Alem de tempero, tem propriedades anti-inflamatorias.</p>
+    <p class="uso"><strong>Uso:</strong> Arroz, frango, legumes, sopas, molhos. Use com pimenta-do-reino para potencializar a absorcao.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>12. Canela</h4>
+    <p>Especiaria doce e quente, usada tanto em pratos doces quanto salgados. A canela em pau libera sabor mais suave que a em po.</p>
+    <p class="uso"><strong>Uso:</strong> Doces, bolos, mingaus, cha, arroz doce. Em salgados: ensopados marroquinos e carnes de panela.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>13. Noz-moscada</h4>
+    <p>Sabor quente, adocicado e levemente picante. Use sempre em pequenas quantidades, pois e muito intensa.</p>
+    <p class="uso"><strong>Uso:</strong> Molho branco, pure de batata, gratinados, recheios, lasanha, creme de espinafre.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>14. Gengibre</h4>
+    <p>Raiz com sabor picante e refrescante. Pode ser usado fresco (ralado), em po ou em conserva. O fresco e mais aromatico.</p>
+    <p class="uso"><strong>Uso:</strong> Chas, sucos, molhos orientais, carnes, peixes, sobremesas, pao de mel.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>15. Manjericao</h4>
+    <p>Erva fresca com aroma doce e levemente apimentado. E a base do molho pesto e combina perfeitamente com tomate.</p>
+    <p class="uso"><strong>Uso:</strong> Molhos de tomate, saladas, massas, pizzas, bruschetta, caprese. Nunca cozinhe por muito tempo.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>16. Alecrim</h4>
+    <p>Erva com aroma intenso, pinico e levemente amadeirado. Muito aromatico, use com moderacao para nao dominar o prato.</p>
+    <p class="uso"><strong>Uso:</strong> Carnes assadas, frango, batatas, paes, focaccia, legumes assados, azeite aromatizado.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>17. Tomilho</h4>
+    <p>Erva delicada com sabor terroso e levemente floral. Combina bem com quase tudo e suporta cozimentos longos.</p>
+    <p class="uso"><strong>Uso:</strong> Assados, sopas, molhos, legumes, cogumelos, frango, carnes de panela.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>18. Pimenta Calabresa</h4>
+    <p>Flocos de pimenta vermelha com ardencia moderada. Muito popular na culinaria brasileira e italiana.</p>
+    <p class="uso"><strong>Uso:</strong> Pizzas, massas, azeite de pimenta, carnes, molhos, refogados, conservas.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>19. Coentro</h4>
+    <p>Erva fresca com sabor citrico e intenso, muito popular no Norte e Nordeste do Brasil. Algumas pessoas tem sensibilidade genetica ao sabor.</p>
+    <p class="uso"><strong>Uso:</strong> Peixes, frutos do mar, moquecas, baiao de dois, saladas, guacamole, molhos.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>20. Cravo-da-india</h4>
+    <p>Especiaria com sabor forte, adocicado e levemente picante. Use com parcimonia, pois e muito intenso.</p>
+    <p class="uso"><strong>Uso:</strong> Doces, quentao, cha, cravo cravado na cebola para caldos, arroz doce, compotas.</p>
+  </div>
+</div>
+
+<!-- CAPITULO 2 -->
+<div class="chapter" id="cap2">
+  <div class="chapter-number">Capitulo 2</div>
+  <h2>Combinacoes Perfeitas</h2>
+  <p>Saber combinar temperos e o que diferencia uma cozinheira boa de uma cozinheira excepcional. Aqui estao as harmonias que funcionam para cada tipo de proteina e preparo:</p>
+
+  <div class="combo-box">
+    <h4>Carnes Bovinas</h4>
+    <ul>
+      <li><strong>Bife grelhado:</strong> sal grosso, pimenta-do-reino, alho em po e um fio de azeite</li>
+      <li><strong>Carne de panela:</strong> louro, tomilho, alho, cebola, pimenta-do-reino e um toque de cominho</li>
+      <li><strong>Carne assada:</strong> alecrim, alho, mostarda, paprica defumada e vinho tinto</li>
+      <li><strong>Carne moida:</strong> cominho, paprica doce, oregano, alho, cebola e cheiro-verde</li>
+      <li><strong>Churrasco:</strong> sal grosso, alho granulado, pimenta-do-reino e chimichurri (salsinha, oregano, alho, vinagre)</li>
+      <li><strong>Estrogonofe:</strong> paprica doce, mostarda, noz-moscada e um toque de tomilho</li>
+    </ul>
+  </div>
+
+  <div class="combo-box">
+    <h4>Frango</h4>
+    <ul>
+      <li><strong>Frango assado:</strong> alecrim, tomilho, alho, limao, paprica e manteiga com ervas</li>
+      <li><strong>Frango grelhado:</strong> curcuma, paprica defumada, alho em po, oregano e limao</li>
+      <li><strong>Frango de panela:</strong> louro, tomilho, alho, cebola, tomate e salsinha</li>
+      <li><strong>Frango empanado:</strong> paprica, oregano, alho em po, sal e pimenta-do-reino</li>
+      <li><strong>Frango desfiado:</strong> cominho, paprica, alho, cebola, tomate e coentro (ou salsinha)</li>
+      <li><strong>Frango ao curry:</strong> curry, gengibre, curcuma, cominho, leite de coco e coentro fresco</li>
+    </ul>
+  </div>
+
+  <div class="combo-box">
+    <h4>Peixes e Frutos do Mar</h4>
+    <ul>
+      <li><strong>Peixe grelhado:</strong> limao, alho, salsinha, azeite e pimenta branca</li>
+      <li><strong>Peixe assado:</strong> erva-doce, tomate, cebola, alho, azeite e alcaparras</li>
+      <li><strong>Moqueca:</strong> coentro, leite de coco, azeite de dende, pimentao, tomate e cebola</li>
+      <li><strong>Camarao:</strong> alho, manteiga, salsinha, pimenta calabresa e limao</li>
+      <li><strong>Bacalhau:</strong> alho, cebola, louro, azeite, azeitonas e salsa</li>
+      <li><strong>Salmao:</strong> endro (dill), limao, mel, mostarda, gengibre e gergelim</li>
+    </ul>
+  </div>
+
+  <div class="combo-box">
+    <h4>Legumes e Verduras</h4>
+    <ul>
+      <li><strong>Legumes assados:</strong> alecrim, tomilho, alho, azeite e pimenta-do-reino</li>
+      <li><strong>Saladas:</strong> azeite, limao, sal, oregano, manjericao fresco</li>
+      <li><strong>Legumes refogados:</strong> alho, cebola, sal, azeite e cheiro-verde para finalizar</li>
+      <li><strong>Couve-flor:</strong> curcuma, cominho, paprica, alho e azeite</li>
+      <li><strong>Abobrinha:</strong> oregano, alho, parmesao e um toque de noz-moscada</li>
+      <li><strong>Beringela:</strong> cominho, paprica defumada, alho, azeite e hortela</li>
+    </ul>
+  </div>
+
+  <div class="combo-box">
+    <h4>Massas</h4>
+    <ul>
+      <li><strong>Molho ao sugo:</strong> manjericao, oregano, alho, cebola, azeite e um toque de acucar</li>
+      <li><strong>Alho e oleo:</strong> alho em laminas, pimenta calabresa, salsinha e azeite extravirgem</li>
+      <li><strong>Carbonara:</strong> pimenta-do-reino, noz-moscada e bacon (pancetta)</li>
+      <li><strong>Pesto:</strong> manjericao fresco, alho, pinhao (ou castanha), parmesao e azeite</li>
+      <li><strong>Bolonhesa:</strong> louro, oregano, tomilho, noz-moscada, alho e vinho tinto</li>
+    </ul>
+  </div>
+
+  <div class="combo-box">
+    <h4>Sopas e Caldos</h4>
+    <ul>
+      <li><strong>Caldo de legumes:</strong> louro, salsao, cenoura, cebola, salsinha (talos incluidos) e tomilho</li>
+      <li><strong>Sopa de abobora:</strong> gengibre, noz-moscada, canela, curry e creme de leite</li>
+      <li><strong>Canja:</strong> curcuma, alho, cebola, salsinha, cenoura e salsao</li>
+      <li><strong>Sopa de feijao:</strong> cominho, louro, alho, cebola, bacon e cheiro-verde</li>
+      <li><strong>Caldo verde:</strong> alho, cebola, louro, azeite e pimenta calabresa</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CAPITULO 3 -->
+<div class="chapter" id="cap3">
+  <div class="chapter-number">Capitulo 3</div>
+  <h2>Como Armazenar Temperos Corretamente</h2>
+  <p>Armazenar seus temperos da maneira certa garante que eles mantenham o sabor e o aroma por muito mais tempo. Siga estas orientacoes para aproveitar ao maximo cada tempero:</p>
+
+  <h3>Regras Gerais de Armazenamento</h3>
+  <ul>
+    <li><strong>Longe da luz:</strong> A luz solar degrada os oleos essenciais dos temperos. Guarde em armarios fechados ou em recipientes opacos.</li>
+    <li><strong>Longe do calor:</strong> Nunca guarde temperos ao lado do fogao ou forno. O calor acelera a perda de sabor.</li>
+    <li><strong>Longe da umidade:</strong> A umidade causa empedramento e pode gerar mofo. Nunca use colheres umidas para pegar temperos.</li>
+    <li><strong>Recipientes hermeticos:</strong> Potes de vidro com tampa de rosca sao ideais. Evite deixar temperos em saquinhos abertos.</li>
+    <li><strong>Etiquete tudo:</strong> Coloque o nome do tempero e a data de compra em cada pote.</li>
+  </ul>
+
+  <h3>Temperos Secos (Po e Flocos)</h3>
+  <p>Temperos secos como oregano, paprica, cominho e canela devem ser guardados em potes de vidro escuro ou em armario fechado. A validade media e de 6 meses a 1 ano para pos e 1 a 2 anos para folhas e sementes inteiras.</p>
+  <div class="tip-box">
+    <div class="tip-label">Dica da Lu</div>
+    <p>Para testar se um tempero seco ainda esta bom, esfregue uma pitada entre os dedos e cheire. Se o aroma for fraco ou inexistente, esta na hora de trocar.</p>
+  </div>
+
+  <h3>Ervas Frescas</h3>
+  <p>Ervas frescas como salsinha, cebolinha, manjericao e coentro requerem cuidados especiais:</p>
+  <ul>
+    <li><strong>Na geladeira:</strong> Lave, seque bem com papel toalha, enrole em papel toalha umido e coloque em saco plastico ou pote com tampa. Dura de 5 a 10 dias.</li>
+    <li><strong>No copo com agua:</strong> Salsinha e coentro podem ficar em um copo com agua na geladeira (como flores), cobertos com um saco plastico. Troque a agua a cada 2 dias.</li>
+    <li><strong>Manjericao:</strong> Excecao! Guarde em temperatura ambiente, em copo com agua, longe da geladeira. O frio escurece as folhas.</li>
+    <li><strong>Congelamento:</strong> Pique as ervas e congele em forminhas de gelo com um pouco de agua ou azeite. Dura ate 3 meses.</li>
+  </ul>
+
+  <h3>Alho e Cebola</h3>
+  <ul>
+    <li><strong>Inteiros:</strong> Local fresco, seco e arejado. Nunca na geladeira (a umidade faz brotar). Duram de 3 a 5 semanas.</li>
+    <li><strong>Descascados:</strong> Na geladeira, em pote fechado, por ate 1 semana.</li>
+    <li><strong>Picados:</strong> Na geladeira por ate 3 dias, ou congelados em porcoes por ate 3 meses.</li>
+  </ul>
+
+  <h3>Gengibre e Curcuma (frescos)</h3>
+  <ul>
+    <li><strong>Na geladeira:</strong> Em saco plastico, sem lavar, por ate 3 semanas.</li>
+    <li><strong>No congelador:</strong> Inteiro, sem descascar. Quando precisar, rale diretamente do congelado (fica mais facil!). Dura ate 6 meses.</li>
+  </ul>
+
+  <h3>Pimentas</h3>
+  <ul>
+    <li><strong>Pimenta em grao:</strong> Guarde inteira e moa na hora do uso. Dura ate 3 anos em pote fechado.</li>
+    <li><strong>Pimenta calabresa:</strong> Em pote de vidro fechado, longe da luz, por ate 1 ano.</li>
+    <li><strong>Pimentas frescas:</strong> Na geladeira por ate 2 semanas, ou congele inteiras por ate 6 meses.</li>
+  </ul>
+
+  <div class="tip-box">
+    <div class="tip-label">Organizacao Inteligente</div>
+    <p>Organize seus temperos por frequencia de uso: os do dia a dia (sal, pimenta, alho, oregano) ficam mais acessiveis, e os de uso ocasional (cravo, canela, noz-moscada) podem ficar mais ao fundo do armario. Use prateleiras escalonadas ou organizadores giratórios para visualizar todos de uma vez.</p>
+  </div>
+</div>
+
+<!-- CAPITULO 4 -->
+<div class="chapter" id="cap4">
+  <div class="chapter-number">Capitulo 4</div>
+  <h2>Fazendo Seus Proprios Blends</h2>
+  <p>Criar suas proprias misturas de temperos e mais facil do que voce imagina e garante um sabor unico nos seus pratos. Aqui estao 5 receitas de blends que voce pode preparar em casa:</p>
+
+  <div class="blend-recipe">
+    <h4>1. Tempero Caseiro Completo</h4>
+    <p>O coringa da cozinha brasileira. Use em carnes, frangos, peixes, arroz e feijao.</p>
+    <div class="ingredients">
+      <h5>Ingredientes</h5>
+      <ul>
+        <li>3 colheres (sopa) de sal</li>
+        <li>1 colher (sopa) de alho em po (ou alho desidratado)</li>
+        <li>1 colher (sopa) de cebola em po (ou desidratada)</li>
+        <li>1 colher (cha) de paprica doce</li>
+        <li>1 colher (cha) de oregano seco</li>
+        <li>1 colher (cha) de salsinha desidratada</li>
+        <li>1/2 colher (cha) de pimenta-do-reino moida</li>
+        <li>1/2 colher (cha) de curcuma</li>
+      </ul>
+    </div>
+    <p><strong>Preparo:</strong> Misture tudo em um pote de vidro limpo e seco. Agite bem para incorporar. Guarde tampado, em local seco e escuro. Dura ate 3 meses.</p>
+    <p><strong>Rendimento:</strong> Aproximadamente 80g</p>
+  </div>
+
+  <div class="blend-recipe">
+    <h4>2. Blend para Churrasco</h4>
+    <p>Perfeito para carnes na grelha, espetinhos e ate legumes grelhados.</p>
+    <div class="ingredients">
+      <h5>Ingredientes</h5>
+      <ul>
+        <li>2 colheres (sopa) de sal grosso triturado</li>
+        <li>1 colher (sopa) de alho granulado</li>
+        <li>1 colher (sopa) de paprica defumada</li>
+        <li>1 colher (cha) de pimenta-do-reino moida grossa</li>
+        <li>1 colher (cha) de cebola em po</li>
+        <li>1/2 colher (cha) de mostarda em po</li>
+        <li>1/2 colher (cha) de pimenta calabresa triturada</li>
+        <li>1 pitada de acucar mascavo</li>
+      </ul>
+    </div>
+    <p><strong>Preparo:</strong> Misture todos os ingredientes em um pote. Para um resultado mais fino, bata rapidamente no liquidificador ou processador. O acucar mascavo ajuda a criar uma crosta caramelizada na carne.</p>
+    <p><strong>Rendimento:</strong> Aproximadamente 70g</p>
+  </div>
+
+  <div class="blend-recipe">
+    <h4>3. Mix Italiano</h4>
+    <p>Ideal para massas, molhos, pizzas, focaccias e paes.</p>
+    <div class="ingredients">
+      <h5>Ingredientes</h5>
+      <ul>
+        <li>2 colheres (sopa) de oregano seco</li>
+        <li>1 colher (sopa) de manjericao seco</li>
+        <li>1 colher (sopa) de salsinha desidratada</li>
+        <li>1 colher (cha) de alecrim seco (triturado)</li>
+        <li>1 colher (cha) de tomilho seco</li>
+        <li>1/2 colher (cha) de salvia seca</li>
+        <li>1/2 colher (cha) de alho em po</li>
+        <li>1/4 colher (cha) de pimenta calabresa</li>
+      </ul>
+    </div>
+    <p><strong>Preparo:</strong> Misture todas as ervas em um pote. Se preferir mais fino, amasse levemente com as maos para liberar os oleos essenciais. Otimo para misturar com azeite e usar como molho para paes.</p>
+    <p><strong>Rendimento:</strong> Aproximadamente 60g</p>
+  </div>
+
+  <div class="blend-recipe">
+    <h4>4. Tempero Nordestino</h4>
+    <p>A alma da culinaria do Nordeste. Perfeito para baiao de dois, feijao, carne de sol e cuscuz.</p>
+    <div class="ingredients">
+      <h5>Ingredientes</h5>
+      <ul>
+        <li>2 colheres (sopa) de cominho em po</li>
+        <li>1 colher (sopa) de coentro em po (semente moida)</li>
+        <li>1 colher (sopa) de alho em po</li>
+        <li>1 colher (cha) de pimenta-do-reino</li>
+        <li>1 colher (cha) de oregano</li>
+        <li>1/2 colher (cha) de pimenta calabresa</li>
+        <li>1/2 colher (cha) de curcuma</li>
+      </ul>
+    </div>
+    <p><strong>Preparo:</strong> Misture tudo e guarde em recipiente hermetico. Para intensificar o sabor, toste levemente o cominho e o coentro em po na frigideira seca antes de misturar aos demais ingredientes.</p>
+    <p><strong>Rendimento:</strong> Aproximadamente 60g</p>
+  </div>
+
+  <div class="blend-recipe">
+    <h4>5. Tempero para Legumes e Saladas</h4>
+    <p>Leve e aromatico, transforma legumes simples em acompanhamentos deliciosos.</p>
+    <div class="ingredients">
+      <h5>Ingredientes</h5>
+      <ul>
+        <li>1 colher (sopa) de manjericao seco</li>
+        <li>1 colher (sopa) de salsinha desidratada</li>
+        <li>1 colher (cha) de alho em po</li>
+        <li>1 colher (cha) de cebola em po</li>
+        <li>1 colher (cha) de oregano</li>
+        <li>1/2 colher (cha) de tomilho</li>
+        <li>1/2 colher (cha) de pimenta-do-reino</li>
+        <li>1/2 colher (cha) de limao em po (ou raspas de limao desidratadas)</li>
+      </ul>
+    </div>
+    <p><strong>Preparo:</strong> Misture tudo e guarde em pote de vidro. Use polvilhando sobre legumes antes de assar ou misture com azeite para temperar saladas. O toque de limao traz frescor.</p>
+    <p><strong>Rendimento:</strong> Aproximadamente 50g</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Dica da Lu</div>
+    <p>Prepare seus blends em pequenas quantidades para consumir em ate 2 meses. Assim voce sempre tem temperos frescos e aromaticos. Os potinhos decorados tambem sao otimos presentes!</p>
+  </div>
+</div>
+
+<!-- CAPITULO 5 -->
+<div class="chapter" id="cap5">
+  <div class="chapter-number">Capitulo 5</div>
+  <h2>Ervas Frescas vs Secas - Quando Usar Cada Uma</h2>
+  <p>Essa e uma duvida muito comum: quando usar ervas frescas e quando usar secas? A resposta depende do prato, do tempo de cozimento e do resultado desejado.</p>
+
+  <h3>A Regra Geral de Conversao</h3>
+  <div class="tip-box">
+    <div class="tip-label">Proporcao Universal</div>
+    <p><strong>1 colher (sopa) de erva fresca = 1 colher (cha) de erva seca</strong><br>
+    Ou seja, use 3 vezes mais erva fresca do que seca. As ervas secas sao mais concentradas porque perderam a agua.</p>
+  </div>
+
+  <h3>Quando Usar Ervas Frescas</h3>
+  <ul>
+    <li><strong>Finalizacao de pratos:</strong> Salsinha, cebolinha, manjericao e coentro frescos devem ser adicionados nos ultimos segundos de cozimento ou ja no prato montado para preservar cor, aroma e textura.</li>
+    <li><strong>Saladas e pratos frios:</strong> Ervas frescas sao sempre melhores em saladas, molhos frios, guacamole e ceviche.</li>
+    <li><strong>Quando a textura importa:</strong> Folhas de manjericao rasgadas sobre uma pizza ou salsinha picada sobre uma sopa fazem diferenca visual e de sabor.</li>
+    <li><strong>Decoracao:</strong> Para enfeitar pratos, sempre use frescas. Ervas secas nao tem o mesmo apelo visual.</li>
+    <li><strong>Receitas cruas:</strong> Pesto, chimichurri, tabule e molhos vinagrete pedem ervas frescas.</li>
+  </ul>
+
+  <h3>Quando Usar Ervas Secas</h3>
+  <ul>
+    <li><strong>Cozimentos longos:</strong> Sopas, ensopados, molhos que ficam horas no fogo se beneficiam de ervas secas, que liberam sabor gradualmente.</li>
+    <li><strong>Marinadas:</strong> Para marinar carnes por varias horas, ervas secas penetram melhor.</li>
+    <li><strong>Massas e paes:</strong> Na massa de paes, focaccias e biscoitos, use ervas secas, pois as frescas liberam umidade.</li>
+    <li><strong>Fritura e alta temperatura:</strong> Ervas frescas queimam rapidamente. As secas resistem melhor ao calor.</li>
+    <li><strong>Praticidade:</strong> Quando nao ha ervas frescas disponiveis, as secas sao uma excelente alternativa.</li>
+  </ul>
+
+  <h3>Guia por Erva</h3>
+
+  <div class="spice-card">
+    <h4>Manjericao</h4>
+    <p><strong>Fresco:</strong> Muito superior ao seco. Use em saladas, massas prontas, molhos frescos e sobre pizzas. Rasgue com as maos em vez de cortar com faca para nao oxidar.</p>
+    <p><strong>Seco:</strong> Funciona bem em molhos de tomate cozidos, sopas e recheios. O sabor e diferente do fresco, mais herbal.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>Salsinha</h4>
+    <p><strong>Fresca:</strong> Sempre preferivel. Adicione no final do cozimento ou como finalizacao. Os talos tem mais sabor que as folhas e sao otimos para caldos.</p>
+    <p><strong>Seca:</strong> Perde muito do sabor. Use apenas quando nao tiver fresca, em quantidades generosas.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>Alecrim</h4>
+    <p><strong>Fresco:</strong> Aroma mais suave e perfumado. Otimo em carnes assadas, colocado diretamente sobre o alimento durante o cozimento.</p>
+    <p><strong>Seco:</strong> Mantem muito bem o sabor. Funciona perfeitamente em marinadas, temperos secos e cozimentos longos. Uma das ervas que melhor mantem suas propriedades quando seca.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>Oregano</h4>
+    <p><strong>Fresco:</strong> Sabor mais suave e verde. Bom para saladas e finalizacoes.</p>
+    <p><strong>Seco:</strong> Surpreendentemente, o oregano seco e mais aromatico e saboroso que o fresco. E a excecao a regra! Use seco para pizzas, molhos e massas.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>Tomilho</h4>
+    <p><strong>Fresco:</strong> Mais delicado e floral. Adicione ramos inteiros durante o cozimento e retire antes de servir.</p>
+    <p><strong>Seco:</strong> Mantem bem o sabor e e muito pratico. Uma das melhores ervas para usar na versao seca.</p>
+  </div>
+
+  <div class="spice-card">
+    <h4>Coentro</h4>
+    <p><strong>Fresco:</strong> Essencial! O coentro seco perde quase todo o sabor caracteristico. Sempre use fresco como finalizacao.</p>
+    <p><strong>Seco (sementes):</strong> As sementes de coentro sao um tempero completamente diferente, com sabor citrico e floral. Use tostadas e moidas em curries e marinadas.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Resumo Rapido</div>
+    <p><strong>Melhor frescas:</strong> Manjericao, salsinha, cebolinha, coentro, hortela, endro.<br>
+    <strong>Boas secas:</strong> Oregano (melhor seco!), alecrim, tomilho, louro, salvia.<br>
+    <strong>Momento de adicionar frescas:</strong> Nos ultimos 1-2 minutos de cozimento ou depois de desligar o fogo.<br>
+    <strong>Momento de adicionar secas:</strong> No inicio ou meio do cozimento, para que liberem sabor.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="brand">receitas-da-bia</div>
+  <p>Material exclusivo para membros</p>
+  <p style="margin-top:8px;">&copy; Bia Alcântara - Todos os direitos reservados</p>
+</div>
+
+</div>
+</body>
+</html>

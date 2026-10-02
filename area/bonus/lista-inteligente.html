@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lista de Compras Inteligente - receitas-da-bia</title>
+<meta name="description" content="Lista de compras premium com custos estimados, dicas para escolher produtos frescos, substituicoes sazonais e economia organizada por secao do mercado." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
+  --text-soft:#555;--text-muted:#6B7280;--border:#EEE3C8;--white:#fff;
+  --shadow-card:0 2px 16px rgba(90,53,34,.07);--shadow-plan:0 6px 28px rgba(90,53,34,.13);
+  --accent:#F5C518;--green:#2A8A45;--green-light:rgba(42,138,69,.08);
+  --price-accent:#E04D2A;--blue:#2563EB;--blue-light:rgba(37,99,235,.08);
+  --purple:#7C3AED;--purple-light:rgba(124,58,237,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--background);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;padding-bottom:60px}
+img{max-width:100%;display:block}
+
+/* Layout */
+main{width:100%;max-width:800px;margin:0 auto;padding:0 16px}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-weight:700;font-size:15px;padding:16px 0}
+.back:hover{text-decoration:underline}
+
+/* Cover & badge */
+.cover{text-align:center;padding:24px 0 20px}
+.cover img{width:200px;height:auto;border-radius:20px;margin:0 auto 16px;box-shadow:var(--shadow-card)}
+.bonus-badge{display:inline-block;background:var(--primary);color:#fff;font-size:13px;font-weight:800;letter-spacing:.5px;padding:6px 16px;border-radius:100px;margin-bottom:12px}
+.cover h1{font-family:"Playfair Display",Georgia,serif;font-size:28px;font-weight:900;color:var(--primary);line-height:1.25;letter-spacing:-.3px}
+.cover p{font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:10px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Summary cards */
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.summary-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px 14px;text-align:center;box-shadow:var(--shadow-card)}
+.summary-card .icon{font-size:28px;margin-bottom:6px}
+.summary-card .label{font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.summary-card .value{font-size:20px;font-weight:900;color:var(--secondary);margin-top:2px}
+.summary-card .value small{font-size:14px;font-weight:700}
+
+/* Print button */
+.print-bar{text-align:center;margin:24px 0 20px}
+.print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--secondary);color:var(--white);border:none;border-radius:14px;padding:14px 28px;font-size:16px;font-weight:700;cursor:pointer;transition:transform .15s,filter .15s;font-family:inherit}
+.print-btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+
+/* Section card */
+.section-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:20px 18px;margin-bottom:16px;box-shadow:var(--shadow-card)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-bottom:10px;border-bottom:2px solid var(--background)}
+.section-icon{font-size:24px;width:40px;height:40px;background:var(--background);border-radius:12px;display:grid;place-items:center;flex:none}
+.section-title{font-size:18px;font-weight:800;color:var(--secondary)}
+.section-est{font-size:13px;font-weight:800;color:var(--price-accent);margin-left:auto;white-space:nowrap}
+
+/* Checklist with costs */
+.checklist{list-style:none}
+.checklist li{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid rgba(90,53,34,.06);font-size:15px;font-weight:500;color:var(--text);line-height:1.4}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:22px;height:22px;flex:none;accent-color:var(--green);cursor:pointer;border-radius:4px}
+.checklist .item-name{flex:1}
+.checklist .qty{font-weight:700;color:var(--secondary);min-width:60px;text-align:right;flex:none;font-size:14px}
+.checklist .cost{font-weight:800;color:var(--price-accent);min-width:55px;text-align:right;flex:none;font-size:14px}
+
+/* Tip boxes */
+.tip-box{border-radius:0 14px 14px 0;padding:16px 18px;margin:12px 0;font-size:14px;font-weight:600;line-height:1.6;color:var(--text-soft)}
+.tip-box strong{display:block;margin-bottom:4px;font-size:15px}
+.tip-green{background:var(--green-light);border-left:4px solid var(--green)}
+.tip-green strong{color:var(--green)}
+.tip-blue{background:var(--blue-light);border-left:4px solid var(--blue)}
+.tip-blue strong{color:var(--blue)}
+.tip-purple{background:var(--purple-light);border-left:4px solid var(--purple)}
+.tip-purple strong{color:var(--purple)}
+.tip-orange{background:rgba(255,107,74,.08);border-left:4px solid var(--primary)}
+.tip-orange strong{color:var(--primary)}
+
+/* Section tips (inline) */
+.section-tips{margin-top:12px;padding-top:10px;border-top:1px dashed var(--border)}
+.section-tips p{font-size:13px;font-weight:600;line-height:1.5;color:var(--text-soft);margin-bottom:6px}
+.section-tips p:last-child{margin-bottom:0}
+
+/* Money saving banner */
+.save-banner{background:var(--secondary);color:#fff;border-radius:20px;padding:22px 20px;margin:24px 0;text-align:center;box-shadow:var(--shadow-plan)}
+.save-banner h2{font-family:"Playfair Display",Georgia,serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:14px}
+.save-tips{text-align:left;list-style:none}
+.save-tips li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:15px;line-height:1.5;color:rgba(255,255,255,.9)}
+.save-tips li:last-child{border-bottom:none}
+.save-tips strong{display:block;color:#fff;font-size:16px}
+
+/* Seasonal box */
+.seasonal{background:var(--white);border:2px solid var(--accent);border-radius:20px;padding:20px 18px;margin:20px 0;box-shadow:var(--shadow-card)}
+.seasonal h3{font-size:18px;font-weight:800;color:var(--secondary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.seasonal-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seasonal-item{background:var(--background);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--secondary);text-align:center}
+.seasonal-item span{display:block;font-size:12px;font-weight:500;color:var(--text-muted);margin-top:2px}
+
+/* Footer */
+.page-footer{text-align:center;padding:32px 16px 20px;font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* Print styles */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .back,.print-bar,.page-footer{display:none!important}
+  .cover{padding:10px 0}
+  .cover img{display:none}
+  .cover h1{font-size:20pt;color:#000}
+  .bonus-badge{background:#333;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .summary{gap:6px}
+  .summary-card{padding:10px;box-shadow:none;border:1px solid #ccc}
+  .section-card{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin-bottom:10px;padding:12px}
+  .section-header{margin-bottom:6px;padding-bottom:6px}
+  .checklist li{padding:4px 2px;font-size:10pt}
+  .checklist input[type="checkbox"]{width:14px;height:14px}
+  .tip-box{page-break-inside:avoid;margin:6px 0}
+  .save-banner{background:#333;-webkit-print-color-adjust:exact;print-color-adjust:exact;page-break-inside:avoid}
+  .seasonal{page-break-inside:avoid}
+  main{max-width:100%;padding:0 10px}
+}
+
+/* Responsive */
+@media(max-width:480px){
+  .cover h1{font-size:24px}
+  .summary{grid-template-columns:1fr 1fr}
+  .summary-card .value{font-size:18px}
+  .section-title{font-size:16px}
+  .checklist li{gap:8px;font-size:14px}
+  .checklist .qty{min-width:50px;font-size:13px}
+  .checklist .cost{min-width:48px;font-size:13px}
+  .seasonal-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../../index.html">&larr; Voltar ao receitas-da-bia</a>
+
+<div class="cover">
+  <img src="../../images/bonus3.webp" alt="Lista de Compras Inteligente" />
+  <span class="bonus-badge">BONUS #3</span>
+  <h1>Lista de Compras Inteligente</h1>
+  <p>Sua lista completa com custos estimados, dicas para escolher os melhores produtos e truques para economizar em cada secao do mercado.</p>
+</div>
+
+<!-- Summary cards -->
+<div class="summary">
+  <div class="summary-card">
+    <div class="icon">🛒</div>
+    <div class="label">Total de itens</div>
+    <div class="value">64</div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">💰</div>
+    <div class="label">Custo estimado</div>
+    <div class="value"><small>R$</small>285</div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">📅</div>
+    <div class="label">Rende</div>
+    <div class="value">7 <small>dias</small></div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">👨‍👩‍👧‍👦</div>
+    <div class="label">Para</div>
+    <div class="value">4 <small>pessoas</small></div>
+  </div>
+</div>
+
+<div class="tip-box tip-green">
+  <strong>Como usar esta lista:</strong> Os precos sao estimativas baseadas na media nacional (outubro/2024). Marque o que ja tem em casa, imprima e leve ao mercado. Os itens estao na ordem das secoes para voce andar menos.
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">Imprimir Lista Inteligente</button>
+</div>
+
+<!-- ====== HORTIFRUTI ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥬</div>
+    <div class="section-title">Hortifruti</div>
+    <div class="section-est">~R$62</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Tomate italiano</span><span class="qty">1 kg</span><span class="cost">R$8</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cebola</span><span class="qty">1 kg</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alho</span><span class="qty">2 cab.</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Batata lavada</span><span class="qty">2 kg</span><span class="cost">R$10</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cenoura</span><span class="qty">1 kg</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alface crespa</span><span class="qty">2 unid.</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Limao tahiti</span><span class="qty">6 unid.</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Banana prata</span><span class="qty">1 dz</span><span class="cost">R$6</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cheiro-verde</span><span class="qty">2 macos</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimentao verde</span><span class="qty">2 unid.</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Abobrinha</span><span class="qty">2 unid.</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Laranja pera</span><span class="qty">1 dz</span><span class="cost">R$4</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Tomate: firme, cor vermelha uniforme, sem manchas escuras. Evite os muito moles.</p>
+    <p>Alface: folhas vivas e crocantes, sem pontas escuras. Prefira as que estao na parte de tras da bancada (mais frescas).</p>
+    <p>Banana: compre com a ponta ainda levemente verde para durar a semana.</p>
+    <p>Batata: casca lisa, sem brotos ou manchas verdes (indica solanina).</p>
+  </div>
+</div>
+
+<div class="tip-box tip-purple">
+  <strong>Substituicao sazonal - Hortifruti:</strong> Se a abobrinha estiver cara, troque por chuchu (mais barato o ano todo). Pimentao verde e mais em conta que o vermelho ou amarelo e funciona igual na maioria das receitas.
+</div>
+
+<!-- ====== ACOUGUE ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥩</div>
+    <div class="section-title">Acougue / Carnes</div>
+    <div class="section-est">~R$95</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Peito de frango</span><span class="qty">1,5 kg</span><span class="cost">R$18</span></li>
+    <li><input type="checkbox" /><span class="item-name">Coxa e sobrecoxa</span><span class="qty">1 kg</span><span class="cost">R$12</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne moida (patinho)</span><span class="qty">1 kg</span><span class="cost">R$25</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bife de alcatra</span><span class="qty">800 g</span><span class="cost">R$22</span></li>
+    <li><input type="checkbox" /><span class="item-name">Linguica calabresa</span><span class="qty">500 g</span><span class="cost">R$8</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ovos</span><span class="qty">2 dz</span><span class="cost">R$10</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Frango: cor rosada clara, sem odor forte. Verifique a data de validade e prefira bandeja sem liquido acumulado.</p>
+    <p>Carne moida: peca para moer na hora. Patinho e acem sao os melhores cortes (menos gordura).</p>
+    <p>Ovos: agite levemente - ovo fresco nao faz barulho. Verifique se nenhum esta trincado.</p>
+  </div>
+</div>
+
+<div class="tip-box tip-orange">
+  <strong>Economia no acougue:</strong> Compre frango inteiro e peca para cortar - sai ate 30% mais barato que peito avulso. Congele as porcoes que nao vai usar na semana. Coxa e sobrecoxa rendem otimos pratos e custam metade do peito.
+</div>
+
+<!-- ====== LATICINIOS ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧀</div>
+    <div class="section-title">Laticinios</div>
+    <div class="section-est">~R$48</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Leite integral</span><span class="qty">3 litros</span><span class="cost">R$15</span></li>
+    <li><input type="checkbox" /><span class="item-name">Manteiga com sal</span><span class="qty">200 g</span><span class="cost">R$7</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo mucarela fatiado</span><span class="qty">300 g</span><span class="cost">R$9</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite</span><span class="qty">3 cx</span><span class="cost">R$9</span></li>
+    <li><input type="checkbox" /><span class="item-name">Requeijao cremoso</span><span class="qty">1 pote</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Iogurte natural</span><span class="qty">2 potes</span><span class="cost">R$3</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Leite: confira a data de validade e se a embalagem nao esta estufada.</p>
+    <p>Queijo mucarela: prefira fatiado na hora no balcao (mais fresco e geralmente mais barato que o embalado).</p>
+    <p>Manteiga: prefira a com sal para cozinhar - dura mais fora da geladeira.</p>
+  </div>
+</div>
+
+<div class="tip-box tip-purple">
+  <strong>Substituicao inteligente:</strong> Creme de leite de caixinha (tipo Piracanjuba) e mais barato que o de lata e funciona igual. Iogurte natural substitui creme de leite em molhos, deixando mais leve.
+</div>
+
+<!-- ====== PADARIA ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🍞</div>
+    <div class="section-title">Padaria</div>
+    <div class="section-est">~R$14</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Pao frances</span><span class="qty">14 unid.</span><span class="cost">R$7</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pao de forma integral</span><span class="qty">1 pct</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Biscoito cream cracker</span><span class="qty">1 pct</span><span class="cost">R$2</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Pao frances: compre cedo pela manha para garantir pao fresco. Congele o que nao for usar em 2 dias.</p>
+    <p>Pao de forma: verifique o teor de fibras - acima de 3g por fatia e uma boa escolha.</p>
+  </div>
+</div>
+
+<!-- ====== GRAOS ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🌾</div>
+    <div class="section-title">Graos e Cereais</div>
+    <div class="section-est">~R$28</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Arroz branco tipo 1</span><span class="qty">2 kg</span><span class="cost">R$8</span></li>
+    <li><input type="checkbox" /><span class="item-name">Feijao carioca</span><span class="qty">1 kg</span><span class="cost">R$7</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao espaguete</span><span class="qty">500 g</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao parafuso</span><span class="qty">500 g</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de trigo</span><span class="qty">1 kg</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Aveia em flocos</span><span class="qty">250 g</span><span class="cost">R$2</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Arroz: tipo 1 tem menos graos quebrados e rende mais. Prefira marcas conhecidas.</p>
+    <p>Feijao: verifique se os graos sao uniformes e brilhantes. Feijao velho (opaco) demora mais para cozinhar e gasta mais gas.</p>
+  </div>
+</div>
+
+<div class="tip-box tip-orange">
+  <strong>Economia em graos:</strong> Compre arroz e feijao em pacotes de 5 kg quando em promocao - a economia pode chegar a 20%. Guarde em local seco e arejado. Macarrao de marca propria do supermercado costuma ter a mesma qualidade por menos.
+</div>
+
+<!-- ====== ENLATADOS ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥫</div>
+    <div class="section-title">Enlatados e Conservas</div>
+    <div class="section-est">~R$22</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Molho de tomate</span><span class="qty">3 latas</span><span class="cost">R$9</span></li>
+    <li><input type="checkbox" /><span class="item-name">Extrato de tomate</span><span class="qty">2 latas</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde</span><span class="qty">1 lata</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ervilha</span><span class="qty">1 lata</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Atum em lata</span><span class="qty">2 latas</span><span class="cost">R$6</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Molho de tomate: prefira os tradicionais sem tempero pronto. Voce tempera melhor em casa e sai mais barato.</p>
+    <p>Enlatados: verifique se a lata nao esta amassada, enferrujada ou estufada.</p>
+  </div>
+</div>
+
+<div class="tip-box tip-blue">
+  <strong>Dica da Lu:</strong> Faca seu proprio molho de tomate! 1 kg de tomate maduro + cebola + alho + sal rende o equivalente a 3 latas de molho, com sabor muito melhor e sem conservantes. Congele em porcoes.
+</div>
+
+<!-- ====== TEMPEROS ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧂</div>
+    <div class="section-title">Temperos e Condimentos</div>
+    <div class="section-est">~R$32</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Sal refinado</span><span class="qty">1 kg</span><span class="cost">R$2</span></li>
+    <li><input type="checkbox" /><span class="item-name">Oleo de soja</span><span class="qty">900 ml</span><span class="cost">R$7</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de oliva extra virgem</span><span class="qty">250 ml</span><span class="cost">R$12</span></li>
+    <li><input type="checkbox" /><span class="item-name">Vinagre</span><span class="qty">250 ml</span><span class="cost">R$2</span></li>
+    <li><input type="checkbox" /><span class="item-name">Caldo de galinha</span><span class="qty">1 cx</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Colorau</span><span class="qty">1 pct</span><span class="cost">R$2</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimenta-do-reino</span><span class="qty">1 vidro</span><span class="cost">R$4</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Azeite: prefira extra virgem, acidez ate 0,5%. Garrafas escuras preservam melhor o sabor. Evite os muito baratos - podem ser misturados.</p>
+    <p>Temperos em po: compre em sachê ou vidro pequeno. Perdem o aroma apos 6 meses abertos.</p>
+  </div>
+</div>
+
+<div class="tip-box tip-purple">
+  <strong>Substituicao esperta:</strong> Caldo de galinha em tablete pode ser trocado por tempero caseiro (alho + sal + cebola desidratada + salsa + cebolinha batidos no liquidificador e congelados em forminhas de gelo). Mais saudavel e rende o mes todo.
+</div>
+
+<!-- ====== LIMPEZA ====== -->
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧹</div>
+    <div class="section-title">Limpeza / Outros</div>
+    <div class="section-est">~R$16</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Detergente neutro</span><span class="qty">1 frasco</span><span class="cost">R$3</span></li>
+    <li><input type="checkbox" /><span class="item-name">Esponja de cozinha</span><span class="qty">2 unid.</span><span class="cost">R$4</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel aluminio</span><span class="qty">1 rolo</span><span class="cost">R$5</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel toalha</span><span class="qty">1 rolo</span><span class="cost">R$4</span></li>
+  </ul>
+  <div class="section-tips">
+    <p>🔍 <strong>Como escolher:</strong></p>
+    <p>Esponja: troque a cada 7 dias. Esponjas velhas acumulam bacterias e contaminam a louca.</p>
+    <p>Papel aluminio: o lado fosco encosta no alimento e o brilhante fica para fora para refletir calor.</p>
+  </div>
+</div>
+
+<!-- ====== FRUTAS DA ESTACAO ====== -->
+<div class="seasonal">
+  <h3>🗓 Frutas e Verduras da Estacao</h3>
+  <p style="font-size:14px;font-weight:600;color:var(--text-soft);margin-bottom:12px;line-height:1.5">Comprar da estacao significa mais sabor, mais frescor e ate 40% de economia. Veja o que esta em alta agora:</p>
+  <div class="seasonal-grid">
+    <div class="seasonal-item">🍊 Laranja<span>Abr-Out</span></div>
+    <div class="seasonal-item">🥑 Abacate<span>Mar-Jul</span></div>
+    <div class="seasonal-item">🫘 Chuchu<span>Ano todo</span></div>
+    <div class="seasonal-item">🥕 Cenoura<span>Jun-Nov</span></div>
+    <div class="seasonal-item">🍌 Banana<span>Ano todo</span></div>
+    <div class="seasonal-item">🥬 Couve<span>Jun-Out</span></div>
+    <div class="seasonal-item">🍅 Tomate<span>Mai-Out</span></div>
+    <div class="seasonal-item">🥒 Abobrinha<span>Set-Jan</span></div>
+  </div>
+</div>
+
+<!-- ====== DICAS DE ECONOMIA ====== -->
+<div class="save-banner">
+  <h2>10 Dicas para Economizar no Mercado</h2>
+  <ul class="save-tips">
+    <li><strong>1. Va ao mercado com a lista pronta</strong>Quem vai sem lista gasta em media 30% a mais em compras por impulso.</li>
+    <li><strong>2. Nunca va com fome</strong>Estudos mostram que voce compra ate 64% mais itens desnecessarios quando esta com fome.</li>
+    <li><strong>3. Compare o preco por quilo</strong>O preco na etiqueta mostra o valor por kg - use isso para comparar marcas e tamanhos diferentes.</li>
+    <li><strong>4. Marcas proprias sao aliadas</strong>Produtos de marca propria do supermercado costumam ter a mesma qualidade por 20-40% menos.</li>
+    <li><strong>5. Compre frutas e verduras na feira</strong>Feiras livres geralmente cobram 30-50% menos que o supermercado para hortifruti.</li>
+    <li><strong>6. Aproveite o "dia da economia"</strong>Muitos mercados tem dias com desconto em categorias especificas (terca da carne, quarta do hortifruti).</li>
+    <li><strong>7. Congele o que nao vai usar</strong>Carnes, paes, molhos e legumes picados congelam bem e evitam desperdicio.</li>
+    <li><strong>8. Planeje as refeicoes antes</strong>Com os cardapios prontos do receitas-da-bia, voce sabe exatamente o que comprar.</li>
+    <li><strong>9. Olhe as prateleiras de baixo</strong>Os produtos mais caros ficam na altura dos olhos. Marcas mais baratas geralmente estao nas prateleiras inferiores.</li>
+    <li><strong>10. Pague em dinheiro ou debito</strong>Usar cartao de credito pode levar a gastar mais. Com dinheiro, voce controla melhor o orcamento.</li>
+  </ul>
+</div>
+
+<div class="tip-box tip-green">
+  <strong>Resumo da economia:</strong> Seguindo estas dicas e usando os cardapios prontos do receitas-da-bia, voce pode economizar entre R$150 e R$300 por mes nas compras do mercado. Isso da mais de R$1.800 por ano!
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">Imprimir Lista Inteligente</button>
+</div>
+
+</main>
+
+<footer class="page-footer">&copy; 2024 receitas-da-bia. Todos os direitos reservados.</footer>
+</body>
+</html>

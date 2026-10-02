@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>receitas-da-bia - Sua Área Exclusiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #FF6B4A;
+      --secondary: #5A3522;
+      --bg: #FFF6E3;
+      --accent: #F5C518;
+      --green: #2A8A45;
+      --white: #FFFFFF;
+      --shadow-sm: 0 2px 8px rgba(90, 53, 34, 0.08);
+      --shadow-md: 0 4px 16px rgba(90, 53, 34, 0.10);
+      --shadow-lg: 0 8px 32px rgba(90, 53, 34, 0.14);
+      --shadow-hover: 0 12px 40px rgba(90, 53, 34, 0.18);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, #e85535 100%);
+      padding: 32px 16px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 140%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: var(--bg);
+      border-radius: 24px 24px 0 0;
+    }
+
+    .header-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-brand span {
+      color: var(--accent);
+    }
+
+    .header-welcome {
+      font-size: 15px;
+      color: rgba(255,255,255,0.90);
+      font-weight: 400;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- Progress Bar ---- */
+    .progress-wrapper {
+      max-width: 900px;
+      margin: -8px auto 24px;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .progress-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .progress-count {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--primary);
+      background: rgba(255, 107, 74, 0.10);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: #f0e6d3;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 8px;
+      transition: width 0.6s ease;
+      min-width: 4%;
+    }
+
+    /* ---- Main Container ---- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px 100px;
+    }
+
+    /* ---- Section Titles ---- */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      margin-top: 36px;
+    }
+
+    .section-title .emoji {
+      margin-right: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: #8a7260;
+      margin-top: -10px;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    /* ---- Featured Card (Main Book) ---- */
+    .featured-card {
+      background: linear-gradient(135deg, var(--secondary) 0%, #3d2215 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(245, 197, 24, 0.20) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .featured-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(255, 107, 74, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .featured-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .featured-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--secondary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.80);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-btn:hover {
+      background: #e85535;
+      transform: scale(1.03);
+    }
+
+    .featured-btn .arrow {
+      transition: transform var(--transition);
+    }
+
+    .featured-card:hover .featured-btn .arrow {
+      transform: translateX(4px);
+    }
+
+    /* ---- Card Grid ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    /* ---- Material Card ---- */
+    .material-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: var(--secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(90, 53, 34, 0.06);
+    }
+
+    .material-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .material-card:active {
+      transform: translateY(-1px);
+    }
+
+    .card-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 107, 74, 0.08);
+      border-radius: var(--radius-sm);
+    }
+
+    .card-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #8a7260;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      transition: gap var(--transition);
+    }
+
+    .material-card:hover .card-btn {
+      gap: 10px;
+    }
+
+    .card-btn .arrow {
+      font-size: 14px;
+      transition: transform var(--transition);
+    }
+
+    .material-card:hover .card-btn .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ---- Bonus Tag ---- */
+    .bonus-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--accent), #e0af00);
+      color: var(--secondary);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .bonus-card .card-icon {
+      background: rgba(245, 197, 24, 0.12);
+    }
+
+    /* ---- Extras Section ---- */
+    .extras-card .card-icon {
+      background: rgba(42, 138, 69, 0.08);
+    }
+
+    .extras-card .card-btn {
+      color: var(--green);
+    }
+
+    /* ---- Checked State ---- */
+    .material-card.accessed {
+      border-left: 3px solid var(--green);
+    }
+
+    .material-card.accessed .card-check {
+      display: flex;
+    }
+
+    .card-check {
+      display: none;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .bonus-card.accessed .bonus-tag {
+      display: none;
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 13px;
+      color: #a8937e;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ---- WhatsApp Floating Button ---- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      z-index: 100;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    .whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--white);
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--white);
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .whatsapp-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
+    /* ---- Responsive ---- */
+    @media (min-width: 520px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .header {
+        padding: 40px 24px 48px;
+      }
+
+      .header-brand {
+        font-size: 34px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .card-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .header {
+        padding: 48px 32px 56px;
+      }
+
+      .header-brand {
+        font-size: 38px;
+      }
+
+      .featured-card {
+        padding: 36px 32px;
+      }
+
+      .featured-title {
+        font-size: 30px;
+      }
+
+      .container {
+        padding: 0 24px 100px;
+      }
+    }
+
+    /* ---- Animations ---- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-in:nth-child(1) { animation-delay: 0.05s; }
+    .animate-in:nth-child(2) { animation-delay: 0.10s; }
+    .animate-in:nth-child(3) { animation-delay: 0.15s; }
+    .animate-in:nth-child(4) { animation-delay: 0.20s; }
+    .animate-in:nth-child(5) { animation-delay: 0.25s; }
+    .animate-in:nth-child(6) { animation-delay: 0.30s; }
+    .animate-in:nth-child(7) { animation-delay: 0.35s; }
+
+    /* ---- Divider ---- */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(90,53,34,0.10), transparent);
+      margin: 32px 0 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">Cozinhe com a <span>Lu</span></div>
+    <p class="header-welcome">Bem-vinda a sua area exclusiva!</p>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-wrapper">
+    <div class="progress-card">
+      <div class="progress-top">
+        <span class="progress-label">Seu progresso</span>
+        <span class="progress-count" id="progressCount">0 de 13 materiais acessados</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Main Material -->
+    <a href="receitas.html" class="featured-card" data-material="receitas" onclick="markAccessed('receitas')">
+      <span class="featured-icon">📖</span>
+      <span class="featured-tag">Material Principal</span>
+      <div class="featured-title">+200 Receitas Faceis e Deliciosas</div>
+      <p class="featured-desc">Seu livro completo de receitas com pratos para cafe da manha, almoco, jantar, lanches e sobremesas. Tudo explicado passo a passo.</p>
+      <span class="featured-btn">
+        Acessar Receitas <span class="arrow">&rarr;</span>
+      </span>
+    </a>
+
+    <!-- Core Materials -->
+    <div class="section-divider"></div>
+    <h2 class="section-title"><span class="emoji">📋</span>Seus Materiais</h2>
+    <p class="section-subtitle">Tudo que voce precisa para organizar sua cozinha</p>
+
+    <div class="card-grid card-grid-3">
+
+      <a href="cardapios.html" class="material-card animate-in" data-material="cardapios" onclick="markAccessed('cardapios')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">📅</div>
+        <div class="card-content">
+          <div class="card-title">Cardapios Prontos para a Semana</div>
+          <p class="card-desc">Planejamento semanal completo com todas as refeicoes organizadas para voce.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="lista-compras.html" class="material-card animate-in" data-material="lista-compras" onclick="markAccessed('lista-compras')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🛒</div>
+        <div class="card-content">
+          <div class="card-title">Lista de Compras Pronta</div>
+          <p class="card-desc">Lista organizada por categorias para facilitar suas compras no mercado.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="videos.html" class="material-card animate-in" data-material="videos" onclick="markAccessed('videos')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🎬</div>
+        <div class="card-content">
+          <div class="card-title">Videos Passo a Passo</div>
+          <p class="card-desc">Acompanhe cada receita com videos detalhados e dicas praticas.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Bonus Section -->
+    <div class="section-divider"></div>
+    <h2 class="section-title"><span class="emoji">🎁</span>Seus 7 Bonus Exclusivos</h2>
+    <p class="section-subtitle">Materiais extras para turbinar sua experiencia na cozinha</p>
+
+    <div class="card-grid">
+
+      <a href="bonus/cardapio-semanal.html" class="material-card bonus-card animate-in" data-material="bonus-1" onclick="markAccessed('bonus-1')">
+        <span class="bonus-tag">Bonus #1</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🗓️</div>
+        <div class="card-content">
+          <div class="card-title">Cardapio Semanal Completo</div>
+          <p class="card-desc">Planejamento detalhado com refeicoes balanceadas para a semana inteira.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/temperos.html" class="material-card bonus-card animate-in" data-material="bonus-2" onclick="markAccessed('bonus-2')">
+        <span class="bonus-tag">Bonus #2</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🧂</div>
+        <div class="card-content">
+          <div class="card-title">Guia de Temperos Essenciais</div>
+          <p class="card-desc">Descubra como usar cada tempero para transformar seus pratos.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/lista-inteligente.html" class="material-card bonus-card animate-in" data-material="bonus-3" onclick="markAccessed('bonus-3')">
+        <span class="bonus-tag">Bonus #3</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">📝</div>
+        <div class="card-content">
+          <div class="card-title">Lista de Compras Inteligente</div>
+          <p class="card-desc">Lista otimizada que calcula quantidades baseadas no numero de pessoas.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/sobremesas.html" class="material-card bonus-card animate-in" data-material="bonus-4" onclick="markAccessed('bonus-4')">
+        <span class="bonus-tag">Bonus #4</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🍰</div>
+        <div class="card-content">
+          <div class="card-title">30 Sobremesas Rapidas</div>
+          <p class="card-desc">Receitas doces que ficam prontas em ate 30 minutos.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/marmitas.html" class="material-card bonus-card animate-in" data-material="bonus-5" onclick="markAccessed('bonus-5')">
+        <span class="bonus-tag">Bonus #5</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🥡</div>
+        <div class="card-content">
+          <div class="card-title">Guia de Marmitas da Semana</div>
+          <p class="card-desc">Prepare todas as marmitas no domingo e tenha a semana resolvida.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/datas-especiais.html" class="material-card bonus-card animate-in" data-material="bonus-6" onclick="markAccessed('bonus-6')">
+        <span class="bonus-tag">Bonus #6</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🎉</div>
+        <div class="card-content">
+          <div class="card-title">Receitas para Datas Especiais</div>
+          <p class="card-desc">Pratos especiais para aniversarios, festas e momentos em familia.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="bonus/substituicoes.html" class="material-card bonus-card animate-in" data-material="bonus-7" onclick="markAccessed('bonus-7')">
+        <span class="bonus-tag">Bonus #7</span>
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🔄</div>
+        <div class="card-content">
+          <div class="card-title">Guia de Substituicoes</div>
+          <p class="card-desc">Saiba como substituir ingredientes sem perder o sabor das receitas.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Extras Section -->
+    <div class="section-divider"></div>
+    <h2 class="section-title"><span class="emoji">✨</span>Materiais Extras</h2>
+    <p class="section-subtitle">Ferramentas premium para facilitar ainda mais sua rotina</p>
+
+    <div class="card-grid card-grid-3">
+
+      <a href="extras/calculadora.html" class="material-card extras-card animate-in" data-material="extra-1" onclick="markAccessed('extra-1')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">🔢</div>
+        <div class="card-content">
+          <div class="card-title">Calculadora de Porcoes</div>
+          <p class="card-desc">Ajuste as quantidades de qualquer receita para o numero de pessoas.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="extras/medidas.html" class="material-card extras-card animate-in" data-material="extra-2" onclick="markAccessed('extra-2')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">📐</div>
+        <div class="card-content">
+          <div class="card-title">Tabela de Medidas</div>
+          <p class="card-desc">Conversao de xicaras, colheres, gramas e ml de forma pratica.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="extras/conservacao.html" class="material-card extras-card animate-in" data-material="extra-3" onclick="markAccessed('extra-3')">
+        <div class="card-check">&#10003;</div>
+        <div class="card-icon">❄️</div>
+        <div class="card-content">
+          <div class="card-title">Dicas de Conservacao</div>
+          <p class="card-desc">Como armazenar e conservar alimentos para evitar desperdicio.</p>
+          <span class="card-btn">Acessar <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 receitas-da-bia. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="#" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <span class="whatsapp-tooltip">Precisa de ajuda?</span>
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 2.667c-7.364 0-13.337 5.973-13.337 13.337 0 2.352.613 4.652 1.78 6.684L2.667 29.333l6.836-1.793A13.29 13.29 0 0016.004 29.337c7.364 0 13.337-5.973 13.337-13.337s-5.973-13.333-13.337-13.333zm0 24.44a11.08 11.08 0 01-5.648-1.544l-.404-.24-4.192 1.1 1.118-4.084-.264-.42a11.06 11.06 0 01-1.697-5.915c0-6.128 4.988-11.112 11.12-11.112 6.128 0 11.112 4.984 11.112 11.112-.004 6.132-4.988 11.103-11.145 11.103zm6.1-8.32c-.336-.168-1.98-.976-2.288-1.088-.308-.112-.532-.168-.756.168s-.868 1.088-1.064 1.312c-.196.224-.392.252-.728.084-.336-.168-1.42-.524-2.704-1.668-1-.892-1.676-1.996-1.872-2.332-.196-.336-.02-.516.148-.684.152-.152.336-.392.504-.588.168-.196.224-.336.336-.56.112-.224.056-.42-.028-.588-.084-.168-.756-1.82-1.036-2.492-.272-.656-.552-.568-.756-.576l-.644-.012a1.24 1.24 0 00-.896.42c-.308.336-1.176 1.148-1.176 2.8s1.204 3.248 1.372 3.472c.168.224 2.372 3.62 5.748 5.08.804.348 1.432.556 1.92.712.808.256 1.544.22 2.124.132.648-.096 1.98-.808 2.26-1.588.28-.78.28-1.448.196-1.588-.084-.14-.308-.224-.644-.392z"/>
+    </svg>
+  </a>
+
+  <!-- Progress Tracking Script -->
+  <script>
+    (function() {
+      var TOTAL = 13;
+      var STORAGE_KEY = 'receitas-bia-accessed';
+
+      function getAccessed() {
+        try {
+          var data = localStorage.getItem(STORAGE_KEY);
+          return data ? JSON.parse(data) : [];
+        } catch(e) {
+          return [];
+        }
+      }
+
+      function saveAccessed(list) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+        } catch(e) {}
+      }
+
+      function updateProgress() {
+        var accessed = getAccessed();
+        var count = accessed.length;
+        var pct = Math.round((count / TOTAL) * 100);
+
+        var countEl = document.getElementById('progressCount');
+        var barEl = document.getElementById('progressBar');
+
+        if (countEl) {
+          countEl.textContent = count + ' de ' + TOTAL + ' materiais acessados';
+        }
+        if (barEl) {
+          barEl.style.width = Math.max(pct, count > 0 ? 4 : 0) + '%';
+        }
+
+        // Mark accessed cards
+        var cards = document.querySelectorAll('[data-material]');
+        for (var i = 0; i < cards.length; i++) {
+          var key = cards[i].getAttribute('data-material');
+          if (accessed.indexOf(key) !== -1) {
+            cards[i].classList.add('accessed');
+          }
+        }
+      }
+
+      window.markAccessed = function(key) {
+        var accessed = getAccessed();
+        if (accessed.indexOf(key) === -1) {
+          accessed.push(key);
+          saveAccessed(accessed);
+          updateProgress();
+        }
+      };
+
+      updateProgress();
+    })();
+  </script>
+
+</body>
+</html>

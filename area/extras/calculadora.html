@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Porcoes - receitas-da-bia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF6E3;
+            color: #5A3522;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #FF6B4A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #5A3522;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            font-size: 1rem;
+            color: #8B6F5E;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .calculator-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid #EEE3C8;
+            box-shadow: 0 4px 16px rgba(90,53,34,0.06);
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #5A3522;
+            margin-bottom: 8px;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #EEE3C8;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            color: #5A3522;
+            background: #FFF6E3;
+            transition: border-color 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235A3522' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #FF6B4A;
+        }
+        .people-input-wrap {
+            position: relative;
+        }
+        .people-input-wrap input {
+            padding-right: 80px;
+        }
+        .people-label {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8B6F5E;
+            font-size: 0.9rem;
+        }
+        .btn-calculate {
+            width: 100%;
+            padding: 14px;
+            background: #FF6B4A;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-calculate:hover {
+            background: #e55a3a;
+        }
+        .btn-calculate:active {
+            transform: scale(0.98);
+        }
+        .results-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid #EEE3C8;
+            box-shadow: 0 4px 16px rgba(90,53,34,0.06);
+            display: none;
+        }
+        .results-card.visible { display: block; }
+        .results-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #5A3522;
+            margin-bottom: 4px;
+        }
+        .results-subtitle {
+            font-size: 0.9rem;
+            color: #8B6F5E;
+            margin-bottom: 20px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #EEE3C8;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-ingredient {
+            font-weight: 500;
+            color: #5A3522;
+        }
+        .result-amount {
+            font-weight: 700;
+            color: #FF6B4A;
+            font-size: 1.05rem;
+            text-align: right;
+        }
+        .tip-box {
+            margin-top: 20px;
+            padding: 16px;
+            background: #FFF6E3;
+            border-radius: 10px;
+            border-left: 4px solid #FF6B4A;
+        }
+        .tip-box strong {
+            color: #FF6B4A;
+        }
+        .tip-box p {
+            font-size: 0.9rem;
+            color: #5A3522;
+            margin-top: 4px;
+        }
+        .recipe-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 520px) {
+            .recipe-buttons { grid-template-columns: repeat(3, 1fr); }
+        }
+        .recipe-btn {
+            padding: 14px 12px;
+            background: #FFF6E3;
+            border: 2px solid #EEE3C8;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #5A3522;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .recipe-btn:hover {
+            border-color: #FF6B4A;
+            color: #FF6B4A;
+        }
+        .recipe-btn.active {
+            background: #FF6B4A;
+            border-color: #FF6B4A;
+            color: #fff;
+        }
+        .recipe-icon {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+        <div class="page-header">
+            <h1>Calculadora de Porcoes</h1>
+            <p>Calcule a quantidade exata de ingredientes para o numero de pessoas que voce vai servir.</p>
+        </div>
+
+        <div class="calculator-card">
+            <div class="form-group">
+                <label>Escolha o alimento:</label>
+                <div class="recipe-buttons" id="recipeButtons">
+                    <button type="button" class="recipe-btn active" data-recipe="arroz">
+                        <span class="recipe-icon">&#127834;</span>
+                        Arroz
+                    </button>
+                    <button type="button" class="recipe-btn" data-recipe="feijao">
+                        <span class="recipe-icon">&#127836;</span>
+                        Feijao
+                    </button>
+                    <button type="button" class="recipe-btn" data-recipe="macarrao">
+                        <span class="recipe-icon">&#127837;</span>
+                        Macarrao
+                    </button>
+                    <button type="button" class="recipe-btn" data-recipe="carne">
+                        <span class="recipe-icon">&#129385;</span>
+                        Carne
+                    </button>
+                    <button type="button" class="recipe-btn" data-recipe="frango">
+                        <span class="recipe-icon">&#127831;</span>
+                        Frango
+                    </button>
+                    <button type="button" class="recipe-btn" data-recipe="salada">
+                        <span class="recipe-icon">&#129367;</span>
+                        Salada
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="numPeople">Numero de pessoas:</label>
+                <div class="people-input-wrap">
+                    <input type="number" id="numPeople" min="1" max="20" value="4" placeholder="4">
+                    <span class="people-label">pessoas</span>
+                </div>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">Calcular Porcoes</button>
+        </div>
+
+        <div class="results-card" id="resultsCard">
+            <h2 class="results-title" id="resultsTitle"></h2>
+            <p class="results-subtitle" id="resultsSubtitle"></p>
+            <div id="resultsList"></div>
+            <div class="tip-box" id="tipBox">
+                <strong>Dica da Lu:</strong>
+                <p id="tipText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedRecipe = 'arroz';
+
+        const recipes = {
+            arroz: {
+                name: 'Arroz',
+                perPerson: [
+                    { ingredient: 'Arroz cru', grams: 75, unit: 'g' },
+                    { ingredient: 'Agua', grams: 150, unit: 'ml' },
+                    { ingredient: 'Oleo ou manteiga', grams: 5, unit: 'ml' },
+                    { ingredient: 'Alho (dentes)', grams: 0.5, unit: 'dente(s)' },
+                    { ingredient: 'Sal', grams: 1.5, unit: 'g' }
+                ],
+                tip: 'A proporcao classica e 1 xicara de arroz para 2 xicaras de agua. Para arroz mais soltinho, lave bem antes de cozinhar e refogue o alho ate dourar.',
+                xicaraRef: '1 xicara de arroz cru = 180g (rende cerca de 3 porcoes)'
+            },
+            feijao: {
+                name: 'Feijao',
+                perPerson: [
+                    { ingredient: 'Feijao cru', grams: 70, unit: 'g' },
+                    { ingredient: 'Agua (cozimento)', grams: 210, unit: 'ml' },
+                    { ingredient: 'Cebola', grams: 15, unit: 'g' },
+                    { ingredient: 'Alho (dentes)', grams: 0.5, unit: 'dente(s)' },
+                    { ingredient: 'Louro (folhas)', grams: 0.25, unit: 'folha(s)' },
+                    { ingredient: 'Sal', grams: 2, unit: 'g' }
+                ],
+                tip: 'Deixe o feijao de molho por pelo menos 8 horas antes de cozinhar. Isso reduz o tempo de cozimento e melhora a digestao. Na panela de pressao, cozinhe por 20-25 minutos apos pegar pressao.',
+                xicaraRef: '1 xicara de feijao cru = 170g (rende cerca de 2,5 porcoes)'
+            },
+            macarrao: {
+                name: 'Macarrao',
+                perPerson: [
+                    { ingredient: 'Macarrao seco', grams: 100, unit: 'g' },
+                    { ingredient: 'Agua (fervura)', grams: 1000, unit: 'ml' },
+                    { ingredient: 'Sal (agua)', grams: 5, unit: 'g' },
+                    { ingredient: 'Molho de tomate', grams: 80, unit: 'ml' },
+                    { ingredient: 'Queijo ralado', grams: 10, unit: 'g' }
+                ],
+                tip: 'Use bastante agua para cozinhar: pelo menos 1 litro por 100g de massa. Nao quebre o espaguete! Espere a agua ferver bem, adicione sal e depois o macarrao. Mexa nos primeiros 2 minutos para nao grudar.',
+                xicaraRef: '1 pacote de 500g rende 5 porcoes generosas'
+            },
+            carne: {
+                name: 'Carne Bovina',
+                perPerson: [
+                    { ingredient: 'Carne (bife/cubos)', grams: 200, unit: 'g' },
+                    { ingredient: 'Sal', grams: 2, unit: 'g' },
+                    { ingredient: 'Pimenta-do-reino', grams: 0.5, unit: 'g' },
+                    { ingredient: 'Alho (dentes)', grams: 0.5, unit: 'dente(s)' },
+                    { ingredient: 'Oleo para grelhar', grams: 5, unit: 'ml' }
+                ],
+                tip: 'Para churrasco, calcule 300-400g por pessoa (com osso). Para bifes, 150-200g por pessoa e suficiente. Retire a carne da geladeira 30 minutos antes de cozinhar para um resultado mais uniforme.',
+                xicaraRef: '1 kg de carne serve de 4 a 5 pessoas (sem osso)'
+            },
+            frango: {
+                name: 'Frango',
+                perPerson: [
+                    { ingredient: 'Frango (peito/coxa)', grams: 200, unit: 'g' },
+                    { ingredient: 'Sal', grams: 2, unit: 'g' },
+                    { ingredient: 'Limao', grams: 0.25, unit: 'unidade(s)' },
+                    { ingredient: 'Alho (dentes)', grams: 1, unit: 'dente(s)' },
+                    { ingredient: 'Colorau/paprica', grams: 2, unit: 'g' }
+                ],
+                tip: 'Frango inteiro: calcule 300g por pessoa (com osso). O peito cozinha mais rapido que a coxa. Para ficar suculento, nao ultrapasse o tempo de cozimento e tempere com antecedencia.',
+                xicaraRef: '1 frango inteiro (~2,5 kg) serve de 6 a 8 pessoas'
+            },
+            salada: {
+                name: 'Salada',
+                perPerson: [
+                    { ingredient: 'Folhas (alface, rucula)', grams: 50, unit: 'g' },
+                    { ingredient: 'Tomate', grams: 60, unit: 'g' },
+                    { ingredient: 'Pepino', grams: 40, unit: 'g' },
+                    { ingredient: 'Cebola roxa', grams: 15, unit: 'g' },
+                    { ingredient: 'Cenoura ralada', grams: 30, unit: 'g' },
+                    { ingredient: 'Azeite', grams: 8, unit: 'ml' },
+                    { ingredient: 'Sal e limao', grams: 3, unit: 'g' }
+                ],
+                tip: 'Lave bem as folhas em agua corrente e deixe de molho em solucao de hipoclorito por 15 minutos. Seque bem antes de montar. Tempere so na hora de servir para nao murchar.',
+                xicaraRef: '1 pe de alface americana rende para 3-4 pessoas'
+            }
+        };
+
+        // Button selection
+        document.querySelectorAll('.recipe-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.recipe-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedRecipe = this.dataset.recipe;
+            });
+        });
+
+        function calculate() {
+            const numPeople = Math.max(1, Math.min(20, parseInt(document.getElementById('numPeople').value) || 4));
+            document.getElementById('numPeople').value = numPeople;
+
+            const recipe = recipes[selectedRecipe];
+            const resultsCard = document.getElementById('resultsCard');
+            const resultsList = document.getElementById('resultsList');
+
+            document.getElementById('resultsTitle').textContent = recipe.name + ' para ' + numPeople + (numPeople === 1 ? ' pessoa' : ' pessoas');
+            document.getElementById('resultsSubtitle').textContent = recipe.xicaraRef;
+
+            resultsList.innerHTML = '';
+
+            recipe.perPerson.forEach(item => {
+                const total = item.grams * numPeople;
+                let displayAmount;
+
+                if (item.unit === 'dente(s)' || item.unit === 'folha(s)' || item.unit === 'unidade(s)') {
+                    displayAmount = formatFraction(total) + ' ' + item.unit;
+                } else if (total >= 1000 && (item.unit === 'g' || item.unit === 'ml')) {
+                    const kg = total / 1000;
+                    const unitLabel = item.unit === 'g' ? 'kg' : 'L';
+                    displayAmount = kg % 1 === 0 ? kg.toFixed(0) + ' ' + unitLabel : kg.toFixed(1) + ' ' + unitLabel;
+                } else {
+                    displayAmount = Math.round(total) + ' ' + item.unit;
+                }
+
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.innerHTML = '<span class="result-ingredient">' + item.ingredient + '</span><span class="result-amount">' + displayAmount + '</span>';
+                resultsList.appendChild(div);
+            });
+
+            document.getElementById('tipText').textContent = recipe.tip;
+
+            resultsCard.classList.add('visible');
+            resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function formatFraction(num) {
+            if (num === Math.floor(num)) return num.toString();
+            const whole = Math.floor(num);
+            const frac = num - whole;
+            let fracStr = '';
+            if (Math.abs(frac - 0.25) < 0.01) fracStr = '¼';
+            else if (Math.abs(frac - 0.5) < 0.01) fracStr = '½';
+            else if (Math.abs(frac - 0.75) < 0.01) fracStr = '¾';
+            else return num.toFixed(1);
+
+            return whole > 0 ? whole + ' ' + fracStr : fracStr;
+        }
+
+        // Run on load
+        calculate();
+    </script>
+</body>
+</html>

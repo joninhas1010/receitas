@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lista de Compras Pronta - receitas-da-bia</title>
+<meta name="description" content="Listas de compras organizadas por seção do mercado, alinhadas com os 4 cardápios semanais do receitas-da-bia." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
+  --text-soft:#555;--text-muted:#6B7280;--border:#EEE3C8;--white:#fff;
+  --shadow-card:0 2px 16px rgba(90,53,34,.07);
+  --accent:#F5C518;--green:#2A8A45;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--background);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;padding-bottom:60px}
+img{max-width:100%;display:block}
+
+/* Layout */
+main{width:100%;max-width:800px;margin:0 auto;padding:0 16px}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-weight:700;font-size:15px;padding:16px 0}
+.back:hover{text-decoration:underline}
+
+/* Cover */
+.cover{text-align:center;padding:24px 0 20px}
+.cover img{width:200px;height:auto;border-radius:20px;margin:0 auto 16px;box-shadow:var(--shadow-card)}
+.cover h1{font-family:"Playfair Display",Georgia,serif;font-size:28px;font-weight:900;color:var(--primary);line-height:1.25;letter-spacing:-.3px}
+.cover p{font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:10px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Week tabs */
+.weeks{display:flex;gap:8px;margin:24px 0 20px;flex-wrap:wrap;justify-content:center}
+.week-btn{background:var(--white);border:2px solid var(--border);border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;color:var(--secondary);cursor:pointer;transition:all .15s;flex:1;min-width:140px;text-align:center}
+.week-btn:hover,.week-btn.active{background:var(--primary);color:var(--white);border-color:var(--primary)}
+
+/* Week content */
+.week-content{display:none}
+.week-content.active{display:block}
+
+/* Section card */
+.section-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:20px 18px;margin-bottom:16px;box-shadow:var(--shadow-card)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--background)}
+.section-icon{font-size:24px;width:40px;height:40px;background:var(--background);border-radius:12px;display:grid;place-items:center;flex:none}
+.section-title{font-size:18px;font-weight:800;color:var(--secondary)}
+.section-count{font-size:13px;font-weight:700;color:var(--text-muted);margin-left:auto;white-space:nowrap}
+
+/* Checklist */
+.checklist{list-style:none}
+.checklist li{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid rgba(90,53,34,.06);font-size:15px;font-weight:500;color:var(--text);line-height:1.4}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:22px;height:22px;flex:none;accent-color:var(--green);cursor:pointer;border-radius:4px}
+.checklist .qty{font-weight:700;color:var(--secondary);min-width:70px;text-align:right;flex:none;font-size:14px}
+.checklist .item-name{flex:1}
+
+/* Print button */
+.print-bar{text-align:center;margin:28px 0 20px}
+.print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--secondary);color:var(--white);border:none;border-radius:14px;padding:14px 28px;font-size:16px;font-weight:700;cursor:pointer;transition:transform .15s,filter .15s;font-family:inherit}
+.print-btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+
+/* Tip box */
+.tip-box{background:rgba(42,138,69,.08);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:16px 18px;margin:20px 0;font-size:15px;font-weight:600;line-height:1.6;color:var(--text-soft)}
+.tip-box strong{color:var(--green)}
+
+/* Footer */
+.page-footer{text-align:center;padding:32px 16px 20px;font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* Print styles */
+@media print{
+  body{background:#fff;padding:0;font-size:12pt}
+  .back,.print-bar,.weeks,.tip-box,.cover img,.page-footer{display:none!important}
+  .cover{padding:10px 0}
+  .cover h1{font-size:22pt;color:#000}
+  .cover p{font-size:11pt}
+  .week-content{display:block!important;page-break-before:always}
+  .week-content:first-of-type{page-break-before:auto}
+  .week-content h2{font-size:16pt;color:#000;margin-bottom:8px;padding-top:10px}
+  .section-card{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin-bottom:10px;padding:12px}
+  .section-header{margin-bottom:8px;padding-bottom:6px}
+  .section-icon{background:#eee}
+  .checklist li{padding:5px 4px;font-size:11pt}
+  .checklist input[type="checkbox"]{width:16px;height:16px}
+  .checklist .qty{font-size:10pt;min-width:60px}
+  main{max-width:100%;padding:0 10px}
+}
+
+/* Responsive */
+@media(max-width:480px){
+  .cover h1{font-size:24px}
+  .week-btn{padding:10px 12px;font-size:14px;min-width:0}
+  .section-title{font-size:16px}
+}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../index.html">&larr; Voltar ao receitas-da-bia</a>
+
+<div class="cover">
+  <img src="../images/mockup.webp" alt="receitas-da-bia" />
+  <h1>Lista de Compras Pronta</h1>
+  <p>Listas organizadas por seção do mercado, alinhadas com os 4 cardápios semanais. Marque os itens e imprima antes de ir ao supermercado.</p>
+</div>
+
+<div class="tip-box">
+  <strong>Dica:</strong> Marque os itens que já tem em casa antes de imprimir. Assim você compra apenas o que precisa e evita desperdício.
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">Imprimir Lista</button>
+</div>
+
+<div class="weeks">
+  <button class="week-btn active" onclick="showWeek(1)">Semana 1</button>
+  <button class="week-btn" onclick="showWeek(2)">Semana 2</button>
+  <button class="week-btn" onclick="showWeek(3)">Semana 3</button>
+  <button class="week-btn" onclick="showWeek(4)">Semana 4</button>
+</div>
+
+<!-- ====== SEMANA 1 ====== -->
+<div class="week-content active" id="week1">
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:900;color:var(--secondary);margin-bottom:16px;text-align:center">Semana 1</h2>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥬</div>
+    <div class="section-title">Hortifruti</div>
+    <div class="section-count">16 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Tomate italiano</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cebola</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alho</span><span class="qty">2 cabecas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Batata</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cenoura</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alface crespa</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Tomate para salada</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Limao</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Banana</span><span class="qty">1 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Maca</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cheiro-verde (coentro e cebolinha)</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimentao verde</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Abobrinha</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Chuchu</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Laranja</span><span class="qty">1 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Mandioca (aipim)</span><span class="qty">500 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥩</div>
+    <div class="section-title">Acougue / Carnes</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Peito de frango</span><span class="qty">1,5 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Coxa e sobrecoxa de frango</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne moida (patinho)</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bife de alcatra</span><span class="qty">800 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Linguica calabresa</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ovos</span><span class="qty">2 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">File de tilapia</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bacon em cubos</span><span class="qty">200 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧀</div>
+    <div class="section-title">Laticinios</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Leite integral</span><span class="qty">3 litros</span></li>
+    <li><input type="checkbox" /><span class="item-name">Manteiga com sal</span><span class="qty">200 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo mucarela fatiado</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite</span><span class="qty">3 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Requeijao cremoso</span><span class="qty">1 pote</span></li>
+    <li><input type="checkbox" /><span class="item-name">Iogurte natural</span><span class="qty">2 potes</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo parmesao ralado</span><span class="qty">100 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Leite condensado</span><span class="qty">1 lata</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🍞</div>
+    <div class="section-title">Padaria</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Pao frances</span><span class="qty">14 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pao de forma integral</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bolo simples (ou ingredientes)</span><span class="qty">1 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Biscoito cream cracker</span><span class="qty">1 pct</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🌾</div>
+    <div class="section-title">Graos e Cereais</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Arroz branco</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Feijao carioca</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao espaguete</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao parafuso</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de trigo</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de rosca</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Aveia em flocos</span><span class="qty">250 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥫</div>
+    <div class="section-title">Enlatados e Conservas</div>
+    <div class="section-count">6 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Molho de tomate</span><span class="qty">3 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Extrato de tomate</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde em conserva</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ervilha em conserva</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Atum em lata</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeitona verde</span><span class="qty">1 vidro</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧂</div>
+    <div class="section-title">Temperos e Condimentos</div>
+    <div class="section-count">10 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Sal</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Oleo de soja</span><span class="qty">900 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de oliva</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Vinagre</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Caldo de galinha (tablete)</span><span class="qty">1 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Colorau (colorific)</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimenta-do-reino</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Oregano</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cominho</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Acucar</span><span class="qty">1 kg</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧹</div>
+    <div class="section-title">Limpeza / Outros</div>
+    <div class="section-count">5 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Detergente</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Esponja de cozinha</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel aluminio</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel toalha</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Saco para freezer</span><span class="qty">1 pct</span></li>
+  </ul>
+</div>
+</div>
+
+<!-- ====== SEMANA 2 ====== -->
+<div class="week-content" id="week2">
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:900;color:var(--secondary);margin-bottom:16px;text-align:center">Semana 2</h2>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥬</div>
+    <div class="section-title">Hortifruti</div>
+    <div class="section-count">17 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Tomate</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cebola</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alho</span><span class="qty">2 cabecas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Batata-doce</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Brocolis</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Couve</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Repolho</span><span class="qty">1 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pepino</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cenoura</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Limao</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Banana</span><span class="qty">1 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Mamao</span><span class="qty">1 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cheiro-verde</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Gengibre</span><span class="qty">1 pedaco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Beterraba</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Vagem</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Abobora cabotia</span><span class="qty">1 pedaco</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥩</div>
+    <div class="section-title">Acougue / Carnes</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Peito de frango</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne de panela (achem ou musculo)</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne moida</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Costelinha suina</span><span class="qty">800 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Linguica toscana</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ovos</span><span class="qty">2 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Salsicha</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Presunto fatiado</span><span class="qty">200 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧀</div>
+    <div class="section-title">Laticinios</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Leite integral</span><span class="qty">3 litros</span></li>
+    <li><input type="checkbox" /><span class="item-name">Manteiga com sal</span><span class="qty">200 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo mucarela fatiado</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite</span><span class="qty">2 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo minas frescal</span><span class="qty">1 peca</span></li>
+    <li><input type="checkbox" /><span class="item-name">Iogurte natural</span><span class="qty">2 potes</span></li>
+    <li><input type="checkbox" /><span class="item-name">Leite condensado</span><span class="qty">1 lata</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🍞</div>
+    <div class="section-title">Padaria</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Pao frances</span><span class="qty">14 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pao de forma</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Torrada</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Massa de pastel</span><span class="qty">500 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🌾</div>
+    <div class="section-title">Graos e Cereais</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Arroz branco</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Feijao preto</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao espaguete</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao penne</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de trigo</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Fuba</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farofa pronta</span><span class="qty">500 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥫</div>
+    <div class="section-title">Enlatados e Conservas</div>
+    <div class="section-count">5 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Molho de tomate</span><span class="qty">3 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Extrato de tomate</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Sardinha em lata</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cogumelo em conserva</span><span class="qty">1 vidro</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧂</div>
+    <div class="section-title">Temperos e Condimentos</div>
+    <div class="section-count">9 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Oleo de soja</span><span class="qty">900 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de oliva</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Shoyu (molho de soja)</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Caldo de carne (tablete)</span><span class="qty">1 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Louro em folhas</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Paprica doce</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Canela em po</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Acucar</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Achocolatado em po</span><span class="qty">400 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧹</div>
+    <div class="section-title">Limpeza / Outros</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Detergente</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Esponja de cozinha</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Filme plastico (PVC)</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Saco para freezer</span><span class="qty">1 pct</span></li>
+  </ul>
+</div>
+</div>
+
+<!-- ====== SEMANA 3 ====== -->
+<div class="week-content" id="week3">
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:900;color:var(--secondary);margin-bottom:16px;text-align:center">Semana 3</h2>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥬</div>
+    <div class="section-title">Hortifruti</div>
+    <div class="section-count">18 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Tomate</span><span class="qty">1,5 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cebola</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alho</span><span class="qty">2 cabecas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Batata</span><span class="qty">1,5 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cenoura</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alface americana</span><span class="qty">1 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Rucula</span><span class="qty">1 maco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Couve-flor</span><span class="qty">1 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Espinafre</span><span class="qty">1 maco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Berinjela</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Quiabo</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Banana</span><span class="qty">1 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Morango</span><span class="qty">1 bandeja</span></li>
+    <li><input type="checkbox" /><span class="item-name">Limao</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cheiro-verde</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde (espiga)</span><span class="qty">4 espigas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimentao vermelho</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Jiló</span><span class="qty">200 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥩</div>
+    <div class="section-title">Acougue / Carnes</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Sobrecoxa de frango</span><span class="qty">1,5 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne moida</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bisteca suina</span><span class="qty">800 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Acém em cubos (para ensopado)</span><span class="qty">800 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Linguica calabresa</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ovos</span><span class="qty">2 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">File de merluza</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Frango inteiro (para assar)</span><span class="qty">1,5 kg</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧀</div>
+    <div class="section-title">Laticinios</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Leite integral</span><span class="qty">3 litros</span></li>
+    <li><input type="checkbox" /><span class="item-name">Manteiga com sal</span><span class="qty">200 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo mucarela ralado</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite</span><span class="qty">2 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Requeijao cremoso</span><span class="qty">1 pote</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cream cheese</span><span class="qty">150 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Leite condensado</span><span class="qty">2 latas</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🍞</div>
+    <div class="section-title">Padaria</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Pao frances</span><span class="qty">14 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pao de forma</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Massa para lasanha</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Massa de pizza pronta</span><span class="qty">2 unid.</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🌾</div>
+    <div class="section-title">Graos e Cereais</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Arroz branco</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Feijao carioca</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao espaguete</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de mandioca</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de trigo</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Polvilho azedo</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Granola</span><span class="qty">250 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥫</div>
+    <div class="section-title">Enlatados e Conservas</div>
+    <div class="section-count">6 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Molho de tomate</span><span class="qty">4 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Extrato de tomate</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ervilha</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Palmito</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite (caixinha)</span><span class="qty">2 unid.</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧂</div>
+    <div class="section-title">Temperos e Condimentos</div>
+    <div class="section-count">9 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Oleo de soja</span><span class="qty">900 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de oliva</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Caldo de galinha (tablete)</span><span class="qty">1 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Chimichurri</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Mostarda</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Maionese</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ketchup</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Acucar</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Chocolate em po</span><span class="qty">200 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧹</div>
+    <div class="section-title">Limpeza / Outros</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Detergente</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Esponja de cozinha</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel aluminio</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Guardanapo de papel</span><span class="qty">1 pct</span></li>
+  </ul>
+</div>
+</div>
+
+<!-- ====== SEMANA 4 ====== -->
+<div class="week-content" id="week4">
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:900;color:var(--secondary);margin-bottom:16px;text-align:center">Semana 4</h2>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥬</div>
+    <div class="section-title">Hortifruti</div>
+    <div class="section-count">16 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Tomate</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cebola</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alho</span><span class="qty">2 cabecas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Batata</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cenoura</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Alface</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Tomate cereja</span><span class="qty">1 bandeja</span></li>
+    <li><input type="checkbox" /><span class="item-name">Couve</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Abobrinha</span><span class="qty">3 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Banana</span><span class="qty">1 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Maca</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Limao</span><span class="qty">6 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cheiro-verde</span><span class="qty">2 macos</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pimentao amarelo</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Inhame</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Mandioca</span><span class="qty">500 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥩</div>
+    <div class="section-title">Acougue / Carnes</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Peito de frango</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Coxa de frango</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Carne moida</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cupim (para assar)</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Linguica calabresa</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ovos</span><span class="qty">2 dz</span></li>
+    <li><input type="checkbox" /><span class="item-name">Camarao limpo</span><span class="qty">400 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Bacon em fatias</span><span class="qty">200 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧀</div>
+    <div class="section-title">Laticinios</div>
+    <div class="section-count">8 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Leite integral</span><span class="qty">3 litros</span></li>
+    <li><input type="checkbox" /><span class="item-name">Manteiga com sal</span><span class="qty">200 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo mucarela</span><span class="qty">400 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite</span><span class="qty">3 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Requeijao</span><span class="qty">1 pote</span></li>
+    <li><input type="checkbox" /><span class="item-name">Queijo coalho</span><span class="qty">300 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Iogurte natural</span><span class="qty">2 potes</span></li>
+    <li><input type="checkbox" /><span class="item-name">Leite de coco</span><span class="qty">2 vidros</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🍞</div>
+    <div class="section-title">Padaria</div>
+    <div class="section-count">4 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Pao frances</span><span class="qty">14 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Pao de forma integral</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Massa de empada</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Biscoito maisena</span><span class="qty">1 pct</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🌾</div>
+    <div class="section-title">Graos e Cereais</div>
+    <div class="section-count">7 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Arroz branco</span><span class="qty">2 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Feijao carioca</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Macarrao espaguete</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Lentilha</span><span class="qty">500 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Farinha de trigo</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Amido de milho (maisena)</span><span class="qty">200 g</span></li>
+    <li><input type="checkbox" /><span class="item-name">Cuscuz de milho</span><span class="qty">500 g</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🥫</div>
+    <div class="section-title">Enlatados e Conservas</div>
+    <div class="section-count">6 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Molho de tomate</span><span class="qty">3 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Extrato de tomate</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Milho verde</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Ervilha</span><span class="qty">1 lata</span></li>
+    <li><input type="checkbox" /><span class="item-name">Leite condensado</span><span class="qty">2 latas</span></li>
+    <li><input type="checkbox" /><span class="item-name">Creme de leite (caixinha)</span><span class="qty">2 unid.</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧂</div>
+    <div class="section-title">Temperos e Condimentos</div>
+    <div class="section-count">10 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Oleo de soja</span><span class="qty">900 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de oliva</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Vinagre</span><span class="qty">250 ml</span></li>
+    <li><input type="checkbox" /><span class="item-name">Caldo de galinha</span><span class="qty">1 cx</span></li>
+    <li><input type="checkbox" /><span class="item-name">Colorau</span><span class="qty">1 pct</span></li>
+    <li><input type="checkbox" /><span class="item-name">Curry em po</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Noz-moscada</span><span class="qty">1 vidro</span></li>
+    <li><input type="checkbox" /><span class="item-name">Acucar</span><span class="qty">1 kg</span></li>
+    <li><input type="checkbox" /><span class="item-name">Mel</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Azeite de dende</span><span class="qty">200 ml</span></li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-icon">🧹</div>
+    <div class="section-title">Limpeza / Outros</div>
+    <div class="section-count">5 itens</div>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" /><span class="item-name">Detergente</span><span class="qty">1 frasco</span></li>
+    <li><input type="checkbox" /><span class="item-name">Esponja de cozinha</span><span class="qty">2 unid.</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel aluminio</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Papel toalha</span><span class="qty">1 rolo</span></li>
+    <li><input type="checkbox" /><span class="item-name">Potes para marmita</span><span class="qty">5 unid.</span></li>
+  </ul>
+</div>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">Imprimir Lista</button>
+</div>
+
+</main>
+
+<footer class="page-footer">&copy; 2024 receitas-da-bia. Todos os direitos reservados.</footer>
+
+<script>
+function showWeek(n){
+  document.querySelectorAll('.week-content').forEach(function(el){el.classList.remove('active')});
+  document.querySelectorAll('.week-btn').forEach(function(el){el.classList.remove('active')});
+  document.getElementById('week'+n).classList.add('active');
+  document.querySelectorAll('.week-btn')[n-1].classList.add('active');
+}
+</script>
+</body>
+</html>

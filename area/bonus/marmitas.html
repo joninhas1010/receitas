@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Marmitas da Semana - receitas-da-bia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #FF6B4A;
+  --secondary: #5A3522;
+  --bg: #FFF6E3;
+  --border: #EEE3C8;
+  --white: #FFFFFF;
+  --text: #3D2E22;
+  --text-light: #7A6855;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--primary); text-decoration: none; font-weight: 600;
+  font-size: 0.95rem; padding: 20px 0; transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+.book-cover {
+  background: linear-gradient(135deg, var(--secondary) 0%, #3D2115 100%);
+  border-radius: 20px; padding: 60px 40px; text-align: center;
+  color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;
+}
+.book-cover::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 60% 40%, rgba(255,107,74,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.bonus-badge {
+  display: inline-block; background: var(--primary); color: var(--white);
+  font-size: 0.8rem; font-weight: 700; padding: 6px 20px; border-radius: 50px;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+}
+.book-cover h1 {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  font-weight: 800; margin-bottom: 12px; line-height: 1.2;
+}
+.book-cover .author { font-size: 1.05rem; opacity: 0.85; font-weight: 300; }
+.book-cover .subtitle { font-size: 1rem; opacity: 0.7; margin-top: 16px; font-style: italic; }
+.toc {
+  background: var(--white); border-radius: 16px; padding: 36px 32px;
+  margin-bottom: 40px; border: 1px solid var(--border);
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem;
+  color: var(--secondary); margin-bottom: 20px;
+}
+.toc ol { list-style: none; counter-reset: toc-counter; }
+.toc ol li {
+  counter-increment: toc-counter; padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.toc ol li:last-child { border-bottom: none; }
+.toc ol li a {
+  text-decoration: none; color: var(--text); font-weight: 500;
+  display: flex; align-items: center; gap: 12px; transition: color 0.2s;
+}
+.toc ol li a:hover { color: var(--primary); }
+.toc ol li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  color: var(--primary); font-size: 1.1rem; min-width: 28px;
+}
+.chapter {
+  background: var(--white); border-radius: 16px; padding: 40px 32px;
+  margin-bottom: 32px; border: 1px solid var(--border);
+}
+.chapter-number {
+  font-family: 'Playfair Display', serif; color: var(--primary);
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.chapter h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem;
+  color: var(--secondary); margin-bottom: 20px; line-height: 1.3;
+}
+.chapter h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem;
+  color: var(--secondary); margin-top: 28px; margin-bottom: 12px;
+}
+.chapter h4 {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  color: var(--primary); margin-top: 20px; margin-bottom: 10px;
+}
+.chapter p { margin-bottom: 14px; }
+.chapter ul, .chapter ol { margin-bottom: 16px; padding-left: 20px; }
+.chapter li { margin-bottom: 8px; }
+.tip-box {
+  background: linear-gradient(135deg, #FF6B4A10 0%, #FF6B4A05 100%);
+  border: 1px solid #FF6B4A30; border-radius: 12px;
+  padding: 20px 24px; margin: 20px 0;
+}
+.tip-box .tip-label {
+  font-weight: 700; color: var(--primary); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+.plan-header {
+  background: linear-gradient(135deg, var(--primary), #E5553A);
+  border-radius: 12px; padding: 24px; text-align: center;
+  color: var(--white); margin-top: 32px; margin-bottom: 20px;
+}
+.plan-header h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem;
+  color: var(--white); margin: 0;
+}
+.plan-header p { opacity: 0.9; font-size: 0.9rem; margin-top: 4px; }
+.marmita-card {
+  background: var(--bg); border-radius: 12px; padding: 20px 24px;
+  margin-bottom: 16px; border-left: 4px solid var(--primary);
+}
+.marmita-card h4 {
+  font-family: 'Playfair Display', serif; color: var(--secondary);
+  font-size: 1.05rem; margin-bottom: 8px;
+}
+.marmita-card .components {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+}
+.marmita-card .tag {
+  background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+  padding: 4px 12px; font-size: 0.8rem; font-weight: 600; color: var(--text-light);
+}
+.marmita-card p { font-size: 0.95rem; margin-bottom: 6px; }
+.marmita-card .recipe-detail {
+  background: var(--white); border-radius: 8px; padding: 14px; margin-top: 10px;
+  font-size: 0.9rem;
+}
+.marmita-card .recipe-detail strong { color: var(--primary); }
+.prep-order {
+  background: var(--white); border: 2px dashed var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 20px 0;
+}
+.prep-order h4 {
+  font-family: 'Playfair Display', serif; color: var(--secondary);
+  margin-bottom: 12px; font-size: 1.05rem;
+}
+.prep-order ol { padding-left: 20px; }
+.prep-order li { padding: 4px 0; font-size: 0.95rem; }
+.equip-list {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0;
+}
+.equip-item {
+  background: var(--bg); border-radius: 10px; padding: 14px;
+  border: 1px solid var(--border);
+}
+.equip-item strong { color: var(--secondary); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+.equip-item span { font-size: 0.85rem; color: var(--text-light); }
+@media (max-width: 600px) {
+  .book-cover { padding: 40px 24px; }
+  .book-cover h1 { font-size: 1.8rem; }
+  .chapter { padding: 28px 20px; }
+  .toc { padding: 24px 20px; }
+  .equip-list { grid-template-columns: 1fr; }
+}
+.book-footer {
+  text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.9rem;
+}
+.book-footer .brand {
+  font-family: 'Playfair Display', serif; color: var(--secondary);
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+<div class="book-cover">
+  <div class="bonus-badge">Bonus #5</div>
+  <h1>Guia de Marmitas da Semana</h1>
+  <p class="author">por Bia Alcântara</p>
+  <p class="subtitle">Planeje, prepare e congele: sua semana inteira resolvida em poucas horas</p>
+</div>
+
+<div class="toc">
+  <h2>Sumario</h2>
+  <ol>
+    <li><a href="#intro">Como funciona o prep de marmitas</a></li>
+    <li><a href="#cap1">Planejamento - Como organizar sua semana</a></li>
+    <li><a href="#cap2">Equipamentos necessarios</a></li>
+    <li><a href="#cap3">5 Planos completos de marmita</a></li>
+    <li><a href="#cap4">Dicas de congelamento e reaquecimento</a></li>
+    <li><a href="#cap5">Como montar a marmita perfeita</a></li>
+  </ol>
+</div>
+
+<!-- INTRO -->
+<div class="chapter" id="intro">
+  <div class="chapter-number">Introducao</div>
+  <h2>Como Funciona o Prep de Marmitas</h2>
+  <p>O meal prep (ou preparacao de marmitas) e a arte de cozinhar grandes quantidades de comida em um unico dia para ter refeicoes prontas durante a semana toda. Esse metodo vai transformar sua rotina:</p>
+  <ul>
+    <li><strong>Economia de tempo:</strong> Em vez de cozinhar todos os dias, voce dedica de 2 a 4 horas em um unico dia (geralmente domingo) e tem todas as refeicoes da semana prontas.</li>
+    <li><strong>Economia de dinheiro:</strong> Comprando com lista e em quantidade, voce reduz desperdicio e gastos no supermercado em ate 30%.</li>
+    <li><strong>Alimentacao mais saudavel:</strong> Com a comida pronta, voce evita delivery, fast food e lanchinhos nao planejados.</li>
+    <li><strong>Menos estresse:</strong> Chegar em casa e so reaquecer a marmita e libertador!</li>
+  </ul>
+  <p>Neste guia, voce encontra 5 planos semanais completos, com receitas detalhadas, ordem de preparo e dicas para que tudo saia perfeito.</p>
+  <div class="tip-box">
+    <div class="tip-label">A Regra de Ouro</div>
+    <p>Comece simples. No seu primeiro prep, faca apenas 3 marmitas. Conforme ganhar pratica e confianca, aumente para 5 e depois para a semana toda. O importante e comecar!</p>
+  </div>
+</div>
+
+<!-- CAPITULO 1 -->
+<div class="chapter" id="cap1">
+  <div class="chapter-number">Capitulo 1</div>
+  <h2>Planejamento - Como Organizar Sua Semana</h2>
+  <p>O sucesso do prep de marmitas esta no planejamento. Siga estes passos toda semana:</p>
+
+  <h3>Passo 1: Escolha o Cardapio</h3>
+  <p>Defina o que vai comer em cada dia da semana. Considere:</p>
+  <ul>
+    <li>Varie as proteinas ao longo da semana (frango, carne, peixe, ovos)</li>
+    <li>Inclua pelo menos 2 tipos de legumes ou verduras por marmita</li>
+    <li>Alterne os acompanhamentos (arroz branco, arroz integral, pure, macarrao)</li>
+    <li>Pense no que congela bem e no que e melhor fresco</li>
+  </ul>
+
+  <h3>Passo 2: Faca a Lista de Compras</h3>
+  <p>Com o cardapio definido, liste todos os ingredientes necessarios. Organize por setor do supermercado:</p>
+  <ul>
+    <li><strong>Hortifruti:</strong> legumes, verduras, frutas e temperos frescos</li>
+    <li><strong>Acougue:</strong> carnes, frangos e peixes (ja peca os cortes certos)</li>
+    <li><strong>Mercearia:</strong> arroz, feijao, massas, azeite, temperos secos</li>
+    <li><strong>Frios e laticinios:</strong> queijos, ovos, creme de leite</li>
+  </ul>
+
+  <h3>Passo 3: Defina o Dia de Prep</h3>
+  <p>O domingo e o dia mais popular, mas pode ser qualquer dia que funcione para voce. Reserve de 2 a 4 horas, sem interrupcoes. Coloque uma musica, um podcast, e transforme o momento em algo prazeroso.</p>
+
+  <h3>Passo 4: Organize a Ordem de Preparo</h3>
+  <p>A ordem certa economiza tempo. Regra geral:</p>
+  <ol>
+    <li>Comece pelo que demora mais (feijao, carnes de panela)</li>
+    <li>Enquanto isso, lave e corte legumes e verduras</li>
+    <li>Prepare o arroz</li>
+    <li>Cozinhe os legumes e refogue as verduras</li>
+    <li>Finalize as proteinas rapidas (grelhados, ovos)</li>
+    <li>Monte as marmitas e deixe esfriar antes de fechar</li>
+  </ol>
+
+  <h3>Passo 5: Monte e Armazene</h3>
+  <p>Espere a comida esfriar completamente antes de tampar e guardar. Marmitas para os proximos 2-3 dias ficam na geladeira; o restante vai para o congelador.</p>
+</div>
+
+<!-- CAPITULO 2 -->
+<div class="chapter" id="cap2">
+  <div class="chapter-number">Capitulo 2</div>
+  <h2>Equipamentos Necessarios</h2>
+  <p>Voce nao precisa de uma cozinha profissional. Estes itens basicos sao suficientes:</p>
+
+  <div class="equip-list">
+    <div class="equip-item">
+      <strong>Potes hermeticos</strong>
+      <span>De vidro (ideal) ou plastico BPA-free. Tenha pelo menos 10 potes de 500-700ml.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Panela grande</strong>
+      <span>Para arroz, feijao e cozimentos em quantidade. Capacidade minima de 5 litros.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Frigideira antiaderente</strong>
+      <span>Para grelhar proteinas e refogar. Tamanho grande (28-30cm).</span>
+    </div>
+    <div class="equip-item">
+      <strong>Assadeira</strong>
+      <span>Para assar legumes e proteinas no forno. Forre com papel aluminio para facilitar a limpeza.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Tabuas de corte</strong>
+      <span>Tenha pelo menos 2: uma para carnes cruas e outra para legumes e verduras.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Facas afiadas</strong>
+      <span>Uma faca de chef boa acelera todo o preparo. Invista em uma boa e mantenha afiada.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Balanca de cozinha</strong>
+      <span>Para porcionar corretamente, especialmente se estiver controlando calorias.</span>
+    </div>
+    <div class="equip-item">
+      <strong>Etiquetas e caneta</strong>
+      <span>Para identificar cada marmita com data e conteudo. Fundamental para o congelador.</span>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Dica da Lu</div>
+    <p>Potes de vidro sao melhores para reaquecer no micro-ondas e nao absorvem cheiro nem cor dos alimentos. Se usar plastico, certifique-se que e proprio para micro-ondas.</p>
+  </div>
+</div>
+
+<!-- CAPITULO 3 -->
+<div class="chapter" id="cap3">
+  <div class="chapter-number">Capitulo 3</div>
+  <h2>5 Planos Completos de Marmita</h2>
+  <p>Cada plano traz 5 marmitas para a semana inteira (segunda a sexta), com receitas completas e ordem de preparo.</p>
+
+  <!-- PLANO 1 -->
+  <div class="plan-header">
+    <h3>Plano 1: Semana Classica</h3>
+    <p>Arroz, feijao, proteina e salada - o prato brasileiro de todo dia</p>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Segunda - Frango Grelhado com Legumes</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao carioca</span>
+      <span class="tag">Frango grelhado</span>
+      <span class="tag">Brocolis e cenoura</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Arroz:</strong> 2 xicaras de arroz, 4 xicaras de agua, 1 dente de alho, sal e 1 fio de oleo. Refogue o alho, adicione o arroz, a agua e o sal. Cozinhe em fogo baixo por 20 minutos.</p>
+      <p><strong>Feijao:</strong> 2 xicaras de feijao carioca (de molho por 8h), 1 folha de louro, 2 dentes de alho, 1/2 cebola, sal e cominho. Cozinhe na pressao por 25 minutos. Faca o tempero a parte e misture.</p>
+      <p><strong>Frango:</strong> 500g de peito de frango temperado com sal, alho em po, paprica, oregano e limao. Grelhe na frigideira quente com um fio de azeite, 5 minutos de cada lado.</p>
+      <p><strong>Legumes:</strong> Brocolis em floretes e cenoura em rodelas, cozidos no vapor por 5-7 minutos. Tempere com azeite, sal e um toque de alho.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Terca - Carne Moida com Pure</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao carioca</span>
+      <span class="tag">Carne moida</span>
+      <span class="tag">Pure de batata</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Carne moida:</strong> 500g de carne moida refogada com cebola, alho, tomate picado, sal, pimenta e cominho. Cozinhe em fogo medio por 15 minutos ate secar o liquido.</p>
+      <p><strong>Pure:</strong> 4 batatas medias cozidas, amassadas com 1/2 xicara de leite quente, 1 colher de manteiga, sal e noz-moscada. Misture ate ficar cremoso.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quarta - Bisteca Suina com Salada</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao carioca</span>
+      <span class="tag">Bisteca suina</span>
+      <span class="tag">Salada de repolho</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Bisteca:</strong> 4 bistecas temperadas com sal, alho, paprica e um toque de mostarda. Sele em frigideira bem quente com oleo, 3 minutos de cada lado. Finalize com tampa por 2 minutos.</p>
+      <p><strong>Salada:</strong> 1/4 de repolho fatiado fino, 1 cenoura ralada, sal, azeite e limao. Monte na marmita separadamente ou leve em pote a parte.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quinta - Frango Desfiado ao Molho</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao carioca</span>
+      <span class="tag">Frango desfiado</span>
+      <span class="tag">Abobrinha refogada</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Frango desfiado:</strong> 500g de peito de frango cozido e desfiado. Refogue cebola, alho e tomate; adicione o frango, tempere com sal, paprica e cheiro-verde. Cozinhe por 5 minutos.</p>
+      <p><strong>Abobrinha:</strong> 2 abobrinhas em meias-luas, refogadas com alho, azeite, sal e oregano por 5 minutos. Nao deixe amolecer demais.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Sexta - Ovo Cozido com Farofa</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao carioca</span>
+      <span class="tag">Ovos cozidos</span>
+      <span class="tag">Farofa de cenoura</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Ovos:</strong> Cozinhe 8 ovos em agua fervente por 10 minutos. Transfira para agua gelada. Descasque e corte ao meio na hora de montar.</p>
+      <p><strong>Farofa:</strong> Refogue 1 cebola picada em 2 colheres de manteiga. Adicione 1 cenoura ralada e cozinhe por 3 minutos. Acrescente 2 xicaras de farinha de mandioca, sal e cheiro-verde. Mexa ate dourar.</p>
+    </div>
+  </div>
+
+  <div class="prep-order">
+    <h4>Ordem de Preparo - Plano 1 (tempo total: 3h)</h4>
+    <ol>
+      <li><strong>0:00</strong> - Coloque o feijao na pressao (25 min)</li>
+      <li><strong>0:05</strong> - Cozinhe as batatas para o pure</li>
+      <li><strong>0:10</strong> - Lave e corte todos os legumes e verduras</li>
+      <li><strong>0:25</strong> - Faca o arroz (rende para a semana toda)</li>
+      <li><strong>0:30</strong> - Tempere e grelhe todos os frangos (grelhado + para desfiar)</li>
+      <li><strong>0:45</strong> - Cozinhe os ovos; faca o refogado da carne moida</li>
+      <li><strong>1:00</strong> - Faca o pure; cozinhe brocolis e cenoura no vapor</li>
+      <li><strong>1:15</strong> - Tempere o feijao; grelhe as bistecas</li>
+      <li><strong>1:30</strong> - Desfie o frango e prepare ao molho; refogue abobrinha</li>
+      <li><strong>1:45</strong> - Prepare a farofa; faca a salada de repolho</li>
+      <li><strong>2:00</strong> - Monte as marmitas e espere esfriar</li>
+      <li><strong>2:30</strong> - Tampe, etiquete e armazene</li>
+    </ol>
+  </div>
+
+  <!-- PLANO 2 -->
+  <div class="plan-header">
+    <h3>Plano 2: Semana Low Carb</h3>
+    <p>Sem arroz, sem massa - rico em proteinas e vegetais</p>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Segunda - Frango com Legumes Assados</h4>
+    <div class="components">
+      <span class="tag">Coxa de frango</span>
+      <span class="tag">Abobrinha</span>
+      <span class="tag">Berinjela</span>
+      <span class="tag">Pimentao</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Preparo:</strong> Tempere 6 coxas de frango com alho, paprica, sal e azeite. Corte abobrinha, berinjela e pimentao em cubos grandes. Coloque tudo em uma assadeira grande forrada com aluminio. Regue com azeite e tempere os legumes com sal, oregano e alho em po. Asse a 200 graus por 40 minutos.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Terca - Carne com Brocolis</h4>
+    <div class="components">
+      <span class="tag">Tirinhas de alcatra</span>
+      <span class="tag">Brocolis</span>
+      <span class="tag">Couve-flor gratinada</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Carne:</strong> 500g de alcatra em tirinhas, selada em frigideira bem quente com azeite, sal e pimenta. Nao mexa ate dourar (2 min), depois vire e cozinhe mais 2 min.</p>
+      <p><strong>Brocolis:</strong> Floretes cozidos no vapor por 5 minutos, finalizados com azeite e alho dourado.</p>
+      <p><strong>Couve-flor:</strong> Cozida al dente, colocada em refratario, coberta com creme de leite, queijo ralado e gratinada no forno por 15 min.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quarta - Omelete Recheada</h4>
+    <div class="components">
+      <span class="tag">Omelete</span>
+      <span class="tag">Salada verde</span>
+      <span class="tag">Tomate cereja</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Omelete:</strong> 3 ovos batidos com sal e pimenta, despejados em frigideira com azeite. Quando firmar embaixo, adicione 2 colheres de queijo, presunto picado e tomate. Dobre ao meio. Faca 2 omeletes por porcao.</p>
+      <p><strong>Salada:</strong> Mix de folhas (alface, rucula), tomate cereja cortado, pepino em rodelas, azeite e limao. Leve em pote separado.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quinta - Peixe com Legumes no Vapor</h4>
+    <div class="components">
+      <span class="tag">File de tilapia</span>
+      <span class="tag">Vagem</span>
+      <span class="tag">Cenoura</span>
+      <span class="tag">Chuchu</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Peixe:</strong> 4 files de tilapia temperados com limao, sal, alho e ervas. Cozinhe no vapor ou grelhe em frigideira antiaderente com azeite, 3 minutos de cada lado.</p>
+      <p><strong>Legumes:</strong> Vagem, cenoura em palitos e chuchu em cubos, cozidos no vapor por 8 minutos. Tempere com azeite, sal e um toque de curcuma.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Sexta - Almondega com Espinafre</h4>
+    <div class="components">
+      <span class="tag">Almondegas de carne</span>
+      <span class="tag">Molho de tomate caseiro</span>
+      <span class="tag">Espinafre refogado</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Almondegas:</strong> 500g carne moida, 1 ovo, 2 colheres de aveia, sal, alho, cebola ralada, salsinha. Modele em bolinhas, doure na frigideira e finalize cozinhando no molho de tomate por 15 min.</p>
+      <p><strong>Espinafre:</strong> 1 maco de espinafre lavado, refogado com alho e azeite por 3 minutos. Tempere com sal e noz-moscada.</p>
+    </div>
+  </div>
+
+  <div class="prep-order">
+    <h4>Ordem de Preparo - Plano 2 (tempo total: 2h30)</h4>
+    <ol>
+      <li><strong>0:00</strong> - Asse o frango com legumes (40 min no forno)</li>
+      <li><strong>0:05</strong> - Prepare as almondegas e frite-as</li>
+      <li><strong>0:20</strong> - Faca o molho de tomate e cozinhe as almondegas nele</li>
+      <li><strong>0:25</strong> - Corte os legumes para vapor (vagem, cenoura, chuchu, brocolis)</li>
+      <li><strong>0:40</strong> - Sele as tirinhas de alcatra</li>
+      <li><strong>0:50</strong> - Cozinhe todos os legumes no vapor</li>
+      <li><strong>1:00</strong> - Prepare a couve-flor gratinada e leve ao forno</li>
+      <li><strong>1:10</strong> - Grelhe os files de peixe</li>
+      <li><strong>1:20</strong> - Refogue o espinafre; doure o alho do brocolis</li>
+      <li><strong>1:30</strong> - Faca as omeletes; prepare salada</li>
+      <li><strong>1:45</strong> - Monte as marmitas e espere esfriar</li>
+      <li><strong>2:15</strong> - Tampe, etiquete e armazene</li>
+    </ol>
+  </div>
+
+  <!-- PLANO 3 -->
+  <div class="plan-header">
+    <h3>Plano 3: Semana Economica</h3>
+    <p>Comer bem gastando pouco - ingredientes acessiveis e rendimento alto</p>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Segunda - Frango com Macarrao</h4>
+    <div class="components">
+      <span class="tag">Macarrao parafuso</span>
+      <span class="tag">Frango desfiado ao molho</span>
+      <span class="tag">Salada de repolho</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Macarrao:</strong> 500g de macarrao parafuso cozido al dente em agua com sal e um fio de oleo.</p>
+      <p><strong>Frango:</strong> 1kg de peito de frango cozido na pressao (15 min), desfiado e refogado com cebola, alho, tomate, molho de tomate (1 lata), sal e oregano.</p>
+      <p><strong>Salada:</strong> Repolho fatiado com cenoura ralada, temperada com sal, vinagre e azeite.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Terca - Ovo com Arroz e Lentilha</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Lentilha</span>
+      <span class="tag">Ovo frito</span>
+      <span class="tag">Couve refogada</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Lentilha:</strong> 2 xicaras de lentilha cozida com louro, alho, cebola, cenoura picada e sal. Cozinhe por 20 min (nao precisa de molho).</p>
+      <p><strong>Ovo:</strong> Frite os ovos na hora de comer para melhor textura, ou faca ovos cozidos.</p>
+      <p><strong>Couve:</strong> 1 maco de couve em tiras finas, refogada com alho e um fio de azeite por 3 minutos.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quarta - Linguica com Pure de Mandioca</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Linguica assada</span>
+      <span class="tag">Pure de mandioca</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Linguica:</strong> 500g de linguica calabresa cortada em rodelas, dourada na frigideira com cebola em rodelas.</p>
+      <p><strong>Pure de mandioca:</strong> 500g de mandioca cozida ate ficar macia (pressao 15 min). Amasse com 1/2 xicara de leite, 1 colher de manteiga e sal. Se quiser mais cremoso, adicione mais leite.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quinta - Salsicha com Feijao Tropeiro</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao tropeiro</span>
+      <span class="tag">Salsicha</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Feijao tropeiro:</strong> 2 xicaras de feijao cozido escorrido, refogado com bacon picado, ovos mexidos, farinha de mandioca, cebolinha e couve em tiras. Misture tudo na frigideira.</p>
+      <p><strong>Salsicha:</strong> 1 pacote de salsicha cortada ao meio no comprimento, dourada na frigideira com um fio de oleo.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Sexta - Sardinha com Vinagrete</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Feijao</span>
+      <span class="tag">Sardinha</span>
+      <span class="tag">Vinagrete</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Sardinha:</strong> 2 latas de sardinha em oleo escorridas, refogadas com cebola, tomate, pimentao e cheiro-verde. Cozinhe por 5 minutos.</p>
+      <p><strong>Vinagrete:</strong> 2 tomates, 1 cebola, 1 pimentao verde - tudo picado bem miudo. Tempere com sal, azeite, vinagre e salsinha picada.</p>
+    </div>
+  </div>
+
+  <div class="prep-order">
+    <h4>Ordem de Preparo - Plano 3 (tempo total: 2h30)</h4>
+    <ol>
+      <li><strong>0:00</strong> - Cozinhe o feijao na pressao; cozinhe o frango na pressao</li>
+      <li><strong>0:05</strong> - Cozinhe a mandioca na pressao (em outra panela ou na sequencia)</li>
+      <li><strong>0:10</strong> - Cozinhe a lentilha; faca o arroz para a semana</li>
+      <li><strong>0:25</strong> - Cozinhe o macarrao</li>
+      <li><strong>0:30</strong> - Desfie o frango e prepare o molho</li>
+      <li><strong>0:45</strong> - Faca o pure de mandioca; refogue a couve</li>
+      <li><strong>1:00</strong> - Doure a linguica com cebola</li>
+      <li><strong>1:15</strong> - Prepare o feijao tropeiro; doure as salsichas</li>
+      <li><strong>1:30</strong> - Prepare a sardinha; faca o vinagrete e salada de repolho</li>
+      <li><strong>1:45</strong> - Monte as marmitas e espere esfriar</li>
+      <li><strong>2:15</strong> - Tampe, etiquete e armazene</li>
+    </ol>
+  </div>
+
+  <!-- PLANO 4 -->
+  <div class="plan-header">
+    <h3>Plano 4: Semana Fitness</h3>
+    <p>Refeicoes equilibradas para quem treina e quer resultado</p>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Segunda - Frango Grelhado com Batata Doce</h4>
+    <div class="components">
+      <span class="tag">Peito de frango grelhado</span>
+      <span class="tag">Batata doce assada</span>
+      <span class="tag">Brocolis no vapor</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Frango:</strong> 150g de peito de frango por porcao, temperado com sal, limao e ervas. Grelhe em frigideira bem quente, 5 min de cada lado.</p>
+      <p><strong>Batata doce:</strong> 200g por porcao, cortada em cubos, temperada com azeite, sal e alecrim. Asse a 200 graus por 25 minutos.</p>
+      <p><strong>Brocolis:</strong> Floretes no vapor por 5 minutos, tempere com limao e sal.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Terca - Peixe com Arroz Integral</h4>
+    <div class="components">
+      <span class="tag">Tilapia grelhada</span>
+      <span class="tag">Arroz integral</span>
+      <span class="tag">Salada de folhas</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Tilapia:</strong> 150g por porcao, temperada com limao, sal e dill (ou salsinha). Grelhe em frigideira com spray de oleo.</p>
+      <p><strong>Arroz integral:</strong> 2 xicaras de arroz integral, 5 xicaras de agua, sal. Cozinhe em fogo baixo por 40 minutos com panela tampada.</p>
+      <p><strong>Salada:</strong> Alface, tomate cereja, pepino e cenoura ralada com limao e azeite.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quarta - Carne Magra com Legumes</h4>
+    <div class="components">
+      <span class="tag">Patio de carne magra</span>
+      <span class="tag">Arroz integral</span>
+      <span class="tag">Legumes assados</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Carne:</strong> 500g de patio (coxao mole) grelhado, temperado com sal, alho e pimenta. Grelhe inteiro por 5 min de cada lado e fatie.</p>
+      <p><strong>Legumes assados:</strong> Abobrinha, berinjela e pimentao em cubos, temperados com azeite, sal e alho em po. Asse por 25 min a 200 graus.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quinta - Ovo com Quinoa</h4>
+    <div class="components">
+      <span class="tag">Ovos cozidos</span>
+      <span class="tag">Quinoa</span>
+      <span class="tag">Mix de verduras</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Ovos:</strong> 3 ovos cozidos por porcao (10 minutos em agua fervente).</p>
+      <p><strong>Quinoa:</strong> 1 xicara de quinoa lavada, 2 xicaras de agua, sal. Cozinhe por 15 minutos. Solte com um garfo.</p>
+      <p><strong>Verduras:</strong> Espinafre refogado com alho e azeite, tomate cereja e pepino.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Sexta - Frango Desfiado com Inhame</h4>
+    <div class="components">
+      <span class="tag">Frango desfiado</span>
+      <span class="tag">Inhame cozido</span>
+      <span class="tag">Vagem no vapor</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Frango:</strong> 500g de peito cozido e desfiado, temperado com sal, curcuma e cheiro-verde.</p>
+      <p><strong>Inhame:</strong> 4 inhames medios cozidos com casca ate ficar macio (20 min). Descasque e sirva em rodelas.</p>
+      <p><strong>Vagem:</strong> 300g de vagem no vapor por 7 minutos, temperada com azeite e sal.</p>
+    </div>
+  </div>
+
+  <div class="prep-order">
+    <h4>Ordem de Preparo - Plano 4 (tempo total: 2h30)</h4>
+    <ol>
+      <li><strong>0:00</strong> - Coloque o arroz integral para cozinhar (40 min); cozinhe o frango para desfiar</li>
+      <li><strong>0:05</strong> - Cozinhe a batata doce e o inhame</li>
+      <li><strong>0:10</strong> - Asse os legumes no forno</li>
+      <li><strong>0:15</strong> - Corte e asse a batata doce em cubos</li>
+      <li><strong>0:30</strong> - Cozinhe a quinoa; cozinhe os ovos</li>
+      <li><strong>0:45</strong> - Grelhe todos os frangos e o peixe</li>
+      <li><strong>1:00</strong> - Cozinhe brocolis e vagem no vapor</li>
+      <li><strong>1:15</strong> - Grelhe e fatie a carne; refogue espinafre</li>
+      <li><strong>1:30</strong> - Desfie o frango; prepare saladas</li>
+      <li><strong>1:45</strong> - Monte as marmitas e espere esfriar</li>
+      <li><strong>2:15</strong> - Tampe, etiquete e armazene</li>
+    </ol>
+  </div>
+
+  <!-- PLANO 5 -->
+  <div class="plan-header">
+    <h3>Plano 5: Semana Variada</h3>
+    <p>Um pouco de tudo - sabores diferentes a cada dia</p>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Segunda - Strogonoff de Frango</h4>
+    <div class="components">
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Strogonoff</span>
+      <span class="tag">Batata palha</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Strogonoff:</strong> 500g de peito de frango em cubos, refogado com cebola e alho. Adicione 2 colheres de ketchup, 1 de mostarda, 200g de champignon fatiado e 1 caixinha de creme de leite. Cozinhe por 10 min. Tempere com sal e pimenta.</p>
+      <p><strong>Batata palha:</strong> Compre pronta ou frite batata em tirinhas finas ate dourar.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Terca - Escondidinho de Carne Seca</h4>
+    <div class="components">
+      <span class="tag">Escondidinho completo</span>
+      <span class="tag">Salada verde</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Escondidinho:</strong> Faca um pure de mandioca (500g mandioca cozida, leite, manteiga, sal). Dessalgue 400g de carne seca (de molho 24h, trocando a agua 3x), cozinhe e desfie. Refogue com cebola, alho e cheiro-verde. Monte em refratario: pure, carne, pure. Cubra com queijo ralado e gratine por 20 min.</p>
+      <p><strong>Salada:</strong> Alface, tomate e pepino com azeite e limao.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quarta - Yakissoba de Legumes e Frango</h4>
+    <div class="components">
+      <span class="tag">Yakissoba completo</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Yakissoba:</strong> 500g de macarrao para yakissoba (ou espaguete) cozido. Refogue em wok ou frigideira grande: 300g de frango em tirinhas, 1 cenoura em tirinhas, 1/2 repolho fatiado, 1 brocolis em floretes, 1 pimentao em tirinhas. Tempere com 4 colheres de molho shoyu, 1 de oleo de gergelim, alho e gengibre ralado. Misture o macarrao e finalize com cebolinha.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Quinta - Torta de Frango</h4>
+    <div class="components">
+      <span class="tag">Torta de frango</span>
+      <span class="tag">Salada de beterraba</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Massa:</strong> 3 ovos, 1 xicara de leite, 1 xicara de oleo, 2 xicaras de farinha, 1 colher de fermento, sal. Bata tudo no liquidificador.</p>
+      <p><strong>Recheio:</strong> Frango desfiado refogado com cebola, alho, tomate, azeitonas e cheiro-verde.</p>
+      <p><strong>Montagem:</strong> Despeje metade da massa na forma untada, coloque o recheio, cubra com o restante da massa. Asse a 180 graus por 35 minutos.</p>
+      <p><strong>Salada:</strong> 2 beterrabas cozidas e raladas, temperadas com sal, azeite e vinagre.</p>
+    </div>
+  </div>
+
+  <div class="marmita-card">
+    <h4>Sexta - Feijoada Light</h4>
+    <div class="components">
+      <span class="tag">Feijoada</span>
+      <span class="tag">Arroz branco</span>
+      <span class="tag">Couve refogada</span>
+      <span class="tag">Farofa</span>
+    </div>
+    <div class="recipe-detail">
+      <p><strong>Feijoada:</strong> 2 xicaras de feijao preto cozido na pressao (25 min). Refogue separadamente: 200g de linguica calabresa em rodelas, 100g de bacon em cubos e 100g de costelinha defumada. Junte tudo ao feijao com louro, alho e cebola. Cozinhe por mais 15 minutos.</p>
+      <p><strong>Couve:</strong> Cortada em tirinhas finas, refogada rapidamente com alho e azeite.</p>
+      <p><strong>Farofa:</strong> Farinha de mandioca dourada na manteiga com bacon, cebola e ovos.</p>
+    </div>
+  </div>
+
+  <div class="prep-order">
+    <h4>Ordem de Preparo - Plano 5 (tempo total: 3h30)</h4>
+    <ol>
+      <li><strong>0:00</strong> - Cozinhe o feijao preto na pressao; cozinhe o frango para desfiar</li>
+      <li><strong>0:05</strong> - Cozinhe a mandioca para o escondidinho</li>
+      <li><strong>0:10</strong> - Cozinhe a beterraba</li>
+      <li><strong>0:30</strong> - Faca o arroz; desfie o frango (parte para strogonoff, torta e yakissoba)</li>
+      <li><strong>0:45</strong> - Dessalgue e prepare a carne seca; faca o pure de mandioca</li>
+      <li><strong>1:00</strong> - Monte e asse o escondidinho; faca a massa da torta</li>
+      <li><strong>1:15</strong> - Prepare o recheio da torta; monte e asse</li>
+      <li><strong>1:30</strong> - Prepare o strogonoff</li>
+      <li><strong>1:45</strong> - Prepare a feijoada (refogue carnes, junte ao feijao)</li>
+      <li><strong>2:00</strong> - Faca o yakissoba</li>
+      <li><strong>2:15</strong> - Refogue a couve; prepare a farofa; faca as saladas</li>
+      <li><strong>2:30</strong> - Monte as marmitas e espere esfriar</li>
+      <li><strong>3:00</strong> - Tampe, etiquete e armazene</li>
+    </ol>
+  </div>
+</div>
+
+<!-- CAPITULO 4 -->
+<div class="chapter" id="cap4">
+  <div class="chapter-number">Capitulo 4</div>
+  <h2>Dicas de Congelamento e Reaquecimento</h2>
+
+  <h3>O Que Congela Bem</h3>
+  <ul>
+    <li><strong>Carnes cozidas:</strong> Frango desfiado, carne moida, carne de panela, almondegas - congelam perfeitamente por ate 3 meses.</li>
+    <li><strong>Arroz:</strong> Congela bem por ate 3 meses. Ao reaquecer, borrife um pouco de agua para recuperar a umidade.</li>
+    <li><strong>Feijao e lentilha:</strong> Congelam muito bem com caldo. Ate 3 meses.</li>
+    <li><strong>Sopas e caldos:</strong> Excelentes para congelar. Ate 3 meses.</li>
+    <li><strong>Molhos:</strong> Molho de tomate, bolonhesa, strogonoff - todos congelam bem.</li>
+    <li><strong>Legumes cozidos:</strong> Cenoura, vagem, brocolis (levemente al dente para nao virar papa ao reaquecer).</li>
+  </ul>
+
+  <h3>O Que NAO Congela Bem</h3>
+  <ul>
+    <li><strong>Saladas cruas:</strong> Folhas, tomate e pepino ficam murchos e aguados.</li>
+    <li><strong>Batata cozida em cubos:</strong> Fica com textura arenosa. Pure de batata congela melhor.</li>
+    <li><strong>Maionese e molhos cremosos:</strong> Separam e ficam com textura desagradavel.</li>
+    <li><strong>Ovo cozido inteiro:</strong> A clara fica borrachuda. Prefira congelar apenas receitas com ovos ja misturados.</li>
+    <li><strong>Frituras:</strong> Perdem a crocancia. Melhor fritar na hora.</li>
+    <li><strong>Macarrao muito cozido:</strong> Fica empapado. Cozinhe sempre al dente se for congelar.</li>
+  </ul>
+
+  <h3>Regras de Congelamento</h3>
+  <ol>
+    <li>Sempre espere a comida esfriar completamente antes de levar ao congelador.</li>
+    <li>Use recipientes proprios para congelamento ou sacos zip.</li>
+    <li>Retire o maximo de ar possivel dos recipientes.</li>
+    <li>Etiquete com nome do prato e data de preparo.</li>
+    <li>Congelar em porcoes individuais facilita o uso.</li>
+    <li>Nunca recongele alimentos que ja foram descongelados.</li>
+  </ol>
+
+  <h3>Como Reaquecer</h3>
+  <ul>
+    <li><strong>Micro-ondas:</strong> Retire a tampa (ou abra uma fresta). Aqueca por 2-3 minutos, mexa no meio do tempo. Se estiver congelada, descongele primeiro na funcao descongelar.</li>
+    <li><strong>Forno:</strong> Ideal para gratinados e assados. 180 graus por 15-20 minutos, coberto com aluminio.</li>
+    <li><strong>Frigideira:</strong> Boa para carnes e refogados. Fogo medio com um fio de agua ou azeite.</li>
+    <li><strong>Descongelamento seguro:</strong> Sempre na geladeira (tire do congelador na noite anterior) ou no micro-ondas. Nunca em temperatura ambiente.</li>
+  </ul>
+
+  <div class="tip-box">
+    <div class="tip-label">Dica da Lu</div>
+    <p>Marmitas na geladeira duram de 3 a 5 dias. No congelador, ate 3 meses. Para a semana, guarde as marmitas de segunda e terca na geladeira e congele as de quarta a sexta.</p>
+  </div>
+</div>
+
+<!-- CAPITULO 5 -->
+<div class="chapter" id="cap5">
+  <div class="chapter-number">Capitulo 5</div>
+  <h2>Como Montar a Marmita Perfeita</h2>
+  <p>A proporcao ideal do prato garante uma refeicao equilibrada e satisfatoria. Siga esta regra visual:</p>
+
+  <h3>A Regra do Prato</h3>
+  <ul>
+    <li><strong>1/4 do pote: Proteina</strong> - Frango, carne, peixe, ovos ou leguminosas (120-150g)</li>
+    <li><strong>1/4 do pote: Carboidrato</strong> - Arroz, macarrao, batata, mandioca (100-150g)</li>
+    <li><strong>1/4 do pote: Leguminosa</strong> - Feijao, lentilha, grao-de-bico (80-100g)</li>
+    <li><strong>1/4 do pote: Legumes e verduras</strong> - Brocolis, cenoura, salada, etc. (100-150g)</li>
+  </ul>
+
+  <h3>Dicas de Montagem</h3>
+  <ul>
+    <li>Coloque os itens separados no pote para nao misturar os sabores.</li>
+    <li>Molhos e caldos ficam em potinhos separados ou no fundo do pote.</li>
+    <li>Salada crua sempre em pote separado para nao murchar.</li>
+    <li>Temperos de finalizacao (cheiro-verde, azeite, limao) leve a parte.</li>
+    <li>Nao encha o pote ate a borda - deixe espaco para o vapor ao reaquecer.</li>
+  </ul>
+
+  <h3>Porcoes por Pessoa</h3>
+  <ul>
+    <li><strong>Mulher (sedentaria):</strong> Pote de 400-500ml</li>
+    <li><strong>Mulher (ativa):</strong> Pote de 500-600ml</li>
+    <li><strong>Homem (sedentario):</strong> Pote de 500-600ml</li>
+    <li><strong>Homem (ativo):</strong> Pote de 600-700ml</li>
+  </ul>
+
+  <div class="tip-box">
+    <div class="tip-label">Dica Final</div>
+    <p>A melhor marmita e aquela que voce realmente vai comer. Nao adianta preparar receitas super saudaveis se voce nao gosta. Inclua seus pratos favoritos, faca adaptacoes e, aos poucos, va adicionando opcoes mais nutritivas. O habito da marmita se constroi com prazer, nao com sacrificio!</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="brand">receitas-da-bia</div>
+  <p>Material exclusivo para membros</p>
+  <p style="margin-top:8px;">&copy; Bia Alcântara - Todos os direitos reservados</p>
+</div>
+
+</div>
+</body>
+</html>

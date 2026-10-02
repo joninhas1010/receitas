@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Medidas e Equivalencias - receitas-da-bia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF6E3;
+            color: #5A3522;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #FF6B4A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #5A3522;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            font-size: 1rem;
+            color: #8B6F5E;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .print-btn {
+            display: inline-block;
+            margin-bottom: 24px;
+            padding: 10px 20px;
+            background: #FF6B4A;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .print-btn:hover { background: #e55a3a; }
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #5A3522;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #EEE3C8;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #EEE3C8;
+        }
+        thead th {
+            background: #5A3522;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 12px 14px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #EEE3C8;
+            font-size: 0.9rem;
+        }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:nth-child(even) { background: #FFF6E3; }
+        .highlight-cell {
+            color: #FF6B4A;
+            font-weight: 700;
+        }
+        .info-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #EEE3C8;
+            margin-bottom: 12px;
+        }
+        .info-card h3 {
+            font-size: 1rem;
+            color: #FF6B4A;
+            margin-bottom: 8px;
+        }
+        .info-card p {
+            font-size: 0.9rem;
+            color: #5A3522;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media (min-width: 520px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media print {
+            body { background: #fff; font-size: 11pt; }
+            .back-link, .print-btn { display: none; }
+            .container { max-width: 100%; padding: 10px; }
+            table { page-break-inside: avoid; }
+            .section { page-break-inside: avoid; }
+            thead th { background: #5A3522 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            tbody tr:nth-child(even) { background: #f5f5f5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+        <div class="page-header">
+            <h1>Tabela de Medidas e Equivalencias</h1>
+            <p>Sua referencia rapida para conversoes na cozinha. Imprima e cole na geladeira!</p>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">Imprimir esta pagina</button>
+
+        <!-- Xicaras para ml -->
+        <div class="section">
+            <h2 class="section-title">Xicaras para Mililitros</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medida</th>
+                            <th>Mililitros (ml)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 xicara (cha)</td><td class="highlight-cell">240 ml</td></tr>
+                        <tr><td>3/4 xicara</td><td class="highlight-cell">180 ml</td></tr>
+                        <tr><td>2/3 xicara</td><td class="highlight-cell">160 ml</td></tr>
+                        <tr><td>1/2 xicara</td><td class="highlight-cell">120 ml</td></tr>
+                        <tr><td>1/3 xicara</td><td class="highlight-cell">80 ml</td></tr>
+                        <tr><td>1/4 xicara</td><td class="highlight-cell">60 ml</td></tr>
+                        <tr><td>1 xicara (cafe)</td><td class="highlight-cell">50 ml</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Colheres para ml/g -->
+        <div class="section">
+            <h2 class="section-title">Colheres para Mililitros</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medida</th>
+                            <th>Mililitros (ml)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 colher (sopa)</td><td class="highlight-cell">15 ml</td></tr>
+                        <tr><td>1 colher (sobremesa)</td><td class="highlight-cell">10 ml</td></tr>
+                        <tr><td>1 colher (cha)</td><td class="highlight-cell">5 ml</td></tr>
+                        <tr><td>1 colher (cafe)</td><td class="highlight-cell">2,5 ml</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Gramas para xicaras -->
+        <div class="section">
+            <h2 class="section-title">Ingredientes em Gramas (1 xicara = 240 ml)</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>1 xicara</th>
+                            <th>1 colher (sopa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Farinha de trigo</td><td class="highlight-cell">120 g</td><td>8 g</td></tr>
+                        <tr><td>Acucar refinado</td><td class="highlight-cell">200 g</td><td>13 g</td></tr>
+                        <tr><td>Acucar mascavo</td><td class="highlight-cell">180 g</td><td>12 g</td></tr>
+                        <tr><td>Arroz cru</td><td class="highlight-cell">180 g</td><td>12 g</td></tr>
+                        <tr><td>Aveia em flocos</td><td class="highlight-cell">80 g</td><td>5 g</td></tr>
+                        <tr><td>Cacau em po</td><td class="highlight-cell">90 g</td><td>6 g</td></tr>
+                        <tr><td>Manteiga</td><td class="highlight-cell">230 g</td><td>15 g</td></tr>
+                        <tr><td>Leite</td><td class="highlight-cell">240 g</td><td>15 g</td></tr>
+                        <tr><td>Oleo</td><td class="highlight-cell">220 g</td><td>14 g</td></tr>
+                        <tr><td>Amido de milho</td><td class="highlight-cell">120 g</td><td>8 g</td></tr>
+                        <tr><td>Polvilho</td><td class="highlight-cell">130 g</td><td>8 g</td></tr>
+                        <tr><td>Coco ralado</td><td class="highlight-cell">80 g</td><td>5 g</td></tr>
+                        <tr><td>Queijo ralado</td><td class="highlight-cell">80 g</td><td>5 g</td></tr>
+                        <tr><td>Chocolate em po (Nescau)</td><td class="highlight-cell">90 g</td><td>6 g</td></tr>
+                        <tr><td>Fermento em po</td><td>-</td><td class="highlight-cell">10 g</td></tr>
+                        <tr><td>Sal</td><td>-</td><td class="highlight-cell">12 g</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Temperaturas do forno -->
+        <div class="section">
+            <h2 class="section-title">Temperaturas do Forno</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descricao</th>
+                            <th>Graus Celsius</th>
+                            <th>Gas (Mark)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Muito baixo</td><td class="highlight-cell">110 - 130 &deg;C</td><td>1/4 - 1/2</td></tr>
+                        <tr><td>Baixo</td><td class="highlight-cell">140 - 150 &deg;C</td><td>1 - 2</td></tr>
+                        <tr><td>Moderado baixo</td><td class="highlight-cell">160 - 170 &deg;C</td><td>3</td></tr>
+                        <tr><td>Moderado (medio)</td><td class="highlight-cell">180 &deg;C</td><td>4</td></tr>
+                        <tr><td>Moderado alto</td><td class="highlight-cell">190 - 200 &deg;C</td><td>5 - 6</td></tr>
+                        <tr><td>Alto</td><td class="highlight-cell">210 - 230 &deg;C</td><td>7 - 8</td></tr>
+                        <tr><td>Muito alto</td><td class="highlight-cell">240 - 260 &deg;C</td><td>9 - 10</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Medidas americanas vs brasileiras -->
+        <div class="section">
+            <h2 class="section-title">Medidas Americanas vs Brasileiras</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medida Americana</th>
+                            <th>Equivalente Brasileiro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 cup (xicara)</td><td class="highlight-cell">240 ml</td></tr>
+                        <tr><td>1 tablespoon (colher de sopa)</td><td class="highlight-cell">15 ml</td></tr>
+                        <tr><td>1 teaspoon (colher de cha)</td><td class="highlight-cell">5 ml</td></tr>
+                        <tr><td>1 fluid ounce (onca liquida)</td><td class="highlight-cell">30 ml</td></tr>
+                        <tr><td>1 ounce (onca)</td><td class="highlight-cell">28 g</td></tr>
+                        <tr><td>1 pound (libra)</td><td class="highlight-cell">454 g</td></tr>
+                        <tr><td>1 stick of butter</td><td class="highlight-cell">113 g (1/2 xicara)</td></tr>
+                        <tr><td>1 quart</td><td class="highlight-cell">946 ml (~1 litro)</td></tr>
+                        <tr><td>1 gallon (galao)</td><td class="highlight-cell">3.785 ml (~3,8 litros)</td></tr>
+                        <tr><td>1 inch (polegada)</td><td class="highlight-cell">2,54 cm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Temperaturas Fahrenheit vs Celsius -->
+        <div class="section">
+            <h2 class="section-title">Fahrenheit para Celsius (receitas americanas)</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fahrenheit (&deg;F)</th>
+                            <th>Celsius (&deg;C)</th>
+                            <th>Uso comum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>250 &deg;F</td><td class="highlight-cell">120 &deg;C</td><td>Secar, desidratar</td></tr>
+                        <tr><td>300 &deg;F</td><td class="highlight-cell">150 &deg;C</td><td>Cozimento lento</td></tr>
+                        <tr><td>325 &deg;F</td><td class="highlight-cell">160 &deg;C</td><td>Assados delicados</td></tr>
+                        <tr><td>350 &deg;F</td><td class="highlight-cell">180 &deg;C</td><td>Bolos, biscoitos</td></tr>
+                        <tr><td>375 &deg;F</td><td class="highlight-cell">190 &deg;C</td><td>Tortas, empadas</td></tr>
+                        <tr><td>400 &deg;F</td><td class="highlight-cell">200 &deg;C</td><td>Paes, gratinados</td></tr>
+                        <tr><td>425 &deg;F</td><td class="highlight-cell">220 &deg;C</td><td>Pizzas</td></tr>
+                        <tr><td>450 &deg;F</td><td class="highlight-cell">230 &deg;C</td><td>Alta temperatura</td></tr>
+                        <tr><td>475 &deg;F</td><td class="highlight-cell">245 &deg;C</td><td>Gratinar rapido</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Pesos de ingredientes comuns -->
+        <div class="section">
+            <h2 class="section-title">Pesos de Ingredientes Comuns (unidades)</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Unidade</th>
+                            <th>Peso Medio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Ovo (grande)</td><td>1 unidade</td><td class="highlight-cell">60 g (sem casca: 50 g)</td></tr>
+                        <tr><td>Cebola media</td><td>1 unidade</td><td class="highlight-cell">150 g</td></tr>
+                        <tr><td>Dente de alho</td><td>1 unidade</td><td class="highlight-cell">5 g</td></tr>
+                        <tr><td>Tomate medio</td><td>1 unidade</td><td class="highlight-cell">130 g</td></tr>
+                        <tr><td>Batata media</td><td>1 unidade</td><td class="highlight-cell">170 g</td></tr>
+                        <tr><td>Cenoura media</td><td>1 unidade</td><td class="highlight-cell">120 g</td></tr>
+                        <tr><td>Limao</td><td>1 unidade</td><td class="highlight-cell">70 g (~30 ml de suco)</td></tr>
+                        <tr><td>Banana</td><td>1 unidade</td><td class="highlight-cell">120 g (sem casca: 80 g)</td></tr>
+                        <tr><td>Maca media</td><td>1 unidade</td><td class="highlight-cell">180 g</td></tr>
+                        <tr><td>Leite condensado</td><td>1 lata</td><td class="highlight-cell">395 g</td></tr>
+                        <tr><td>Creme de leite</td><td>1 caixinha</td><td class="highlight-cell">200 g</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Dicas rapidas -->
+        <div class="section">
+            <h2 class="section-title">Dicas Rapidas</h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>Pitada de sal</h3>
+                    <p>Equivale a aproximadamente 0,5 g, ou a quantidade que cabe entre o polegar e o indicador.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Colher rasa vs cheia</h3>
+                    <p>Colher rasa: nivelada com uma faca. Colher cheia: com o montinho. A diferenca pode ser de 30-50%.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Fio de azeite</h3>
+                    <p>Equivale a cerca de 5-10 ml, ou 1 colher de cha a 1 colher de sobremesa.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Farinha peneirada</h3>
+                    <p>1 xicara de farinha peneirada pesa menos (~100 g) que 1 xicara sem peneirar (~120 g). Sempre peneirar quando a receita pedir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
