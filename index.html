@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>receitas-da-bia</title>
+<meta name="description" content="+200 receitas rápidas, cardápios prontos e acesso vitalício." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
+  --text-soft:#555;--text-muted:#6B7280;--primary-dark:#E75431;--price-accent:#E04D2A;
+  --accent:#F5C518;--cta-from:#2A8A45;--cta-to:#1E6B35;--guarantee:#1A9940;
+  --strike:#E53E3E;--border:#EEE3C8;--white:#fff;
+  --gradient-cta:linear-gradient(160deg,var(--cta-from) 0%,var(--cta-to) 100%);
+  --gradient-chip:linear-gradient(135deg,var(--cta-from) 0%,var(--cta-to) 100%);
+  --shadow-cta:0 6px 24px rgba(30,107,53,.38),inset 0 1px 0 rgba(255,255,255,.18);
+  --shadow-chip:0 4px 14px rgba(30,107,53,.28),inset 0 1px 0 rgba(255,255,255,.15);
+  --shadow-card:0 2px 16px rgba(90,53,34,.07);
+  --shadow-plan:0 6px 28px rgba(90,53,34,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--background);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif}
+img{max-width:100%;display:block}
+ul{list-style:none}
+main{width:100%;max-width:460px;margin:0 auto}
+section{padding:40px 22px 36px;text-align:center}
+.dark{background:var(--secondary);color:#fff}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;border-radius:0 2px 2px 0;background:linear-gradient(90deg,var(--primary),var(--accent))}
+.offer{background:var(--primary-dark);color:#fff;text-align:center;padding:12px 22px;font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+h1{font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:900;line-height:1.22;letter-spacing:-.3px;color:var(--primary)}
+h2{font-size:24px;font-weight:900;line-height:1.3;letter-spacing:-.3px;color:var(--secondary);margin-bottom:24px}
+.dark h2{font-size:26px;line-height:1.35;color:#fff}
+h3{font-size:22px;font-weight:900;line-height:1.28;color:#fff}
+.lead{font-size:17px;font-weight:600;line-height:1.72;color:var(--text-soft);margin-top:16px}
+.hero{padding:36px 22px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.chip{background:var(--gradient-chip);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px 8px;font-size:13px;font-weight:700;line-height:1.2;color:#fff;box-shadow:var(--shadow-chip)}
+.ph{width:100%;aspect-ratio:1/1;border-radius:24px;background:#EEE3C8;display:grid;place-items:center;color:var(--secondary);font-weight:700;font-size:14px;margin-top:24px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.pic{width:100%;height:auto;border-radius:16px;margin-top:16px}
+.pic.r24{border-radius:24px}
+.depo-img{width:100%;height:auto;border-radius:16px;margin-top:14px;box-shadow:var(--shadow-card)}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.thumbs img{width:100%;height:auto;border-radius:12px}
+.track img{width:260px;height:auto;flex:none;border-radius:16px}
+.glass{background:rgba(255,255,255,.55);border:1px solid var(--border);border-radius:24px;padding:20px 18px;box-shadow:var(--shadow-card);margin-top:20px}
+.glass p{font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6}
+.glass strong{color:var(--secondary)}
+.cta{display:block;background:var(--gradient-cta);color:#fff;text-decoration:none;text-align:center;padding:20px 16px;border-radius:16px;font-size:17px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;box-shadow:var(--shadow-cta);transition:transform .15s,box-shadow .15s,filter .15s;margin-top:24px}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.cta:active{transform:scale(.98)}
+.note{background:rgba(255,255,255,.07);border-radius:0 16px 16px 0;border-left:4px solid var(--primary);padding:20px 18px;margin-top:24px;text-align:left;font-size:16px;line-height:1.6;color:rgba(255,255,255,.85)}
+.benefit{padding-top:50px}
+.benefit:first-of-type{padding-top:0}
+.benefit .card{background:var(--primary);border-radius:24px;padding:24px 18px}
+.benefit p{margin-top:16px;font-size:16px;font-weight:600;line-height:1.6;color:var(--text-soft)}
+.label{font-size:18px;font-weight:900;color:rgba(255,255,255,.85);margin-bottom:20px}
+.cap{font-size:13px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);margin:16px 0 8px}
+.box{background:var(--background);border-radius:24px;padding:22px 18px 24px;color:var(--secondary)}
+.box h4{font-size:22px;font-weight:900;margin-bottom:12px}
+.feat li{display:flex;align-items:center;gap:12px;text-align:left;padding:11px 8px;border-radius:8px;border-bottom:1px solid rgba(90,53,34,.1);font-size:16px;font-weight:500;color:var(--secondary)}
+.feat li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:#3D5A2A;color:#fff;font-size:12px;display:grid;place-items:center}
+.feat li.more{justify-content:center;font-style:italic;border-bottom:0}
+.feat li.more::before{display:none}
+.bonus{background:var(--background);color:var(--secondary);border-radius:24px;padding:22px 18px;margin-top:20px}
+.bonus .tag{display:inline-block;background:var(--primary);color:#fff;font-size:13px;font-weight:800;letter-spacing:.5px;padding:6px 14px;border-radius:100px;margin-bottom:12px}
+.bonus h4{font-size:20px;font-weight:900;margin:12px 0 6px}
+.bonus .old{color:var(--strike);text-decoration:line-through;font-weight:600;font-size:16px}
+.bonus .free{color:var(--cta-from);font-weight:900;font-size:16px;margin-left:6px}
+.depo{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:18px;margin-top:14px;text-align:left;font-size:16px;line-height:1.6;color:var(--text-soft);box-shadow:var(--shadow-card)}
+.depo b{display:block;margin-top:8px;color:var(--secondary)}
+.plan{position:relative;background:#fff;border-radius:24px;box-shadow:var(--shadow-plan);overflow:hidden;margin-top:24px;text-align:center}
+.plan .head{background:var(--secondary);color:#fff;padding:28px 22px 18px;font-size:32px;font-weight:900;line-height:1.1;letter-spacing:-.3px}
+.plan.rec{margin-top:44px;overflow:visible}
+.plan.rec .head{background:var(--primary);border-radius:24px 24px 0 0;padding-top:34px}
+.plan.rec .body{border-radius:0 0 24px 24px}
+.badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--accent);color:#3A2000;font-size:14px;font-weight:800;letter-spacing:.5px;padding:9px 24px;border-radius:100px;white-space:nowrap}
+.plan .body{padding:20px 18px 24px}
+.price{margin:18px 0 4px}
+.price .old{color:var(--strike);text-decoration:line-through;font-size:16px;font-weight:600;display:block}
+.price .now{font-size:52px;font-weight:900;color:var(--secondary);letter-spacing:-1px}
+.price .now small{font-size:22px;font-weight:800}
+.price-note{font-size:15px;font-weight:600;color:var(--text-soft)}
+.price-note em{font-style:normal;color:var(--price-accent);font-weight:900}
+.plan .cta{margin-top:18px}
+.plan .feat li.off{opacity:.45;text-decoration:line-through}
+.plan .feat li.off::before{content:"✕";background:#9A9A9A}
+.marquee{overflow:hidden;margin:0 -22px}
+.track{display:flex;gap:12px;width:max-content;animation:scrollProva 30s linear infinite}
+.track .depo{width:260px;margin:0;flex:none}
+@keyframes scrollProva{to{transform:translateX(-50%)}}
+.guarantee{background:var(--guarantee);color:#fff}
+.guarantee h2{color:#fff}
+.guarantee p{font-size:17px;font-weight:600;line-height:1.6}
+.seal{width:110px;height:110px;border-radius:50%;border:4px solid #fff;margin:0 auto 20px;display:grid;place-items:center;font-size:40px;font-weight:900;line-height:1}
+.seal small{display:block;font-size:13px;font-weight:800;letter-spacing:1px}
+.author .card{background:#fff;border-radius:24px;padding:22px 18px;box-shadow:var(--shadow-plan)}
+.author .ph{aspect-ratio:1/1;max-width:220px;margin:0 auto 16px;border-radius:50%}
+.author p{font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6}
+footer{padding:24px 22px 40px;text-align:center;font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* Vitrine de receitas */
+.showcase-sub{font-size:17px;font-weight:600;line-height:1.6;color:rgba(255,255,255,.85);margin:-8px 0 22px}
+.showcase-count{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#3A2000;font-size:13px;font-weight:800;letter-spacing:.5px;padding:8px 18px;border-radius:100px;margin-bottom:18px}
+.showcase-count i{width:8px;height:8px;border-radius:50%;background:var(--primary-dark);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.reels{margin:0 -22px;position:relative;display:grid;gap:12px}
+.reels::before,.reels::after{content:"";position:absolute;top:0;bottom:0;width:36px;z-index:2;pointer-events:none}
+.reels::before{left:0;background:linear-gradient(90deg,var(--secondary),transparent)}
+.reels::after{right:0;background:linear-gradient(270deg,var(--secondary),transparent)}
+.reel{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.reel::-webkit-scrollbar{display:none}
+.reel-track{display:flex;gap:12px;width:max-content;padding:0 6px}
+.reel figure{position:relative;flex:none;width:190px;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.reel:nth-child(2) figure{width:160px;aspect-ratio:1/1}
+.reel figure img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none}
+.reel figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))}
+.reel figcaption{position:absolute;left:8px;bottom:8px;z-index:1;background:rgba(255,255,255,.92);color:var(--secondary);font-size:11px;font-weight:800;padding:4px 9px;border-radius:100px}
+.showcase-hint{font-size:13px;font-weight:700;color:rgba(255,255,255,.7);margin-top:14px}
+.showcase-hint span{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1065374819648474');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>var FB_PIXEL_ID = "1065374819648474"; // usado pelos eventos ViewContent/AddToCart no fim da página</script>
+</head>
+<body>
+<div id="progress"></div>
+<main>
+
+<div class="offer">⚡ Oferta especial disponível só até <span id="offer-date"></span></div>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <h1>+200 receitas rápidas para você parar de repetir os mesmos pratos todos os dias</h1>
+  <div class="chips">
+    <div class="chip">🍽️ +200 Receitas</div>
+    <div class="chip">⏱️ Pronto em 20 min</div>
+    <div class="chip">📅 Cardápios Prontos</div>
+    <div class="chip">♾️ Acesso Vitalício</div>
+  </div>
+  <!-- TROQUE: imagem de colagem de pratos -->
+  <img class="pic r24" style="margin-top:24px" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/dAsJoP6062615.png" alt="receitas-da-bia — receitas rápidas" />
+  <p class="lead">Tenha acesso a receitas simples, saborosas e rápidas, para resolver a rotina da cozinha sem estresse.</p>
+  <div class="glass">
+    <p><strong>+17.800 pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
+  </div>
+</section>
+
+<!-- 2. VEJA O QUE VOCÊ VAI ENCONTRAR -->
+<section class="dark">
+  <span class="showcase-count"><i></i>+200 RECEITAS DENTRO DO GUIA</span>
+  <h2>Veja o que você vai encontrar dentro do receitas-da-bia</h2>
+  <p class="showcase-sub">Receitas organizadas, fáceis de seguir e prontas para você colocar na mesa hoje mesmo.</p>
+  <!-- TROQUE: para usar outras fotos, edite as imagens abaixo (mantenha as duas fileiras com as mesmas fotos) -->
+  <div class="reels" id="reels" aria-label="Receitas do guia">
+    <div class="reel" data-dir="1"><div class="reel-track"><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/dAsJoP6062615.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/kbYelk5075317.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/vRmdMG6631156.webp" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/CsFPLb5172087.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/RHEvku5021851.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/QWbHdi5021851.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/zsxDLE7860600.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/uCgySs2625343.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure></div></div>
+    <div class="reel" data-dir="-1"><div class="reel-track"><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/uCgySs2625343.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/zsxDLE7860600.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/QWbHdi5021851.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/RHEvku5021851.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/CsFPLb5172087.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/vRmdMG6631156.webp" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/kbYelk5075317.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure><figure><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/dAsJoP6062615.png" alt="Receita do guia receitas-da-bia" loading="lazy" draggable="false" /></figure></div></div>
+  </div>
+  <p class="showcase-hint"><span>👉</span> Deslize para ver mais receitas</p>
+  <div class="note"><strong>Você não começa do zero.</strong> Tudo já está organizado: receitas, cardápios e listas prontas para você só abrir e cozinhar.</div>
+  <a class="cta" href="#planos">Quero minhas receitas agora</a>
+</section>
+
+<!-- 3. IDEAL PARA VOCÊ QUE -->
+<section>
+  <h2 style="text-transform:uppercase">Ideal para você que…</h2>
+  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/kbYelk5075317.png" alt="" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/vRmdMG6631156.webp" alt="" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/CsFPLb5172087.png" alt="" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/RHEvku5021851.png" alt="" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/QWbHdi5021851.png" alt="" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
+</section>
+
+<!-- 4. ACESSO IMEDIATO -->
+<section class="dark">
+  <p class="label">Você vai receber acesso imediato a:</p>
+  <div class="box">
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/zsxDLE7860600.png" alt="receitas-da-bia" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" />
+    <h4>receitas-da-bia</h4>
+    <ul class="feat">
+      <li>+200 Receitas Deliciosas</li>
+      <li>Receitas prontas em até 20 minutos</li>
+      <li>Cardápios Prontos</li>
+      <li>Acesso Vitalício</li>
+      <li class="more">E muito mais…</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. BÔNUS -->
+<section class="dark" style="padding-top:0;padding-bottom:44px">
+  <h2 style="padding-top:40px">E isso não é tudo</h2>
+  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">Ao entrar hoje, você ainda leva 7 bônus:</p>
+  <!-- TROQUE: títulos, imagens e valores dos bônus -->
+  <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/iAoroG8181716.png" alt="Bônus 1" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 1</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #2</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/lsYYII7931812.png" alt="Bônus 2" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 2</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #3</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/EzpfXG7931812.png" alt="Bônus 3" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 3</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #4</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/tLvjGu7931812.png" alt="Bônus 4" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 4</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #5</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/YILdzC7931812.png" alt="Bônus 5" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 5</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #6</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/GpiLPh7931812.png" alt="Bônus 6" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 6</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #7</span><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/ftrXus7931812.png" alt="Bônus 7" style="width:100%;height:auto;border-radius:16px" /><h4>Bônus 7</h4><span class="old">De: R$00</span><span class="free">GRÁTIS</span></div>
+</section>
+
+<!-- 6. DEPOIMENTOS -->
+<section style="padding-top:36px;padding-bottom:32px">
+  <h2>Quem já usa, aprova</h2>
+  <div class="thumbs">
+    <img src="https://i.vimeocdn.com/video/1909803975-61ec3c0bc0546401162172869e5f5b6319246e601f25e8fa7bec610ddaad8b2e-d_200x150?region=us" alt="Depoimento em vídeo" />
+    <img src="https://i.vimeocdn.com/video/1911316918-2ba2fcaa64653ea505f946530bc481f4faa8680da15f63ea6154ba5cc4927dcb-d_200x150?region=us" alt="Depoimento em vídeo" />
+  </div>
+</section>
+
+<!-- 7. PLANOS -->
+<section id="planos">
+  <h2>Escolha seu plano</h2>
+
+  <div class="plan">
+    <div class="head">PLANO<br />BÁSICO</div>
+    <div class="body">
+      <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/zsxDLE7860600.png" alt="Plano Básico" style="width:100%;height:auto;border-radius:16px" />
+      <p class="cap">Tudo o que você recebe</p>
+      <ul class="feat">
+        <li>+200 Receitas Deliciosas</li>
+        <li>Acesso Vitalício</li>
+        <li class="off">Cardápios Prontos</li>
+        <li class="off">7 Bônus Exclusivos</li>
+      </ul>
+      <div class="price"><span class="now"><small>R$</small>10</span></div>
+      <p class="price-note">pagamento único</p>
+      <!-- TROQUE: link de checkout do plano básico -->
+      <a class="cta" href="https://pay.kiwify.com.br/vnDyNh8">Quero começar hoje</a>
+    </div>
+  </div>
+
+  <div class="plan rec">
+    <span class="badge">🔥 Recomendado</span>
+    <div class="head">PLANO<br />COMPLETO</div>
+    <div class="body">
+      <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/mia/uCgySs2625343.png" alt="Plano Completo" style="width:100%;height:auto;border-radius:16px" />
+      <p class="cap">Tudo o que você recebe</p>
+      <ul class="feat">
+        <li>+200 Receitas Deliciosas</li>
+        <li>Acesso Vitalício</li>
+        <li>Cardápios Prontos</li>
+        <li>7 Bônus Exclusivos</li>
+        <li class="more">E muito mais…</li>
+      </ul>
+      <div class="price"><span class="old">De: R$97</span><span class="now"><small>R$</small>17</span></div>
+      <p class="price-note">pagamento único — só <em>R$7 a mais</em> que o Básico</p>
+      <!-- TROQUE: link de checkout do plano completo -->
+      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PROVA SOCIAL (carrossel) -->
+<section style="padding-bottom:36px">
+  <h2>Veja o que estão falando</h2>
+  <div class="marquee"><div class="track" id="track">
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/PNlLtF6444467.jpeg" alt="Depoimento" />
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/FJggxA6444467.jpeg" alt="Depoimento" />
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/Hpqvxc6444467.jpeg" alt="Depoimento" />
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/PJIakN6444467.jpeg" alt="Depoimento" />
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/hhALbL6444467.jpeg" alt="Depoimento" />
+    <img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/pntGXc6444467.jpeg" alt="Depoimento" />
+  </div></div>
+</section>
+
+<!-- 9. GARANTIA -->
+<section class="guarantee">
+  <div class="seal"><span>30<small>DIAS</small></span></div>
+  <h2>GARANTIA DE 30 DIAS</h2>
+  <p>Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro em até 30 dias. Sem perguntas e sem burocracia.</p>
+</section>
+
+<!-- 10. AUTORA -->
+<section class="author">
+  <h2>Quem criou o receitas-da-bia</h2>
+  <div class="card">
+    <div class="ph"><img src="https://media.atomicatmedia.net/u/R0WcDrorg9R9KKEPi5I7WCKJiu93/Pictures/vYCAbr8679142.png" alt="Bia Alcântara" /></div>
+    <p><strong>Bia Alcântara</strong><br />Escreva aqui a bio da autora.</p>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> receitas-da-bia. Todos os direitos reservados.</footer>
+</main>
+
+<script>
+// Data de "amanhã" na barra de oferta
+var t = new Date(); t.setDate(t.getDate() + 1);
+document.getElementById("offer-date").textContent =
+  t.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Progresso de scroll
+addEventListener("scroll", function () {
+  var h = document.documentElement;
+  document.getElementById("progress").style.width =
+    (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+}, { passive: true });
+
+// Duplica o carrossel para loop contínuo
+var track = document.getElementById("track");
+track.innerHTML += track.innerHTML;
+
+// Vitrine de receitas: rolagem automática contínua, pausa ao tocar, deslize manual
+(function () {
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("#reels .reel").forEach(function (el) {
+    var track = el.firstElementChild;
+    track.innerHTML += track.innerHTML; // duplica para loop infinito
+    var dir = +el.dataset.dir, speed = 0.45, paused = reduce, pos = 0, timer;
+    function half() { return track.scrollWidth / 2; }
+    function wrap() { var h = half(); if (pos >= h) pos -= h; if (pos <= 0) pos += h; }
+    pos = dir < 0 ? half() / 2 : 1;
+    el.scrollLeft = pos;
+    function hold() { paused = true; clearTimeout(timer); }
+    function release() { clearTimeout(timer); timer = setTimeout(function () { paused = reduce; }, 1800); }
+    ["pointerdown", "touchstart", "wheel", "mouseenter"].forEach(function (e) { el.addEventListener(e, hold, { passive: true }); });
+    ["pointerup", "pointercancel", "touchend", "mouseleave"].forEach(function (e) { el.addEventListener(e, release, { passive: true }); });
+    el.addEventListener("scroll", function () { if (paused) { pos = el.scrollLeft; wrap(); if (Math.abs(el.scrollLeft - pos) > 1) el.scrollLeft = pos; } }, { passive: true });
+    var visible = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(el);
+    (function tick() {
+      if (!paused && visible) { pos += speed * dir; wrap(); el.scrollLeft = pos; }
+      requestAnimationFrame(tick);
+    })();
+  });
+})();
+</script>
+<script>
+// Eventos do pixel no navegador (a compra e o início de checkout a Kiwify envia pelo servidor)
+(function () {
+  if (!FB_PIXEL_ID) return;
+  fbq('track', 'ViewContent', { content_name: 'receitas-da-bia', currency: 'BRL', value: 17 });
+  document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var completo = /SaF1YOQ/.test(a.href);
+      fbq('track', 'AddToCart', { content_name: completo ? 'Plano Completo' : 'Plano Básico', currency: 'BRL', value: completo ? 17 : 10 });
+    });
+  });
+})();
+</script>
+<!-- Tracking avançado Kiwify: repassa fbclid, UTMs e sck para os links de checkout -->
+<script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js"></script>
+</body>
+</html>
