@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads PDF - receitas-da-bia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF6E3;
+            color: #5A3522;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #FF6B4A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #5A3522;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            font-size: 1rem;
+            color: #8B6F5E;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #5A3522;
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #EEE3C8;
+        }
+        .download-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #fff;
+            border: 1px solid #EEE3C8;
+            border-radius: 12px;
+            padding: 16px 18px;
+            text-decoration: none;
+            color: #5A3522;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .download-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(90,53,34,0.1);
+        }
+        .pdf-icon {
+            width: 44px;
+            height: 44px;
+            background: #FF6B4A;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+        .download-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .download-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        .download-size {
+            font-size: 0.8rem;
+            color: #8B6F5E;
+        }
+        .download-btn {
+            background: #FF6B4A;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .download-item:hover .download-btn {
+            background: #e85535;
+        }
+        .info-box {
+            background: #fff;
+            border: 1px solid #EEE3C8;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .info-box p {
+            font-size: 0.9rem;
+            color: #8B6F5E;
+            line-height: 1.5;
+        }
+        .info-box strong {
+            color: #5A3522;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+        <div class="page-header">
+            <h1>Downloads em PDF</h1>
+            <p>Baixe todos os seus materiais em PDF para ler offline, imprimir ou salvar no celular.</p>
+        </div>
+
+        <h2 class="section-title">Materiais Principais</h2>
+        <div class="download-list">
+            <a href="downloads/Livro-210-Receitas-receitas-da-bia.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Livro de 210 Receitas Completas</div>
+                    <div class="download-size">1.8 MB - 12 capitulos com ingredientes e modo de preparo</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Cardapios-Semanais-4-Semanas.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Cardapios Semanais - 4 Semanas</div>
+                    <div class="download-size">269 KB - 7 dias x 4 refeicoes por semana</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Listas-de-Compras-Semanais.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Listas de Compras Semanais</div>
+                    <div class="download-size">269 KB - 4 semanas com itens organizados por secao</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+        </div>
+
+        <h2 class="section-title">7 Bonus Exclusivos</h2>
+        <div class="download-list">
+            <a href="downloads/Bonus-1-Cardapio-Semanal-Personalizado.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #1 - Cardapio Semanal Personalizado</div>
+                    <div class="download-size">420 KB - 4 semanas com listas de compras e dicas de preparo</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-2-Guia-Completo-de-Temperos.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #2 - Guia Completo de Temperos</div>
+                    <div class="download-size">761 KB - 5 capitulos sobre temperos e especiarias</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-3-Lista-Inteligente-de-Compras.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #3 - Lista Inteligente de Compras</div>
+                    <div class="download-size">382 KB - Listas com custos estimados e dicas de economia</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-4-30-Sobremesas-Faceis.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #4 - 30 Sobremesas Faceis</div>
+                    <div class="download-size">258 KB - 30 receitas em 5 categorias</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-5-Guia-de-Marmitas-da-Semana.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #5 - Guia de Marmitas da Semana</div>
+                    <div class="download-size">753 KB - 5 semanas de meal prep completo</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-6-Receitas-para-Datas-Especiais.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #6 - Receitas para Datas Especiais</div>
+                    <div class="download-size">275 KB - 25 receitas para 5 ocasioes diferentes</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Bonus-7-Guia-de-Substituicoes.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Bonus #7 - Guia de Substituicoes</div>
+                    <div class="download-size">415 KB - Tabelas em 8 categorias + capitulo de alergenos</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+        </div>
+
+        <h2 class="section-title">Materiais Extras</h2>
+        <div class="download-list">
+            <a href="downloads/Extra-Calculadora-de-Porcoes.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Calculadora de Porcoes</div>
+                    <div class="download-size">166 KB - Tabela de referencia para ajustar quantidades</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Extra-Tabela-de-Medidas-e-Conversoes.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Tabela de Medidas e Conversoes</div>
+                    <div class="download-size">72 KB - 7 tabelas de conversao praticas para imprimir</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+            <a href="downloads/Extra-Guia-de-Conservacao-de-Alimentos.pdf" download class="download-item">
+                <div class="pdf-icon">PDF</div>
+                <div class="download-info">
+                    <div class="download-name">Guia de Conservacao de Alimentos</div>
+                    <div class="download-size">125 KB - Tabelas de geladeira e freezer para cada alimento</div>
+                </div>
+                <span class="download-btn">Baixar</span>
+            </a>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Dica:</strong> Salve os PDFs no seu celular para consultar as receitas enquanto cozinha, mesmo sem internet!</p>
+        </div>
+    </div>
+</body>
+</html>
