@@ -63,12 +63,18 @@
         @media (min-width: 520px) {
             .video-grid { grid-template-columns: 1fr 1fr; }
         }
+        a.video-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
         .video-card {
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #EEE3C8;
             transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
         }
         .video-card:hover {
             transform: translateY(-2px);
@@ -90,7 +96,9 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
         }
+        .video-card:hover .play-icon { transform: scale(1.1); }
         .play-icon::after {
             content: '';
             display: block;
@@ -116,10 +124,6 @@
             background: #FF6B4A;
             color: #fff;
         }
-        .badge-breve {
-            background: rgba(255,255,255,0.85);
-            color: #8B6F5E;
-        }
         .video-info {
             padding: 14px 16px 16px;
         }
@@ -139,6 +143,16 @@
             font-size: 0.85rem;
             color: #8B6F5E;
             line-height: 1.4;
+        }
+        .yt-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #FF0000;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-top: 6px;
         }
         .thumb-1 { background: linear-gradient(135deg, #FF6B4A, #FF9A76); }
         .thumb-2 { background: linear-gradient(135deg, #5A3522, #8B6F5E); }
@@ -180,7 +194,7 @@
 
         <div class="page-header">
             <h1>Videos Passo a Passo</h1>
-            <p>Aprenda no seu ritmo com videoaulas detalhadas. Novos videos toda semana!</p>
+            <p>Aprenda no seu ritmo com videoaulas selecionadas. Clique em qualquer video para assistir no YouTube!</p>
         </div>
 
         <div class="stats-bar">
@@ -189,7 +203,7 @@
                 <div class="stat-label">Videoaulas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">4</div>
+                <div class="stat-number">20</div>
                 <div class="stat-label">Disponiveis</div>
             </div>
             <div class="stat-item">
@@ -202,59 +216,76 @@
         <div class="category-section">
             <h2 class="category-title">Tecnicas Basicas</h2>
             <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-1">
-                        <div class="play-icon"></div>
-                        <span class="badge badge-disponivel">Disponivel</span>
+                <a href="https://www.youtube.com/watch?v=m0nAeIA0dgk" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-1">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Como Cortar Legumes</div>
+                            <div class="video-duration">12 min</div>
+                            <div class="video-desc">Aprenda a cortar em cubos, rodelas e julienne. Tecnicas profissionais de chef para o dia a dia.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Como Cortar Cebola</div>
-                        <div class="video-duration">12 min</div>
-                        <div class="video-desc">Aprenda a cortar em cubos, rodelas e julienne sem chorar. Tecnicas profissionais para o dia a dia.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=EEbkEOXK6hs" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-2">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Como Temperar Carnes</div>
+                            <div class="video-duration">15 min</div>
+                            <div class="video-desc">Os segredos para temperar bovina, suina, frango e peixe. Marinadas e temperos que fazem toda diferenca.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-2">
-                        <div class="play-icon"></div>
-                        <span class="badge badge-disponivel">Disponivel</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Ueimxux0MhM" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-3">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Como Fazer Arroz Perfeito</div>
+                            <div class="video-duration">10 min</div>
+                            <div class="video-desc">Arroz soltinho e no ponto toda vez. A proporcao exata de agua, o tempo certo e o segredo do alho dourado.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Como Temperar Carne</div>
-                        <div class="video-duration">15 min</div>
-                        <div class="video-desc">Os segredos para temperar bovina, suina e de frango. Marinadas e temperos secos que fazem toda diferenca.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Lz7HhPizwqc" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-4">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Como Fazer Feijao na Pressao</div>
+                            <div class="video-duration">14 min</div>
+                            <div class="video-desc">Feijao cremoso e saboroso na panela de pressao. Sem medo e sem explodir, passo a passo completo.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-3">
-                        <div class="play-icon"></div>
-                        <span class="badge badge-disponivel">Disponivel</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=XYvmN8YOXpY" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-5">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Molho de Tomate Caseiro</div>
+                            <div class="video-duration">18 min</div>
+                            <div class="video-desc">Molho caseiro do zero, muito melhor que industrializado. Rende bastante e congela super bem.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Como Fazer Arroz Perfeito</div>
-                        <div class="video-duration">10 min</div>
-                        <div class="video-desc">Arroz soltinho e no ponto toda vez. A proporcao exata de agua, o tempo certo e o segredo do alho dourado.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-4">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Como Refogar Legumes</div>
-                        <div class="video-duration">14 min</div>
-                        <div class="video-desc">Legumes crocantes e saborosos. A ordem certa de adicionar cada um e o ponto ideal de cozimento.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-5">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Como Fazer Molho de Tomate</div>
-                        <div class="video-duration">18 min</div>
-                        <div class="video-desc">Molho caseiro do zero, muito melhor que industrializado. Rende bastante e congela super bem.</div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -262,57 +293,76 @@
         <div class="category-section">
             <h2 class="category-title">Receitas Favoritas</h2>
             <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-6">
-                        <div class="play-icon"></div>
-                        <span class="badge badge-disponivel">Disponivel</span>
+                <a href="https://www.youtube.com/watch?v=Pr3Nf0OgXNk" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-6">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Strogonoff de Frango</div>
+                            <div class="video-duration">20 min</div>
+                            <div class="video-desc">O prato favorito de toda familia. Cremoso e com todos os truques para ficar perfeito.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Strogonoff de Frango</div>
-                        <div class="video-duration">20 min</div>
-                        <div class="video-desc">O prato favorito de toda familia. Cremoso e com todos os truques para ficar perfeito.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=mTVgzQvamOc" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-7">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Lasanha Completa</div>
+                            <div class="video-duration">35 min</div>
+                            <div class="video-desc">Lasanha completa com molho branco, bolonhesa e montagem perfeita. Do forno para a mesa!</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-7">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=-6j5pBIEdHM" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-8">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Bolo Caseiro Fofinho</div>
+                            <div class="video-duration">22 min</div>
+                            <div class="video-desc">Fofinho e delicioso, receita de vo que nunca falha. Perfeito para o cafe da tarde.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Lasanha</div>
-                        <div class="video-duration">35 min</div>
-                        <div class="video-desc">Lasanha completa com molho branco, bolonhesa e montagem perfeita. Do forno para a mesa!</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=TPoRSJK7nLU" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-1">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Feijoada Completa</div>
+                            <div class="video-duration">40 min</div>
+                            <div class="video-desc">A feijoada completa passo a passo. Do preparo das carnes ate os acompanhamentos tradicionais.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-8">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=94vtZUFokrE" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-3">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Pudim Perfeito</div>
+                            <div class="video-duration">25 min</div>
+                            <div class="video-desc">Pudim de leite condensado sem furinhos. A tecnica do banho-maria e a calda perfeita.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Bolo de Cenoura</div>
-                        <div class="video-duration">22 min</div>
-                        <div class="video-desc">Fofinho e com cobertura de chocolate que nao endurece. A receita que nunca falha.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-1">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Feijoada</div>
-                        <div class="video-duration">40 min</div>
-                        <div class="video-desc">A feijoada completa passo a passo. Do preparo das carnes ate os acompanhamentos tradicionais.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-3">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Pudim</div>
-                        <div class="video-duration">25 min</div>
-                        <div class="video-desc">Pudim de leite condensado sem furinhos. A tecnica do banho-maria e a calda perfeita.</div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -320,56 +370,76 @@
         <div class="category-section">
             <h2 class="category-title">Dicas da Lu</h2>
             <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-2">
-                        <span class="badge badge-breve">Em breve</span>
+                <a href="https://www.youtube.com/watch?v=rA_oUoNKjMw" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-2">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Organizando a Cozinha</div>
+                            <div class="video-duration">16 min</div>
+                            <div class="video-desc">Como organizar armarios, geladeira e despensa. Mise en place para facilitar o dia a dia.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Organizando a Cozinha</div>
-                        <div class="video-duration">16 min</div>
-                        <div class="video-desc">Como organizar armarios, geladeira e despensa para facilitar o dia a dia na cozinha.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=nI6XO9qP3hs" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-4">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Planejando Cardapio Semanal</div>
+                            <div class="video-duration">14 min</div>
+                            <div class="video-desc">Monte seu cardapio semanal sem estresse. Economize tempo e dinheiro com planejamento.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-4">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=9QeVRMV1AYk" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-6">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Compras Inteligentes</div>
+                            <div class="video-duration">12 min</div>
+                            <div class="video-desc">Como organizar legumes e verduras para durarem muito mais. Dicas para economizar no mercado.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Planejando Cardapio da Semana</div>
-                        <div class="video-duration">14 min</div>
-                        <div class="video-desc">Monte seu cardapio semanal sem estresse. Economize tempo e dinheiro com planejamento.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=EpsevnjkI9Q" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-8">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Congelamento Correto</div>
+                            <div class="video-duration">18 min</div>
+                            <div class="video-desc">Manual completo do congelamento: embalagens certas, validades e como descongelar corretamente.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-6">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=7Ex05GmA3L4" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-5">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Conservar Alimentos</div>
+                            <div class="video-duration">15 min</div>
+                            <div class="video-desc">Como armazenar alimentos corretamente na geladeira. Dicas para evitar desperdicio.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Compras Inteligentes</div>
-                        <div class="video-duration">12 min</div>
-                        <div class="video-desc">Como montar lista de compras, escolher alimentos frescos e economizar no supermercado.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-8">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Congelamento Correto</div>
-                        <div class="video-duration">18 min</div>
-                        <div class="video-desc">Tudo sobre congelar alimentos: embalagens certas, validades e como descongelar corretamente.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-5">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Reaproveitamento de Alimentos</div>
-                        <div class="video-duration">15 min</div>
-                        <div class="video-desc">Receitas criativas com sobras e cascas. Reduza o desperdicio e surpreenda a familia.</div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -377,56 +447,76 @@
         <div class="category-section">
             <h2 class="category-title">Especiais</h2>
             <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-7">
-                        <span class="badge badge-breve">Em breve</span>
+                <a href="https://www.youtube.com/watch?v=0_l4_X4aHTM" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-7">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Ceia de Natal</div>
+                            <div class="video-duration">30 min</div>
+                            <div class="video-desc">Frango inteiro assado no forno, especial de Natal. Receita completa e cronometrada.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Ceia de Natal</div>
-                        <div class="video-duration">45 min</div>
-                        <div class="video-desc">Menu completo de Natal: chester, salpicao, farofa e rabanada. Tudo cronometrado.</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Aw5l4gBYmQ8" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-1">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Carne Assada Perfeita</div>
+                            <div class="video-duration">25 min</div>
+                            <div class="video-desc">Carne assada no forno macia e suculenta. Ponto da carne, tempero e acompanhamentos.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-1">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=TOPEMSwboA8" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-3">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Receitas de Festa Junina</div>
+                            <div class="video-duration">28 min</div>
+                            <div class="video-desc">Pamonha, canjica e bolo de milho. Receitas faceis e rapidas para sua festa junina em casa.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Churrasco Perfeito</div>
-                        <div class="video-duration">30 min</div>
-                        <div class="video-desc">Ponto da carne, tempero, acompanhamentos e quantidades. Seja o mestre churrasqueiro!</div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=f1XXdUG1XoA" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-5">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Cafe da Manha Saudavel</div>
+                            <div class="video-duration">15 min</div>
+                            <div class="video-desc">5 receitas saudaveis em menos de 5 minutos. Rapido, facil e nutritivo para toda familia.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-3">
-                        <span class="badge badge-breve">Em breve</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Wq7WLxvfFM4" target="_blank" rel="noopener" class="video-link">
+                    <div class="video-card">
+                        <div class="video-thumbnail thumb-2">
+                            <div class="play-icon"></div>
+                            <span class="badge badge-disponivel">Disponivel</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">Marmitas da Semana</div>
+                            <div class="video-duration">35 min</div>
+                            <div class="video-desc">17 refeicoes em uma tarde! Meal prep completo com variedade e equilibrio nutricional.</div>
+                            <span class="yt-tag">YouTube</span>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-title">Festa Junina em Casa</div>
-                        <div class="video-duration">28 min</div>
-                        <div class="video-desc">Canjica, pao de queijo, bolo de milho, quentao e todas as deliicias juninas passo a passo.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-5">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Brunch de Domingo</div>
-                        <div class="video-duration">25 min</div>
-                        <div class="video-desc">Panquecas, ovos mexidos, frutas e sucos. Monte uma mesa linda para a familia no domingo.</div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail thumb-2">
-                        <span class="badge badge-breve">Em breve</span>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Marmitas da Semana</div>
-                        <div class="video-duration">35 min</div>
-                        <div class="video-desc">Prepare 5 marmitas de uma vez so. Meal prep completo com variedade e equilibrio nutricional.</div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
