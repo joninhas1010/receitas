@@ -101,6 +101,17 @@ h3{font-size:22px;font-weight:900;line-height:1.28;color:#fff}
 .seal{width:110px;height:110px;border-radius:50%;border:4px solid #fff;margin:0 auto 20px;display:grid;place-items:center;font-size:40px;font-weight:900;line-height:1}
 .seal small{display:block;font-size:13px;font-weight:800;letter-spacing:1px}
 .author .card{background:#fff;border-radius:24px;padding:22px 18px;box-shadow:var(--shadow-plan)}
+.trust{font-size:13px;font-weight:600;color:var(--text-soft);line-height:1.8;margin-top:14px}
+.guarantee-list{margin-top:24px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto}
+.guarantee-list li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:16px;line-height:1.5;color:rgba(255,255,255,.9)}
+.guarantee-list li:last-child{border-bottom:0}
+.guarantee-list strong{display:block;font-size:17px;color:#fff}
+.faq details{background:#fff;border:1px solid var(--border);border-radius:16px;margin-top:12px;box-shadow:var(--shadow-card);overflow:hidden}
+.faq summary{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-size:16px;font-weight:700;color:var(--secondary);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"▼";font-size:12px;color:var(--text-muted);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(180deg)}
+.faq details .faq-body{padding:0 18px 16px;font-size:15px;font-weight:500;line-height:1.6;color:var(--text-soft)}
 .author .ph{aspect-ratio:1/1;max-width:220px;margin:0 auto 16px;border-radius:50%}
 .author p{font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6}
 footer{padding:24px 22px 40px;text-align:center;font-size:13px;color:var(--text-muted);line-height:1.6}
@@ -244,16 +255,19 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
       <p class="cap">Tudo o que você recebe</p>
       <ul class="feat">
         <li>+200 Receitas Deliciosas</li>
+        <li>Vídeos Passo a Passo</li>
+        <li>Lista de Compras Pronta</li>
+        <li>Cardápios Prontos para a Semana</li>
+        <li>Tira Dúvidas pelo WhatsApp com a Lurdes</li>
         <li>Acesso Vitalício</li>
-        <li class="off">Cardápios Prontos</li>
-        <li class="off">7 Bônus Exclusivos</li>
       </ul>
-      <div class="price"><span class="now"><small>R$</small>10</span></div>
-      <p class="price-note">pagamento único</p>
-      <!-- TROQUE: link de checkout do plano básico -->
-      <a class="cta" href="https://pay.kiwify.com.br/vnDyNh8">Quero começar hoje</a>
+      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>10</span></div>
+      <a class="cta" href="https://pay.kiwify.com.br/vnDyNh8">Quero o plano básico</a>
+      <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
+
+  <p style="text-align:center;font-size:16px;font-weight:700;color:var(--secondary);margin-top:28px;line-height:1.6">Temos uma opção ainda mais completa para você<br /><span style="font-size:24px">↓</span></p>
 
   <div class="plan rec">
     <span class="badge">🔥 Recomendado</span>
@@ -263,15 +277,23 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
       <p class="cap">Tudo o que você recebe</p>
       <ul class="feat">
         <li>+200 Receitas Deliciosas</li>
+        <li>Vídeos Passo a Passo</li>
+        <li>Lista de Compras Pronta</li>
+        <li>Cardápios Prontos para a Semana</li>
+        <li>Tira Dúvidas pelo WhatsApp com a Lurdes</li>
         <li>Acesso Vitalício</li>
-        <li>Cardápios Prontos</li>
-        <li>7 Bônus Exclusivos</li>
-        <li class="more">E muito mais…</li>
+        <li>eBook: +170 Receitas Saudáveis e Fáceis</li>
+        <li>+70 Receitas para Air Fryer</li>
+        <li>Dicas de Conservação e Congelamento</li>
+        <li>Café da Manhã Gostoso e Rápido</li>
+        <li>Saladas em Pote: Frescas e Gostosas</li>
+        <li>Receitas de Marmitas para Congelar</li>
+        <li>Lanches Rápidos para o Dia a Dia</li>
       </ul>
-      <div class="price"><span class="old">De: R$97</span><span class="now"><small>R$</small>17</span></div>
-      <p class="price-note">pagamento único — só <em>R$7 a mais</em> que o Básico</p>
-      <!-- TROQUE: link de checkout do plano completo -->
-      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo</a>
+      <p style="font-size:15px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:14px">Por apenas <em style="font-style:normal;color:var(--price-accent);font-weight:900">R$7 a mais</em>, você leva todos os 7 bônus e transforma o Cozinhe com a Lu em um kit completo para planejar, preparar e variar as refeições da semana inteira.</p>
+      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>17</span></div>
+      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo agora</a>
+      <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
 </section>
@@ -292,11 +314,64 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <!-- 9. GARANTIA -->
 <section class="guarantee">
   <div class="seal"><span>30<small>DIAS</small></span></div>
-  <h2>GARANTIA DE 30 DIAS</h2>
-  <p>Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro em até 30 dias. Sem perguntas e sem burocracia.</p>
+  <h2>Garantia de 30 dias</h2>
+  <h3 style="font-size:26px;margin-bottom:20px">Teste sem<br />nenhum risco</h3>
+  <p>Se por qualquer motivo você sentir que o Cozinhe com a Lu não é para você, é só pedir seu dinheiro de volta dentro do prazo.</p>
+  <ul class="guarantee-list">
+    <li><strong>100% do valor devolvido</strong><br />Reembolso completo, sem descontos</li>
+    <li><strong>Sem perguntas</strong><br />Não precisa justificar nada</li>
+    <li><strong>Sem burocracia</strong><br />Processo simples e rápido</li>
+  </ul>
+  <a class="cta" href="#planos" style="margin-top:28px">Quero minhas receitas agora</a>
 </section>
 
-<!-- 10. AUTORA -->
+<!-- 10. PERGUNTAS FREQUENTES -->
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <details>
+    <summary>O acesso é vitalício?</summary>
+    <div class="faq-body">Sim! Você paga uma única vez e tem acesso para sempre. Sem mensalidades, sem cobranças extras.</div>
+  </details>
+  <details>
+    <summary>Como vou receber o meu acesso?</summary>
+    <div class="faq-body">Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link e as instruções para acessar todo o conteúdo.</div>
+  </details>
+  <details>
+    <summary>Funciona para quem não sabe cozinhar muito bem?</summary>
+    <div class="faq-body">Com certeza! As receitas foram criadas justamente para quem tem pouca experiência na cozinha. São simples, com passo a passo detalhado e ingredientes fáceis de encontrar.</div>
+  </details>
+  <details>
+    <summary>Os ingredientes são fáceis de encontrar?</summary>
+    <div class="faq-body">Sim! Todas as receitas usam ingredientes comuns, que você encontra em qualquer supermercado ou feira. Nada de ingredientes caros ou difíceis.</div>
+  </details>
+  <details>
+    <summary>Quanto tempo vou precisar para preparar as receitas?</summary>
+    <div class="faq-body">A maioria das receitas fica pronta em até 20 minutos. Perfeitas para quem tem uma rotina corrida e quer praticidade na cozinha.</div>
+  </details>
+  <details>
+    <summary>Posso tirar dúvidas sobre as receitas?</summary>
+    <div class="faq-body">Sim! Você terá acesso ao suporte pelo WhatsApp diretamente com a Lurdes para tirar suas dúvidas sobre qualquer receita.</div>
+  </details>
+  <details>
+    <summary>E se eu não gostar?</summary>
+    <div class="faq-body">Você tem 30 dias de garantia incondicional. Se por qualquer motivo sentir que não é para você, basta pedir o reembolso — devolvemos 100% do valor, sem perguntas.</div>
+  </details>
+  <details>
+    <summary>Tem mensalidade?</summary>
+    <div class="faq-body">Não! O pagamento é único. Você paga uma vez e tem acesso vitalício a todo o conteúdo, incluindo futuras atualizações.</div>
+  </details>
+  <details>
+    <summary>Para quem é o Cozinhe com a Lu?</summary>
+    <div class="faq-body">Para qualquer pessoa que quer cozinhar receitas gostosas, rápidas e práticas no dia a dia — especialmente mães e mulheres que trabalham fora e querem resolver as refeições sem estresse.</div>
+  </details>
+  <details>
+    <summary>Posso parcelar o pagamento?</summary>
+    <div class="faq-body">Sim! Você pode parcelar no cartão de crédito. As opções de parcelamento aparecem na página de pagamento.</div>
+  </details>
+  <a class="cta" href="#planos" style="margin-top:24px">Quero minhas receitas agora</a>
+</section>
+
+<!-- 11. AUTORA -->
 <section class="author">
   <h2>Quem criou o Cozinhe com a Lu</h2>
   <div class="card">
