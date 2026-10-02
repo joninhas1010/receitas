@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Substituicoes - Cozinhe com a Lu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #FF6B4A;
+  --secondary: #5A3522;
+  --bg: #FFF6E3;
+  --border: #EEE3C8;
+  --white: #FFFFFF;
+  --text: #3D2E22;
+  --text-light: #7A6855;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--primary); text-decoration: none; font-weight: 600;
+  font-size: 0.95rem; padding: 20px 0; transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+.book-cover {
+  background: linear-gradient(135deg, var(--secondary) 0%, #3D2115 100%);
+  border-radius: 20px; padding: 60px 40px; text-align: center;
+  color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;
+}
+.book-cover::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,107,74,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.bonus-badge {
+  display: inline-block; background: var(--primary); color: var(--white);
+  font-size: 0.8rem; font-weight: 700; padding: 6px 20px; border-radius: 50px;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+}
+.book-cover h1 {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  font-weight: 800; margin-bottom: 12px; line-height: 1.2;
+}
+.book-cover .author { font-size: 1.05rem; opacity: 0.85; font-weight: 300; }
+.book-cover .subtitle { font-size: 1rem; opacity: 0.7; margin-top: 16px; font-style: italic; }
+.toc {
+  background: var(--white); border-radius: 16px; padding: 36px 32px;
+  margin-bottom: 40px; border: 1px solid var(--border);
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem;
+  color: var(--secondary); margin-bottom: 20px;
+}
+.toc ol { list-style: none; counter-reset: toc-counter; }
+.toc ol li {
+  counter-increment: toc-counter; padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.toc ol li:last-child { border-bottom: none; }
+.toc ol li a {
+  text-decoration: none; color: var(--text); font-weight: 500;
+  display: flex; align-items: center; gap: 12px; transition: color 0.2s;
+}
+.toc ol li a:hover { color: var(--primary); }
+.toc ol li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  color: var(--primary); font-size: 1.1rem; min-width: 28px;
+}
+.chapter {
+  background: var(--white); border-radius: 16px; padding: 40px 32px;
+  margin-bottom: 32px; border: 1px solid var(--border);
+}
+.chapter-number {
+  font-family: 'Playfair Display', serif; color: var(--primary);
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.chapter h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem;
+  color: var(--secondary); margin-bottom: 20px; line-height: 1.3;
+}
+.chapter h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem;
+  color: var(--secondary); margin-top: 28px; margin-bottom: 12px;
+}
+.chapter p { margin-bottom: 14px; }
+.chapter ul, .chapter ol { margin-bottom: 16px; padding-left: 20px; }
+.chapter li { margin-bottom: 8px; }
+.tip-box {
+  background: linear-gradient(135deg, #FF6B4A10 0%, #FF6B4A05 100%);
+  border: 1px solid #FF6B4A30; border-radius: 12px;
+  padding: 20px 24px; margin: 20px 0;
+}
+.tip-box .tip-label {
+  font-weight: 700; color: var(--primary); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+.sub-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;
+}
+.sub-table thead th {
+  background: var(--secondary); color: var(--white);
+  padding: 12px 14px; text-align: left; font-weight: 600;
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.sub-table thead th:first-child { border-radius: 8px 0 0 0; }
+.sub-table thead th:last-child { border-radius: 0 8px 0 0; }
+.sub-table tbody td {
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.sub-table tbody tr:nth-child(even) { background: var(--bg); }
+.sub-table tbody tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+.sub-table tbody tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+.sub-table .item { font-weight: 600; color: var(--secondary); }
+
+.category-header {
+  background: linear-gradient(135deg, var(--primary), #E5553A);
+  border-radius: 12px; padding: 20px; text-align: center;
+  color: var(--white); margin-top: 24px; margin-bottom: 16px;
+}
+.category-header h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem;
+  color: var(--white); margin: 0;
+}
+
+.quick-ref {
+  background: var(--white); border: 3px solid var(--primary);
+  border-radius: 16px; padding: 32px; margin: 32px 0;
+}
+.quick-ref h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem;
+  color: var(--primary); margin-bottom: 8px; text-align: center;
+}
+.quick-ref .subtitle {
+  text-align: center; color: var(--text-light); font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.quick-list {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.quick-item {
+  background: var(--bg); border-radius: 8px; padding: 10px 14px;
+  font-size: 0.85rem;
+}
+.quick-item .original { font-weight: 700; color: var(--secondary); }
+.quick-item .arrow { color: var(--primary); font-weight: 700; margin: 0 4px; }
+
+.book-footer {
+  text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.9rem;
+}
+.book-footer .brand {
+  font-family: 'Playfair Display', serif; color: var(--secondary);
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 4px;
+}
+@media (max-width: 600px) {
+  .book-cover { padding: 40px 24px; }
+  .book-cover h1 { font-size: 1.8rem; }
+  .chapter { padding: 28px 20px; }
+  .toc { padding: 24px 20px; }
+  .sub-table { font-size: 0.8rem; }
+  .sub-table thead th, .sub-table tbody td { padding: 8px 10px; }
+  .quick-list { grid-template-columns: 1fr; }
+  .quick-ref { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+<div class="book-cover">
+  <div class="bonus-badge">Bonus #7</div>
+  <h1>Guia de Substituicoes</h1>
+  <p class="author">por Lurdes Almeida</p>
+  <p class="subtitle">Nunca mais pare uma receita por falta de ingrediente</p>
+</div>
+
+<div class="toc">
+  <h2>Sumario</h2>
+  <ol>
+    <li><a href="#intro">Introducao</a></li>
+    <li><a href="#laticinios">Laticinios</a></li>
+    <li><a href="#farinhas">Farinhas e Amidos</a></li>
+    <li><a href="#ovos">Ovos</a></li>
+    <li><a href="#acucares">Acucares e Adocantes</a></li>
+    <li><a href="#gorduras">Oleos e Gorduras</a></li>
+    <li><a href="#proteinas">Proteinas</a></li>
+    <li><a href="#temperos">Temperos</a></li>
+    <li><a href="#legumes">Legumes e Verduras</a></li>
+    <li><a href="#alergenos">Substituicoes para Alergenos</a></li>
+    <li><a href="#quickref">Cartao de Referencia Rapida</a></li>
+  </ol>
+</div>
+
+<!-- INTRO -->
+<div class="chapter" id="intro">
+  <div class="chapter-number">Introducao</div>
+  <h2>Nunca Mais Pare uma Receita por Falta de Ingrediente</h2>
+  <p>Quantas vezes voce ja comecou uma receita e descobriu no meio do preparo que faltava um ingrediente? Ou quis fazer algo, mas o mercado nao tinha exatamente o que a receita pedia?</p>
+  <p>Este guia e a solucao. Aqui voce encontra substituicoes testadas e aprovadas para os ingredientes mais comuns da cozinha. Com ele, voce nunca mais vai desistir de uma receita.</p>
+  <p><strong>Algumas regras importantes:</strong></p>
+  <ul>
+    <li>Substituicoes podem alterar levemente o sabor ou a textura final - e normal.</li>
+    <li>Quanto mais ingredientes voce substituir em uma mesma receita, maior a chance de diferenca no resultado.</li>
+    <li>As proporcoes indicadas sao para substituir 1 unidade do ingrediente original.</li>
+    <li>Teste primeiro em pequenas quantidades ate pegar confianca.</li>
+  </ul>
+</div>
+
+<!-- LATICINIOS -->
+<div class="chapter" id="laticinios">
+  <div class="category-header">
+    <h3>Laticinios</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Leite integral</td>
+        <td>Leite em po diluido em agua</td>
+        <td>3 col. sopa de leite em po + 1 xicara de agua</td>
+      </tr>
+      <tr>
+        <td class="item">Leite integral</td>
+        <td>Leite de coco</td>
+        <td>1 xicara por 1 xicara (adiciona sabor de coco)</td>
+      </tr>
+      <tr>
+        <td class="item">Leite integral</td>
+        <td>Agua + manteiga</td>
+        <td>1 xicara de agua + 1 col. sopa de manteiga (para bolos)</td>
+      </tr>
+      <tr>
+        <td class="item">Creme de leite</td>
+        <td>Leite de coco (parte espessa)</td>
+        <td>1 xicara por 1 xicara</td>
+      </tr>
+      <tr>
+        <td class="item">Creme de leite</td>
+        <td>Leite integral + manteiga</td>
+        <td>3/4 xicara de leite + 1/4 xicara de manteiga derretida</td>
+      </tr>
+      <tr>
+        <td class="item">Creme de leite</td>
+        <td>Iogurte natural</td>
+        <td>1 xicara por 1 xicara (resultado mais acido)</td>
+      </tr>
+      <tr>
+        <td class="item">Leite condensado</td>
+        <td>Leite em po + acucar + manteiga + agua</td>
+        <td>1 xicara de leite em po + 1/2 xicara de acucar + 1/2 xicara de agua quente + 1 col. de manteiga. Bata no liquidificador</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga</td>
+        <td>Margarina</td>
+        <td>Mesma quantidade (sabor levemente diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga</td>
+        <td>Oleo de coco</td>
+        <td>Mesma quantidade (otimo para confeitaria)</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga (em bolos)</td>
+        <td>Oleo vegetal</td>
+        <td>3/4 da quantidade (100g manteiga = 75ml oleo)</td>
+      </tr>
+      <tr>
+        <td class="item">Queijo parmesao</td>
+        <td>Queijo pecorino</td>
+        <td>Mesma quantidade (mais salgado, ajuste o sal)</td>
+      </tr>
+      <tr>
+        <td class="item">Queijo parmesao</td>
+        <td>Queijo do tipo grana padano</td>
+        <td>Mesma quantidade (sabor muito semelhante)</td>
+      </tr>
+      <tr>
+        <td class="item">Queijo mussarela</td>
+        <td>Queijo provolone</td>
+        <td>Mesma quantidade (sabor mais acentuado)</td>
+      </tr>
+      <tr>
+        <td class="item">Requeijao</td>
+        <td>Cream cheese + 1 fio de leite</td>
+        <td>Mesma quantidade, amolecido com leite</td>
+      </tr>
+      <tr>
+        <td class="item">Requeijao</td>
+        <td>Ricota amassada + creme de leite</td>
+        <td>2/3 ricota + 1/3 creme de leite</td>
+      </tr>
+      <tr>
+        <td class="item">Iogurte natural</td>
+        <td>Creme de leite + suco de limao</td>
+        <td>1 xicara de creme de leite + 1 col. sopa de limao</td>
+      </tr>
+      <tr>
+        <td class="item">Chantilly</td>
+        <td>Creme de leite fresco batido com acucar</td>
+        <td>200ml de creme de leite fresco gelado + 2 col. de acucar. Bata na batedeira ate dobrar</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- FARINHAS -->
+<div class="chapter" id="farinhas">
+  <div class="category-header">
+    <h3>Farinhas e Amidos</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Farinha de trigo</td>
+        <td>Farinha de arroz</td>
+        <td>Mesma quantidade (sem gluten, textura diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de trigo</td>
+        <td>Amido de milho (maisena)</td>
+        <td>Metade da quantidade (apenas para engrossar molhos)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de trigo</td>
+        <td>Farinha de aveia</td>
+        <td>Mesma quantidade (sabor mais rustico, mais densa)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de trigo</td>
+        <td>Farinha de amêndoas</td>
+        <td>Mesma quantidade (sem gluten, mais umida - reduza liquidos)</td>
+      </tr>
+      <tr>
+        <td class="item">Maisena (engrossante)</td>
+        <td>Farinha de trigo</td>
+        <td>O dobro da quantidade (1 col. maisena = 2 col. farinha)</td>
+      </tr>
+      <tr>
+        <td class="item">Maisena (engrossante)</td>
+        <td>Polvilho doce</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Maisena (engrossante)</td>
+        <td>Araruta</td>
+        <td>Mesma quantidade (otima para molhos transparentes)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de rosca</td>
+        <td>Biscoito cream cracker triturado</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de rosca</td>
+        <td>Pao amanhecido ralado e torrado</td>
+        <td>Mesma quantidade (mais rustica)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de rosca</td>
+        <td>Aveia em flocos finos</td>
+        <td>Mesma quantidade (para empanar)</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de mandioca</td>
+        <td>Farinha de milho (fuba)</td>
+        <td>Mesma quantidade (sabor e textura diferentes)</td>
+      </tr>
+      <tr>
+        <td class="item">Fermento biologico</td>
+        <td>Fermento biologico seco</td>
+        <td>1/3 da quantidade (15g fresco = 5g seco)</td>
+      </tr>
+      <tr>
+        <td class="item">Fermento em po</td>
+        <td>Bicarbonato + vinagre/limao</td>
+        <td>1 col. cha de fermento = 1/4 col. cha de bicarbonato + 1/2 col. cha de vinagre</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- OVOS -->
+<div class="chapter" id="ovos">
+  <div class="category-header">
+    <h3>Ovos</h3>
+  </div>
+
+  <p>Substituir ovos e um dos maiores desafios, pois eles cumprem varias funcoes: dar estrutura, umidade, leveza e ligacao. A substituicao depende da funcao do ovo na receita.</p>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Substituto (para 1 ovo)</th>
+        <th>Melhor para</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Banana madura amassada</td>
+        <td>Bolos, panquecas, muffins</td>
+        <td>1/2 banana madura amassada = 1 ovo</td>
+      </tr>
+      <tr>
+        <td class="item">Linhaça + agua (ovo de linhaca)</td>
+        <td>Bolos, biscoitos, paes</td>
+        <td>1 col. sopa de linhaca moida + 3 col. sopa de agua. Misture e espere 5 min ate virar gel</td>
+      </tr>
+      <tr>
+        <td class="item">Chia + agua</td>
+        <td>Bolos, muffins, panquecas</td>
+        <td>1 col. sopa de chia + 3 col. sopa de agua. Espere 15 min</td>
+      </tr>
+      <tr>
+        <td class="item">Aquafaba (agua do grao-de-bico)</td>
+        <td>Merengues, mousses, macarons</td>
+        <td>3 col. sopa de aquafaba = 1 ovo. Bata como clara em neve</td>
+      </tr>
+      <tr>
+        <td class="item">Pure de maca</td>
+        <td>Bolos, muffins, brownies</td>
+        <td>3 col. sopa de pure de maca sem acucar = 1 ovo</td>
+      </tr>
+      <tr>
+        <td class="item">Iogurte natural</td>
+        <td>Bolos, muffins</td>
+        <td>3 col. sopa de iogurte = 1 ovo</td>
+      </tr>
+      <tr>
+        <td class="item">Maisena + agua</td>
+        <td>Pudins, cremes, mingaus</td>
+        <td>2 col. sopa de maisena + 3 col. sopa de agua = 1 ovo</td>
+      </tr>
+      <tr>
+        <td class="item">Tofu macio</td>
+        <td>Quiches, tortas salgadas, recheios</td>
+        <td>60g de tofu amassado = 1 ovo</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Dica da Lu</div>
+    <p>Se a receita pede 3 ou mais ovos, a substituicao fica mais dificil e o resultado pode variar bastante. Nesse caso, tente substituir apenas 1 ou 2 dos ovos e mantenha pelo menos 1 ovo real, se possivel.</p>
+  </div>
+</div>
+
+<!-- ACUCARES -->
+<div class="chapter" id="acucares">
+  <div class="category-header">
+    <h3>Acucares e Adocantes</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Acucar mascavo</td>
+        <td>Mesma quantidade (sabor mais encorpado, cor mais escura)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Acucar demerara</td>
+        <td>Mesma quantidade (cristais maiores, leve sabor de mel)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Acucar de coco</td>
+        <td>Mesma quantidade (indice glicemico menor)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Mel</td>
+        <td>3/4 da quantidade (1 xicara acucar = 3/4 xicara de mel). Reduza os liquidos da receita em 2 colheres</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Melado de cana</td>
+        <td>3/4 da quantidade (sabor forte e terroso)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Stevia culinaria</td>
+        <td>Consulte o rotulo (geralmente 1 col. cha de stevia = 1 xicara de acucar, mas varia por marca)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Xilitol</td>
+        <td>Mesma quantidade (nao carameliza, cuidado com excesso - pode ser laxante)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar refinado</td>
+        <td>Eritritol</td>
+        <td>1,3x a quantidade (e menos doce que acucar)</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar de confeiteiro</td>
+        <td>Acucar refinado batido no liquidificador</td>
+        <td>Mesma quantidade. Bata por 1 minuto ate virar po. Adicione 1 col. cha de maisena por xicara</td>
+      </tr>
+      <tr>
+        <td class="item">Acucar mascavo</td>
+        <td>Acucar refinado + melado</td>
+        <td>1 xicara de acucar + 2 col. sopa de melado</td>
+      </tr>
+      <tr>
+        <td class="item">Mel</td>
+        <td>Melado de cana</td>
+        <td>Mesma quantidade (sabor diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Mel</td>
+        <td>Xarope de agave</td>
+        <td>Mesma quantidade</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- GORDURAS -->
+<div class="chapter" id="gorduras">
+  <div class="category-header">
+    <h3>Oleos e Gorduras</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Oleo de soja</td>
+        <td>Oleo de canola</td>
+        <td>Mesma quantidade (sabor neutro, intercambiavel)</td>
+      </tr>
+      <tr>
+        <td class="item">Oleo de soja</td>
+        <td>Oleo de girassol</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Oleo de soja</td>
+        <td>Oleo de milho</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Azeite de oliva</td>
+        <td>Oleo de abacate</td>
+        <td>Mesma quantidade (neutro, suporta alta temperatura)</td>
+      </tr>
+      <tr>
+        <td class="item">Azeite de oliva (para cozinhar)</td>
+        <td>Oleo de coco</td>
+        <td>Mesma quantidade (sabor de coco)</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga (para cozinhar)</td>
+        <td>Ghee (manteiga clarificada)</td>
+        <td>Mesma quantidade (sem lactose, suporta alta temperatura)</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga (em bolos)</td>
+        <td>Pure de abacate</td>
+        <td>Mesma quantidade (deixa o bolo muito umido)</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga (em bolos)</td>
+        <td>Pure de banana</td>
+        <td>Metade da quantidade (1/2 xicara banana = 1 xicara manteiga). Reduz gordura, adiciona docura</td>
+      </tr>
+      <tr>
+        <td class="item">Banha de porco</td>
+        <td>Oleo de coco</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Banha de porco</td>
+        <td>Manteiga</td>
+        <td>Mesma quantidade (para receitas que nao necessitam especificamente de banha)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- PROTEINAS -->
+<div class="chapter" id="proteinas">
+  <div class="category-header">
+    <h3>Proteinas</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Peito de frango</td>
+        <td>Coxa e sobrecoxa desossada</td>
+        <td>Mesma quantidade (mais suculento, mais gordura)</td>
+      </tr>
+      <tr>
+        <td class="item">Peito de frango</td>
+        <td>File de peixe branco (tilapia)</td>
+        <td>Mesma quantidade (cozimento mais rapido)</td>
+      </tr>
+      <tr>
+        <td class="item">Carne moida bovina</td>
+        <td>Carne moida de frango</td>
+        <td>Mesma quantidade (menos gordura, mais leve)</td>
+      </tr>
+      <tr>
+        <td class="item">Carne moida bovina</td>
+        <td>Carne de soja (PTS) hidratada</td>
+        <td>Mesma quantidade apos hidratar (para veganos/vegetarianos)</td>
+      </tr>
+      <tr>
+        <td class="item">Alcatra</td>
+        <td>Patinho</td>
+        <td>Mesma quantidade (mais magro, bom para bifes)</td>
+      </tr>
+      <tr>
+        <td class="item">Alcatra</td>
+        <td>Coxao mole</td>
+        <td>Mesma quantidade (similar, levemente menos macio)</td>
+      </tr>
+      <tr>
+        <td class="item">Bacon</td>
+        <td>Pancetta</td>
+        <td>Mesma quantidade (nao e defumada)</td>
+      </tr>
+      <tr>
+        <td class="item">Bacon</td>
+        <td>Peito de peru defumado</td>
+        <td>Mesma quantidade (menos gordura)</td>
+      </tr>
+      <tr>
+        <td class="item">Camarao</td>
+        <td>Lagostim</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Salmao</td>
+        <td>Truta</td>
+        <td>Mesma quantidade (sabor e textura similares)</td>
+      </tr>
+      <tr>
+        <td class="item">Bacalhau</td>
+        <td>Merluza dessalgada</td>
+        <td>Mesma quantidade (salgue a merluza por 24h antes)</td>
+      </tr>
+      <tr>
+        <td class="item">Linguica calabresa</td>
+        <td>Linguica toscana</td>
+        <td>Mesma quantidade (sem defumado)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- TEMPEROS -->
+<div class="chapter" id="temperos">
+  <div class="category-header">
+    <h3>Temperos</h3>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Oregano</td>
+        <td>Manjericao seco</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Oregano</td>
+        <td>Tomilho</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Manjericao fresco</td>
+        <td>Manjericao seco</td>
+        <td>1/3 da quantidade (1 col. sopa fresco = 1 col. cha seco)</td>
+      </tr>
+      <tr>
+        <td class="item">Salsinha</td>
+        <td>Cebolinha</td>
+        <td>Mesma quantidade (sabor diferente, mas funciona para finalizacao)</td>
+      </tr>
+      <tr>
+        <td class="item">Coentro</td>
+        <td>Salsinha + suco de limao</td>
+        <td>Mesma quantidade de salsinha + 1 col. cha de limao</td>
+      </tr>
+      <tr>
+        <td class="item">Alecrim fresco</td>
+        <td>Alecrim seco</td>
+        <td>1/3 da quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Alecrim</td>
+        <td>Tomilho</td>
+        <td>Mesma quantidade (ambas sao ervas de carnes assadas)</td>
+      </tr>
+      <tr>
+        <td class="item">Cominho</td>
+        <td>Curry em po</td>
+        <td>Metade da quantidade (curry ja contem cominho)</td>
+      </tr>
+      <tr>
+        <td class="item">Pimenta-do-reino</td>
+        <td>Pimenta branca</td>
+        <td>Mesma quantidade (mais suave, menos visual)</td>
+      </tr>
+      <tr>
+        <td class="item">Noz-moscada</td>
+        <td>Canela + cravo (pitada de cada)</td>
+        <td>1/2 col. cha de canela + 1 pitada de cravo = 1 col. cha de noz-moscada</td>
+      </tr>
+      <tr>
+        <td class="item">Gengibre fresco</td>
+        <td>Gengibre em po</td>
+        <td>1 col. sopa de gengibre fresco = 1/4 col. cha de gengibre em po</td>
+      </tr>
+      <tr>
+        <td class="item">Curcuma (acafrao-da-terra)</td>
+        <td>Acafrao verdadeiro (em estigmas)</td>
+        <td>Poucos fios de acafrao = 1 col. cha de curcuma (acafrao e mais caro)</td>
+      </tr>
+      <tr>
+        <td class="item">Curcuma</td>
+        <td>Colorau (colorífico)</td>
+        <td>Mesma quantidade (da cor, mas sabor diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Louro</td>
+        <td>Tomilho seco</td>
+        <td>1/4 col. cha de tomilho = 1 folha de louro</td>
+      </tr>
+      <tr>
+        <td class="item">Molho shoyu</td>
+        <td>Molho ingles + sal</td>
+        <td>Mesma quantidade de molho ingles + 1 pitada de sal</td>
+      </tr>
+      <tr>
+        <td class="item">Vinagre de vinho</td>
+        <td>Suco de limao</td>
+        <td>Mesma quantidade (mais citrico)</td>
+      </tr>
+      <tr>
+        <td class="item">Vinagre de vinho</td>
+        <td>Vinagre de maca</td>
+        <td>Mesma quantidade (mais suave)</td>
+      </tr>
+      <tr>
+        <td class="item">Vinho branco (para cozinhar)</td>
+        <td>Suco de uva branca + 1 col. de vinagre</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Vinho tinto (para cozinhar)</td>
+        <td>Suco de uva tinta + 1 col. de vinagre</td>
+        <td>Mesma quantidade</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- LEGUMES -->
+<div class="chapter" id="legumes">
+  <div class="category-header">
+    <h3>Legumes e Verduras</h3>
+  </div>
+
+  <p>As substituicoes de legumes e verduras dependem muito da sazonalidade. Aqui estao as trocas mais comuns que nao prejudicam as receitas:</p>
+
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente Original</th>
+        <th>Substituto</th>
+        <th>Proporcao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Brocolis</td>
+        <td>Couve-flor</td>
+        <td>Mesma quantidade (mesmo tempo de cozimento)</td>
+      </tr>
+      <tr>
+        <td class="item">Brocolis</td>
+        <td>Vagem</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Espinafre</td>
+        <td>Couve manteiga</td>
+        <td>Mesma quantidade (cozinhe um pouco mais)</td>
+      </tr>
+      <tr>
+        <td class="item">Espinafre</td>
+        <td>Agriao</td>
+        <td>Mesma quantidade (sabor mais picante)</td>
+      </tr>
+      <tr>
+        <td class="item">Abobrinha</td>
+        <td>Chuchu</td>
+        <td>Mesma quantidade (textura similar)</td>
+      </tr>
+      <tr>
+        <td class="item">Abobrinha</td>
+        <td>Berinjela</td>
+        <td>Mesma quantidade (absorve mais oleo)</td>
+      </tr>
+      <tr>
+        <td class="item">Cenoura</td>
+        <td>Abobora</td>
+        <td>Mesma quantidade (mais doce, textura diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Cenoura</td>
+        <td>Beterraba</td>
+        <td>Mesma quantidade (muda a cor do prato)</td>
+      </tr>
+      <tr>
+        <td class="item">Batata inglesa</td>
+        <td>Batata doce</td>
+        <td>Mesma quantidade (mais doce)</td>
+      </tr>
+      <tr>
+        <td class="item">Batata inglesa</td>
+        <td>Mandioca</td>
+        <td>Mesma quantidade (cozimento mais demorado)</td>
+      </tr>
+      <tr>
+        <td class="item">Batata inglesa</td>
+        <td>Inhame</td>
+        <td>Mesma quantidade (textura mais cremosa)</td>
+      </tr>
+      <tr>
+        <td class="item">Tomate fresco</td>
+        <td>Tomate pelado em lata</td>
+        <td>1 tomate grande = 3-4 col. sopa de tomate pelado</td>
+      </tr>
+      <tr>
+        <td class="item">Pimentao</td>
+        <td>Tomate (em refogados)</td>
+        <td>Mesma quantidade (cor e sabor diferentes)</td>
+      </tr>
+      <tr>
+        <td class="item">Cogumelos frescos</td>
+        <td>Cogumelos em conserva (escorridos)</td>
+        <td>Mesma quantidade (textura diferente)</td>
+      </tr>
+      <tr>
+        <td class="item">Alho-poro</td>
+        <td>Cebola + cebolinha</td>
+        <td>Mesma quantidade (use a parte branca da cebola e cebolinha picada)</td>
+      </tr>
+      <tr>
+        <td class="item">Salsao (aipo)</td>
+        <td>Funcho (erva-doce em talo)</td>
+        <td>Mesma quantidade (sabor anisado)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ALERGENOS -->
+<div class="chapter" id="alergenos">
+  <div class="chapter-number">Capitulo Especial</div>
+  <h2>Substituicoes para Alergenos</h2>
+  <p>Para quem tem restricoes alimentares, aqui estao as substituicoes mais seguras e testadas:</p>
+
+  <h3>Receitas Sem Gluten</h3>
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente</th>
+        <th>Substituto sem Gluten</th>
+        <th>Observacoes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Farinha de trigo</td>
+        <td>Mix sem gluten (farinha de arroz + polvilho + maisena)</td>
+        <td>Proporcao: 2 xicaras de farinha de arroz + 2/3 xicara de polvilho doce + 1/3 xicara de maisena. Adicione 1 col. cha de goma xantana por xicara de mix</td>
+      </tr>
+      <tr>
+        <td class="item">Macarrao de trigo</td>
+        <td>Macarrao de arroz ou milho</td>
+        <td>Cozinhe menos tempo que o trigo (siga a embalagem)</td>
+      </tr>
+      <tr>
+        <td class="item">Pao de trigo</td>
+        <td>Pao de queijo / tapioca / pao sem gluten</td>
+        <td>Cada substituto tem preparo diferente</td>
+      </tr>
+      <tr>
+        <td class="item">Farinha de rosca</td>
+        <td>Farinha de arroz torrada ou flocos de milho triturados</td>
+        <td>Para empanar e cobrir gratinados</td>
+      </tr>
+      <tr>
+        <td class="item">Molho shoyu</td>
+        <td>Molho tamari</td>
+        <td>Feito sem trigo, sabor muito similar</td>
+      </tr>
+      <tr>
+        <td class="item">Cerveja (para massas)</td>
+        <td>Agua com gas</td>
+        <td>Mesma quantidade (da leveza a massas)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Receitas Sem Lactose</h3>
+  <div style="overflow-x:auto;">
+  <table class="sub-table">
+    <thead>
+      <tr>
+        <th>Ingrediente</th>
+        <th>Substituto sem Lactose</th>
+        <th>Observacoes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="item">Leite de vaca</td>
+        <td>Leite de aveia, amêndoas, coco ou arroz</td>
+        <td>1:1. Leite de aveia e o mais neutro para cozinhar; leite de coco e mais cremoso</td>
+      </tr>
+      <tr>
+        <td class="item">Creme de leite</td>
+        <td>Creme de leite de coco (parte solida da lata refrigerada)</td>
+        <td>Mesma quantidade. Refrigere a lata 24h antes e use apenas a parte solida</td>
+      </tr>
+      <tr>
+        <td class="item">Manteiga</td>
+        <td>Oleo de coco ou azeite</td>
+        <td>Mesma quantidade. Ghee tambem e opcao (tem lactose residual minima)</td>
+      </tr>
+      <tr>
+        <td class="item">Queijo</td>
+        <td>Levedura nutricional (nutritional yeast)</td>
+        <td>Para sabor de queijo: polvilhe sobre massas e gratinados</td>
+      </tr>
+      <tr>
+        <td class="item">Iogurte</td>
+        <td>Iogurte de coco ou soja</td>
+        <td>Mesma quantidade</td>
+      </tr>
+      <tr>
+        <td class="item">Leite condensado</td>
+        <td>Leite de coco condensado (industrializado ou caseiro)</td>
+        <td>Caseiro: 400ml leite de coco + 1/2 xicara de acucar. Ferva ate reduzir pela metade</td>
+      </tr>
+      <tr>
+        <td class="item">Chantilly</td>
+        <td>Creme de leite de coco batido</td>
+        <td>Refrigere a lata de leite de coco por 24h. Use apenas a parte solida e bata com acucar</td>
+      </tr>
+      <tr>
+        <td class="item">Requeijao</td>
+        <td>Tofu cremoso batido com azeite e sal</td>
+        <td>200g tofu + 2 col. azeite + sal. Bata no processador</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Importante</div>
+    <p>Se voce cozinha para alguem com alergia severa, sempre verifique os rotulos dos produtos substitutos. Muitos produtos "sem gluten" podem ter tracos de trigo, e leites vegetais podem conter tracos de nozes. Em caso de alergia severa, consulte um nutricionista.</p>
+  </div>
+</div>
+
+<!-- CARTAO DE REFERENCIA RAPIDA -->
+<div class="quick-ref" id="quickref">
+  <h2>Cartao de Referencia Rapida</h2>
+  <p class="subtitle">As 20 substituicoes mais usadas no dia a dia - imprima e cole na geladeira!</p>
+
+  <div class="quick-list">
+    <div class="quick-item">
+      <span class="original">Leite</span>
+      <span class="arrow">&rarr;</span>
+      Agua + manteiga
+    </div>
+    <div class="quick-item">
+      <span class="original">Creme de leite</span>
+      <span class="arrow">&rarr;</span>
+      Iogurte natural
+    </div>
+    <div class="quick-item">
+      <span class="original">Manteiga</span>
+      <span class="arrow">&rarr;</span>
+      Margarina ou oleo (3/4)
+    </div>
+    <div class="quick-item">
+      <span class="original">Ovo (em bolo)</span>
+      <span class="arrow">&rarr;</span>
+      1/2 banana amassada
+    </div>
+    <div class="quick-item">
+      <span class="original">Farinha de trigo</span>
+      <span class="arrow">&rarr;</span>
+      Farinha de aveia
+    </div>
+    <div class="quick-item">
+      <span class="original">Maisena</span>
+      <span class="arrow">&rarr;</span>
+      2x farinha de trigo
+    </div>
+    <div class="quick-item">
+      <span class="original">Farinha de rosca</span>
+      <span class="arrow">&rarr;</span>
+      Biscoito triturado
+    </div>
+    <div class="quick-item">
+      <span class="original">Fermento em po</span>
+      <span class="arrow">&rarr;</span>
+      Bicarbonato + vinagre
+    </div>
+    <div class="quick-item">
+      <span class="original">Acucar refinado</span>
+      <span class="arrow">&rarr;</span>
+      Acucar mascavo (1:1)
+    </div>
+    <div class="quick-item">
+      <span class="original">Acucar refinado</span>
+      <span class="arrow">&rarr;</span>
+      Mel (usar 3/4)
+    </div>
+    <div class="quick-item">
+      <span class="original">Oregano</span>
+      <span class="arrow">&rarr;</span>
+      Manjericao seco
+    </div>
+    <div class="quick-item">
+      <span class="original">Coentro</span>
+      <span class="arrow">&rarr;</span>
+      Salsinha + limao
+    </div>
+    <div class="quick-item">
+      <span class="original">Noz-moscada</span>
+      <span class="arrow">&rarr;</span>
+      Canela + cravo
+    </div>
+    <div class="quick-item">
+      <span class="original">Brocolis</span>
+      <span class="arrow">&rarr;</span>
+      Couve-flor ou vagem
+    </div>
+    <div class="quick-item">
+      <span class="original">Batata</span>
+      <span class="arrow">&rarr;</span>
+      Mandioca ou inhame
+    </div>
+    <div class="quick-item">
+      <span class="original">Espinafre</span>
+      <span class="arrow">&rarr;</span>
+      Couve manteiga
+    </div>
+    <div class="quick-item">
+      <span class="original">Abobrinha</span>
+      <span class="arrow">&rarr;</span>
+      Chuchu
+    </div>
+    <div class="quick-item">
+      <span class="original">Shoyu</span>
+      <span class="arrow">&rarr;</span>
+      Molho ingles + sal
+    </div>
+    <div class="quick-item">
+      <span class="original">Vinho (cozinhar)</span>
+      <span class="arrow">&rarr;</span>
+      Suco de uva + vinagre
+    </div>
+    <div class="quick-item">
+      <span class="original">Requeijao</span>
+      <span class="arrow">&rarr;</span>
+      Cream cheese + leite
+    </div>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="brand">Cozinhe com a Lu</div>
+  <p>Material exclusivo para membros</p>
+  <p style="margin-top:8px;">&copy; Lurdes Almeida - Todos os direitos reservados</p>
+</div>
+
+</div>
+</body>
+</html>

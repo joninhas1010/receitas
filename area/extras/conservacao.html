@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Conservacao de Alimentos - Cozinhe com a Lu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF6E3;
+            color: #5A3522;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #FF6B4A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #5A3522;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            font-size: 1rem;
+            color: #8B6F5E;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 36px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #5A3522;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #EEE3C8;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #EEE3C8;
+        }
+        thead th {
+            background: #5A3522;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 12px 14px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #EEE3C8;
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:nth-child(even) { background: #FFF6E3; }
+        .food-name {
+            font-weight: 600;
+            color: #5A3522;
+        }
+        .time-good {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .time-medium {
+            color: #FF9800;
+            font-weight: 600;
+        }
+        .time-short {
+            color: #FF6B4A;
+            font-weight: 600;
+        }
+        .tip-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #EEE3C8;
+            margin-bottom: 14px;
+        }
+        .tip-card h3 {
+            font-size: 1rem;
+            color: #FF6B4A;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-card p, .tip-card li {
+            font-size: 0.9rem;
+            color: #5A3522;
+        }
+        .tip-card ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+        .tip-card li {
+            margin-bottom: 4px;
+        }
+        .warning-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #FF6B4A;
+            margin-bottom: 14px;
+        }
+        .warning-box h3 {
+            font-size: 1rem;
+            color: #FF6B4A;
+            margin-bottom: 10px;
+        }
+        .warning-box ul {
+            padding-left: 20px;
+        }
+        .warning-box li {
+            font-size: 0.9rem;
+            color: #5A3522;
+            margin-bottom: 6px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        @media (min-width: 520px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+        .step-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid #EEE3C8;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #FF6B4A;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .step-card h3 {
+            font-size: 0.95rem;
+            color: #5A3522;
+            margin-bottom: 6px;
+        }
+        .step-card p {
+            font-size: 0.85rem;
+            color: #8B6F5E;
+        }
+        .storage-tip-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media (min-width: 520px) {
+            .storage-tip-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .storage-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #EEE3C8;
+        }
+        .storage-item h4 {
+            font-size: 0.95rem;
+            color: #FF6B4A;
+            margin-bottom: 6px;
+        }
+        .storage-item p {
+            font-size: 0.85rem;
+            color: #5A3522;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+        <div class="page-header">
+            <h1>Guia de Conservacao de Alimentos</h1>
+            <p>Saiba quanto tempo cada alimento dura, como congelar corretamente e quando descartar. Evite desperdicio e cuide da saude da sua familia.</p>
+        </div>
+
+        <!-- Duracao na Geladeira -->
+        <div class="section">
+            <h2 class="section-title">Quanto Tempo Dura na Geladeira</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Alimento</th>
+                            <th>Duracao (geladeira)</th>
+                            <th>Observacao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="food-name">Carne bovina crua</td>
+                            <td class="time-short">2 a 3 dias</td>
+                            <td>Manter na parte mais fria, em recipiente fechado</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Frango cru</td>
+                            <td class="time-short">1 a 2 dias</td>
+                            <td>Muito perecivel, congelar se nao usar logo</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Peixe cru</td>
+                            <td class="time-short">1 dia</td>
+                            <td>Idealmente consumir no dia da compra</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Carne cozida</td>
+                            <td class="time-medium">3 a 4 dias</td>
+                            <td>Em recipiente hermetico, esperar esfriar antes de guardar</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Arroz cozido</td>
+                            <td class="time-medium">3 a 5 dias</td>
+                            <td>Guardar em pote fechado assim que esfriar</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Feijao cozido</td>
+                            <td class="time-medium">3 a 5 dias</td>
+                            <td>Manter no caldo, em pote fechado</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Ovos (inteiros)</td>
+                            <td class="time-good">3 a 5 semanas</td>
+                            <td>Manter na embalagem original, nao lavar antes</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Leite aberto</td>
+                            <td class="time-short">3 a 5 dias</td>
+                            <td>Manter bem fechado, nao devolver ao recipiente</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Queijo mussarela</td>
+                            <td class="time-medium">7 a 10 dias</td>
+                            <td>Embrulhar em plastico filme ou papel manteiga</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Presunto/peito de peru</td>
+                            <td class="time-short">3 a 5 dias</td>
+                            <td>Em recipiente fechado ou bem embalado</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Folhas verdes (alface)</td>
+                            <td class="time-medium">5 a 7 dias</td>
+                            <td>Lavar, secar e guardar com papel toalha</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Tomate</td>
+                            <td class="time-medium">5 a 7 dias</td>
+                            <td>Fora da geladeira se verde; dentro se maduro</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Legumes cozidos</td>
+                            <td class="time-medium">3 a 5 dias</td>
+                            <td>Em recipiente hermetico</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Molho de tomate aberto</td>
+                            <td class="time-medium">5 a 7 dias</td>
+                            <td>Transferir da lata para pote de vidro</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Sobras de refeicao</td>
+                            <td class="time-short">2 a 3 dias</td>
+                            <td>Refrigerar dentro de 2 horas apos preparo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Duracao no Freezer -->
+        <div class="section">
+            <h2 class="section-title">Quanto Tempo Dura no Freezer</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Alimento</th>
+                            <th>Duracao (freezer)</th>
+                            <th>Dica de embalagem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="food-name">Carne bovina crua</td>
+                            <td class="time-good">4 a 6 meses</td>
+                            <td>Embalar a vacuo ou em saco ziplock sem ar</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Frango cru</td>
+                            <td class="time-good">6 a 9 meses</td>
+                            <td>Porcionar antes de congelar, retirar pele se preferir</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Peixe cru</td>
+                            <td class="time-good">3 a 6 meses</td>
+                            <td>Embalar em porcoes individuais</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Carne moida crua</td>
+                            <td class="time-medium">3 a 4 meses</td>
+                            <td>Achatar em saco para congelar mais rapido</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Feijao cozido</td>
+                            <td class="time-good">3 meses</td>
+                            <td>Congelar com caldo, em porcoes para a semana</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Arroz cozido</td>
+                            <td class="time-good">3 meses</td>
+                            <td>Congelar em porcoes individuais, bem fechado</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Sopas e caldos</td>
+                            <td class="time-good">3 a 4 meses</td>
+                            <td>Deixar espaco no pote (liquido expande)</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Molhos (bolonhesa, tomate)</td>
+                            <td class="time-good">3 a 4 meses</td>
+                            <td>Em potes ou sacos portionados</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Paes</td>
+                            <td class="time-good">3 meses</td>
+                            <td>Fatiar antes de congelar para facilitar</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Bolos (sem cobertura)</td>
+                            <td class="time-good">3 meses</td>
+                            <td>Embrulhar em plastico e depois aluminio</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Legumes branqueados</td>
+                            <td class="time-good">8 a 12 meses</td>
+                            <td>Branquear antes de congelar para manter cor e textura</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Frutas</td>
+                            <td class="time-good">6 a 12 meses</td>
+                            <td>Picar, espalhar em bandeja, depois embalar</td>
+                        </tr>
+                        <tr>
+                            <td class="food-name">Marmitas prontas</td>
+                            <td class="time-good">2 a 3 meses</td>
+                            <td>Em recipientes proprios para freezer/micro-ondas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Como Congelar Corretamente -->
+        <div class="section">
+            <h2 class="section-title">Como Congelar Corretamente</h2>
+
+            <div class="tip-card" style="margin-bottom: 20px;">
+                <h3>Regra de Ouro do Congelamento</h3>
+                <p>Nunca coloque alimentos quentes no freezer. Espere esfriar completamente em temperatura ambiente (ate 2 horas no maximo) e so entao leve ao freezer. Alimentos quentes elevam a temperatura interna do freezer e podem estragar os demais itens congelados.</p>
+            </div>
+
+            <h3 style="font-size: 1rem; margin-bottom: 14px; color: #5A3522;">Passo a passo por tipo de alimento:</h3>
+
+            <div class="tip-card">
+                <h3>Legumes e Verduras</h3>
+                <ul>
+                    <li><strong>Branqueamento:</strong> Ferva agua, mergulhe o legume picado por 2-3 minutos, depois mergulhe imediatamente em agua gelada (choque termico).</li>
+                    <li><strong>Secagem:</strong> Seque bem com papel toalha antes de embalar.</li>
+                    <li><strong>Embalagem:</strong> Espalhe em uma bandeja sem sobrepor, congele por 2 horas, depois transfira para saco ziplock retirando o ar.</li>
+                    <li><strong>Funcionam bem:</strong> Brocolis, couve-flor, cenoura, ervilha, milho, vagem, espinafre.</li>
+                    <li><strong>Evite congelar:</strong> Alface, rucula, pepino, rabanete (ficam muito moles).</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Carnes</h3>
+                <ul>
+                    <li><strong>Porcione:</strong> Divida em porcoes que voce usara de uma vez. Nao recongele carne descongelada.</li>
+                    <li><strong>Tempere:</strong> Pode congelar ja temperada para facilitar na hora de cozinhar.</li>
+                    <li><strong>Embale bem:</strong> Use saco ziplock retirando todo o ar, ou papel aluminio + plastico filme.</li>
+                    <li><strong>Etiquete:</strong> Sempre coloque a data de congelamento e o que e (tipo e peso).</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Refeicoes Prontas (Marmitas)</h3>
+                <ul>
+                    <li><strong>Recipientes:</strong> Use potes proprios para freezer e micro-ondas, ou marmitas de aluminio.</li>
+                    <li><strong>Nao encha ate a borda:</strong> Deixe 1-2 cm de espaco, pois o alimento expande ao congelar.</li>
+                    <li><strong>Esfrie primeiro:</strong> Monte a marmita, espere esfriar, tampe e congele.</li>
+                    <li><strong>Variedade:</strong> Prepare 3-4 opcoes diferentes para a semana.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Como Descongelar com Seguranca -->
+        <div class="section">
+            <h2 class="section-title">Como Descongelar com Seguranca</h2>
+            <div class="grid-2">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Geladeira (melhor metodo)</h3>
+                    <p>Transfira do freezer para a geladeira na noite anterior. Leva de 8 a 24 horas, dependendo do tamanho. E o metodo mais seguro, pois mantem o alimento em temperatura controlada.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Agua corrente fria</h3>
+                    <p>Coloque o alimento em saco plastico vedado sob agua corrente fria. Leva de 1 a 3 horas. Cozinhe imediatamente apos descongelar.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Micro-ondas</h3>
+                    <p>Use a funcao "descongelar" do micro-ondas. Cozinhe imediatamente apos. Nao e ideal para pecas grandes, pois pode cozinhar as bordas enquanto o centro segue congelado.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Direto no fogo</h3>
+                    <p>Alguns alimentos podem ir direto ao fogo congelados: sopas, molhos, legumes branqueados e marmitas. Use fogo baixo e mexa com frequencia.</p>
+                </div>
+            </div>
+
+            <div class="warning-box" style="margin-top: 14px;">
+                <h3>NUNCA descongele assim:</h3>
+                <ul>
+                    <li>Em temperatura ambiente por mais de 2 horas (risco de bacterias)</li>
+                    <li>Em agua quente ou morna (cozinha por fora, fica cru por dentro)</li>
+                    <li>Recongelando carne que ja foi descongelada crua (so se cozinhar antes)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sinais de que o Alimento Estragou -->
+        <div class="section">
+            <h2 class="section-title">Sinais de que o Alimento Estragou</h2>
+            <div class="warning-box">
+                <h3>Descarte imediatamente se perceber:</h3>
+                <ul>
+                    <li><strong>Cheiro desagradavel ou azedo</strong> - especialmente em carnes, leite e derivados</li>
+                    <li><strong>Mudanca de cor</strong> - carne acinzentada ou esverdeada, frango amarelado escuro</li>
+                    <li><strong>Textura viscosa ou pegajosa</strong> - comum em carnes e frios estragados</li>
+                    <li><strong>Mofo</strong> - em paes, queijos, frutas e legumes (nao basta remover a parte visivel)</li>
+                    <li><strong>Sabor acido ou amargo anormal</strong> - se provar e sentir gosto estranho, cuspa e descarte</li>
+                    <li><strong>Embalagem estufada</strong> - indica producao de gas por bacterias (especialmente iogurtes e enlatados)</li>
+                    <li><strong>Bolhas ou espuma em liquidos</strong> - sinal de fermentacao indesejada</li>
+                    <li><strong>Cristais de gelo excessivos no freezer</strong> - indica que o alimento descongelou e recongelou (queima de frio)</li>
+                </ul>
+            </div>
+            <div class="tip-card">
+                <h3>Na duvida, descarte</h3>
+                <p>Se voce nao se lembra quando guardou o alimento ou ele parece "estranho", nao arrisque. Intoxicacao alimentar pode ser grave. O custo de jogar fora e sempre menor que o risco a saude.</p>
+            </div>
+        </div>
+
+        <!-- Dicas de Armazenamento -->
+        <div class="section">
+            <h2 class="section-title">Dicas de Armazenamento por Ingrediente</h2>
+            <div class="storage-tip-grid">
+                <div class="storage-item">
+                    <h4>Cebola e Alho</h4>
+                    <p>Guardar em local seco, arejado e escuro. Fora da geladeira, duram ate 2 meses. Nao guardar junto com batatas (o gas da batata acelera a brotacao).</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Batata</h4>
+                    <p>Local fresco, seco e escuro. Fora da geladeira. Se brotar, remova os brotos. Se estiver verde, descarte (solanina e toxica). Dura 2-3 semanas.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Tomate</h4>
+                    <p>Se verde, deixe fora da geladeira para amadurecer. Maduro, guarde na geladeira por ate 1 semana. Nunca guarde tomate cortado fora da geladeira.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Banana</h4>
+                    <p>Fora da geladeira ate amadurecer. Muito madura? Congele sem casca para usar em vitaminas e bolos. Separar do cacho faz durar mais.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Ervas Frescas</h4>
+                    <p>Salsa, cebolinha e coentro: lave, seque e guarde em pote com papel toalha na geladeira (ate 10 dias). Ou pique e congele em forminhas de gelo com agua ou azeite.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Paes</h4>
+                    <p>Consuma em 3 dias ou congele fatiado. Para descongelar, leve direto ao forno ou torradeira. Nao guarde na geladeira (resseca mais rapido).</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Ovos</h4>
+                    <p>Guardar na geladeira, na embalagem original (protege de odores). Nao lave antes de guardar. Teste de frescor: ovo fresco afunda na agua, ovo velho boia.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Farinhas e Graos</h4>
+                    <p>Em potes hermeticos, longe de umidade. Farinha integral na geladeira ou freezer (tem oleo que rancifica). Feijao seco dura ate 1 ano em local seco.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Azeite e Oleos</h4>
+                    <p>Em local fresco e escuro, longe do fogao. Azeite extravirgem: consumir em ate 6 meses apos abrir. Nunca reutilize oleo de fritura mais de 2-3 vezes.</p>
+                </div>
+                <div class="storage-item">
+                    <h4>Queijos</h4>
+                    <p>Queijo fresco: pote fechado na geladeira, ate 7 dias. Queijo curado: embrulhar em papel manteiga + plastico filme. Parmesao: ralar e congelar em porcoes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Organizacao da Geladeira -->
+        <div class="section">
+            <h2 class="section-title">Organizacao da Geladeira</h2>
+            <div class="tip-card">
+                <h3>Onde colocar cada alimento</h3>
+                <ul>
+                    <li><strong>Prateleira superior:</strong> Sobras de refeicao, alimentos prontos para consumo, iogurtes, manteiga</li>
+                    <li><strong>Prateleira do meio:</strong> Leite, queijos, ovos, frios</li>
+                    <li><strong>Prateleira inferior (mais fria):</strong> Carnes cruas, peixes, frango (sempre em recipiente fechado para nao pingar)</li>
+                    <li><strong>Gavetas:</strong> Frutas e legumes (separados, se possivel - frutas liberam gas etileno que amadurece os legumes mais rapido)</li>
+                    <li><strong>Porta:</strong> Condimentos, sucos, agua, molhos. Evite guardar leite e ovos na porta (temperatura menos estavel).</li>
+                </ul>
+            </div>
+            <div class="tip-card">
+                <h3>Temperatura ideal</h3>
+                <p>Geladeira: entre 1 e 5 graus Celsius. Freezer: -18 graus Celsius ou menos. Use um termometro de geladeira para verificar. Nao sobrecarregue a geladeira - o ar precisa circular.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

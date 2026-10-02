@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receitas para Datas Especiais - Cozinhe com a Lu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #FF6B4A;
+  --secondary: #5A3522;
+  --bg: #FFF6E3;
+  --border: #EEE3C8;
+  --white: #FFFFFF;
+  --text: #3D2E22;
+  --text-light: #7A6855;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--primary); text-decoration: none; font-weight: 600;
+  font-size: 0.95rem; padding: 20px 0; transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+.book-cover {
+  background: linear-gradient(135deg, var(--secondary) 0%, #3D2115 100%);
+  border-radius: 20px; padding: 60px 40px; text-align: center;
+  color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;
+}
+.book-cover::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 40% 60%, rgba(255,107,74,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.bonus-badge {
+  display: inline-block; background: var(--primary); color: var(--white);
+  font-size: 0.8rem; font-weight: 700; padding: 6px 20px; border-radius: 50px;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+}
+.book-cover h1 {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  font-weight: 800; margin-bottom: 12px; line-height: 1.2;
+}
+.book-cover .author { font-size: 1.05rem; opacity: 0.85; font-weight: 300; }
+.book-cover .subtitle { font-size: 1rem; opacity: 0.7; margin-top: 16px; font-style: italic; }
+.toc {
+  background: var(--white); border-radius: 16px; padding: 36px 32px;
+  margin-bottom: 40px; border: 1px solid var(--border);
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem;
+  color: var(--secondary); margin-bottom: 20px;
+}
+.toc-section { margin-bottom: 16px; }
+.toc-section h3 {
+  font-family: 'Playfair Display', serif; color: var(--primary);
+  font-size: 1.1rem; margin-bottom: 8px;
+}
+.toc-section ul { list-style: none; padding-left: 20px; }
+.toc-section li { padding: 4px 0; }
+.toc-section li a {
+  text-decoration: none; color: var(--text); font-size: 0.95rem; transition: color 0.2s;
+}
+.toc-section li a:hover { color: var(--primary); }
+.occasion-header {
+  background: linear-gradient(135deg, var(--primary), #E5553A);
+  border-radius: 16px; padding: 32px; text-align: center;
+  color: var(--white); margin-bottom: 24px; margin-top: 20px;
+}
+.occasion-header h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 4px;
+}
+.occasion-header p { opacity: 0.9; font-size: 0.95rem; }
+.recipe-card {
+  background: var(--white); border-radius: 16px; padding: 32px;
+  margin-bottom: 24px; border: 1px solid var(--border);
+}
+.recipe-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem;
+  color: var(--secondary); margin-bottom: 8px;
+}
+.recipe-meta {
+  display: flex; gap: 20px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.recipe-meta span {
+  font-size: 0.85rem; color: var(--text-light); font-weight: 500;
+}
+.recipe-meta span strong { color: var(--primary); }
+.ingredients-box {
+  background: var(--bg); border-radius: 12px; padding: 20px; margin-bottom: 16px;
+}
+.ingredients-box h4 {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--primary); margin-bottom: 10px; font-weight: 700;
+}
+.ingredients-box ul { list-style: none; padding: 0; }
+.ingredients-box li {
+  padding: 4px 0; font-size: 0.95rem; padding-left: 16px; position: relative;
+}
+.ingredients-box li::before {
+  content: ''; position: absolute; left: 0; top: 12px;
+  width: 6px; height: 6px; background: var(--primary); border-radius: 50%;
+}
+.steps h4 {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--primary); margin-bottom: 10px; font-weight: 700;
+}
+.steps ol { padding-left: 20px; }
+.steps li { padding: 4px 0; font-size: 0.95rem; }
+.book-footer {
+  text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.9rem;
+}
+.book-footer .brand {
+  font-family: 'Playfair Display', serif; color: var(--secondary);
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 4px;
+}
+@media (max-width: 600px) {
+  .book-cover { padding: 40px 24px; }
+  .book-cover h1 { font-size: 1.8rem; }
+  .recipe-card { padding: 24px 20px; }
+  .toc { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+<div class="book-cover">
+  <div class="bonus-badge">Bonus #6</div>
+  <h1>Receitas para Datas Especiais</h1>
+  <p class="author">por Lurdes Almeida</p>
+  <p class="subtitle">25 receitas para celebrar cada momento especial com sabor e carinho</p>
+</div>
+
+<div class="toc">
+  <h2>Sumario</h2>
+  <div class="toc-section">
+    <h3>Natal (1-5)</h3>
+    <ul>
+      <li><a href="#r1">1. Chester Assado</a></li>
+      <li><a href="#r2">2. Arroz Natalino</a></li>
+      <li><a href="#r3">3. Rabanada</a></li>
+      <li><a href="#r4">4. Peru de Natal</a></li>
+      <li><a href="#r5">5. Farofa Especial</a></li>
+    </ul>
+  </div>
+  <div class="toc-section">
+    <h3>Pascoa (6-10)</h3>
+    <ul>
+      <li><a href="#r6">6. Bacalhau ao Forno</a></li>
+      <li><a href="#r7">7. Colomba Pascal</a></li>
+      <li><a href="#r8">8. Ovo de Pascoa Caseiro</a></li>
+      <li><a href="#r9">9. Peixe Assado Especial</a></li>
+      <li><a href="#r10">10. Torta de Bacalhau</a></li>
+    </ul>
+  </div>
+  <div class="toc-section">
+    <h3>Festa Junina (11-15)</h3>
+    <ul>
+      <li><a href="#r11">11. Pacoca</a></li>
+      <li><a href="#r12">12. Canjica</a></li>
+      <li><a href="#r13">13. Pipoca Gourmet</a></li>
+      <li><a href="#r14">14. Bolo de Milho</a></li>
+      <li><a href="#r15">15. Quentao</a></li>
+    </ul>
+  </div>
+  <div class="toc-section">
+    <h3>Aniversarios (16-20)</h3>
+    <ul>
+      <li><a href="#r16">16. Bolo de Aniversario</a></li>
+      <li><a href="#r17">17. Brigadeiro Gourmet</a></li>
+      <li><a href="#r18">18. Salgadinho Assado</a></li>
+      <li><a href="#r19">19. Mini Quiche</a></li>
+      <li><a href="#r20">20. Mesa de Frios</a></li>
+    </ul>
+  </div>
+  <div class="toc-section">
+    <h3>Dia das Maes (21-25)</h3>
+    <ul>
+      <li><a href="#r21">21. Petit Gateau</a></li>
+      <li><a href="#r22">22. Cafe da Manha na Cama</a></li>
+      <li><a href="#r23">23. Risoto Especial</a></li>
+      <li><a href="#r24">24. Torta de Morango</a></li>
+      <li><a href="#r25">25. Fondue</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- NATAL -->
+<div class="occasion-header">
+  <h2>Natal</h2>
+  <p>5 receitas para a ceia mais especial do ano</p>
+</div>
+
+<div class="recipe-card" id="r1">
+  <h3>1. Chester Assado</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 3h (com marinada)</span>
+    <span><strong>Porcoes:</strong> 10-12</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1 chester inteiro (cerca de 3,5kg)</li>
+      <li>1 xicara de suco de laranja</li>
+      <li>1/2 xicara de mel</li>
+      <li>3 colheres (sopa) de molho de soja (shoyu)</li>
+      <li>4 dentes de alho amassados</li>
+      <li>1 colher (sopa) de paprica defumada</li>
+      <li>Sal e pimenta-do-reino a gosto</li>
+      <li>2 colheres (sopa) de manteiga derretida</li>
+      <li>Ervas frescas (alecrim e tomilho) para decorar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Na vespera, prepare a marinada misturando o suco de laranja, mel, shoyu, alho, paprica, sal e pimenta.</li>
+      <li>Coloque o chester em uma assadeira grande e banhe com a marinada. Cubra com plastico filme e leve a geladeira por pelo menos 12 horas, virando uma vez.</li>
+      <li>No dia, retire o chester da geladeira 1 hora antes de assar.</li>
+      <li>Cubra com papel aluminio e asse em forno preaquecido a 180 graus por 2 horas.</li>
+      <li>Retire o aluminio, pincele com a manteiga derretida e o caldo da assadeira.</li>
+      <li>Aumente o forno para 200 graus e asse por mais 30 minutos, pincelando a cada 10 minutos, ate dourar.</li>
+      <li>Retire do forno e deixe descansar por 15 minutos antes de fatiar.</li>
+      <li>Decore com ervas frescas e sirva com o molho da assadeira.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r2">
+  <h3>2. Arroz Natalino</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 40 min</span>
+    <span><strong>Porcoes:</strong> 10</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>3 xicaras de arroz</li>
+      <li>1/2 xicara de uvas passas</li>
+      <li>1/2 xicara de castanha de caju torrada</li>
+      <li>1/2 xicara de damasco seco picado</li>
+      <li>3 colheres (sopa) de manteiga</li>
+      <li>1 cebola pequena picada</li>
+      <li>6 xicaras de caldo de frango quente</li>
+      <li>Sal a gosto</li>
+      <li>Salsinha picada para decorar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Em uma panela grande, derreta 2 colheres de manteiga e refogue a cebola ate ficar transparente.</li>
+      <li>Adicione o arroz e refogue por 2 minutos, mexendo.</li>
+      <li>Despeje o caldo de frango quente e o sal. Mexa uma vez e tampe.</li>
+      <li>Cozinhe em fogo baixo por 20 minutos ate o arroz absorver todo o liquido.</li>
+      <li>Enquanto isso, em outra frigideira, derreta 1 colher de manteiga e doure levemente as castanhas de caju.</li>
+      <li>Quando o arroz estiver pronto, solte com um garfo e misture as passas, os damascos e as castanhas.</li>
+      <li>Ajuste o sal e finalize com salsinha picada.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r3">
+  <h3>3. Rabanada</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 30 min</span>
+    <span><strong>Porcoes:</strong> 12 fatias</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1 pao frances amanhecido (ou baguete) cortado em fatias de 2cm</li>
+      <li>2 xicaras de leite</li>
+      <li>1 lata de leite condensado</li>
+      <li>4 ovos batidos</li>
+      <li>Oleo para fritar</li>
+      <li>Acucar e canela para polvilhar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Misture o leite com o leite condensado em uma tigela rasa.</li>
+      <li>Mergulhe cada fatia de pao na mistura de leite por 10 segundos de cada lado (nao deixe encharcar).</li>
+      <li>Passe as fatias nos ovos batidos, cobrindo bem dos dois lados.</li>
+      <li>Frite em oleo quente (fogo medio) ate dourar dos dois lados.</li>
+      <li>Retire e coloque sobre papel toalha para escorrer o excesso de oleo.</li>
+      <li>Misture acucar com canela em po (3 colheres de acucar para 1 de canela).</li>
+      <li>Passe as rabanadas na mistura de acucar e canela ainda quentes.</li>
+      <li>Sirva mornas ou em temperatura ambiente.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r4">
+  <h3>4. Peru de Natal</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 4h (com marinada)</span>
+    <span><strong>Porcoes:</strong> 12-15</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1 peru inteiro (4 a 5kg)</li>
+      <li>1 garrafa de vinho branco seco</li>
+      <li>6 dentes de alho amassados</li>
+      <li>Suco de 3 laranjas</li>
+      <li>3 colheres (sopa) de manteiga</li>
+      <li>2 colheres (sopa) de sal</li>
+      <li>1 colher (sopa) de paprica doce</li>
+      <li>Ervas frescas (alecrim, tomilho, salvia)</li>
+      <li>2 cebolas cortadas em quartos</li>
+      <li>2 laranjas cortadas em quartos (para dentro da cavidade)</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Na vespera, lave o peru e seque com papel toalha.</li>
+      <li>Misture o vinho, alho, suco de laranja, sal e paprica. Banhe o peru e marine na geladeira por 12 a 24 horas.</li>
+      <li>Retire da geladeira 1 hora antes de assar. Reserve a marinada.</li>
+      <li>Recheie a cavidade com as laranjas, cebolas e ervas frescas.</li>
+      <li>Passe manteiga sobre toda a pele do peru.</li>
+      <li>Cubra com papel aluminio e asse a 180 graus por 3 horas (calcule 40 min por kg).</li>
+      <li>A cada 40 minutos, regue com a marinada reservada e o caldo que se formar.</li>
+      <li>Na ultima hora, retire o aluminio para dourar a pele.</li>
+      <li>O peru esta pronto quando a temperatura interna atingir 75 graus na parte mais grossa da coxa, ou quando o caldo sair transparente ao espetar.</li>
+      <li>Descanse por 20 minutos antes de fatiar e servir.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r5">
+  <h3>5. Farofa Especial</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 20 min</span>
+    <span><strong>Porcoes:</strong> 10</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>3 xicaras de farinha de mandioca</li>
+      <li>4 colheres (sopa) de manteiga</li>
+      <li>1 cebola grande picada</li>
+      <li>200g de bacon em cubinhos</li>
+      <li>1/2 xicara de azeitonas verdes picadas</li>
+      <li>1/2 xicara de uvas passas</li>
+      <li>1/2 xicara de castanha de caju picada</li>
+      <li>3 ovos</li>
+      <li>Cheiro-verde picado</li>
+      <li>Sal a gosto</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Em uma frigideira grande, frite o bacon ate ficar crocante. Reserve.</li>
+      <li>Na mesma gordura, refogue a cebola ate dourar.</li>
+      <li>Adicione 2 colheres de manteiga e as castanhas de caju. Refogue por 2 minutos.</li>
+      <li>Adicione os ovos e mexa rapidamente para cozinhar em pedacinhos.</li>
+      <li>Acrescente a farinha de mandioca e as 2 colheres de manteiga restantes. Mexa em fogo medio ate a farofa dourar levemente.</li>
+      <li>Adicione as passas, as azeitonas e o bacon reservado. Misture bem.</li>
+      <li>Ajuste o sal e finalize com cheiro-verde generoso.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PASCOA -->
+<div class="occasion-header">
+  <h2>Pascoa</h2>
+  <p>5 receitas para um almoco de Pascoa memoravel</p>
+</div>
+
+<div class="recipe-card" id="r6">
+  <h3>6. Bacalhau ao Forno</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h (+ dessalgue)</span>
+    <span><strong>Porcoes:</strong> 6</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1kg de bacalhau (de preferencia lombo)</li>
+      <li>1kg de batatas cortadas em rodelas</li>
+      <li>3 cebolas grandes em rodelas</li>
+      <li>4 dentes de alho fatiados</li>
+      <li>1 pimentao vermelho em tiras</li>
+      <li>1 pimentao verde em tiras</li>
+      <li>Azeitonas pretas a gosto</li>
+      <li>Azeite de oliva generoso</li>
+      <li>Salsinha picada</li>
+      <li>Ovos cozidos para decorar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Dessalgue o bacalhau em agua fria na geladeira por 24 a 48 horas, trocando a agua a cada 8 horas.</li>
+      <li>Cozinhe as batatas em agua com sal ate ficarem quase macias (nao cozinhe demais). Escorra.</li>
+      <li>Cozinhe o bacalhau em agua sem sal por 15 minutos. Escorra, retire pele e espinhas, e desfie em lascas grandes.</li>
+      <li>Em uma assadeira, faca camadas: batatas, cebola, bacalhau, pimentoes. Repita.</li>
+      <li>Espalhe o alho fatiado e as azeitonas por cima.</li>
+      <li>Regue generosamente com azeite de oliva (nao economize!).</li>
+      <li>Asse em forno preaquecido a 200 graus por 30 a 40 minutos ate dourar.</li>
+      <li>Decore com ovos cozidos cortados ao meio e salsinha fresca.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r7">
+  <h3>7. Colomba Pascal</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 3h (com descanso)</span>
+    <span><strong>Porcoes:</strong> 12</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>500g de farinha de trigo</li>
+      <li>1 sache de fermento biologico seco (10g)</li>
+      <li>3 ovos</li>
+      <li>1/2 xicara de acucar</li>
+      <li>100g de manteiga em temperatura ambiente</li>
+      <li>1/2 xicara de leite morno</li>
+      <li>1 colher (cha) de essencia de baunilha</li>
+      <li>Raspas de 1 laranja</li>
+      <li>1/2 xicara de frutas cristalizadas picadas</li>
+      <li>1/2 xicara de uvas passas</li>
+      <li>1 pitada de sal</li>
+      <li>Acucar de confeiteiro para polvilhar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Dissolva o fermento no leite morno com 1 colher de acucar. Espere espumar (10 minutos).</li>
+      <li>Em uma tigela grande, misture a farinha, o acucar restante e o sal.</li>
+      <li>Adicione os ovos, a baunilha, as raspas de laranja e o fermento ativado. Misture.</li>
+      <li>Incorpore a manteiga aos poucos, sovando a massa por 15 minutos ate ficar lisa e elastica.</li>
+      <li>Adicione as frutas cristalizadas e as passas, sovando mais um pouco para distribuir.</li>
+      <li>Cubra com um pano e deixe crescer por 1h30 ate dobrar de volume.</li>
+      <li>Divida a massa: 2/3 para o corpo da colomba e 1/3 para as duas asas.</li>
+      <li>Coloque em forma propria para colomba (ou forme sobre assadeira forrada).</li>
+      <li>Deixe crescer mais 40 minutos.</li>
+      <li>Asse a 170 graus por 35 a 40 minutos (cubra com aluminio se dourar rapido).</li>
+      <li>Depois de fria, polvilhe acucar de confeiteiro.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r8">
+  <h3>8. Ovo de Pascoa Caseiro</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h + geladeira</span>
+    <span><strong>Porcoes:</strong> 2 ovos grandes</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>500g de chocolate ao leite de boa qualidade</li>
+      <li>Formas proprias para ovo de Pascoa</li>
+      <li><strong>Recheio de brigadeiro (opcional):</strong></li>
+      <li>1 lata de leite condensado</li>
+      <li>2 colheres (sopa) de chocolate em po</li>
+      <li>1 colher (sopa) de manteiga</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Temperagem do chocolate:</strong> Pique 400g de chocolate e derreta em banho-maria ate atingir 45 graus (morno, sem ferver). Retire do banho-maria.</li>
+      <li>Adicione os 100g restantes de chocolate picado e mexa ate derreter e a temperatura cair para 29-30 graus (teste: pingue no labio, deve estar levemente fresco).</li>
+      <li>Despeje nas formas, espalhando com uma colher por toda a superficie interna.</li>
+      <li>Vire a forma de cabeca para baixo sobre uma grade e deixe escorrer o excesso.</li>
+      <li>Leve a geladeira por 15 minutos. Repita o processo (2a camada) para ficar mais resistente.</li>
+      <li>Se quiser recheio: faca o brigadeiro (leite condensado + chocolate + manteiga, cozidos ate desgrudar da panela). Espere esfriar e espalhe dentro de uma das metades.</li>
+      <li>Para fechar: aqueca levemente a borda de cada metade em uma frigideira morna e una as duas partes. Alise a emenda com o dedo.</li>
+      <li>Leve a geladeira por mais 30 minutos. Desenforme e embrulhe com papel celofane.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r9">
+  <h3>9. Peixe Assado Especial</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 50 min</span>
+    <span><strong>Porcoes:</strong> 6</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1 peixe inteiro (1,5 a 2kg - robalo, dourado ou tilapia)</li>
+      <li>Suco de 3 limoes</li>
+      <li>4 dentes de alho amassados</li>
+      <li>1/2 xicara de azeite</li>
+      <li>2 tomates em rodelas</li>
+      <li>1 cebola em rodelas</li>
+      <li>1 pimentao em tiras</li>
+      <li>Sal e pimenta a gosto</li>
+      <li>Ramos de alecrim e tomilho</li>
+      <li>Salsinha para finalizar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Lave o peixe e faca 3 cortes diagonais de cada lado.</li>
+      <li>Tempere com limao, alho, sal, pimenta e metade do azeite. Deixe marinar por 30 minutos.</li>
+      <li>Coloque o peixe em uma assadeira forrada com aluminio. Insira ramos de ervas dentro da barriga.</li>
+      <li>Distribua os tomates, cebola e pimentao ao redor e sobre o peixe.</li>
+      <li>Regue com o azeite restante.</li>
+      <li>Asse a 200 graus por 30 a 40 minutos (10 min por cm de espessura do peixe).</li>
+      <li>Finalize com salsinha fresca e sirva direto na travessa.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r10">
+  <h3>10. Torta de Bacalhau</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h</span>
+    <span><strong>Porcoes:</strong> 8</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Massa:</strong> 3 ovos, 1 xicara de leite, 1/2 xicara de oleo, 2 xicaras de farinha, 1 colher de fermento, sal</li>
+      <li><strong>Recheio:</strong> 400g de bacalhau dessalgado e desfiado, 1 cebola, 2 dentes de alho, 1 tomate, azeitonas, salsinha, azeite</li>
+      <li>Queijo parmesao ralado para gratinar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Bata no liquidificador os ovos, leite, oleo, farinha, fermento e sal ate ficar homogeneo.</li>
+      <li>Refogue a cebola e o alho no azeite. Adicione o bacalhau desfiado e o tomate. Cozinhe por 5 minutos. Acrescente azeitonas e salsinha.</li>
+      <li>Despeje metade da massa em forma untada e enfarinhada.</li>
+      <li>Espalhe o recheio de bacalhau.</li>
+      <li>Cubra com o restante da massa e polvilhe parmesao.</li>
+      <li>Asse a 180 graus por 35 a 40 minutos ate dourar.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- FESTA JUNINA -->
+<div class="occasion-header">
+  <h2>Festa Junina</h2>
+  <p>5 receitas tipicas para o arraia mais gostoso</p>
+</div>
+
+<div class="recipe-card" id="r11">
+  <h3>11. Pacoca</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 15 min</span>
+    <span><strong>Porcoes:</strong> 20 unidades</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>2 xicaras de amendoim torrado sem pele</li>
+      <li>1 xicara de acucar</li>
+      <li>1 pitada de sal</li>
+      <li>2 colheres (sopa) de farinha de mandioca (ou biscoito maisena triturado)</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Bata o amendoim no liquidificador ou processador ate virar uma farofa (nao bata demais para nao virar pasta).</li>
+      <li>Transfira para uma tigela e misture o acucar, o sal e a farinha de mandioca.</li>
+      <li>A mistura deve ficar umida o suficiente para compactar. Se estiver seca, adicione uma colher de oleo.</li>
+      <li>Pressione em forminhas ou faca bolinhas achatadas com as maos.</li>
+      <li>Se preferir, use um rolo de pacoca: forre um rolo de papel higienico com plastico filme e compacte a massa dentro.</li>
+      <li>Leve a geladeira por 30 minutos para firmar.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r12">
+  <h3>12. Canjica</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h30</span>
+    <span><strong>Porcoes:</strong> 8</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>500g de milho para canjica (branco)</li>
+      <li>1 litro de leite</li>
+      <li>1 lata de leite condensado</li>
+      <li>200ml de leite de coco</li>
+      <li>1 xicara de acucar</li>
+      <li>2 paus de canela</li>
+      <li>5 cravos-da-india</li>
+      <li>1/2 xicara de amendoim torrado e sem pele</li>
+      <li>Canela em po para polvilhar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Deixe o milho de molho em agua por 8 a 12 horas (ou de um dia para o outro).</li>
+      <li>Escorra e cozinhe na pressao com agua (cobrindo 3 dedos acima do milho), canela em pau e cravos por 40 minutos.</li>
+      <li>Escorra o excesso de agua (deixe um pouco de caldo), retire a canela e os cravos.</li>
+      <li>Adicione o leite, o acucar e o leite de coco. Cozinhe em fogo baixo, mexendo ocasionalmente, por 20 minutos.</li>
+      <li>Acrescente o leite condensado e o amendoim. Cozinhe por mais 10 minutos.</li>
+      <li>Sirva quente, polvilhada com canela em po. Tambem fica otima gelada.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r13">
+  <h3>13. Pipoca Gourmet</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 15 min</span>
+    <span><strong>Porcoes:</strong> 6</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1/2 xicara de milho de pipoca</li>
+      <li>3 colheres (sopa) de oleo</li>
+      <li>1 xicara de acucar</li>
+      <li>3 colheres (sopa) de manteiga</li>
+      <li>Corante alimenticio vermelho (opcional)</li>
+      <li>1 pitada de sal</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Estoure a pipoca em uma panela com oleo e uma pitada de sal. Reserve em uma tigela grande.</li>
+      <li>Na mesma panela (limpa), coloque o acucar e a manteiga em fogo medio.</li>
+      <li>Mexa ate o acucar derreter completamente e formar um caramelo dourado claro.</li>
+      <li>Se quiser colorida, adicione o corante e misture rapidamente.</li>
+      <li>Despeje a pipoca estourada no caramelo e mexa vigorosamente para cobrir toda a pipoca.</li>
+      <li>Espalhe sobre uma superfície untada com manteiga ou papel manteiga e separe os grumos com dois garfos enquanto esfria.</li>
+      <li>Sirva em saquinhos de papel ou cones decorados.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r14">
+  <h3>14. Bolo de Milho</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h</span>
+    <span><strong>Porcoes:</strong> 10</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>2 latas de milho verde (escorrido)</li>
+      <li>3 ovos</li>
+      <li>1 xicara de acucar</li>
+      <li>1/2 xicara de oleo</li>
+      <li>200ml de leite de coco</li>
+      <li>1 xicara de fuba</li>
+      <li>1 colher (sopa) de fermento em po</li>
+      <li>1 pitada de sal</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Bata no liquidificador o milho escorrido, os ovos, o acucar, o oleo e o leite de coco ate ficar homogeneo.</li>
+      <li>Transfira para uma tigela e adicione o fuba e o sal, misturando com uma espatula.</li>
+      <li>Por ultimo, acrescente o fermento e misture delicadamente.</li>
+      <li>Despeje em forma untada e enfarinhada (com fuba).</li>
+      <li>Asse em forno preaquecido a 180 graus por 40 a 45 minutos.</li>
+      <li>Espete um palito: se sair limpo, esta pronto.</li>
+      <li>Deixe esfriar antes de desenformar. Fica umido e perfumado.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r15">
+  <h3>15. Quentao</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 25 min</span>
+    <span><strong>Porcoes:</strong> 10</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>1 litro de vinho tinto seco</li>
+      <li>2 xicaras de agua</li>
+      <li>1 xicara de acucar</li>
+      <li>1 laranja cortada em rodelas</li>
+      <li>1 maca cortada em pedacos</li>
+      <li>3 paus de canela</li>
+      <li>8 cravos-da-india</li>
+      <li>5 fatias finas de gengibre</li>
+      <li>Cascas de 1 laranja</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Em uma panela grande, coloque a agua e o acucar. Leve ao fogo ate dissolver, formando uma calda.</li>
+      <li>Adicione a canela, os cravos, o gengibre e as cascas de laranja. Fervente por 5 minutos.</li>
+      <li>Acrescente o vinho e as frutas (laranja e maca).</li>
+      <li>Aqueca em fogo baixo por 15 minutos (nao deixe ferver para nao evaporar o alcool se quiser manter).</li>
+      <li>Coe e sirva bem quente em canecas.</li>
+      <li>Decore com um pau de canela em cada caneca.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ANIVERSARIOS -->
+<div class="occasion-header">
+  <h2>Aniversarios</h2>
+  <p>5 receitas para uma festa inesquecivel</p>
+</div>
+
+<div class="recipe-card" id="r16">
+  <h3>16. Bolo de Aniversario</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h30</span>
+    <span><strong>Porcoes:</strong> 20</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Massa:</strong> 4 ovos, 2 xicaras de acucar, 3 xicaras de farinha, 1 xicara de leite, 1/2 xicara de oleo, 1 colher de fermento, 1 colher de essencia de baunilha</li>
+      <li><strong>Recheio:</strong> 1 lata de leite condensado, 1 caixinha de creme de leite, 4 colheres de chocolate em po, 1 colher de manteiga</li>
+      <li><strong>Cobertura:</strong> 200g de chocolate meio amargo, 1 caixinha de creme de leite</li>
+      <li>Granulado de chocolate para decorar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Massa:</strong> Bata os ovos com o acucar ate espumar. Adicione o oleo, o leite e a baunilha. Misture a farinha peneirada e, por ultimo, o fermento. Asse em 2 formas redondas de 25cm, untadas, a 180 graus por 30 minutos.</li>
+      <li><strong>Recheio:</strong> Misture o leite condensado, o chocolate em po e a manteiga em uma panela. Cozinhe mexendo ate engrossar (ponto de brigadeiro mole). Retire do fogo e misture o creme de leite. Espere esfriar.</li>
+      <li><strong>Cobertura:</strong> Derreta o chocolate com o creme de leite no micro-ondas (30 segundos de cada vez, mexendo). Misture ate ficar liso e brilhante.</li>
+      <li><strong>Montagem:</strong> Coloque um disco de bolo, espalhe o recheio generosamente, cubra com o segundo disco. Despeje a cobertura de chocolate por cima, deixando escorrer pelas laterais. Decore com granulado.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r17">
+  <h3>17. Brigadeiro Gourmet</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 20 min</span>
+    <span><strong>Porcoes:</strong> 30 unidades</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>2 latas de leite condensado</li>
+      <li>200g de chocolate meio amargo picado (em vez de achocolatado)</li>
+      <li>2 colheres (sopa) de manteiga</li>
+      <li>1 pitada de flor de sal</li>
+      <li>Cacau em po, pistache triturado, coco ralado torrado ou granulado belga para cobrir</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Derreta o chocolate picado em banho-maria. Reserve.</li>
+      <li>Em uma panela antiaderente, misture o leite condensado e a manteiga. Leve ao fogo medio, mexendo sem parar.</li>
+      <li>Quando comecar a engrossar, adicione o chocolate derretido e continue mexendo.</li>
+      <li>Cozinhe ate a massa desgrudar do fundo da panela (cerca de 15 minutos).</li>
+      <li>Adicione a pitada de flor de sal (realca o sabor do chocolate).</li>
+      <li>Transfira para prato untado e espere esfriar.</li>
+      <li>Faca bolinhas e passe em coberturas variadas: cacau em po, pistache triturado, coco torrado ou granulado belga.</li>
+      <li>Coloque em forminhas de papel metalizado para uma apresentacao elegante.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r18">
+  <h3>18. Salgadinho Assado</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h</span>
+    <span><strong>Porcoes:</strong> 40 unidades</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Massa:</strong> 3 xicaras de farinha, 1 xicara de leite morno, 1 sache de fermento seco, 2 colheres de acucar, 3 colheres de margarina, 1 ovo, sal</li>
+      <li><strong>Recheio de frango:</strong> 300g de frango desfiado, 1 cebola, alho, tomate, requeijao cremoso, temperos</li>
+      <li>1 gema para pincelar</li>
+      <li>Gergelim para polvilhar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Massa:</strong> Dissolva o fermento no leite morno com o acucar. Espere 10 min. Misture a farinha, o sal, a margarina e o ovo. Adicione o fermento ativado. Sove ate ficar lisa. Descanse 30 min coberta.</li>
+      <li><strong>Recheio:</strong> Refogue cebola e alho. Adicione o frango desfiado, tomate picado, sal e cheiro-verde. Cozinhe por 5 min. Ao final, misture 2 colheres de requeijao.</li>
+      <li>Abra a massa, corte em circulos. Coloque recheio, feche como empada e sele as bordas.</li>
+      <li>Coloque em assadeira forrada, pincele com gema e polvilhe gergelim.</li>
+      <li>Asse a 180 graus por 20 a 25 minutos ate dourar.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r19">
+  <h3>19. Mini Quiche</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 45 min</span>
+    <span><strong>Porcoes:</strong> 24 mini quiches</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Massa:</strong> 2 xicaras de farinha, 100g de manteiga fria em cubos, 1 ovo, 1 pitada de sal, 2-3 colheres de agua gelada</li>
+      <li><strong>Recheio:</strong> 3 ovos, 1 caixinha de creme de leite, 150g de queijo gruyere (ou mussarela) ralado, 100g de presunto picado, sal, pimenta e noz-moscada</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Massa:</strong> Misture a farinha com o sal. Adicione a manteiga fria e trabalhe com as pontas dos dedos ate formar uma farofa. Adicione o ovo e a agua, formando uma massa. Envolva em plastico e leve a geladeira por 30 min.</li>
+      <li>Abra a massa fininha e corte circulos para forrar forminhas de empada ou forminhas de cupcake untadas.</li>
+      <li><strong>Recheio:</strong> Bata os ovos com o creme de leite, sal, pimenta e noz-moscada. Misture o queijo e o presunto.</li>
+      <li>Distribua o recheio nas forminhas forradas com massa (preencha ate 3/4).</li>
+      <li>Asse a 180 graus por 25 a 30 minutos ate dourar e firmar.</li>
+      <li>Sirva mornas ou em temperatura ambiente.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r20">
+  <h3>20. Mesa de Frios</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 30 min (montagem)</span>
+    <span><strong>Porcoes:</strong> 15-20</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>200g de salame italiano fatiado</li>
+      <li>200g de presunto de parma (ou presunto cru)</li>
+      <li>200g de queijo brie</li>
+      <li>200g de queijo provolone fatiado</li>
+      <li>150g de queijo gorgonzola</li>
+      <li>1 pote de geleia de damasco (ou figo)</li>
+      <li>1 pote de azeitonas sortidas</li>
+      <li>1 xicara de castanhas mistas</li>
+      <li>1 cacho de uva</li>
+      <li>Morangos e figos (conforme estacao)</li>
+      <li>Torradinhas e gressinos</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Escolha uma tabua grande de madeira ou marmore, ou uma travessa rasa grande.</li>
+      <li>Comece posicionando os queijos em pontos diferentes da tabua: brie inteiro (corte um triangulo para convidar a servir), gorgonzola em porcao e provolone em leque.</li>
+      <li>Dobre o salame e o presunto em formato de rosa ou em dobraduras e distribua entre os queijos.</li>
+      <li>Coloque a geleia em um potinho pequeno diretamente na tabua.</li>
+      <li>Distribua as azeitonas em outro potinho ou espalhadas.</li>
+      <li>Preencha os espacos vazios com uvas, morangos, castanhas e figos.</li>
+      <li>Posicione torradinhas e gressinos nas bordas da tabua.</li>
+      <li>Sirva em temperatura ambiente (retire os queijos da geladeira 20 min antes).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- DIA DAS MAES -->
+<div class="occasion-header">
+  <h2>Dia das Maes</h2>
+  <p>5 receitas para homenagear quem mais merece</p>
+</div>
+
+<div class="recipe-card" id="r21">
+  <h3>21. Petit Gateau</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 20 min</span>
+    <span><strong>Porcoes:</strong> 4</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>200g de chocolate meio amargo</li>
+      <li>100g de manteiga</li>
+      <li>3 ovos</li>
+      <li>1/2 xicara de acucar</li>
+      <li>3 colheres (sopa) de farinha de trigo</li>
+      <li>Sorvete de creme ou baunilha para acompanhar</li>
+      <li>Frutas vermelhas para decorar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Derreta o chocolate com a manteiga em banho-maria ou micro-ondas. Misture ate ficar liso.</li>
+      <li>Em outra tigela, bata os ovos com o acucar ate dobrar de volume e ficar claro (3-4 minutos).</li>
+      <li>Incorpore o chocolate derretido (morno) aos ovos, misturando delicadamente.</li>
+      <li>Adicione a farinha peneirada e misture com movimentos suaves.</li>
+      <li>Unte 4 ramekins com manteiga e polvilhe com cacau em po.</li>
+      <li>Divida a massa entre os ramekins (nao preencha ate a borda).</li>
+      <li>Asse em forno preaquecido a 220 graus por 10 a 12 minutos. As bordas devem estar firmes, mas o centro deve tremer levemente.</li>
+      <li>Retire do forno, espere 1 minuto, desenforme em pratos e sirva imediatamente com sorvete e frutas vermelhas.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r22">
+  <h3>22. Cafe da Manha na Cama</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 30 min</span>
+    <span><strong>Porcoes:</strong> 1-2</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Panqueca fofa:</strong> 1 xicara de farinha, 1 ovo, 3/4 xicara de leite, 2 colheres de acucar, 1 colher de fermento, 1 colher de manteiga derretida</li>
+      <li>Frutas frescas (morango, banana, mirtilo)</li>
+      <li>Mel ou maple syrup</li>
+      <li>Suco de laranja natural</li>
+      <li>Cafe ou cha especial</li>
+      <li>Iogurte natural com granola</li>
+      <li>Uma flor para decorar a bandeja</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Panquecas:</strong> Misture os ingredientes secos. Em outra tigela, misture os liquidos. Junte tudo e mexa ate incorporar (pode ficar com grumos pequenos). Frite em frigideira antiaderente com um pouco de manteiga, formando discos. Vire quando bolhas aparecerem na superficie.</li>
+      <li>Empilhe 3-4 panquecas e decore com fatias de banana, morangos e um fio de mel.</li>
+      <li>Prepare o suco de laranja fresco e o cafe ou cha.</li>
+      <li>Monte a bandeja com carinho: panquecas, potinho de iogurte com granola, frutas, suco e cafe.</li>
+      <li>Nao esqueca do guardanapo de pano e uma florzinha para decorar!</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r23">
+  <h3>23. Risoto Especial</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 40 min</span>
+    <span><strong>Porcoes:</strong> 4</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li>2 xicaras de arroz arborio (ou carnaroli)</li>
+      <li>1 litro de caldo de frango ou legumes quente</li>
+      <li>1 xicara de vinho branco seco</li>
+      <li>200g de cogumelos frescos fatiados (champignon, shiimeji ou mix)</li>
+      <li>1 cebola pequena picada fina</li>
+      <li>2 dentes de alho picados</li>
+      <li>3 colheres (sopa) de manteiga</li>
+      <li>1/2 xicara de queijo parmesao ralado</li>
+      <li>2 colheres (sopa) de azeite</li>
+      <li>Sal e pimenta a gosto</li>
+      <li>Salsinha ou tomilho fresco para finalizar</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li>Em uma frigideira, refogue os cogumelos com 1 colher de manteiga e alho ate dourarem. Reserve.</li>
+      <li>Na panela do risoto, aqueca o azeite e 1 colher de manteiga. Refogue a cebola ate ficar transparente.</li>
+      <li>Adicione o arroz arborio e refogue por 2 minutos, mexendo, ate os graos ficarem translucidos.</li>
+      <li>Despeje o vinho branco e mexa ate evaporar completamente.</li>
+      <li>Comece a adicionar o caldo quente, uma concha de cada vez, mexendo sempre e esperando cada concha ser absorvida antes de adicionar a proxima.</li>
+      <li>Continue por 18-20 minutos ate o arroz ficar al dente e cremoso.</li>
+      <li>Retire do fogo. Adicione os cogumelos refogados, o parmesao, a manteiga restante, sal e pimenta.</li>
+      <li>Mexa vigorosamente por 30 segundos (mantecatura - e isso que da cremosidade).</li>
+      <li>Sirva imediatamente, finalizado com ervas frescas.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r24">
+  <h3>24. Torta de Morango</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 1h + geladeira</span>
+    <span><strong>Porcoes:</strong> 10</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Base:</strong> 200g de biscoito maisena triturado, 100g de manteiga derretida</li>
+      <li><strong>Creme:</strong> 1 lata de leite condensado, 1 caixinha de creme de leite, suco de 2 limoes</li>
+      <li><strong>Cobertura:</strong> 2 caixas de morangos frescos, 3 colheres de geleia de morango aquecida (para dar brilho)</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Base:</strong> Misture o biscoito triturado com a manteiga derretida. Forre o fundo e as laterais de uma forma de fundo removivel (24cm), pressionando bem. Leve ao forno a 180 graus por 10 minutos. Deixe esfriar.</li>
+      <li><strong>Creme:</strong> Bata no liquidificador o leite condensado, o creme de leite e o suco de limao ate ficar cremoso. Despeje sobre a base fria.</li>
+      <li>Leve a geladeira por pelo menos 3 horas ate firmar.</li>
+      <li><strong>Cobertura:</strong> Lave e corte os morangos ao meio. Arrume sobre o creme de forma decorativa (em circulos concentricos fica lindo).</li>
+      <li>Pincele com a geleia de morango aquecida para dar brilho.</li>
+      <li>Mantenha refrigerada ate servir.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="recipe-card" id="r25">
+  <h3>25. Fondue</h3>
+  <div class="recipe-meta">
+    <span><strong>Tempo:</strong> 20 min</span>
+    <span><strong>Porcoes:</strong> 4</span>
+  </div>
+  <div class="ingredients-box">
+    <h4>Ingredientes</h4>
+    <ul>
+      <li><strong>Fondue de queijo:</strong> 200g de queijo gruyere ralado, 200g de queijo emmental ralado, 1 xicara de vinho branco seco, 1 dente de alho, 1 colher de maisena, 1 pitada de noz-moscada</li>
+      <li><strong>Fondue de chocolate:</strong> 300g de chocolate meio amargo, 1 caixinha de creme de leite, 2 colheres de manteiga</li>
+      <li><strong>Acompanhamentos para queijo:</strong> cubos de pao italiano, brocolis, cenoura baby, presunto em cubos</li>
+      <li><strong>Acompanhamentos para chocolate:</strong> morangos, banana, marshmallow, brownie em cubos, uva</li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h4>Modo de Preparo</h4>
+    <ol>
+      <li><strong>Fondue de queijo:</strong> Esfregue o alho dentro da panela de fondue. Aqueca o vinho em fogo baixo. Adicione os queijos aos poucos, mexendo em movimentos de 8. Quando derreter, misture a maisena dissolvida em 1 colher de vinho. Adicione noz-moscada. Mantenha aquecido sobre a chama.</li>
+      <li><strong>Fondue de chocolate:</strong> Derreta o chocolate com o creme de leite e a manteiga em banho-maria, mexendo ate ficar liso e brilhante. Transfira para a panela de fondue.</li>
+      <li>Sirva com os acompanhamentos espetados em garfinhos de fondue.</li>
+      <li>Monte uma mesa bonita com velinhas - o fondue e uma experiencia de compartilhar!</li>
+    </ol>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="brand">Cozinhe com a Lu</div>
+  <p>Material exclusivo para membros</p>
+  <p style="margin-top:8px;">&copy; Lurdes Almeida - Todos os direitos reservados</p>
+</div>
+
+</div>
+</body>
+</html>

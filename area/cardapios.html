@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardapios Prontos para a Semana - Cozinhe com a Lu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #FF6B4A;
+    --secondary: #5A3522;
+    --bg: #FFF6E3;
+    --cafe: #F9A825;
+    --almoco: #FF6B4A;
+    --lanche: #8BC34A;
+    --jantar: #5C6BC0;
+    --cafe-bg: #FFF8E1;
+    --almoco-bg: #FFF3E0;
+    --lanche-bg: #F1F8E9;
+    --jantar-bg: #E8EAF6;
+    --white: #FFFFFF;
+    --gray-light: #F5F0E5;
+    --gray-text: #8B7D6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--secondary);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 0.7; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--primary), #e55a3a);
+    border-radius: 20px;
+    padding: 40px 24px;
+    text-align: center;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(255, 107, 74, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: -20px;
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+
+  .cover-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .cover p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .intro {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--primary);
+  }
+  .intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 12px;
+  }
+  .intro p {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+  }
+
+  .week-section {
+    margin-bottom: 40px;
+  }
+  .week-header {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 16px 20px;
+    border-radius: 14px 14px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .week-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .week-header span {
+    font-size: 1.4rem;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--white);
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 4px;
+  }
+  .legend-dot.cafe { background: var(--cafe); }
+  .legend-dot.almoco { background: var(--almoco); }
+  .legend-dot.lanche { background: var(--lanche); }
+  .legend-dot.jantar { background: var(--jantar); }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0 0 14px 14px;
+    border: 1px solid #eee;
+    border-top: none;
+    background: var(--white);
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead th {
+    background: var(--gray-light);
+    padding: 10px 8px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--secondary);
+    text-align: left;
+    border-bottom: 2px solid #e0d8c8;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  thead th:first-child {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  tbody td {
+    padding: 8px;
+    vertical-align: top;
+    border-bottom: 1px solid #f0ebe0;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .day-name {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    white-space: nowrap;
+  }
+
+  .meal {
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin-bottom: 2px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .meal-cafe { background: var(--cafe-bg); border-left: 3px solid var(--cafe); }
+  .meal-almoco { background: var(--almoco-bg); border-left: 3px solid var(--almoco); }
+  .meal-lanche { background: var(--lanche-bg); border-left: 3px solid var(--lanche); }
+  .meal-jantar { background: var(--jantar-bg); border-left: 3px solid var(--jantar); }
+
+  .meal-label {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
+    display: none;
+  }
+
+  .tip-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 32px;
+    border: 2px dashed var(--primary);
+  }
+  .tip-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  .tip-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .tip-box li {
+    padding: 6px 0;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    padding-left: 20px;
+    position: relative;
+  }
+  .tip-box li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .footer-note {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--gray-text);
+    font-size: 0.85rem;
+  }
+  .footer-note strong {
+    color: var(--primary);
+  }
+
+  @media (max-width: 640px) {
+    .cover h1 { font-size: 1.5rem; }
+    .cover { padding: 32px 16px; }
+    .meal-label { display: block; }
+    thead th { font-size: 0.7rem; padding: 8px 6px; }
+    .meal { font-size: 0.75rem; padding: 5px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back-link">&larr; Voltar para a Area de Membros</a>
+
+  <div class="cover">
+    <div class="cover-icon">&#x1F4CB;</div>
+    <h1>Cardapios Prontos para a Semana</h1>
+    <p>4 semanas completas para facilitar sua rotina</p>
+  </div>
+
+  <div class="intro">
+    <h2>Como usar estes cardapios</h2>
+    <p>Cada semana traz um plano completo com cafe da manha, almoco, lanche da tarde e jantar. As receitas sao praticas, rapidas (a maioria em menos de 20 minutos) e pensadas para a rotina corrida de uma familia brasileira. Adapte conforme o gosto da sua casa!</p>
+  </div>
+
+  <!-- ============ SEMANA 1 ============ -->
+  <div class="week-section">
+    <div class="week-header">
+      <span>&#x1F31F;</span>
+      <h2>Semana 1 &mdash; Classicos do Dia a Dia</h2>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot cafe"></div>Cafe da manha</div>
+      <div class="legend-item"><div class="legend-dot almoco"></div>Almoco</div>
+      <div class="legend-item"><div class="legend-dot lanche"></div>Lanche</div>
+      <div class="legend-item"><div class="legend-dot jantar"></div>Jantar</div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Cafe da Manha</th>
+            <th>Almoco</th>
+            <th>Lanche</th>
+            <th>Jantar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day-name">Segunda</td>
+            <td><div class="meal meal-cafe">Pao com manteiga + cafe com leite + banana</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, bife acebolado, salada de alface e tomate</div></td>
+            <td><div class="meal meal-lanche">Bolo de cenoura simples + suco de laranja</div></td>
+            <td><div class="meal meal-jantar">Sopa de legumes com macarrao</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Terca</td>
+            <td><div class="meal meal-cafe">Tapioca com queijo e presunto + suco de manga</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, frango grelhado, pure de batata, couve refogada</div></td>
+            <td><div class="meal meal-lanche">Biscoito de maisena + iogurte natural com mel</div></td>
+            <td><div class="meal meal-jantar">Omelete de queijo e tomate + salada verde</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quarta</td>
+            <td><div class="meal meal-cafe">Mingau de aveia com canela + fruta picada</div></td>
+            <td><div class="meal meal-almoco">Macarrao ao molho de carne moida + salada de repolho</div></td>
+            <td><div class="meal meal-lanche">Pao de queijo + cafe</div></td>
+            <td><div class="meal meal-jantar">Caldo de mandioca com carne seca desfiada</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quinta</td>
+            <td><div class="meal meal-cafe">Pao frances com requeijao + cafe com leite + mamao</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, costela cozida, mandioca cozida, vinagrete</div></td>
+            <td><div class="meal meal-lanche">Vitamina de banana com aveia</div></td>
+            <td><div class="meal meal-jantar">Sanduiche natural de frango + suco verde</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sexta</td>
+            <td><div class="meal meal-cafe">Cuscuz com ovo mexido + suco de acerola</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao tropeiro, linguica assada, salada mista</div></td>
+            <td><div class="meal meal-lanche">Pipoca no fogao + limonada</div></td>
+            <td><div class="meal meal-jantar">Pizza caseira de frigideira</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sabado</td>
+            <td><div class="meal meal-cafe">Panqueca de banana + mel + cafe</div></td>
+            <td><div class="meal meal-almoco">Feijoada light com arroz, couve, farofa e laranja</div></td>
+            <td><div class="meal meal-lanche">Bolo de fuba + cafe com leite</div></td>
+            <td><div class="meal meal-jantar">Crepioca de frango com requeijao</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Domingo</td>
+            <td><div class="meal meal-cafe">Pao de queijo + suco de laranja + fruta</div></td>
+            <td><div class="meal meal-almoco">Macarronada com molho bolonhesa + salada Caesar simples</div></td>
+            <td><div class="meal meal-lanche">Gelatina com frutas + biscoito</div></td>
+            <td><div class="meal meal-jantar">Sopa de canja de galinha</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ SEMANA 2 ============ -->
+  <div class="week-section">
+    <div class="week-header">
+      <span>&#x1F34A;</span>
+      <h2>Semana 2 &mdash; Sabores Variados</h2>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot cafe"></div>Cafe da manha</div>
+      <div class="legend-item"><div class="legend-dot almoco"></div>Almoco</div>
+      <div class="legend-item"><div class="legend-dot lanche"></div>Lanche</div>
+      <div class="legend-item"><div class="legend-dot jantar"></div>Jantar</div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Cafe da Manha</th>
+            <th>Almoco</th>
+            <th>Lanche</th>
+            <th>Jantar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day-name">Segunda</td>
+            <td><div class="meal meal-cafe">Iogurte com granola e banana fatiada</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, frango xadrez, salada de pepino e tomate</div></td>
+            <td><div class="meal meal-lanche">Tapioca com coco ralado + cafe</div></td>
+            <td><div class="meal meal-jantar">Wrap de atum com salada</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Terca</td>
+            <td><div class="meal meal-cafe">Pao integral com ricota e geleia + suco de melao</div></td>
+            <td><div class="meal meal-almoco">Arroz, lentilha, carne de panela, abobrinha refogada</div></td>
+            <td><div class="meal meal-lanche">Bolo de banana + cha</div></td>
+            <td><div class="meal meal-jantar">Ovos mexidos com pao + salada de rucula</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quarta</td>
+            <td><div class="meal meal-cafe">Cuscuz com manteiga + cafe com leite + melancia</div></td>
+            <td><div class="meal meal-almoco">Escondidinho de carne moida com pure de mandioca</div></td>
+            <td><div class="meal meal-lanche">Mix de castanhas + suco de uva</div></td>
+            <td><div class="meal meal-jantar">Sopa de abobora com gengibre</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quinta</td>
+            <td><div class="meal meal-cafe">Vitamina de mamao com aveia + torrada</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao preto, peixe grelhado, farofa, salada tropical</div></td>
+            <td><div class="meal meal-lanche">Pao de queijo + requeijao + suco</div></td>
+            <td><div class="meal meal-jantar">Cachorro-quente caseiro simples</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sexta</td>
+            <td><div class="meal meal-cafe">Ovo cozido + pao com manteiga + cafe + abacaxi</div></td>
+            <td><div class="meal meal-almoco">Arroz, tutu de feijao, lombo assado, salada de beterraba</div></td>
+            <td><div class="meal meal-lanche">Milho cozido + limonada suica</div></td>
+            <td><div class="meal meal-jantar">Quesadilla de frango e milho</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sabado</td>
+            <td><div class="meal meal-cafe">Acai na tigela com banana e granola</div></td>
+            <td><div class="meal meal-almoco">Estrogonofe de frango, arroz, batata palha, salada verde</div></td>
+            <td><div class="meal meal-lanche">Bolo de chocolate de caneca + cafe</div></td>
+            <td><div class="meal meal-jantar">Tapioca recheada de carne moida</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Domingo</td>
+            <td><div class="meal meal-cafe">Panqueca de aveia com frutas + mel</div></td>
+            <td><div class="meal meal-almoco">Galinhada com pequi (ou milho), arroz, salada</div></td>
+            <td><div class="meal meal-lanche">Pudim de leite condensado</div></td>
+            <td><div class="meal meal-jantar">Caldo verde com torradas</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ SEMANA 3 ============ -->
+  <div class="week-section">
+    <div class="week-header">
+      <span>&#x1F96C;</span>
+      <h2>Semana 3 &mdash; Equilibrio e Praticidade</h2>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot cafe"></div>Cafe da manha</div>
+      <div class="legend-item"><div class="legend-dot almoco"></div>Almoco</div>
+      <div class="legend-item"><div class="legend-dot lanche"></div>Lanche</div>
+      <div class="legend-item"><div class="legend-dot jantar"></div>Jantar</div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Cafe da Manha</th>
+            <th>Almoco</th>
+            <th>Lanche</th>
+            <th>Jantar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day-name">Segunda</td>
+            <td><div class="meal meal-cafe">Pao com queijo quente + cafe + maca</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, file de frango a milanesa, pure de batata, salada</div></td>
+            <td><div class="meal meal-lanche">Bolo de laranja + suco natural</div></td>
+            <td><div class="meal meal-jantar">Creme de milho com frango desfiado</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Terca</td>
+            <td><div class="meal meal-cafe">Tapioca de banana com canela + cafe com leite</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, carne moida refogada, chuchu cozido, farofa</div></td>
+            <td><div class="meal meal-lanche">Iogurte batido com morango</div></td>
+            <td><div class="meal meal-jantar">Torta de liquidificador de frango</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quarta</td>
+            <td><div class="meal meal-cafe">Mingau de fuba + cafe + banana</div></td>
+            <td><div class="meal meal-almoco">Macarrao com frango e brocolis ao alho</div></td>
+            <td><div class="meal meal-lanche">Pao caseiro com manteiga + cha de camomila</div></td>
+            <td><div class="meal meal-jantar">Sopa de feijao com couve e linguica</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quinta</td>
+            <td><div class="meal meal-cafe">Ovo mexido com tomate + pao + suco de goiaba</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, bife a role, batata sautee, salada de cenoura</div></td>
+            <td><div class="meal meal-lanche">Biscoito de polvilho + vitamina de abacate</div></td>
+            <td><div class="meal meal-jantar">Panqueca de carne moida ao molho</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sexta</td>
+            <td><div class="meal meal-cafe">Pao integral + pasta de amendoim + cafe + pera</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, sardinha assada, vinagrete, salada verde</div></td>
+            <td><div class="meal meal-lanche">Pipoca + suco de abacaxi</div></td>
+            <td><div class="meal meal-jantar">Misto quente na chapa + salada de tomate</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sabado</td>
+            <td><div class="meal meal-cafe">Crepioca de queijo e oregano + suco de laranja</div></td>
+            <td><div class="meal meal-almoco">Baiao de dois com carne de sol desfiada e vinagrete</div></td>
+            <td><div class="meal meal-lanche">Bolo de milho cremoso + cafe</div></td>
+            <td><div class="meal meal-jantar">Frango a passarinho + mandioca frita + salada</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Domingo</td>
+            <td><div class="meal meal-cafe">Bolo no pote de chocolate + cafe com leite</div></td>
+            <td><div class="meal meal-almoco">Frango assado com batata, arroz, farofa, salada completa</div></td>
+            <td><div class="meal meal-lanche">Salada de frutas com creme</div></td>
+            <td><div class="meal meal-jantar">Canja de galinha cremosa</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ SEMANA 4 ============ -->
+  <div class="week-section">
+    <div class="week-header">
+      <span>&#x1F525;</span>
+      <h2>Semana 4 &mdash; Receitas da Vovo</h2>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot cafe"></div>Cafe da manha</div>
+      <div class="legend-item"><div class="legend-dot almoco"></div>Almoco</div>
+      <div class="legend-item"><div class="legend-dot lanche"></div>Lanche</div>
+      <div class="legend-item"><div class="legend-dot jantar"></div>Jantar</div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Cafe da Manha</th>
+            <th>Almoco</th>
+            <th>Lanche</th>
+            <th>Jantar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day-name">Segunda</td>
+            <td><div class="meal meal-cafe">Pao de forma com geleia caseira + cafe + mexerica</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao mulatinho, frango cozido com quiabo, angu</div></td>
+            <td><div class="meal meal-lanche">Rosquinha de nata + cafe com leite</div></td>
+            <td><div class="meal meal-jantar">Sopa de macarrao com legumes e carne</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Terca</td>
+            <td><div class="meal meal-cafe">Bolo de fuba com goiabada + cafe puro</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, picadinho de carne, abobrinha refogada, farofa de ovo</div></td>
+            <td><div class="meal meal-lanche">Pamonha (ou curau) + suco de caju</div></td>
+            <td><div class="meal meal-jantar">Omelete de forno com legumes</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quarta</td>
+            <td><div class="meal meal-cafe">Cuscuz com leite + cafe + goiaba</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, carne assada, mandioca cozida com manteiga, salada</div></td>
+            <td><div class="meal meal-lanche">Pao de milho caseiro + cha mate</div></td>
+            <td><div class="meal meal-jantar">Caldo de feijao com torresmo e cebolinha</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Quinta</td>
+            <td><div class="meal meal-cafe">Vitamina de abacate com leite + torrada</div></td>
+            <td><div class="meal meal-almoco">Arroz, feijao, rabada com agriao, polenta frita</div></td>
+            <td><div class="meal meal-lanche">Biscoito de polvilho caseiro + requeijao</div></td>
+            <td><div class="meal meal-jantar">Sopa de creme de mandioquinha</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sexta</td>
+            <td><div class="meal meal-cafe">Pao na chapa com manteiga + pingado + abacaxi</div></td>
+            <td><div class="meal meal-almoco">Moqueca de peixe com arroz e pirao</div></td>
+            <td><div class="meal meal-lanche">Bolo de mandioca + suco de maracuja</div></td>
+            <td><div class="meal meal-jantar">Pastel de feira assado no forno + caldo de cana (suco)</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Sabado</td>
+            <td><div class="meal meal-cafe">Acai com tapioca e banana + cafe</div></td>
+            <td><div class="meal meal-almoco">Dobradinha com feijao branco, arroz, couve, farofa</div></td>
+            <td><div class="meal meal-lanche">Cocada cremosa + cafezinho</div></td>
+            <td><div class="meal meal-jantar">Tapioca de carne seca com requeijao + salada</div></td>
+          </tr>
+          <tr>
+            <td class="day-name">Domingo</td>
+            <td><div class="meal meal-cafe">Bolinho de chuva + cafe com leite + suco de laranja</div></td>
+            <td><div class="meal meal-almoco">Arroz de carreteiro com salada e vinagrete</div></td>
+            <td><div class="meal meal-lanche">Brigadeiro de colher + leite gelado</div></td>
+            <td><div class="meal meal-jantar">Mingau de aveia com canela e banana (jantar leve)</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h3>Dicas para Aproveitar Melhor</h3>
+    <ul>
+      <li>Faca a lista de compras no sabado e va ao mercado no domingo</li>
+      <li>Deixe o feijao de molho na noite anterior para cozinhar mais rapido</li>
+      <li>Prepare carnes temperadas no domingo e congele em porcoes</li>
+      <li>Legumes podem ser cortados e guardados na geladeira por 2-3 dias</li>
+      <li>Sobras do almoco podem virar base do jantar - nada de desperdicio!</li>
+      <li>Tenha sempre ovos, arroz, feijao e farinha em casa</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    <p>Feito com carinho por <strong>Cozinhe com a Lu</strong></p>
+    <p>Adapte as receitas ao gosto da sua familia!</p>
+  </div>
+</div>
+</body>
+</html>
