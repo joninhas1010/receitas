@@ -439,7 +439,19 @@ track.innerHTML += track.innerHTML;
   });
 })();
 </script>
-<!-- Tracking avançado Kiwify: repassa fbclid, UTMs e sck para os links de checkout -->
-<script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var keys = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck'];
+  var tracking = {};
+  keys.forEach(function (k) { var v = params.get(k); if (v) tracking[k] = v; });
+  if (!Object.keys(tracking).length) return;
+  document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
+    var u = new URL(a.href);
+    Object.keys(tracking).forEach(function (k) { u.searchParams.set(k, tracking[k]); });
+    a.href = u.toString();
+  });
+})();
+</script>
 </body>
 </html>
