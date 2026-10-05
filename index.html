@@ -244,36 +244,15 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <div class="depo"><img class="depo-avatar" src="images/10.webp" alt="Aline C." />"Trabalho o dia todo e não tenho tempo pra nada. O guia me salvou porque as receitas são rápidas de verdade, não é propaganda. Recomendo demais!"<b>— Aline C., 26 anos</b></div>
 </section>
 
-<!-- 7. PLANOS -->
+<!-- 7. PLANO -->
 <section id="planos">
-  <h2>Escolha seu plano</h2>
-
-  <div class="plan">
-    <div class="head">PLANO<br />BÁSICO</div>
-    <div class="body">
-      <img src="images/mockup.webp" alt="Plano Básico" style="width:100%;height:auto;border-radius:16px" />
-      <p class="cap">Tudo o que você recebe</p>
-      <ul class="feat">
-        <li>+200 Receitas Deliciosas</li>
-        <li>Vídeos Passo a Passo</li>
-        <li>Lista de Compras Pronta</li>
-        <li>Cardápios Prontos para a Semana</li>
-        <li>Tira Dúvidas pelo WhatsApp com a Lurdes</li>
-        <li>Acesso Vitalício</li>
-      </ul>
-      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>10</span></div>
-      <a class="cta" href="https://pay.kiwify.com.br/vnDyNh8">Quero o plano básico</a>
-      <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
-    </div>
-  </div>
-
-  <p style="text-align:center;font-size:16px;font-weight:700;color:var(--secondary);margin-top:28px;line-height:1.6">Temos uma opção ainda mais completa para você<br /><span style="font-size:24px">↓</span></p>
+  <h2>Garanta seu acesso agora</h2>
 
   <div class="plan rec">
-    <span class="badge">🔥 Recomendado</span>
-    <div class="head">PLANO<br />COMPLETO</div>
+    <span class="badge">🔥 Oferta Especial</span>
+    <div class="head">COZINHE<br />COM A LU</div>
     <div class="body">
-      <img src="images/mockup-completo.webp" alt="Plano Completo" style="width:100%;height:auto;border-radius:16px" />
+      <img src="images/mockup-completo.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px" />
       <p class="cap">Tudo o que você recebe</p>
       <ul class="feat">
         <li>+200 Receitas Deliciosas</li>
@@ -282,17 +261,10 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
         <li>Cardápios Prontos para a Semana</li>
         <li>Tira Dúvidas pelo WhatsApp com a Lurdes</li>
         <li>Acesso Vitalício</li>
-        <li>eBook: +170 Receitas Saudáveis e Fáceis</li>
-        <li>+70 Receitas para Air Fryer</li>
-        <li>Dicas de Conservação e Congelamento</li>
-        <li>Café da Manhã Gostoso e Rápido</li>
-        <li>Saladas em Pote: Frescas e Gostosas</li>
-        <li>Receitas de Marmitas para Congelar</li>
-        <li>Lanches Rápidos para o Dia a Dia</li>
+        <li>7 Bônus Exclusivos Inclusos</li>
       </ul>
-      <p style="font-size:15px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:14px">Por apenas <em style="font-style:normal;color:var(--price-accent);font-weight:900">R$7 a mais</em>, você leva todos os 7 bônus e transforma o Cozinhe com a Lu em um kit completo para planejar, preparar e variar as refeições da semana inteira.</p>
       <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>17</span></div>
-      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo agora</a>
+      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero minhas receitas agora</a>
       <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
@@ -433,8 +405,7 @@ track.innerHTML += track.innerHTML;
   fbq('track', 'ViewContent', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: 17 });
   document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
     a.addEventListener('click', function () {
-      var completo = /SaF1YOQ/.test(a.href);
-      fbq('track', 'AddToCart', { content_name: completo ? 'Plano Completo' : 'Plano Básico', currency: 'BRL', value: completo ? 17 : 10 });
+      fbq('track', 'AddToCart', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: 17 });
     });
   });
 })();
