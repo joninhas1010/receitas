@@ -91,6 +91,8 @@ h3{font-size:22px;font-weight:900;line-height:1.28;color:#fff}
 .plan .cta{margin-top:18px}
 .plan .feat li.off{opacity:.45;text-decoration:line-through}
 .plan .feat li.off::before{content:"✕";background:#9A9A9A}
+.cta-outline{background:transparent!important;color:var(--cta-from)!important;border:2.5px solid var(--cta-from);box-shadow:none!important}.cta-outline:hover{background:var(--gradient-cta)!important;color:#fff!important;box-shadow:var(--shadow-cta)!important}
+.plan-sub{font-size:15px;font-weight:600;line-height:1.5;color:var(--text-soft);margin-bottom:16px}
 .marquee{overflow:hidden;margin:0 -22px}
 .track{display:flex;gap:12px;width:max-content;animation:scrollProva 30s linear infinite}
 .track .depo{width:260px;margin:0;flex:none}
@@ -169,12 +171,12 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <div class="chips">
     <div class="chip">🍽️ +200 Receitas</div>
     <div class="chip">⏱️ Pronto em 20 min</div>
-    <div class="chip">📅 Cardápios Prontos</div>
+    <div class="chip">📱 APP + PDFs</div>
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
   <!-- TROQUE: imagem de colagem de pratos -->
   <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Cozinhe com a Lu — receitas rápidas" />
-  <p class="lead">Tenha acesso a receitas simples, saborosas e rápidas, para resolver a rotina da cozinha sem estresse.</p>
+  <p class="lead">Acesse pelo APP no celular ou baixe os PDFs. Receitas simples, saborosas e rápidas para resolver a rotina da cozinha sem estresse.</p>
   <div class="glass">
     <p><strong>+17.800 pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
   </div>
@@ -213,8 +215,9 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
     <h4>Cozinhe com a Lu</h4>
     <ul class="feat">
       <li>+200 Receitas Deliciosas</li>
+      <li>APP completo no celular, tablet ou computador</li>
+      <li>PDFs prontos para baixar e imprimir</li>
       <li>Receitas prontas em até 20 minutos</li>
-      <li>Cardápios Prontos</li>
       <li>Acesso Vitalício</li>
       <li class="more">E muito mais…</li>
     </ul>
@@ -224,7 +227,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <!-- 5. BÔNUS -->
 <section class="dark" style="padding-top:0;padding-bottom:44px">
   <h2 style="padding-top:40px">E isso não é tudo</h2>
-  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">Ao entrar hoje, você ainda leva 7 bônus:</p>
+  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos:</p>
   <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
   <div class="bonus"><span class="tag">🎁 #2</span><img src="images/bonus2.webp" alt="Guia de Temperos Essenciais" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Temperos Essenciais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="old">De: R$27</span><span class="free">GRÁTIS</span></div>
   <div class="bonus"><span class="tag">🎁 #3</span><img src="images/bonus3.webp" alt="Lista de Compras Inteligente" style="width:100%;height:auto;border-radius:16px" /><h4>Lista de Compras Inteligente</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
@@ -244,27 +247,54 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <div class="depo"><img class="depo-avatar" src="images/10.webp" alt="Aline C." />"Trabalho o dia todo e não tenho tempo pra nada. O guia me salvou porque as receitas são rápidas de verdade, não é propaganda. Recomendo demais!"<b>— Aline C., 26 anos</b></div>
 </section>
 
-<!-- 7. PLANO -->
+<!-- 7. PLANOS -->
 <section id="planos">
-  <h2>Garanta seu acesso agora</h2>
+  <h2>Escolha seu plano</h2>
 
-  <div class="plan rec">
-    <span class="badge">🔥 Oferta Especial</span>
-    <div class="head">COZINHE<br />COM A LU</div>
+  <!-- PLANO BÁSICO -->
+  <div class="plan">
+    <div class="head">BÁSICO</div>
     <div class="body">
-      <img src="images/mockup-completo.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px" />
-      <p class="cap">Tudo o que você recebe</p>
+      <p class="plan-sub">O essencial para começar a cozinhar diferente todos os dias.</p>
       <ul class="feat">
         <li>+200 Receitas Deliciosas</li>
-        <li>Vídeos Passo a Passo</li>
-        <li>Lista de Compras Pronta</li>
-        <li>Cardápios Prontos para a Semana</li>
-        <li>Tira Dúvidas pelo WhatsApp com a Lurdes</li>
+        <li>Acesso ao APP completo</li>
+        <li>PDFs para download</li>
         <li>Acesso Vitalício</li>
-        <li>7 Bônus Exclusivos Inclusos</li>
+        <li class="off">Cardápios Prontos para a Semana</li>
+        <li class="off">Lista de Compras Inteligente</li>
+        <li class="off">Vídeos Passo a Passo</li>
+        <li class="off">7 Bônus Exclusivos</li>
+        <li class="off">Tira Dúvidas pelo WhatsApp com a Lurdes</li>
       </ul>
-      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>17</span></div>
-      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero minhas receitas agora</a>
+      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta por tempo limitado</p><span class="now"><small>R$</small>17</span></div>
+      <!-- SUBSTITUIR pelo link Kiwify do plano básico -->
+      <a class="cta cta-outline" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano básico</a>
+      <p class="trust">✅ Compra segura · ⚡ Acesso imediato · 🛡️ 30 dias de garantia</p>
+    </div>
+  </div>
+
+  <!-- PLANO COMPLETO -->
+  <div class="plan rec">
+    <span class="badge">🔥 Mais Escolhido</span>
+    <div class="head">COMPLETO</div>
+    <div class="body">
+      <p class="plan-sub">Tudo incluso: APP + PDFs + bônus + suporte. A experiência completa.</p>
+      <ul class="feat">
+        <li>+200 Receitas Deliciosas</li>
+        <li>Acesso ao APP completo</li>
+        <li>PDFs para download</li>
+        <li>Acesso Vitalício</li>
+        <li><strong>Cardápios Prontos para a Semana</strong></li>
+        <li><strong>Lista de Compras Inteligente</strong></li>
+        <li><strong>Vídeos Passo a Passo</strong></li>
+        <li><strong>7 Bônus Exclusivos</strong> <span style="font-size:12px;color:var(--strike);font-weight:600">(valor: R$217)</span></li>
+        <li><strong>Tira Dúvidas pelo WhatsApp com a Lurdes</strong></li>
+      </ul>
+      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Melhor custo-benefício</p><span class="now"><small>R$</small>27</span></div>
+      <p class="price-note" style="margin-top:2px"><em>+R$10</em> e você leva TUDO</p>
+      <!-- SUBSTITUIR pelo link Kiwify do plano completo -->
+      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo</a>
       <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
@@ -331,6 +361,14 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <details>
     <summary>Tem mensalidade?</summary>
     <div class="faq-body">Não! O pagamento é único. Você paga uma vez e tem acesso vitalício a todo o conteúdo, incluindo futuras atualizações.</div>
+  </details>
+  <details>
+    <summary>Qual a diferença entre o Plano Básico e o Completo?</summary>
+    <div class="faq-body">O Plano Básico (R$17) dá acesso às +200 receitas no APP e PDFs para download — tudo o que você precisa para começar. O Plano Completo (R$27) inclui tudo isso mais os cardápios prontos, lista de compras, vídeos, os 7 bônus exclusivos e suporte pelo WhatsApp com a Lurdes.</div>
+  </details>
+  <details>
+    <summary>Posso começar pelo Básico e fazer upgrade depois?</summary>
+    <div class="faq-body">Sim! Você pode começar pelo Plano Básico e fazer upgrade para o Completo quando quiser.</div>
   </details>
   <details>
     <summary>Para quem é o Cozinhe com a Lu?</summary>
@@ -404,8 +442,9 @@ track.innerHTML += track.innerHTML;
   if (!FB_PIXEL_ID) return;
   fbq('track', 'ViewContent', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: 17 });
   document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
+    var planValue = a.closest('.rec') ? 27 : 17;
     a.addEventListener('click', function () {
-      fbq('track', 'AddToCart', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: 17 });
+      fbq('track', 'AddToCart', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: planValue });
     });
   });
 })();
