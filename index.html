@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cozinhe com a Lu</title>
 <meta name="description" content="+200 receitas rápidas, cardápios prontos e acesso vitalício." />
+<meta name="theme-color" content="#FF6B4A" />
+<link rel="dns-prefetch" href="https://pay.kiwify.com.br" />
+<link rel="dns-prefetch" href="https://connect.facebook.net" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="images/hero.webp" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{
   --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
@@ -179,6 +183,40 @@ footer{padding:24px 22px 40px;text-align:center;font-size:13px;color:var(--text-
 .plan-vs-price small{font-size:14px;font-weight:700}
 .plan-vs-diff{font-size:11px;font-weight:700;color:var(--cta-from);background:rgba(42,138,69,.1);border-radius:100px;padding:3px 10px;display:inline-block}
 .plan-vs-items{font-size:11px;font-weight:600;color:var(--text-soft);margin-top:6px;line-height:1.4}
+/* Performance: skip rendering off-screen sections */
+section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
+/* Touch targets min 44px */
+.cta{min-height:44px}
+.faq summary{min-height:44px}
+/* Responsive: tablet & desktop */
+@media(min-width:480px){
+  main{max-width:560px}
+  h1{font-size:36px}
+  h2{font-size:28px}
+  .chips{grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
+  .chip{padding:14px 10px;font-size:12px}
+  .phone-wrap{width:300px}
+  .plan-vs{gap:14px}
+  .plan-vs-price{font-size:34px}
+  section{padding:48px 28px 44px}
+}
+@media(min-width:768px){
+  main{max-width:680px}
+  h1{font-size:40px}
+  h2{font-size:30px}
+  .lead{font-size:18px}
+  .hero{padding:48px 32px}
+  section{padding:56px 36px 48px}
+  .benefit{display:flex;align-items:center;gap:20px;text-align:left}
+  .benefit .card{flex:1}
+  .benefit .pic{width:80px;height:80px;margin:0;flex:none}
+  .benefit p{margin-top:8px;flex:1}
+  .depo{font-size:17px}
+  .plan-vs-price{font-size:38px}
+  .phone-wrap{width:320px}
+  .reel figure{width:220px!important}
+  .reel:nth-child(2) figure{width:190px!important}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 <!-- Meta Pixel Code -->
@@ -216,7 +254,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
   <!-- TROQUE: imagem de colagem de pratos -->
-  <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Cozinhe com a Lu — receitas rápidas" />
+  <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Cozinhe com a Lu — receitas rápidas" width="840" height="840" fetchpriority="high" decoding="async" />
   <p class="lead">+200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
   <div class="glass">
     <p><strong>+17.800 pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
@@ -314,18 +352,18 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <!-- 3. IDEAL PARA VOCÊ QUE -->
 <section>
   <h2 style="text-transform:uppercase">Ideal para você que…</h2>
-  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="200" height="200" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="200" height="200" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" width="200" height="200" loading="lazy" decoding="async" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" width="200" height="200" loading="lazy" decoding="async" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" width="200" height="200" loading="lazy" decoding="async" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
 </section>
 
 <!-- 4. ACESSO IMEDIATO -->
 <section class="dark">
   <p class="label">Você vai receber acesso imediato a:</p>
   <div class="box">
-    <img src="images/mockup.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" />
+    <img src="images/mockup.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="840" height="840" loading="lazy" decoding="async" />
     <h4>Cozinhe com a Lu</h4>
     <ul class="feat">
       <li>+200 Receitas Deliciosas</li>
@@ -343,23 +381,23 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <section class="dark" style="padding-top:0;padding-bottom:44px">
   <h2 style="padding-top:40px">E isso não é tudo</h2>
   <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos:</p>
-  <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #2</span><img src="images/bonus2.webp" alt="Guia de Temperos Essenciais" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Temperos Essenciais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="old">De: R$27</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #3</span><img src="images/bonus3.webp" alt="Lista de Compras Inteligente" style="width:100%;height:auto;border-radius:16px" /><h4>Lista de Compras Inteligente</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #4</span><img src="images/bonus4.webp" alt="30 Sobremesas Rápidas" style="width:100%;height:auto;border-radius:16px" /><h4>30 Sobremesas Rápidas</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Pudim, bolo de cenoura, mousse e mais — todas prontas em até 15 minutos ou com poucos ingredientes.</p><span class="old">De: R$37</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #5</span><img src="images/bonus5.webp" alt="Guia de Marmitas da Semana" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Marmitas da Semana</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Prepare 5 marmitas no domingo em menos de 2 horas. Receitas que congelam bem e ficam gostosas reaquecidas.</p><span class="old">De: R$39</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #6</span><img src="images/bonus6.webp" alt="Receitas para Datas Especiais" style="width:100%;height:auto;border-radius:16px" /><h4>Receitas para Datas Especiais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aniversários, Natal, Páscoa e comemorações. Pratos que impressionam sem complicar sua vida.</p><span class="old">De: R$29</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #7</span><img src="images/bonus7.webp" alt="Guia de Substituições" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Substituições</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Faltou um ingrediente? Este guia mostra o que usar no lugar sem perder o sabor da receita.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" width="420" height="525" loading="lazy" decoding="async" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #2</span><img src="images/bonus2.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Temperos Essenciais" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Temperos Essenciais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="old">De: R$27</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #3</span><img src="images/bonus3.webp" width="420" height="525" loading="lazy" decoding="async" alt="Lista de Compras Inteligente" style="width:100%;height:auto;border-radius:16px" /><h4>Lista de Compras Inteligente</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #4</span><img src="images/bonus4.webp" width="420" height="525" loading="lazy" decoding="async" alt="30 Sobremesas Rápidas" style="width:100%;height:auto;border-radius:16px" /><h4>30 Sobremesas Rápidas</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Pudim, bolo de cenoura, mousse e mais — todas prontas em até 15 minutos ou com poucos ingredientes.</p><span class="old">De: R$37</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #5</span><img src="images/bonus5.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Marmitas da Semana" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Marmitas da Semana</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Prepare 5 marmitas no domingo em menos de 2 horas. Receitas que congelam bem e ficam gostosas reaquecidas.</p><span class="old">De: R$39</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #6</span><img src="images/bonus6.webp" width="420" height="525" loading="lazy" decoding="async" alt="Receitas para Datas Especiais" style="width:100%;height:auto;border-radius:16px" /><h4>Receitas para Datas Especiais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aniversários, Natal, Páscoa e comemorações. Pratos que impressionam sem complicar sua vida.</p><span class="old">De: R$29</span><span class="free">GRÁTIS</span></div>
+  <div class="bonus"><span class="tag">🎁 #7</span><img src="images/bonus7.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Substituições" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Substituições</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Faltou um ingrediente? Este guia mostra o que usar no lugar sem perder o sabor da receita.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
 </section>
 
 <!-- 6. DEPOIMENTOS -->
 <section style="padding-top:36px;padding-bottom:32px">
   <h2>Quem já usa, aprova</h2>
-  <div class="depo"><img class="depo-avatar" src="images/11.webp" alt="Camila R." />"Eu chegava em casa sem ideia nenhuma do que fazer. Agora abro o guia e em 20 minutos o jantar tá na mesa. Meu marido até estranha de tanta coisa diferente que faço!"<b>— Camila R., 34 anos</b></div>
-  <div class="depo"><img class="depo-avatar" src="images/9.webp" alt="Fernanda M." />"Sempre repetia arroz, feijão e bife. Com o Cozinhe com a Lu descobri receitas fáceis que meus filhos amam. O strogonoff virou o prato favorito da casa."<b>— Fernanda M., 41 anos</b></div>
-  <div class="depo"><img class="depo-avatar" src="images/13.webp" alt="Juliana S." />"Eu gastava muito no mercado porque comprava sem planejamento. Com os cardápios prontos, economizo pelo menos R$200 por mês e ainda como melhor."<b>— Juliana S., 29 anos</b></div>
-  <div class="depo"><img class="depo-avatar" src="images/12.webp" alt="Patrícia L." />"Sou péssima na cozinha, mas as receitas são tão bem explicadas que até eu consigo fazer. Minha sogra pediu a receita do pudim! 😂"<b>— Patrícia L., 37 anos</b></div>
-  <div class="depo"><img class="depo-avatar" src="images/10.webp" alt="Aline C." />"Trabalho o dia todo e não tenho tempo pra nada. O guia me salvou porque as receitas são rápidas de verdade, não é propaganda. Recomendo demais!"<b>— Aline C., 26 anos</b></div>
+  <div class="depo"><img class="depo-avatar" src="images/11.webp" width="128" height="128" loading="lazy" decoding="async" alt="Camila R." />"Eu chegava em casa sem ideia nenhuma do que fazer. Agora abro o guia e em 20 minutos o jantar tá na mesa. Meu marido até estranha de tanta coisa diferente que faço!"<b>— Camila R., 34 anos</b></div>
+  <div class="depo"><img class="depo-avatar" src="images/9.webp" width="128" height="128" loading="lazy" decoding="async" alt="Fernanda M." />"Sempre repetia arroz, feijão e bife. Com o Cozinhe com a Lu descobri receitas fáceis que meus filhos amam. O strogonoff virou o prato favorito da casa."<b>— Fernanda M., 41 anos</b></div>
+  <div class="depo"><img class="depo-avatar" src="images/13.webp" width="128" height="128" loading="lazy" decoding="async" alt="Juliana S." />"Eu gastava muito no mercado porque comprava sem planejamento. Com os cardápios prontos, economizo pelo menos R$200 por mês e ainda como melhor."<b>— Juliana S., 29 anos</b></div>
+  <div class="depo"><img class="depo-avatar" src="images/12.webp" width="128" height="128" loading="lazy" decoding="async" alt="Patrícia L." />"Sou péssima na cozinha, mas as receitas são tão bem explicadas que até eu consigo fazer. Minha sogra pediu a receita do pudim! 😂"<b>— Patrícia L., 37 anos</b></div>
+  <div class="depo"><img class="depo-avatar" src="images/10.webp" width="128" height="128" loading="lazy" decoding="async" alt="Aline C." />"Trabalho o dia todo e não tenho tempo pra nada. O guia me salvou porque as receitas são rápidas de verdade, não é propaganda. Recomendo demais!"<b>— Aline C., 26 anos</b></div>
 </section>
 
 <!-- 7. PLANOS -->
@@ -434,12 +472,12 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <section style="padding-bottom:36px">
   <h2>Veja o que estão falando</h2>
   <div class="marquee"><div class="track" id="track">
-    <img src="images/depo1.webp" alt="Depoimento" />
-    <img src="images/depo2.webp" alt="Depoimento" />
-    <img src="images/depo3.webp" alt="Depoimento" />
-    <img src="images/depo4.webp" alt="Depoimento" />
-    <img src="images/depo5.webp" alt="Depoimento" />
-    <img src="images/depo6.webp" alt="Depoimento" />
+    <img src="images/depo1.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo2.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo3.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo4.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo5.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo6.webp" alt="Depoimento" loading="lazy" decoding="async" />
   </div></div>
 </section>
 
@@ -515,7 +553,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <section class="author">
   <h2>Quem criou o Cozinhe com a Lu</h2>
   <div class="card">
-    <div class="ph"><img src="images/autora.webp" alt="Lurdes Almeida" /></div>
+    <div class="ph"><img src="images/autora.webp" alt="Lurdes Almeida" width="460" height="460" loading="lazy" decoding="async" /></div>
     <p><strong>Lurdes Almeida</strong><br />Lurdes Almeida é chef com 12 anos de experiência e conhece na prática a rotina de quem chega do trabalho cansada e ainda precisa colocar uma refeição gostosa na mesa.<br /><br />Foi dessa realidade que nasceu o Cozinhe com a Lu. Receitas rápidas, práticas e deliciosas, criadas para mães que trabalham fora e querem cozinhar com variedade e sabor sem passar horas na cozinha.<br /><br />Hoje, com mais de 17.800 alunos, Lurdes já ajudou milhares de pessoas a voltarem a sentir prazer em cozinhar, mesmo com pouco tempo e rotina corrida.</p>
   </div>
 </section>
@@ -593,7 +631,19 @@ track.innerHTML += track.innerHTML;
   });
 })();
 </script>
-<!-- Tracking avançado Kiwify: repassa fbclid, UTMs e sck para os links de checkout -->
-<script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js"></script>
+<!-- Marcação de origem: repassa todos os parâmetros da URL para os links -->
+<script>
+(function(){
+  var qs = window.location.search.replace('?','');
+  if(!qs) return;
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h = a.getAttribute('href');
+    if(!h || h.indexOf('#') === 0) return;
+    a.href = h + (h.indexOf('?') > -1 ? '&' : '?') + qs;
+  });
+})();
+</script>
+<!-- Tracking avançado Kiwify -->
+<script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js" async></script>
 </body>
 </html>
