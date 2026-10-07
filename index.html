@@ -91,6 +91,8 @@ h3{font-size:22px;font-weight:900;line-height:1.28;color:#fff}
 .plan .cta{margin-top:18px}
 .plan .feat li.off{opacity:.45;text-decoration:line-through}
 .plan .feat li.off::before{content:"✕";background:#9A9A9A}
+.cta-outline{background:transparent!important;color:var(--cta-from)!important;border:2.5px solid var(--cta-from);box-shadow:none!important}.cta-outline:hover{background:var(--gradient-cta)!important;color:#fff!important;box-shadow:var(--shadow-cta)!important}
+.plan-sub{font-size:15px;font-weight:600;line-height:1.5;color:var(--text-soft);margin-bottom:16px}
 .marquee{overflow:hidden;margin:0 -22px}
 .track{display:flex;gap:12px;width:max-content;animation:scrollProva 30s linear infinite}
 .track .depo{width:260px;margin:0;flex:none}
@@ -136,6 +138,47 @@ footer{padding:24px 22px 40px;text-align:center;font-size:13px;color:var(--text-
 .showcase-hint{font-size:13px;font-weight:700;color:rgba(255,255,255,.7);margin-top:14px}
 .showcase-hint span{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
 @keyframes nudge{50%{transform:translateX(6px)}}
+/* APP Showcase */
+.phone-wrap{margin:28px auto 0;width:270px}
+.phone-frame{background:linear-gradient(145deg,#2A2A2A,#1A1A1A);border-radius:38px;padding:14px 12px;box-shadow:0 24px 64px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.08);position:relative}
+.phone-notch{width:90px;height:24px;background:#1A1A1A;border-radius:0 0 16px 16px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:3}
+.phone-notch::after{content:"";width:10px;height:10px;border-radius:50%;background:#2A2A2A;position:absolute;top:7px;left:50%;transform:translateX(-50%);box-shadow:inset 0 1px 2px rgba(0,0,0,.5)}
+.phone-screen{background:var(--background);border-radius:28px;overflow:hidden}
+.app-head{background:linear-gradient(135deg,#FF7A59,#E75431);color:#fff;padding:30px 16px 14px;font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+.app-head span{font-size:20px}
+.app-prog{padding:14px 14px 10px}
+.app-prog-label{font-size:10px;font-weight:700;color:var(--text-muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.app-bar{height:7px;background:#EEE3C8;border-radius:100px;overflow:hidden}
+.app-bar-fill{width:35%;height:100%;background:linear-gradient(90deg,var(--cta-from),#66BB6A);border-radius:100px}
+.app-bar-pct{font-size:9px;font-weight:700;color:var(--text-muted);margin-top:3px;text-align:right}
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:2px 14px 10px}
+.app-tile{background:#fff;border-radius:12px;padding:12px 8px;text-align:center;font-size:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(90,53,34,.06)}
+.app-tile span{display:block;font-size:10px;font-weight:700;color:var(--secondary);margin-top:3px}
+.app-tile.hl{border-color:var(--accent);background:linear-gradient(135deg,#FFFDE7,#FFF9C4)}
+.app-card{display:flex;align-items:center;gap:10px;margin:0 14px 10px;background:#fff;border-radius:12px;padding:10px;box-shadow:0 2px 6px rgba(0,0,0,.04);border:1px solid rgba(90,53,34,.06)}
+.app-card-ico{width:42px;height:42px;background:linear-gradient(135deg,#FFE0B2,#FFCC80);border-radius:10px;display:grid;place-items:center;font-size:20px;flex:none}
+.app-card-txt{text-align:left}
+.app-card-txt strong{display:block;font-size:12px;font-weight:800;color:var(--secondary)}
+.app-card-txt em{font-style:normal;font-size:10px;font-weight:600;color:var(--text-muted)}
+.app-dots{display:flex;gap:5px;padding:4px 14px 14px;justify-content:center}
+.app-dot{width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center}
+.app-dl{margin:0 14px 14px;background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:8px;border:1px solid rgba(42,138,69,.15)}
+.app-dl span{font-size:22px;flex:none}
+.app-dl strong{font-size:11px;font-weight:800;color:var(--cta-from);display:block}
+.app-dl em{font-style:normal;font-size:9px;font-weight:600;color:var(--text-muted)}
+.pdf-callout{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#FFF8ED,#FFF3DB);border:2px solid var(--accent);border-radius:18px;padding:16px 14px;margin-top:24px;text-align:left}
+.pdf-callout-ico{width:52px;height:52px;border-radius:14px;background:var(--gradient-cta);display:grid;place-items:center;font-size:24px;flex:none;color:#fff;box-shadow:0 4px 12px rgba(42,138,69,.3)}
+.pdf-callout strong{display:block;font-size:15px;font-weight:800;color:var(--secondary)}
+.pdf-callout em{font-style:normal;font-size:13px;font-weight:500;color:var(--text-soft);line-height:1.5}
+.plan-vs{display:flex;gap:10px;margin-bottom:20px}
+.plan-vs-col{flex:1;background:#fff;border-radius:16px;padding:14px 10px;text-align:center;border:2px solid var(--border);box-shadow:var(--shadow-card)}
+.plan-vs-col.best{border-color:var(--primary);background:linear-gradient(180deg,#FFF0EC,#fff)}
+.plan-vs-name{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.plan-vs-col.best .plan-vs-name{color:var(--primary)}
+.plan-vs-price{font-size:30px;font-weight:900;color:var(--secondary);margin:4px 0;letter-spacing:-1px}
+.plan-vs-price small{font-size:14px;font-weight:700}
+.plan-vs-diff{font-size:11px;font-weight:700;color:var(--cta-from);background:rgba(42,138,69,.1);border-radius:100px;padding:3px 10px;display:inline-block}
+.plan-vs-items{font-size:11px;font-weight:600;color:var(--text-soft);margin-top:6px;line-height:1.4}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 <!-- Meta Pixel Code -->
@@ -165,16 +208,16 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 
 <!-- 1. HERO -->
 <section class="hero">
-  <h1>+200 receitas rápidas para você parar de repetir os mesmos pratos todos os dias</h1>
+  <h1>Resolva a pergunta mais difícil do dia: "O que vou cozinhar hoje?"</h1>
   <div class="chips">
     <div class="chip">🍽️ +200 Receitas</div>
     <div class="chip">⏱️ Pronto em 20 min</div>
-    <div class="chip">📅 Cardápios Prontos</div>
+    <div class="chip">📱 APP + PDFs</div>
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
   <!-- TROQUE: imagem de colagem de pratos -->
   <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="receitas-da-bia — receitas rápidas" />
-  <p class="lead">Tenha acesso a receitas simples, saborosas e rápidas, para resolver a rotina da cozinha sem estresse.</p>
+  <p class="lead">+200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
   <div class="glass">
     <p><strong>+17.800 pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
   </div>
@@ -195,6 +238,79 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <a class="cta" href="#planos">Quero minhas receitas agora</a>
 </section>
 
+<!-- APP SHOWCASE -->
+<section>
+  <h2>Conheça o APP por dentro</h2>
+  <p style="font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:-8px;margin-bottom:8px">Tudo organizado na palma da sua mão — acesse no celular, tablet ou computador.</p>
+
+  <div class="phone-wrap">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="app-head"><span>🍳</span> receitas-da-bia</div>
+
+        <div class="app-prog">
+          <div class="app-prog-label">Seu progresso</div>
+          <div class="app-bar"><div class="app-bar-fill"></div></div>
+          <div class="app-bar-pct">70 de 200 receitas</div>
+        </div>
+
+        <div class="app-grid">
+          <div class="app-tile">📋<span>Cardápios</span></div>
+          <div class="app-tile">🛒<span>Lista de Compras</span></div>
+          <div class="app-tile">🎥<span>Vídeos</span></div>
+          <div class="app-tile hl">📥<span>13 PDFs</span></div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-ico">🍝</div>
+          <div class="app-card-txt">
+            <strong>Strogonoff de Frango</strong>
+            <em>⏱ 15 min · Fácil</em>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-ico">🥘</div>
+          <div class="app-card-txt">
+            <strong>Escondidinho de Carne</strong>
+            <em>⏱ 20 min · Fácil</em>
+          </div>
+        </div>
+
+        <div class="app-prog" style="padding-top:6px;padding-bottom:4px">
+          <div class="app-prog-label">7 Bônus Exclusivos</div>
+        </div>
+        <div class="app-dots">
+          <div class="app-dot">1</div>
+          <div class="app-dot">2</div>
+          <div class="app-dot">3</div>
+          <div class="app-dot">4</div>
+          <div class="app-dot">5</div>
+          <div class="app-dot">6</div>
+          <div class="app-dot">7</div>
+        </div>
+
+        <div class="app-dl">
+          <span>📄</span>
+          <div>
+            <strong>13 PDFs para Download</strong>
+            <em>Baixe e imprima — funciona offline</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pdf-callout">
+    <div class="pdf-callout-ico">📥</div>
+    <div>
+      <strong>13 PDFs prontos para baixar</strong>
+      <em>Imprima e leve para a cozinha — funciona até sem internet.</em>
+    </div>
+  </div>
+</section>
+
 <!-- 3. IDEAL PARA VOCÊ QUE -->
 <section>
   <h2 style="text-transform:uppercase">Ideal para você que…</h2>
@@ -213,10 +329,12 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
     <h4>receitas-da-bia</h4>
     <ul class="feat">
       <li>+200 Receitas Deliciosas</li>
+      <li>APP completo no celular, tablet ou computador</li>
+      <li>13 PDFs prontos para baixar e imprimir</li>
       <li>Receitas prontas em até 20 minutos</li>
-      <li>Cardápios Prontos</li>
+      <li>Barra de progresso para acompanhar sua evolução</li>
+      <li>Calculadora de Porções, Tabela de Medidas e Dicas de Conservação</li>
       <li>Acesso Vitalício</li>
-      <li class="more">E muito mais…</li>
     </ul>
   </div>
 </section>
@@ -224,7 +342,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <!-- 5. BÔNUS -->
 <section class="dark" style="padding-top:0;padding-bottom:44px">
   <h2 style="padding-top:40px">E isso não é tudo</h2>
-  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">Ao entrar hoje, você ainda leva 7 bônus:</p>
+  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos:</p>
   <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
   <div class="bonus"><span class="tag">🎁 #2</span><img src="images/bonus2.webp" alt="Guia de Temperos Essenciais" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Temperos Essenciais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="old">De: R$27</span><span class="free">GRÁTIS</span></div>
   <div class="bonus"><span class="tag">🎁 #3</span><img src="images/bonus3.webp" alt="Lista de Compras Inteligente" style="width:100%;height:auto;border-radius:16px" /><h4>Lista de Compras Inteligente</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
@@ -244,27 +362,69 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <div class="depo"><img class="depo-avatar" src="images/10.webp" alt="Aline C." />"Trabalho o dia todo e não tenho tempo pra nada. O guia me salvou porque as receitas são rápidas de verdade, não é propaganda. Recomendo demais!"<b>— Aline C., 26 anos</b></div>
 </section>
 
-<!-- 7. PLANO -->
+<!-- 7. PLANOS -->
 <section id="planos">
-  <h2>Garanta seu acesso agora</h2>
+  <h2>Escolha seu plano</h2>
 
-  <div class="plan rec">
-    <span class="badge">🔥 Oferta Especial</span>
-    <div class="head">COZINHE<br />COM A LU</div>
+  <div class="plan-vs">
+    <div class="plan-vs-col">
+      <div class="plan-vs-name">Básico</div>
+      <div class="plan-vs-price"><small>R$</small>17</div>
+      <div class="plan-vs-items">APP + Receitas<br />+ PDFs</div>
+    </div>
+    <div class="plan-vs-col best">
+      <div class="plan-vs-name">Completo</div>
+      <div class="plan-vs-price"><small>R$</small>27</div>
+      <div class="plan-vs-diff">+R$10 leva TUDO</div>
+      <div class="plan-vs-items">APP + PDFs + Bônus<br />+ Extras + Suporte</div>
+    </div>
+  </div>
+
+  <!-- PLANO BÁSICO -->
+  <div class="plan">
+    <div class="head">BÁSICO</div>
     <div class="body">
-      <img src="images/mockup-completo.webp" alt="receitas-da-bia" style="width:100%;height:auto;border-radius:16px" />
-      <p class="cap">Tudo o que você recebe</p>
+      <p class="plan-sub">O essencial para começar a cozinhar diferente todos os dias.</p>
       <ul class="feat">
         <li>+200 Receitas Deliciosas</li>
-        <li>Vídeos Passo a Passo</li>
-        <li>Lista de Compras Pronta</li>
-        <li>Cardápios Prontos para a Semana</li>
-        <li>Tira Dúvidas pelo WhatsApp com a Bia</li>
+        <li>Acesso ao APP completo</li>
+        <li>PDFs para download</li>
         <li>Acesso Vitalício</li>
-        <li>7 Bônus Exclusivos Inclusos</li>
+        <li class="off">Cardápios Prontos para a Semana</li>
+        <li class="off">Lista de Compras Inteligente</li>
+        <li class="off">Vídeos Passo a Passo</li>
+        <li class="off">7 Bônus Exclusivos</li>
+        <li class="off">Tira Dúvidas pelo WhatsApp com a Bia</li>
       </ul>
-      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Oferta especial de hoje</p><span class="now"><small>R$</small>17</span></div>
-      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero minhas receitas agora</a>
+      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta por tempo limitado</p><span class="now"><small>R$</small>17</span></div>
+      <!-- SUBSTITUIR pelo link Kiwify do plano básico -->
+      <a class="cta cta-outline" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano básico</a>
+      <p class="trust">✅ Compra segura · ⚡ Acesso imediato · 🛡️ 30 dias de garantia</p>
+    </div>
+  </div>
+
+  <!-- PLANO COMPLETO -->
+  <div class="plan rec">
+    <span class="badge">🔥 Mais Escolhido</span>
+    <div class="head">COMPLETO</div>
+    <div class="body">
+      <p class="plan-sub">Tudo incluso: APP + 13 PDFs + bônus + extras + suporte. A experiência completa.</p>
+      <ul class="feat">
+        <li>+200 Receitas Deliciosas</li>
+        <li>Acesso ao APP completo</li>
+        <li>13 PDFs para download e imprimir</li>
+        <li>Acesso Vitalício</li>
+        <li><strong>Cardápios Prontos para a Semana</strong></li>
+        <li><strong>Lista de Compras Inteligente</strong></li>
+        <li><strong>Vídeos Passo a Passo</strong></li>
+        <li><strong>Calculadora de Porções + Tabela de Medidas + Dicas de Conservação</strong></li>
+        <li><strong>7 Bônus Exclusivos</strong> <span style="font-size:12px;color:var(--strike);font-weight:600">(valor: R$217)</span></li>
+        <li><strong>Tira Dúvidas pelo WhatsApp com a Bia</strong></li>
+      </ul>
+      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Melhor custo-benefício</p><span class="now"><small>R$</small>27</span></div>
+      <p class="price-note" style="margin-top:2px"><em>+R$10</em> e você leva TUDO</p>
+      <!-- SUBSTITUIR pelo link Kiwify do plano completo -->
+      <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo</a>
       <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
@@ -331,6 +491,14 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <details>
     <summary>Tem mensalidade?</summary>
     <div class="faq-body">Não! O pagamento é único. Você paga uma vez e tem acesso vitalício a todo o conteúdo, incluindo futuras atualizações.</div>
+  </details>
+  <details>
+    <summary>Qual a diferença entre o Plano Básico e o Completo?</summary>
+    <div class="faq-body">O Plano Básico (R$17) dá acesso às +200 receitas no APP e PDFs para download — tudo o que você precisa para começar. O Plano Completo (R$27) inclui tudo isso mais os cardápios prontos, lista de compras, vídeos, os 7 bônus exclusivos e suporte pelo WhatsApp com a Bia.</div>
+  </details>
+  <details>
+    <summary>Posso começar pelo Básico e fazer upgrade depois?</summary>
+    <div class="faq-body">Sim! Você pode começar pelo Plano Básico e fazer upgrade para o Completo quando quiser.</div>
   </details>
   <details>
     <summary>Para quem é o receitas-da-bia?</summary>
@@ -404,8 +572,9 @@ track.innerHTML += track.innerHTML;
   if (!FB_PIXEL_ID) return;
   fbq('track', 'ViewContent', { content_name: 'receitas-da-bia', currency: 'BRL', value: 17 });
   document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
+    var planValue = a.closest('.rec') ? 27 : 17;
     a.addEventListener('click', function () {
-      fbq('track', 'AddToCart', { content_name: 'receitas-da-bia', currency: 'BRL', value: 17 });
+      fbq('track', 'AddToCart', { content_name: 'receitas-da-bia', currency: 'BRL', value: planValue });
     });
   });
 })();
