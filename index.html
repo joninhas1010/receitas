@@ -644,6 +644,15 @@ track.innerHTML += track.innerHTML;
   });
 })();
 </script>
+<script>
+document.querySelectorAll('a[href="#planos"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.getElementById('planos');
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
 <!-- Tracking avançado Kiwify -->
 <script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js" async></script>
 </body>
