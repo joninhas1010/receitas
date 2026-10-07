@@ -11,7 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="images/hero.webp" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 <style>
 :root{
   --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
@@ -27,7 +29,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:18px;scroll-behavior:smooth}
-body{background:var(--background);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif}
+body{background:var(--background);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;-webkit-text-size-adjust:100%}
 img{max-width:100%;display:block}
 ul{list-style:none}
 main{width:100%;max-width:460px;margin:0 auto}
@@ -219,24 +221,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1065374819648474');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script>var FB_PIXEL_ID = "1065374819648474"; // usado pelos eventos ViewContent/AddToCart no fim da página</script>
+
 </head>
 <body>
 <div id="progress"></div>
@@ -253,8 +238,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
     <div class="chip">📱 APP + PDFs</div>
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
-  <!-- TROQUE: imagem de colagem de pratos -->
-  <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Cozinhe com a Lu — receitas rápidas" width="1254" height="1254" fetchpriority="high" decoding="async" />
+  <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Cozinhe com a Lu — receitas rápidas" width="920" height="920" fetchpriority="high" decoding="async" />
   <p class="lead">+200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
   <a class="cta" href="#planos">Quero minhas receitas agora</a>
   <div class="glass">
@@ -267,7 +251,6 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
   <span class="showcase-count"><i></i>+200 RECEITAS DENTRO DO GUIA</span>
   <h2>Veja o que você vai encontrar dentro do Cozinhe com a Lu</h2>
   <p class="showcase-sub">Receitas organizadas, fáceis de seguir e prontas para você colocar na mesa hoje mesmo.</p>
-  <!-- TROQUE: para usar outras fotos, edite as imagens abaixo (mantenha as duas fileiras com as mesmas fotos) -->
   <div class="reels" id="reels" aria-label="Receitas do guia">
     <div class="reel" data-dir="1"><div class="reel-track"><figure><img src="images/1.webp" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/8.webp" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure></div></div>
     <div class="reel" data-dir="-1"><div class="reel-track"><figure><img src="images/8.webp" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/1.webp" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure></div></div>
@@ -353,18 +336,18 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <!-- 3. IDEAL PARA VOCÊ QUE -->
 <section>
   <h2 style="text-transform:uppercase">Ideal para você que…</h2>
-  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="200" height="200" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="200" height="200" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" width="200" height="200" loading="lazy" decoding="async" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" width="200" height="200" loading="lazy" decoding="async" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" width="200" height="200" loading="lazy" decoding="async" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="180" height="180" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="180" height="180" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" width="180" height="180" loading="lazy" decoding="async" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" width="180" height="180" loading="lazy" decoding="async" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
+  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" width="180" height="180" loading="lazy" decoding="async" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
 </section>
 
 <!-- 4. ACESSO IMEDIATO -->
 <section class="dark">
   <p class="label">Você vai receber acesso imediato a:</p>
   <div class="box">
-    <img src="images/mockup.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="840" height="840" loading="lazy" decoding="async" />
+    <img src="images/mockup.webp" alt="Cozinhe com a Lu" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="560" height="560" loading="lazy" decoding="async" />
     <h4>Cozinhe com a Lu</h4>
     <ul class="feat">
       <li>+200 Receitas Deliciosas</li>
@@ -436,7 +419,6 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
         <li class="off">Tira Dúvidas pelo WhatsApp com a Lurdes</li>
       </ul>
       <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta por tempo limitado</p><span class="now"><small>R$</small>17</span></div>
-      <!-- SUBSTITUIR pelo link Kiwify do plano básico -->
       <a class="cta cta-outline" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano básico</a>
       <p class="trust">✅ Compra segura · ⚡ Acesso imediato · 🛡️ 30 dias de garantia</p>
     </div>
@@ -462,7 +444,6 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
       </ul>
       <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Melhor custo-benefício</p><span class="now"><small>R$</small>27</span></div>
       <p class="price-note" style="margin-top:2px"><em>+R$10</em> e você leva TUDO</p>
-      <!-- SUBSTITUIR pelo link Kiwify do plano completo -->
       <a class="cta" href="https://pay.kiwify.com.br/SaF1YOQ">Quero o plano completo</a>
       <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
@@ -554,7 +535,7 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 <section class="author">
   <h2>Quem criou o Cozinhe com a Lu</h2>
   <div class="card">
-    <div class="ph"><img src="images/autora.webp" alt="Lurdes Almeida" width="460" height="460" loading="lazy" decoding="async" /></div>
+    <div class="ph"><img src="images/autora.webp" alt="Lurdes Almeida" width="300" height="300" loading="lazy" decoding="async" /></div>
     <p><strong>Lurdes Almeida</strong><br />Lurdes Almeida é chef com 12 anos de experiência e conhece na prática a rotina de quem chega do trabalho cansada e ainda precisa colocar uma refeição gostosa na mesa.<br /><br />Foi dessa realidade que nasceu o Cozinhe com a Lu. Receitas rápidas, práticas e deliciosas, criadas para mães que trabalham fora e querem cozinhar com variedade e sabor sem passar horas na cozinha.<br /><br />Hoje, com mais de 17.800 alunos, Lurdes já ajudou milhares de pessoas a voltarem a sentir prazer em cozinhar, mesmo com pouco tempo e rotina corrida.</p>
   </div>
 </section>
@@ -563,97 +544,62 @@ src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1"
 </main>
 
 <script>
-// Data de "amanhã" na barra de oferta
-var t = new Date(); t.setDate(t.getDate() + 1);
-document.getElementById("offer-date").textContent =
-  t.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
-document.getElementById("year").textContent = new Date().getFullYear();
+// UI: data oferta, ano, progresso
+var t=new Date();t.setDate(t.getDate()+1);
+document.getElementById("offer-date").textContent=t.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"});
+document.getElementById("year").textContent=new Date().getFullYear();
+addEventListener("scroll",function(){var h=document.documentElement;document.getElementById("progress").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%"},{passive:true});
 
-// Progresso de scroll
-addEventListener("scroll", function () {
-  var h = document.documentElement;
-  document.getElementById("progress").style.width =
-    (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
-}, { passive: true });
+// Scroll suave para #planos
+document.querySelectorAll('a[href="#planos"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById('planos');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-// Duplica o carrossel para loop contínuo
-var track = document.getElementById("track");
-track.innerHTML += track.innerHTML;
+// Carrossel de depoimentos
+var track=document.getElementById("track");track.innerHTML+=track.innerHTML;
 
-// Vitrine de receitas: rolagem automática contínua, pausa ao tocar, deslize manual
-(function () {
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll("#reels .reel").forEach(function (el) {
-    var track = el.firstElementChild;
-    track.innerHTML += track.innerHTML; // duplica para loop infinito
-    var dir = +el.dataset.dir, speed = 0.45, paused = reduce, pos = 0, timer;
-    function half() { return track.scrollWidth / 2; }
-    function wrap() { var h = half(); if (pos >= h) pos -= h; if (pos <= 0) pos += h; }
-    pos = dir < 0 ? half() / 2 : 1;
-    el.scrollLeft = pos;
-    function hold() { paused = true; clearTimeout(timer); }
-    function release() { clearTimeout(timer); timer = setTimeout(function () { paused = reduce; }, 1800); }
-    ["pointerdown", "touchstart", "wheel", "mouseenter"].forEach(function (e) { el.addEventListener(e, hold, { passive: true }); });
-    ["pointerup", "pointercancel", "touchend", "mouseleave"].forEach(function (e) { el.addEventListener(e, release, { passive: true }); });
-    el.addEventListener("scroll", function () { if (paused) { pos = el.scrollLeft; wrap(); if (Math.abs(el.scrollLeft - pos) > 1) el.scrollLeft = pos; } }, { passive: true });
-    var visible = true;
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(el);
-    (function tick() {
-      if (!paused && visible) { pos += speed * dir; wrap(); el.scrollLeft = pos; }
-      requestAnimationFrame(tick);
-    })();
-  });
-})();
-</script>
-<script>
-// Eventos do pixel no navegador (a compra e o início de checkout a Kiwify envia pelo servidor)
-(function () {
-  if (!FB_PIXEL_ID) return;
-  fbq('track', 'ViewContent', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: 17 });
-  document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
-    var planValue = a.closest('.rec') ? 27 : 17;
-    a.addEventListener('click', function () {
-      fbq('track', 'AddToCart', { content_name: 'Cozinhe com a Lu', currency: 'BRL', value: planValue });
-    });
-  });
-})();
-</script>
-<script>
-(function () {
-  var params = new URLSearchParams(window.location.search);
-  var keys = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck'];
-  var tracking = {};
-  keys.forEach(function (k) { var v = params.get(k); if (v) tracking[k] = v; });
-  if (!Object.keys(tracking).length) return;
-  document.querySelectorAll('a[href*="kiwify"]').forEach(function (a) {
-    var u = new URL(a.href);
-    Object.keys(tracking).forEach(function (k) { u.searchParams.set(k, tracking[k]); });
-    a.href = u.toString();
-  });
-})();
-</script>
-<!-- Marcação de origem: repassa todos os parâmetros da URL para os links -->
-<script>
+// Vitrine de receitas: rolagem automática
 (function(){
-  var qs = window.location.search.replace('?','');
-  if(!qs) return;
-  document.querySelectorAll('a[href]').forEach(function(a){
-    var h = a.getAttribute('href');
-    if(!h || h.indexOf('#') === 0) return;
-    a.href = h + (h.indexOf('?') > -1 ? '&' : '?') + qs;
-  });
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+document.querySelectorAll("#reels .reel").forEach(function(el){
+var track=el.firstElementChild;track.innerHTML+=track.innerHTML;
+var dir=+el.dataset.dir,speed=0.45,paused=reduce,pos=0,timer;
+function half(){return track.scrollWidth/2}
+function wrap(){var h=half();if(pos>=h)pos-=h;if(pos<=0)pos+=h}
+pos=dir<0?half()/2:1;el.scrollLeft=pos;
+function hold(){paused=true;clearTimeout(timer)}
+function release(){clearTimeout(timer);timer=setTimeout(function(){paused=reduce},1800)}
+["pointerdown","touchstart","wheel","mouseenter"].forEach(function(e){el.addEventListener(e,hold,{passive:true})});
+["pointerup","pointercancel","touchend","mouseleave"].forEach(function(e){el.addEventListener(e,release,{passive:true})});
+el.addEventListener("scroll",function(){if(paused){pos=el.scrollLeft;wrap();if(Math.abs(el.scrollLeft-pos)>1)el.scrollLeft=pos}},{passive:true});
+var visible=true;
+if("IntersectionObserver" in window)new IntersectionObserver(function(en){visible=en[0].isIntersecting}).observe(el);
+(function tick(){if(!paused&&visible){pos+=speed*dir;wrap();el.scrollLeft=pos}requestAnimationFrame(tick)})()})
 })();
+
+// UTM/fbclid nos links Kiwify
+(function(){
+var params=new URLSearchParams(window.location.search);
+var keys=['fbclid','utm_source','utm_medium','utm_campaign','utm_content','utm_term','sck'];
+var tracking={};
+keys.forEach(function(k){var v=params.get(k);if(v)tracking[k]=v});
+if(!Object.keys(tracking).length)return;
+document.querySelectorAll('a[href*="kiwify"]').forEach(function(a){
+var u=new URL(a.href);Object.keys(tracking).forEach(function(k){u.searchParams.set(k,tracking[k])});a.href=u.toString()})
+})();
+
+// Repassa query params para links externos
+(function(){var qs=window.location.search.replace('?','');if(!qs)return;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.indexOf('#')===0)return;a.href=h+(h.indexOf('?')>-1?'&':'?')+qs})})();
 </script>
 <script>
-document.querySelectorAll('a[href="#planos"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    var t=document.getElementById('planos');
-    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
+// Meta Pixel (deferred)
+var FB_PIXEL_ID="1065374819648474";
+requestIdleCallback(function(){
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',FB_PIXEL_ID);fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Cozinhe com a Lu',currency:'BRL',value:17});
+document.querySelectorAll('a[href*="kiwify"]').forEach(function(a){var v=a.closest('.rec')?27:17;a.addEventListener('click',function(){fbq('track','AddToCart',{content_name:'Cozinhe com a Lu',currency:'BRL',value:v})})});
+},{timeout:3000});
 </script>
-<!-- Tracking avançado Kiwify -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1" /></noscript>
 <script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js" async></script>
 </body>
 </html>
