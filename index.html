@@ -748,8 +748,6 @@ document.querySelectorAll('a[href*="cakto"]').forEach(function(a){
 var u=new URL(a.href);Object.keys(tracking).forEach(function(k){u.searchParams.set(k,tracking[k])});a.href=u.toString()})
 })();
 
-// Repassa query params para links externos
-(function(){var qs=window.location.search.replace('?','');if(!qs)return;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.indexOf('#')===0)return;a.href=h+(h.indexOf('?')>-1?'&':'?')+qs})})();
 </script>
 <script>
 // Meta Pixel (deferred)
@@ -758,7 +756,7 @@ requestIdleCallback(function(){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init',FB_PIXEL_ID);fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Receitas da Bia',currency:'BRL',value:17});
-document.querySelectorAll('a[href*="cakto"]').forEach(function(a){var v=a.closest('.rec')?27:17;a.addEventListener('click',function(){fbq('track','AddToCart',{content_name:'Receitas da Bia',currency:'BRL',value:v})})});
+document.querySelectorAll('a[href*="cakto"]').forEach(function(a){var rec=!!a.closest('.rec');var d={content_name:rec?'Receitas da Bia - Plano Completo':'Receitas da Bia - Plano Básico',content_ids:[rec?'completo':'basico'],content_type:'product',currency:'BRL',value:rec?27:17};a.addEventListener('click',function(){fbq('track','AddToCart',d);fbq('track','InitiateCheckout',d)})});
 },{timeout:3000});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1" /></noscript>
