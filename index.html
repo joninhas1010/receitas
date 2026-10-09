@@ -301,6 +301,7 @@ h3{font-weight:800;letter-spacing:-.02em}
 .reel figure{border-radius:32px;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 40px rgba(0,0,0,.45)}
 .reel figcaption{background:rgba(13,8,6,.55);color:#fff;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25)}
 .showcase-hint{color:rgba(255,255,255,.6)}
+.reel{cursor:grab}.reel.grab{cursor:grabbing;user-select:none}
 
 /* App */
 .phone-wrap{animation:float 8s ease-in-out infinite}
@@ -723,8 +724,13 @@ function wrap(){var h=half();if(pos>=h)pos-=h;if(pos<=0)pos+=h}
 pos=dir<0?half()/2:1;el.scrollLeft=pos;
 function hold(){paused=true;clearTimeout(timer)}
 function release(){clearTimeout(timer);timer=setTimeout(function(){paused=reduce},1800)}
-["pointerdown","touchstart","wheel","mouseenter"].forEach(function(e){el.addEventListener(e,hold,{passive:true})});
-["pointerup","pointercancel","touchend","mouseleave"].forEach(function(e){el.addEventListener(e,release,{passive:true})});
+["pointerdown","touchstart"].forEach(function(e){el.addEventListener(e,hold,{passive:true})});
+["pointerup","pointercancel","touchend"].forEach(function(e){el.addEventListener(e,release,{passive:true})});
+el.addEventListener("wheel",function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){hold();release()}},{passive:true});
+var drag=false,lx=0;
+el.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse"||e.button!==0)return;drag=true;lx=e.clientX;el.setPointerCapture(e.pointerId);el.classList.add("grab")});
+el.addEventListener("pointermove",function(e){if(!drag)return;el.scrollLeft-=e.clientX-lx;lx=e.clientX});
+["pointerup","pointercancel"].forEach(function(e){el.addEventListener(e,function(){drag=false;el.classList.remove("grab")})});
 el.addEventListener("scroll",function(){if(paused){pos=el.scrollLeft;wrap();if(Math.abs(el.scrollLeft-pos)>1)el.scrollLeft=pos}},{passive:true});
 var visible=true;
 if("IntersectionObserver" in window)new IntersectionObserver(function(en){visible=en[0].isIntersecting}).observe(el);
