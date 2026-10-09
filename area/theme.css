@@ -1,0 +1,32 @@
+/* Tema Receitas da Bia — Hyper-Saturated Fluid (aplicado por cima do CSS de cada página) */
+:root{
+  --shout:#FFB224;--ember:#FF5A1F;--void:#0D0806;--charcoal:#1B120D;--cream:#FFF6E3;
+  --primary:#1B120D;--secondary:#2B1810;--accent:#FFB224;--bg:#FFF6E3;--background:#FFF6E3;
+  --border:rgba(43,24,16,.1);--radius:28px;--radius-sm:20px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important}
+h1,h2,h3,.header-brand,[class*="title"]{font-family:Inter,system-ui,sans-serif!important;letter-spacing:-.03em}
+h1,.header-brand{font-weight:800}
+
+/* Cabeçalhos: o "void" com o amarelo como acento */
+.header,.page-header{background:var(--void)!important;color:#fff;border-radius:0 0 clamp(40px,10vw,72px) 40px!important;box-shadow:0 20px 50px rgba(13,8,6,.25)}
+.header::before{display:none}
+.header::after{display:none!important}
+.header-brand,.page-header h1{color:#fff!important}
+.header-brand span{color:var(--shout)!important}
+.header-welcome,.page-header p{color:rgba(255,255,255,.75)!important}
+.page-header .back,.back{border-radius:999px}
+
+/* Cartões e blocos */
+.progress-card,.card,[class$="-card"],[class*="-card "],details,.download-item,.recipe,.receita{border-radius:28px}
+img{border-radius:inherit}
+
+/* Botões e pílulas */
+button,.btn,[class*="btn"],a.back,[class*="tab"],[class*="filter"],[class*="chip"],[class*="pill"],[class*="badge"]{border-radius:999px}
+button:active,.btn:active,[class*="btn"]:active{transform:scale(.96)}
+:focus-visible{outline:3px solid var(--shout);outline-offset:2px}
+
+*:not(code):not(pre){font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important}
+.page-header{padding:40px 22px 36px;margin:0 0 32px}
+.page-header h1{font-size:clamp(30px,8vw,44px)}

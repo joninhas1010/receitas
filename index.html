@@ -371,6 +371,13 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 .rv{opacity:0;transform:translateY(48px)}
 .rv.in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--ease)}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* Ticker no void */
+.ticker{overflow:hidden;margin:0 -22px 32px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker-track>div{display:flex;flex:none}
+.ticker span{flex:none;padding:14px 22px;margin-right:12px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:rgba(255,255,255,.62);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+@keyframes tick{to{transform:translateX(-50%)}}
 </style>
 
 </head>
@@ -691,7 +698,7 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
   </div>
 </section>
 
-<footer>© <span id="year"></span> Receitas da Bia. Todos os direitos reservados.</footer>
+<footer><div class="ticker" aria-hidden="true"><div class="ticker-track"><div><span>♾️ Acesso Vitalício</span><span>🛡️ 30 dias de garantia</span><span>✅ Compra segura</span><span>⚡ Acesso imediato</span><span>🍽️ +200 Receitas</span><span>📱 APP + PDFs</span></div><div><span>♾️ Acesso Vitalício</span><span>🛡️ 30 dias de garantia</span><span>✅ Compra segura</span><span>⚡ Acesso imediato</span><span>🍽️ +200 Receitas</span><span>📱 APP + PDFs</span></div></div></div>© <span id="year"></span> Receitas da Bia. Todos os direitos reservados.</footer>
 </main>
 
 <script>
