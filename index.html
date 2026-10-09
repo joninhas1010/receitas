@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="images/hero.webp" />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
 <style>
 :root{
   --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
@@ -221,6 +221,156 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
   .reel:nth-child(2) figure{width:190px!important}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== Design: Hyper-Saturated Fluid (paleta da marca) ===== */
+:root{
+  --shout:#FFB224;--ember:#FF5A1F;--void:#0D0806;--charcoal:#1B120D;--ink:#0A0A0A;--cream:#FFF6E3;
+  --primary:var(--shout);--primary-dark:var(--ember);--accent:var(--shout);--secondary:#2B1810;--background:var(--cream);
+  --cta-from:var(--ink);--cta-to:var(--ink);--gradient-cta:var(--ink);--gradient-chip:var(--ink);
+  --price-accent:var(--ember);--border:rgba(43,24,16,.1);
+  --shadow-cta:0 10px 28px rgba(0,0,0,.22);--shadow-chip:none;
+  --shadow-card:0 10px 36px rgba(43,24,16,.08);--shadow-plan:0 24px 60px rgba(0,0,0,.28);
+  --ease:cubic-bezier(.22,1,.36,1);--o:clamp(48px,11vw,84px);--w:460px;
+  --px:max(22px,calc((100vw - var(--w))/2 + 22px));
+}
+@media(min-width:480px){:root{--w:560px}}
+@media(min-width:768px){:root{--w:680px}}
+html{overflow-x:clip}
+body{background:var(--void);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+main{max-width:none}
+#progress{background:var(--ember)}
+.offer{background:var(--ink);color:var(--shout);font-size:11px;letter-spacing:.18em;position:relative;z-index:30}
+
+/* Seções fluidas */
+section{--bg:var(--cream);--fg:var(--secondary);position:relative;background:var(--bg);color:var(--fg);
+  margin-bottom:calc(var(--o) * -1);
+  padding:calc(var(--o) + 40px) var(--px) calc(var(--o) + 40px)!important;
+  border-radius:0 0 clamp(64px,16vw,120px) 40px}
+section:nth-of-type(even){border-radius:0 0 40px clamp(64px,16vw,120px)}
+section.hero{padding-top:44px!important}
+section.s-y{--bg:var(--shout);--fg:var(--ink)}
+section.s-v{--bg:var(--void);--fg:#fff}
+section.s-v2{--bg:var(--charcoal);--fg:#fff}
+section.s-c{--bg:var(--cream);--fg:var(--secondary)}
+section:nth-of-type(1){z-index:20}section:nth-of-type(2){z-index:19}section:nth-of-type(3){z-index:18}
+section:nth-of-type(4){z-index:17}section:nth-of-type(5){z-index:16}section:nth-of-type(6){z-index:15}
+section:nth-of-type(7){z-index:14}section:nth-of-type(8){z-index:13}section:nth-of-type(9){z-index:12}
+section:nth-of-type(10){z-index:11}section:nth-of-type(11){z-index:10}section:nth-of-type(12){z-index:9}
+section h2[style*="padding-top"]{padding-top:0!important}
+footer{position:relative;z-index:1;background:var(--void);color:rgba(255,255,255,.5);padding:calc(var(--o) + 20px) 22px 44px}
+.marquee,.reels{margin-left:calc(var(--px) * -1);margin-right:calc(var(--px) * -1)}
+
+/* Tipografia */
+h1{font-family:Inter,system-ui,sans-serif;font-size:clamp(40px,11.5vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.045em;color:var(--ink);text-align:left}
+h2{font-size:clamp(30px,8.4vw,52px);font-weight:800;line-height:1.05;letter-spacing:-.04em;color:var(--fg);margin-bottom:28px}
+.dark h2,.s-v h2,.s-v2 h2{color:#fff}
+h3{font-weight:800;letter-spacing:-.02em}
+.lead{color:var(--ink);opacity:.82;font-weight:500;font-size:16px;text-align:left}
+.cap,.showcase-count,.badge,.plan-vs-name,.app-prog-label{letter-spacing:.14em;text-transform:uppercase}
+@media(min-width:480px){h1{font-size:clamp(46px,9vw,64px)}h2{font-size:40px}}
+@media(min-width:768px){h1{font-size:72px}h2{font-size:48px}.lead{font-size:18px}}
+
+/* Hero líquido */
+.hero{text-align:left}
+.chips{grid-template-columns:1fr 1fr;gap:8px}
+.chip{background:var(--ink);border-radius:999px;padding:12px 10px;font-size:12px;font-weight:700;letter-spacing:.01em;box-shadow:none;border:0}
+@media(min-width:480px){.chips{grid-template-columns:repeat(4,auto);justify-content:start}.chip{padding:12px 18px}}
+.pic.r24{border-radius:40px;box-shadow:0 30px 60px rgba(90,40,0,.28)}
+.hero .cta{margin-top:24px}
+
+/* Botões pill */
+.cta{border-radius:999px;background:var(--ink);color:#fff;font-size:15px;font-weight:800;letter-spacing:.06em;padding:21px 24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .2s}
+.cta:hover{transform:scale(1.05);filter:none;box-shadow:0 16px 36px rgba(0,0,0,.3)}
+.cta:active{transform:scale(.95)}
+.s-v .cta,.s-v2 .cta{background:var(--shout);color:var(--ink);box-shadow:0 10px 34px rgba(255,178,36,.28)}
+.cta-outline{background:transparent!important;color:var(--ink)!important;border:2px solid rgba(10,10,10,.22);box-shadow:none!important}
+.cta-outline:hover{background:var(--ink)!important;color:#fff!important}
+
+/* Vidro */
+.glass,.note,.plan-vs-col{backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
+.glass{background:rgba(255,255,255,.34);border:1px solid rgba(255,255,255,.6);border-radius:32px;box-shadow:0 24px 60px rgba(120,60,0,.18),inset 0 1px 0 rgba(255,255,255,.5);text-align:left;animation:float 7s ease-in-out infinite}
+.glass p{color:var(--ink);font-weight:500}.glass strong{color:var(--ink);font-weight:800}
+.note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:32px;color:rgba(255,255,255,.88);padding:24px 22px}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+/* Vitrine */
+.showcase-count{background:var(--shout);color:var(--ink);font-size:11px}
+.showcase-count i{background:var(--ember)}
+.showcase-sub{color:rgba(255,255,255,.75)}
+.reels::before{background:linear-gradient(90deg,var(--bg),transparent)}.reels::after{background:linear-gradient(270deg,var(--bg),transparent)}
+.reel figure{border-radius:32px;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.reel figcaption{background:rgba(13,8,6,.55);color:#fff;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25)}
+.showcase-hint{color:rgba(255,255,255,.6)}
+
+/* App */
+.phone-wrap{animation:float 8s ease-in-out infinite}
+.phone-frame{background:linear-gradient(145deg,#2c2c2c,#0d0d0d);border-radius:48px;box-shadow:0 40px 80px rgba(43,24,16,.35),inset 0 1px 0 rgba(255,255,255,.12)}
+.phone-screen{border-radius:36px}
+.app-head{background:var(--shout);color:var(--ink)}
+.app-bar-fill{background:var(--ember)}
+.app-dot{background:var(--ink);color:var(--shout)}
+.app-tile{border-radius:18px}.app-tile.hl{background:#FFF1C9;border-color:var(--shout)}
+.app-card{border-radius:18px}.app-card-ico{background:#FFE3A6;border-radius:14px}
+.app-dl{border-radius:18px}
+.pdf-callout{background:#fff;border:1px solid var(--border);border-radius:32px;box-shadow:var(--shadow-card)}
+.pdf-callout-ico{background:var(--ink);color:var(--shout);border-radius:50%;box-shadow:none}
+
+/* Benefícios */
+.benefit .card{background:var(--ink);border-radius:32px;padding:28px 22px;color:#fff}
+.benefit .pic{border-radius:28px;box-shadow:0 14px 30px rgba(90,40,0,.22)}
+
+/* Caixas claras sobre o void */
+.label{color:rgba(255,255,255,.8)}
+.box,.bonus{background:var(--cream);border-radius:40px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.box img,.bonus img{border-radius:28px!important}
+.bonus .tag{background:var(--ink);color:var(--shout);letter-spacing:.06em}
+.bonus .old{color:var(--ember)}.bonus .free{color:var(--ink)}
+.feat li{border-radius:0;border-bottom:1px solid rgba(43,24,16,.1)}
+.feat li::before{background:var(--ink);color:var(--shout)}
+.plan .feat li.off::before{background:#9A9A9A;color:#fff}
+p strong[style*="F5C518"]{color:var(--shout)!important}
+
+/* Depoimentos */
+.depo{border-radius:32px;border:1px solid var(--border);box-shadow:var(--shadow-card)}
+.depo-avatar{border:2px solid var(--shout)}
+.track img{border-radius:32px;box-shadow:0 20px 44px rgba(90,40,0,.3)}
+.track .depo{border-radius:32px}
+
+/* Planos */
+.plan-vs-col{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:32px;box-shadow:none;color:#fff}
+.plan-vs-col.best{background:rgba(255,178,36,.14);border:1px solid var(--shout)}
+.plan-vs-name{color:rgba(255,255,255,.65)}.plan-vs-col.best .plan-vs-name{color:var(--shout)}
+.plan-vs-price{color:#fff}.plan-vs-items{color:rgba(255,255,255,.7)}
+.plan-vs-diff{color:var(--ink);background:var(--shout)}
+.plan{border-radius:40px;background:var(--cream);color:var(--secondary)}
+.plan .head{background:var(--charcoal);color:#fff;font-weight:800;letter-spacing:-.03em;border-radius:40px 40px 0 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.plan.rec{box-shadow:0 0 0 2px var(--shout),0 30px 80px rgba(255,178,36,.22)}
+.plan.rec .head{background:var(--shout);color:var(--ink);border-radius:40px 40px 0 0}
+.plan.rec .body{border-radius:0 0 40px 40px}
+.badge{background:var(--ink);color:var(--shout);border:2px solid var(--shout);font-size:11px;letter-spacing:.12em}
+.price .now{letter-spacing:-.05em}
+.plan .cta{background:var(--ink);color:#fff;box-shadow:var(--shadow-cta)}
+.plan .cta.cta-outline{background:transparent!important;color:var(--ink)!important}
+.plan .cta.cta-outline:hover{background:var(--ink)!important;color:#fff!important}
+
+/* Garantia */
+.guarantee{background:var(--bg);color:#fff}
+.seal{border-color:var(--shout);color:var(--shout);width:120px;height:120px;box-shadow:0 0 0 8px rgba(255,178,36,.14),0 0 60px rgba(255,178,36,.25)}
+.guarantee h3{color:var(--shout)}
+.guarantee-list li{border-color:rgba(255,255,255,.14)}
+
+/* FAQ & autora */
+.faq details{border-radius:28px;background:#fff;border:1px solid var(--border)}
+.faq summary::after{content:"+";font-size:22px;font-weight:600;color:var(--secondary);width:32px;height:32px;display:grid;place-items:center;background:var(--shout);border-radius:50%;flex:none;transition:transform .35s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.author .card{border-radius:40px;background:#fff;box-shadow:0 30px 70px rgba(90,40,0,.25)}
+.author .ph{border:4px solid var(--shout)}
+.author p{text-align:left}
+
+/* Entrada elástica */
+.rv{opacity:0;transform:translateY(48px)}
+.rv.in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--ease)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 </style>
 
 </head>
@@ -231,7 +381,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 <div class="offer">⚡ Oferta especial disponível só até <span id="offer-date"></span></div>
 
 <!-- 1. HERO -->
-<section class="hero">
+<section class="s-y hero">
   <h1>Resolva a pergunta mais difícil do dia: "O que vou cozinhar hoje?"</h1>
   <div class="chips">
     <div class="chip">🍽️ +200 Receitas</div>
@@ -248,7 +398,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 2. VEJA O QUE VOCÊ VAI ENCONTRAR -->
-<section class="dark">
+<section class="s-v dark">
   <span class="showcase-count"><i></i>+200 RECEITAS DENTRO DO GUIA</span>
   <h2>Veja o que você vai encontrar dentro do Receitas da Bia</h2>
   <p class="showcase-sub">Receitas organizadas, fáceis de seguir e prontas para você colocar na mesa hoje mesmo.</p>
@@ -262,7 +412,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- APP SHOWCASE -->
-<section>
+<section class="s-c">
   <h2>Conheça o APP por dentro</h2>
   <p style="font-size:16px;font-weight:600;color:var(--text-soft);line-height:1.6;margin-top:-8px;margin-bottom:8px">Tudo organizado na palma da sua mão — acesse no celular, tablet ou computador.</p>
 
@@ -335,7 +485,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 3. IDEAL PARA VOCÊ QUE -->
-<section>
+<section class="s-y">
   <h2 style="text-transform:uppercase">Ideal para você que…</h2>
   <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="180" height="180" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
   <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="180" height="180" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
@@ -345,7 +495,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 4. ACESSO IMEDIATO -->
-<section class="dark">
+<section class="s-v dark">
   <p class="label">Você vai receber acesso imediato a:</p>
   <div class="box">
     <img src="images/mockup.webp" alt="Receitas da Bia" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="560" height="560" loading="lazy" decoding="async" />
@@ -363,7 +513,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 5. BÔNUS -->
-<section class="dark" style="padding-top:0;padding-bottom:44px">
+<section class="s-v2 dark" style="padding-top:0;padding-bottom:44px">
   <h2 style="padding-top:40px">E isso não é tudo</h2>
   <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos:</p>
   <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" width="420" height="525" loading="lazy" decoding="async" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
@@ -376,7 +526,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 6. DEPOIMENTOS -->
-<section style="padding-top:36px;padding-bottom:32px">
+<section class="s-c" style="padding-top:36px;padding-bottom:32px">
   <h2>Quem já usa, aprova</h2>
   <div class="depo"><img class="depo-avatar" src="images/11.webp" width="128" height="128" loading="lazy" decoding="async" alt="Camila R." />"Eu chegava em casa sem ideia nenhuma do que fazer. Agora abro o guia e em 20 minutos o jantar tá na mesa. Meu marido até estranha de tanta coisa diferente que faço!"<b>— Camila R., 34 anos</b></div>
   <div class="depo"><img class="depo-avatar" src="images/9.webp" width="128" height="128" loading="lazy" decoding="async" alt="Fernanda M." />"Sempre repetia arroz, feijão e bife. Com o Receitas da Bia descobri receitas fáceis que meus filhos amam. O strogonoff virou o prato favorito da casa."<b>— Fernanda M., 41 anos</b></div>
@@ -386,7 +536,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 7. PLANOS -->
-<section id="planos">
+<section class="s-v" id="planos">
   <h2>Escolha seu plano</h2>
 
   <div class="plan-vs">
@@ -452,7 +602,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 8. PROVA SOCIAL (carrossel) -->
-<section style="padding-bottom:36px">
+<section class="s-y" style="padding-bottom:36px">
   <h2>Veja o que estão falando</h2>
   <div class="marquee"><div class="track" id="track">
     <img src="images/depo1.webp" alt="Depoimento" loading="lazy" decoding="async" />
@@ -465,7 +615,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 9. GARANTIA -->
-<section class="guarantee">
+<section class="s-v guarantee">
   <div class="seal"><span>30<small>DIAS</small></span></div>
   <h2>Garantia de 30 dias</h2>
   <h3 style="font-size:26px;margin-bottom:20px">Teste sem<br />nenhum risco</h3>
@@ -479,7 +629,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 10. PERGUNTAS FREQUENTES -->
-<section class="faq">
+<section class="s-c faq">
   <h2>Perguntas Frequentes</h2>
   <details>
     <summary>O acesso é vitalício?</summary>
@@ -533,7 +683,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
 </section>
 
 <!-- 11. AUTORA -->
-<section class="author">
+<section class="s-y author">
   <h2>Quem criou o Receitas da Bia</h2>
   <div class="card">
     <div class="ph"><img src="images/autora.webp" alt="Bia Alcântara" width="300" height="300" loading="lazy" decoding="async" /></div>
@@ -601,6 +751,14 @@ document.querySelectorAll('a[href*="kiwify"]').forEach(function(a){var v=a.close
 },{timeout:3000});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1" /></noscript>
+<script>
+(function(){var els=document.querySelectorAll('section > *');if(!('IntersectionObserver' in window)){return}
+els.forEach(function(e){e.classList.add('rv')});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(e){io.observe(e)});
+setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},6000);
+})();
+</script>
 <script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js" async></script>
 </body>
 </html>
