@@ -5,17 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Receitas da Bia</title>
 <meta name="description" content="+200 receitas rápidas, cardápios prontos e acesso vitalício." />
-<meta name="theme-color" content="#FF6B4A" />
-<link rel="icon" type="image/webp" href="images/logo.webp" />
+<meta name="theme-color" content="#FFB224" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
 <link rel="dns-prefetch" href="https://pay.cakto.com.br" />
-<link rel="dns-prefetch" href="https://connect.facebook.net" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="image" href="images/hero.webp" />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+<link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin />
+<link rel="preload" as="image" href="images/hero-480.webp" imagesrcset="images/hero-480.webp 480w, images/hero-720.webp 720w, images/hero.webp 920w" imagesizes="(min-width:480px) 560px, 100vw" fetchpriority="high" />
 <style>
+@font-face{font-family:Inter;font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --primary:#FF6B4A;--secondary:#5A3522;--background:#FFF6E3;--text:#1A1A1A;
   --text-soft:#555;--text-muted:#6B7280;--primary-dark:#E75431;--price-accent:#E04D2A;
@@ -288,7 +285,7 @@ h3{font-weight:800;letter-spacing:-.02em}
 
 /* Vidro */
 .glass,.note,.plan-vs-col{backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
-.glass{background:rgba(255,255,255,.34);border:1px solid rgba(255,255,255,.6);border-radius:32px;box-shadow:0 24px 60px rgba(120,60,0,.18),inset 0 1px 0 rgba(255,255,255,.5);text-align:left;animation:float 7s ease-in-out infinite}
+.glass{background:rgba(255,255,255,.34);border:1px solid rgba(255,255,255,.6);border-radius:32px;box-shadow:0 24px 60px rgba(120,60,0,.18),inset 0 1px 0 rgba(255,255,255,.5);text-align:left}
 .glass p{color:var(--ink);font-weight:500}.glass strong{color:var(--ink);font-weight:800}
 .note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:32px;color:rgba(255,255,255,.88);padding:24px 22px}
 @keyframes float{50%{transform:translateY(-8px)}}
@@ -397,7 +394,7 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
     <div class="chip">📱 APP + PDFs</div>
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
-  <img class="pic r24" style="margin-top:24px" src="images/hero.webp" alt="Receitas da Bia — receitas rápidas" width="920" height="920" fetchpriority="high" decoding="async" />
+  <img class="pic r24" style="margin-top:24px" src="images/hero-720.webp" srcset="images/hero-480.webp 480w, images/hero-720.webp 720w, images/hero.webp 920w" sizes="(min-width:480px) 560px, 100vw" alt="Receitas da Bia — receitas rápidas" width="920" height="920" fetchpriority="high" decoding="async" />
   <p class="lead">+200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
   <a class="cta" href="#planos">Quero minhas receitas agora</a>
   <div class="glass">
@@ -411,8 +408,8 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
   <h2>Veja o que você vai encontrar dentro do Receitas da Bia</h2>
   <p class="showcase-sub">Receitas organizadas, fáceis de seguir e prontas para você colocar na mesa hoje mesmo.</p>
   <div class="reels" id="reels" aria-label="Receitas do guia">
-    <div class="reel" data-dir="1"><div class="reel-track"><figure><img src="images/1.webp" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/8.webp" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure></div></div>
-    <div class="reel" data-dir="-1"><div class="reel-track"><figure><img src="images/8.webp" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/1.webp" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure></div></div>
+    <div class="reel" data-dir="1"><div class="reel-track"><figure><img src="images/1.webp" width="300" height="375" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" width="300" height="375" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" width="300" height="375" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" width="300" height="375" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" width="300" height="375" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" width="300" height="375" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" width="300" height="375" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/8.webp" width="300" height="375" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure></div></div>
+    <div class="reel" data-dir="-1"><div class="reel-track"><figure><img src="images/8.webp" width="300" height="375" alt="Bolo de cenoura com chocolate" loading="lazy" draggable="false" /></figure><figure><img src="images/7.webp" width="300" height="375" alt="Canelone gratinado" loading="lazy" draggable="false" /></figure><figure><img src="images/6.webp" width="300" height="375" alt="Pudim de leite" loading="lazy" draggable="false" /></figure><figure><img src="images/5.webp" width="300" height="375" alt="Peixe grelhado com arroz e legumes" loading="lazy" draggable="false" /></figure><figure><img src="images/4.webp" width="300" height="375" alt="Bife acebolado com arroz e feijão" loading="lazy" draggable="false" /></figure><figure><img src="images/3.webp" width="300" height="375" alt="Espaguete ao molho de tomate" loading="lazy" draggable="false" /></figure><figure><img src="images/2.webp" width="300" height="375" alt="Carne assada com purê e cenouras" loading="lazy" draggable="false" /></figure><figure><img src="images/1.webp" width="300" height="375" alt="Strogonoff de frango" loading="lazy" draggable="false" /></figure></div></div>
   </div>
   <p class="showcase-hint"><span>👉</span> Deslize para ver mais receitas</p>
   <div class="note"><strong>Você não começa do zero.</strong> Tudo já está organizado: receitas, cardápios e listas prontas para você só abrir e cozinhar.</div>
@@ -506,7 +503,7 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 <section class="s-v dark">
   <p class="label">Você vai receber acesso imediato a:</p>
   <div class="box">
-    <img src="images/mockup.webp" alt="Receitas da Bia" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="560" height="560" loading="lazy" decoding="async" />
+    <img src="images/mockup.webp" alt="Receitas da Bia" style="width:100%;height:auto;border-radius:16px;margin-bottom:12px" width="480" height="480" loading="lazy" decoding="async" />
     <h4>Receitas da Bia</h4>
     <ul class="feat">
       <li>+200 Receitas Deliciosas</li>
@@ -611,12 +608,12 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 <section class="s-y" style="padding-bottom:36px">
   <h2>Veja o que estão falando</h2>
   <div class="marquee"><div class="track" id="track">
-    <img src="images/depo1.webp" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo2.webp" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo3.webp" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo4.webp" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo5.webp" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo6.webp" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo1.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo2.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo3.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo4.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo5.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo6.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
   </div></div>
 </section>
 
@@ -718,8 +715,8 @@ var track=document.getElementById("track");track.innerHTML+=track.innerHTML;
 var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 document.querySelectorAll("#reels .reel").forEach(function(el){
 var track=el.firstElementChild;track.innerHTML+=track.innerHTML;
-var dir=+el.dataset.dir,speed=0.45,paused=reduce,pos=0,timer;
-function half(){return track.scrollWidth/2}
+addEventListener("resize",function(){hw=0},{passive:true});var dir=+el.dataset.dir,speed=0.45,paused=reduce,pos=0,timer;
+var hw=0;function half(){return hw||(hw=track.scrollWidth/2)}
 function wrap(){var h=half();if(pos>=h)pos-=h;if(pos<=0)pos+=h}
 pos=dir<0?half()/2:1;el.scrollLeft=pos;
 function hold(){paused=true;clearTimeout(timer)}
@@ -752,16 +749,17 @@ var u=new URL(a.href);Object.keys(tracking).forEach(function(k){u.searchParams.s
 <script>
 // Meta Pixel (deferred)
 var FB_PIXEL_ID="1065374819648474";
-requestIdleCallback(function(){
+function loadPixel(){if(window.__fbL)return;window.__fbL=1;
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init',FB_PIXEL_ID);fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Receitas da Bia',currency:'BRL',value:17});
 document.querySelectorAll('a[href*="cakto"]').forEach(function(a){var rec=!!a.closest('.rec');var d={content_name:rec?'Receitas da Bia - Plano Completo':'Receitas da Bia - Plano Básico',content_ids:[rec?'completo':'basico'],content_type:'product',currency:'BRL',value:rec?27:17};a.addEventListener('click',function(){fbq('track','AddToCart',d);fbq('track','InitiateCheckout',d)})});
-},{timeout:3000});
+}
+(function(){var go=function(){loadPixel();["scroll","pointerdown","touchstart","keydown"].forEach(function(e){removeEventListener(e,go)})};["scroll","pointerdown","touchstart","keydown"].forEach(function(e){addEventListener(e,go,{passive:true,once:true})});addEventListener("load",function(){setTimeout(loadPixel,4000)})})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1" /></noscript>
 <script>
-(function(){var els=document.querySelectorAll('section > *');if(!('IntersectionObserver' in window)){return}
+(function(){var els=document.querySelectorAll('section:not(.hero) > *');if(!('IntersectionObserver' in window)){return}
 els.forEach(function(e){e.classList.add('rv')});
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -6% 0px'});
 els.forEach(function(e){io.observe(e)});
