@@ -800,11 +800,10 @@
     (function() {
       var TOTAL = 12;
       var STORAGE_KEY = 'receitas-bia-accessed';
-      var OLD_KEY = 'cozinhe-' + 'lu-accessed';
 
       function getAccessed() {
         try {
-          var data = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(OLD_KEY);
+          var data = localStorage.getItem(STORAGE_KEY);
           return data ? JSON.parse(data).filter(function(k){ return k !== 'videos'; }) : [];
         } catch(e) {
           return [];
