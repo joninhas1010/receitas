@@ -389,7 +389,21 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 .hero-price b{font-size:44px;font-weight:900;letter-spacing:-.05em;line-height:1}
 .hero-price small{font-size:14px;font-weight:700;opacity:.8;flex-basis:100%}
 .hero .pic{aspect-ratio:16/10;object-fit:cover;object-position:center 30%;margin-top:16px!important}
-.hero .hero-price{margin-top:12px;gap:0 12px}.hero .hero-price b{font-size:38px}.hero .cta{margin-top:12px;padding:17px 24px}
+.hero .cta{margin-top:12px;padding:17px 24px}
+.hero-offer{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.ho{position:relative;background:rgba(255,255,255,.55);border:1.5px solid rgba(10,10,10,.14);border-radius:22px;padding:12px 10px;text-align:center;color:var(--ink)}
+.ho.best{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ho .n{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.ho b{display:block;font-size:34px;font-weight:900;letter-spacing:-.05em;line-height:1.1;margin:2px 0}
+.ho b small{font-size:15px;font-weight:800;margin-right:2px;letter-spacing:0}
+.ho .d{display:block;font-size:12px;font-weight:600;line-height:1.3;opacity:.85}
+.ho.best b{color:var(--shout)}
+.ho em{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--shout);color:var(--ink);font-style:normal;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px;white-space:nowrap}
+@media(min-width:768px){.hero h1{font-size:54px}.hero .pic{aspect-ratio:2/1}}
+.hero .pay-note{text-align:center;font-size:12px;margin-top:8px}
+.guarantee-list br{display:none}
+.guarantee-list li span,.guarantee-list li{line-height:1.45}
+.faq summary{text-align:left;gap:12px}
 .pay-note{font-size:13px;font-weight:700;color:var(--text-soft);margin-top:10px}
 .stack{margin:14px 0 6px;padding:14px 14px 10px;border:1.5px dashed rgba(43,24,16,.28);border-radius:22px;text-align:left}
 .stack li{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:600;padding:5px 0}
@@ -435,9 +449,12 @@ footer{padding-bottom:calc(44px + 70px)}
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
   <img class="pic r24" style="margin-top:24px" src="images/hero-720.webp" srcset="images/hero-480.webp 480w, images/hero-720.webp 720w, images/hero.webp 920w" sizes="(min-width:480px) 560px, 100vw" alt="Receitas da Bia — receitas rápidas" width="920" height="920" fetchpriority="high" decoding="async" />
-  <div class="hero-price"><s>De R$97</s><b>R$17</b><small>ou leve o <strong>Plano Completo com 7 bônus por R$27</strong> · pagamento único</small></div>
+  <div class="hero-offer">
+    <div class="ho"><span class="n">Básico</span><b><small>R$</small>17</b><span class="d">200 receitas + APP + PDFs</span></div>
+    <div class="ho best"><em>Mais escolhido</em><span class="n">Completo</span><b><small>R$</small>27</b><span class="d">Tudo + 7 bônus + suporte</span></div>
+  </div>
   <a class="cta" href="#planos">Quero minhas receitas agora</a>
-  <p class="pay-note">⚡ Pix ou cartão · 🛡️ 30 dias de garantia · ♾️ Acesso vitalício</p>
+  <p class="pay-note">Pagamento único · Pix ou cartão · 30 dias de garantia</p>
   <p class="lead">200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
   <div class="glass">
     <p><strong>+30 mil pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
@@ -462,12 +479,12 @@ footer{padding-bottom:calc(44px + 70px)}
 <section class="s-y" style="padding-bottom:36px">
   <h2>Veja o que estão falando</h2>
   <div class="marquee"><div class="track" id="track">
-    <img src="images/depo1.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo2.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo3.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo4.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo5.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo6.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo1.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
+    <img src="images/depo2.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
+    <img src="images/depo3.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
+    <img src="images/depo4.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
+    <img src="images/depo5.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
+    <img src="images/depo6.webp" width="480" height="853" alt="Depoimento de cliente no WhatsApp" loading="lazy" decoding="async" />
   </div></div>
 </section>
 
