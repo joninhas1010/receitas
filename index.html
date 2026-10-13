@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Receitas da Bia</title>
-<meta name="description" content="+200 receitas rápidas, cardápios prontos e acesso vitalício." />
+<title>Receitas da Bia — +200 receitas prontas em até 20 min a partir de R$17</title>
+<meta name="description" content="+200 receitas rápidas no APP + 13 PDFs, cardápios prontos e acesso vitalício. A partir de R$17, com 30 dias de garantia." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Receitas da Bia — +200 receitas prontas em até 20 min" />
+<meta property="og:description" content="APP + 13 PDFs, cardápios prontos e acesso vitalício. A partir de R$17, com 30 dias de garantia." />
+<meta property="og:image" content="https://receitas-indol.vercel.app/images/og.jpg" />
+<meta property="og:url" content="https://receitas-indol.vercel.app/" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#FFB224" />
 <link rel="icon" type="image/png" href="images/favicon.png" />
 <link rel="dns-prefetch" href="https://pay.cakto.com.br" />
@@ -376,6 +383,37 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 .ticker-track>div{display:flex;flex:none}
 .ticker span{flex:none;padding:14px 22px;margin-right:12px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:rgba(255,255,255,.62);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
 @keyframes tick{to{transform:translateX(-50%)}}
+/* ===== Melhorias de conversão ===== */
+.hero-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-top:20px;color:var(--ink)}
+.hero-price s{font-size:16px;font-weight:600;opacity:.6}
+.hero-price b{font-size:44px;font-weight:900;letter-spacing:-.05em;line-height:1}
+.hero-price small{font-size:14px;font-weight:700;opacity:.8;flex-basis:100%}
+.pay-note{font-size:13px;font-weight:700;color:var(--text-soft);margin-top:10px}
+.stack{margin:14px 0 6px;padding:14px 14px 10px;border:1.5px dashed rgba(43,24,16,.28);border-radius:22px;text-align:left}
+.stack li{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:600;padding:5px 0}
+.stack li span:last-child{font-weight:800;white-space:nowrap}
+.stack li.tot{border-top:1px solid rgba(43,24,16,.18);margin-top:6px;padding-top:9px;font-weight:900}
+.stack li.tot span:last-child{color:var(--strike);text-decoration:line-through}
+.bonus-list{display:grid;gap:10px;margin-top:20px}
+.bonus-row{display:flex;gap:14px;align-items:center;background:var(--cream);color:var(--secondary);border-radius:26px;padding:12px;text-align:left}
+.bonus-row img{width:76px;height:95px;object-fit:cover;border-radius:16px;flex:none}
+.bonus-row h4{font-size:16px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.bonus-row p{font-size:13px;font-weight:500;line-height:1.4;opacity:.85}
+.bonus-row .pr{display:block;margin-top:5px;font-size:13px;font-weight:800}
+.bonus-row .pr s{color:var(--ember);font-weight:600;margin-right:6px}
+.recipe-peek{background:#fff;border-radius:32px;padding:20px 18px;text-align:left;box-shadow:var(--shadow-card);margin-top:20px;color:var(--secondary)}
+.recipe-peek h3{color:var(--secondary);font-size:20px}
+.recipe-peek .meta{font-size:13px;font-weight:700;opacity:.7;margin:4px 0 12px}
+.recipe-peek h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin:12px 0 6px}
+.recipe-peek li{font-size:15px;line-height:1.5;font-weight:500;padding-left:4px}
+.recipe-peek ul{list-style:disc inside}.recipe-peek ol{padding-left:20px}.recipe-peek ol li{list-style:decimal}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--void);border-top:1px solid rgba(255,255,255,.14);transform:translateY(110%);transition:transform .35s var(--ease)}
+.sticky-cta.show{transform:none}
+.sticky-cta div{color:#fff;font-size:12px;font-weight:700;line-height:1.25}
+.sticky-cta div b{display:block;font-size:20px;font-weight:900;color:var(--shout)}
+.sticky-cta a{background:var(--shout);color:var(--ink);text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:14px 20px;border-radius:999px;white-space:nowrap}
+footer{padding-bottom:calc(44px + 70px)}
+@media(min-width:768px){.sticky-cta{display:none}footer{padding-bottom:44px}}
 </style>
 
 </head>
@@ -394,9 +432,11 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
     <div class="chip">📱 APP + PDFs</div>
     <div class="chip">♾️ Acesso Vitalício</div>
   </div>
+  <div class="hero-price"><s>De R$97</s><b>R$17</b><small>ou leve o <strong>Plano Completo com 7 bônus por R$27</strong> · pagamento único</small></div>
+  <a class="cta" href="#planos">Quero minhas receitas agora</a>
+  <p class="pay-note">⚡ Pix ou cartão · 🛡️ 30 dias de garantia · ♾️ Acesso vitalício</p>
   <img class="pic r24" style="margin-top:24px" src="images/hero-720.webp" srcset="images/hero-480.webp 480w, images/hero-720.webp 720w, images/hero.webp 920w" sizes="(min-width:480px) 560px, 100vw" alt="Receitas da Bia — receitas rápidas" width="920" height="920" fetchpriority="high" decoding="async" />
   <p class="lead">+200 receitas rápidas no APP + 13 PDFs para download. Abra, escolha e cozinhe — pronto em até 20 minutos, sem estresse e sem repetição.</p>
-  <a class="cta" href="#planos">Quero minhas receitas agora</a>
   <div class="glass">
     <p><strong>+30 mil pessoas</strong> já pararam de se perguntar “o que vou cozinhar hoje?” e passaram a ter o jantar resolvido em poucos minutos.</p>
   </div>
@@ -414,6 +454,19 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
   <p class="showcase-hint"><span>👉</span> Deslize para ver mais receitas</p>
   <div class="note"><strong>Você não começa do zero.</strong> Tudo já está organizado: receitas, cardápios e listas prontas para você só abrir e cozinhar.</div>
   <a class="cta" href="#planos">Quero minhas receitas agora</a>
+</section>
+
+<!-- 8. PROVA SOCIAL (carrossel) -->
+<section class="s-y" style="padding-bottom:36px">
+  <h2>Veja o que estão falando</h2>
+  <div class="marquee"><div class="track" id="track">
+    <img src="images/depo1.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo2.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo3.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo4.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo5.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+    <img src="images/depo6.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
+  </div></div>
 </section>
 
 <!-- APP SHOWCASE -->
@@ -444,7 +497,7 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
           <div class="app-card-ico">🍝</div>
           <div class="app-card-txt">
             <strong>Strogonoff de Frango</strong>
-            <em>⏱ 15 min · Fácil</em>
+            <em>⏱ 30 min · Fácil</em>
           </div>
         </div>
 
@@ -487,16 +540,25 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
       <em>Imprima e leve para a cozinha — funciona até sem internet.</em>
     </div>
   </div>
+
+  <div class="recipe-peek">
+    <h3>🍝 Veja uma receita por dentro</h3>
+    <p class="meta">Strogonoff de Frango · ⏱️ 30 min · 🍽️ 6 porções</p>
+    <h4>Ingredientes</h4>
+    <ul><li>600g de peito de frango em cubos</li><li>1 cebola e 2 dentes de alho picados</li><li>200g de cogumelos fatiados</li><li>3 colheres de ketchup e 2 de mostarda</li><li>1 caixinha de creme de leite</li></ul>
+    <h4>Modo de preparo</h4>
+    <ol><li>Tempere o frango e sele até dourar.</li><li>Refogue cebola, alho e cogumelos.</li><li>Junte ketchup, mostarda e o frango; cozinhe 10 minutos.</li><li>Desligue, misture o creme de leite e sirva.</li></ol>
+  </div>
 </section>
 
 <!-- 3. IDEAL PARA VOCÊ QUE -->
 <section class="s-y">
   <h2 style="text-transform:uppercase">Ideal para você que…</h2>
-  <div class="benefit"><div class="card"><h3>Para você que chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="180" height="180" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="180" height="180" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" width="180" height="180" loading="lazy" decoding="async" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" width="180" height="180" loading="lazy" decoding="async" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
-  <div class="benefit"><div class="card"><h3>Para você que quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" width="180" height="180" loading="lazy" decoding="async" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
+  <div class="benefit"><div class="card"><h3>Chega exausta e trava na hora de decidir o jantar</h3></div><img class="pic" src="images/icon1.webp" alt="Receita rápida" width="180" height="180" loading="lazy" decoding="async" /><p>Receitas rápidas e práticas para resolver a refeição sem pensar demais.</p></div>
+  <div class="benefit"><div class="card"><h3>Cansou de repetir sempre os mesmos pratos</h3></div><img class="pic" src="images/icon2.webp" alt="Variedade de pratos" width="180" height="180" loading="lazy" decoding="async" /><p>Variedade de pratos para a semana inteira, sem monotonia.</p></div>
+  <div class="benefit"><div class="card"><h3>Quer economizar tempo e dinheiro</h3></div><img class="pic" src="images/icon3.webp" alt="Ingredientes simples" width="180" height="180" loading="lazy" decoding="async" /><p>Ingredientes simples e fáceis de encontrar, com menos desperdício.</p></div>
+  <div class="benefit"><div class="card"><h3>Quer agradar a família toda</h3></div><img class="pic" src="images/icon4.webp" alt="Prato para a família" width="180" height="180" loading="lazy" decoding="async" /><p>Sabores que todo mundo gosta, do básico ao especial.</p></div>
+  <div class="benefit"><div class="card"><h3>Quer organização na cozinha</h3></div><img class="pic" src="images/icon5.webp" alt="Refeição organizada" width="180" height="180" loading="lazy" decoding="async" /><p>Cardápios prontos para planejar a semana em minutos.</p></div>
 </section>
 
 <!-- 4. ACESSO IMEDIATO -->
@@ -520,14 +582,17 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
 <!-- 5. BÔNUS -->
 <section class="s-v2 dark" style="padding-top:0;padding-bottom:44px">
   <h2 style="padding-top:40px">E isso não é tudo</h2>
-  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos:</p>
-  <div class="bonus"><span class="tag">🔥 #1 — BÔNUS DE HOJE!</span><img src="images/bonus1.webp" width="420" height="525" loading="lazy" decoding="async" alt="Cardápio Semanal Completo" style="width:100%;height:auto;border-radius:16px" /><h4>Cardápio Semanal Completo</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="old">De: R$47</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #2</span><img src="images/bonus2.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Temperos Essenciais" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Temperos Essenciais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="old">De: R$27</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #3</span><img src="images/bonus3.webp" width="420" height="525" loading="lazy" decoding="async" alt="Lista de Compras Inteligente" style="width:100%;height:auto;border-radius:16px" /><h4>Lista de Compras Inteligente</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #4</span><img src="images/bonus4.webp" width="420" height="525" loading="lazy" decoding="async" alt="30 Sobremesas Rápidas" style="width:100%;height:auto;border-radius:16px" /><h4>30 Sobremesas Rápidas</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Pudim, bolo de cenoura, mousse e mais — todas prontas em até 15 minutos ou com poucos ingredientes.</p><span class="old">De: R$37</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #5</span><img src="images/bonus5.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Marmitas da Semana" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Marmitas da Semana</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Prepare 5 marmitas no domingo em menos de 2 horas. Receitas que congelam bem e ficam gostosas reaquecidas.</p><span class="old">De: R$39</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #6</span><img src="images/bonus6.webp" width="420" height="525" loading="lazy" decoding="async" alt="Receitas para Datas Especiais" style="width:100%;height:auto;border-radius:16px" /><h4>Receitas para Datas Especiais</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Aniversários, Natal, Páscoa e comemorações. Pratos que impressionam sem complicar sua vida.</p><span class="old">De: R$29</span><span class="free">GRÁTIS</span></div>
-  <div class="bonus"><span class="tag">🎁 #7</span><img src="images/bonus7.webp" width="420" height="525" loading="lazy" decoding="async" alt="Guia de Substituições" style="width:100%;height:auto;border-radius:16px" /><h4>Guia de Substituições</h4><p style="font-size:15px;line-height:1.5;margin:6px 0 10px">Faltou um ingrediente? Este guia mostra o que usar no lugar sem perder o sabor da receita.</p><span class="old">De: R$19</span><span class="free">GRÁTIS</span></div>
+  <p style="color:rgba(255,255,255,.85);font-weight:600;line-height:1.6">No <strong style="color:#F5C518">Plano Completo</strong>, você ainda leva 7 bônus exclusivos (valor de R$217):</p>
+  <div class="bonus-list">
+    <div class="bonus-row"><img src="images/bonus1.webp" width="76" height="95" loading="lazy" decoding="async" alt="Cardápio Semanal Completo" /><div><h4>#1 — Cardápio Semanal Completo</h4><p>4 semanas de cardápios prontos com café, almoço e jantar. Só abrir e seguir — sem precisar pensar no que fazer.</p><span class="pr"><s>De: R$47</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus2.webp" width="76" height="95" loading="lazy" decoding="async" alt="Guia de Temperos Essenciais" /><div><h4>#2 — Guia de Temperos Essenciais</h4><p>Aprenda a combinar temperos como uma chef. Descubra quais realçam cada tipo de carne, frango, peixe e legumes.</p><span class="pr"><s>De: R$27</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus3.webp" width="76" height="95" loading="lazy" decoding="async" alt="Lista de Compras Inteligente" /><div><h4>#3 — Lista de Compras Inteligente</h4><p>Listas organizadas por seção do mercado, alinhadas com os cardápios. Você economiza tempo e dinheiro em cada compra.</p><span class="pr"><s>De: R$19</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus4.webp" width="76" height="95" loading="lazy" decoding="async" alt="30 Sobremesas Rápidas" /><div><h4>#4 — 30 Sobremesas Rápidas</h4><p>Pudim, bolo de cenoura, mousse e mais — todas prontas em até 15 minutos ou com poucos ingredientes.</p><span class="pr"><s>De: R$37</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus5.webp" width="76" height="95" loading="lazy" decoding="async" alt="Guia de Marmitas da Semana" /><div><h4>#5 — Guia de Marmitas da Semana</h4><p>Prepare 5 marmitas no domingo em menos de 2 horas. Receitas que congelam bem e ficam gostosas reaquecidas.</p><span class="pr"><s>De: R$39</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus6.webp" width="76" height="95" loading="lazy" decoding="async" alt="Receitas para Datas Especiais" /><div><h4>#6 — Receitas para Datas Especiais</h4><p>Aniversários, Natal, Páscoa e comemorações. Pratos que impressionam sem complicar sua vida.</p><span class="pr"><s>De: R$29</s>GRÁTIS</span></div></div>
+    <div class="bonus-row"><img src="images/bonus7.webp" width="76" height="95" loading="lazy" decoding="async" alt="Guia de Substituições" /><div><h4>#7 — Guia de Substituições</h4><p>Faltou um ingrediente? Este guia mostra o que usar no lugar sem perder o sabor da receita.</p><span class="pr"><s>De: R$19</s>GRÁTIS</span></div></div>
+  </div>
+  <a class="cta" href="#planos" style="margin-top:24px">Quero o Completo com os 7 bônus</a>
 </section>
 
 <!-- 6. DEPOIMENTOS -->
@@ -545,37 +610,16 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
   <h2>Escolha seu plano</h2>
 
   <div class="plan-vs">
-    <div class="plan-vs-col">
-      <div class="plan-vs-name">Básico</div>
-      <div class="plan-vs-price"><small>R$</small>17</div>
-      <div class="plan-vs-items">APP + Receitas<br />+ PDFs</div>
-    </div>
     <div class="plan-vs-col best">
       <div class="plan-vs-name">Completo</div>
       <div class="plan-vs-price"><small>R$</small>27</div>
       <div class="plan-vs-diff">+R$10 leva TUDO</div>
       <div class="plan-vs-items">APP + PDFs + Bônus<br />+ Extras + Suporte</div>
     </div>
-  </div>
-
-  <!-- PLANO BÁSICO -->
-  <div class="plan">
-    <div class="head">BÁSICO</div>
-    <div class="body">
-      <p class="plan-sub">O essencial para começar a cozinhar diferente todos os dias.</p>
-      <ul class="feat">
-        <li>+200 Receitas Deliciosas</li>
-        <li>Acesso ao APP completo</li>
-        <li>PDFs para download</li>
-        <li>Acesso Vitalício</li>
-        <li class="off">Cardápios Prontos para a Semana</li>
-        <li class="off">Lista de Compras Inteligente</li>
-        <li class="off">7 Bônus Exclusivos</li>
-        <li class="off">Tira Dúvidas pelo WhatsApp com a Bia</li>
-      </ul>
-      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta por tempo limitado</p><span class="now"><small>R$</small>17</span></div>
-      <a class="cta cta-outline" href="https://pay.cakto.com.br/3cxedsg">Quero o plano básico</a>
-      <p class="trust">✅ Compra segura · ⚡ Acesso imediato · 🛡️ 30 dias de garantia</p>
+    <div class="plan-vs-col">
+      <div class="plan-vs-name">Básico</div>
+      <div class="plan-vs-price"><small>R$</small>17</div>
+      <div class="plan-vs-items">APP + Receitas<br />+ PDFs</div>
     </div>
   </div>
 
@@ -596,25 +640,37 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
         <li><strong>7 Bônus Exclusivos</strong> <span style="font-size:12px;color:var(--strike);font-weight:600">(valor: R$217)</span></li>
         <li><strong>Tira Dúvidas pelo WhatsApp com a Bia</strong></li>
       </ul>
-      <div class="price"><span class="old">De: R$169,90</span><p class="price-note" style="margin-top:4px">Melhor custo-benefício</p><span class="now"><small>R$</small>27</span></div>
+      <ul class="stack"><li><span>Receitas + APP + 13 PDFs</span><span>R$97</span></li><li><span>7 bônus exclusivos</span><span>R$217</span></li><li class="tot"><span>Valor total</span><span>R$314</span></li></ul>
+      <div class="price"><span class="old">De: R$314</span><p class="price-note" style="margin-top:4px">Hoje, por apenas</p><span class="now"><small>R$</small>27</span></div>
       <p class="price-note" style="margin-top:2px"><em>+R$10</em> e você leva TUDO</p>
       <a class="cta" href="https://pay.cakto.com.br/38ki2j7_1187840">Quero o plano completo</a>
+      <p class="pay-note">⚡ Pix ou cartão · pagamento único</p>
       <p class="trust">✅ Compra 100% segura<br />⚡ Acesso imediato após o pagamento<br />🛡️ 30 dias de garantia incondicional</p>
     </div>
   </div>
-</section>
 
-<!-- 8. PROVA SOCIAL (carrossel) -->
-<section class="s-y" style="padding-bottom:36px">
-  <h2>Veja o que estão falando</h2>
-  <div class="marquee"><div class="track" id="track">
-    <img src="images/depo1.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo2.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo3.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo4.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo5.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-    <img src="images/depo6.webp" width="480" height="853" alt="Depoimento" loading="lazy" decoding="async" />
-  </div></div>
+  <!-- PLANO BÁSICO -->
+  <div class="plan">
+    <div class="head">BÁSICO</div>
+    <div class="body">
+      <p class="plan-sub">O essencial para começar a cozinhar diferente todos os dias.</p>
+      <ul class="feat">
+        <li>+200 Receitas Deliciosas</li>
+        <li>Acesso ao APP completo</li>
+        <li>PDFs para download</li>
+        <li>Acesso Vitalício</li>
+        <li class="off">Cardápios Prontos para a Semana</li>
+        <li class="off">Lista de Compras Inteligente</li>
+        <li class="off">7 Bônus Exclusivos</li>
+        <li class="off">Tira Dúvidas pelo WhatsApp com a Bia</li>
+      </ul>
+      <div class="price"><span class="old">De: R$97</span><p class="price-note" style="margin-top:4px">Oferta por tempo limitado</p><span class="now"><small>R$</small>17</span></div>
+      <a class="cta cta-outline" href="https://pay.cakto.com.br/3cxedsg">Quero o plano básico</a>
+      <p class="pay-note">⚡ Pix ou cartão · pagamento único</p>
+      <p class="trust">✅ Compra segura · ⚡ Acesso imediato · 🛡️ 30 dias de garantia</p>
+    </div>
+  </div>
+
 </section>
 
 <!-- 9. GARANTIA -->
@@ -694,6 +750,7 @@ p strong[style*="F5C518"]{color:var(--shout)!important}
   </div>
 </section>
 
+<div class="sticky-cta" id="sticky" aria-hidden="true"><div>Plano Completo + 7 bônus<b>R$27</b></div><a href="#planos">Quero o Completo</a></div>
 <footer><div class="ticker" aria-hidden="true"><div class="ticker-track"><div><span>♾️ Acesso Vitalício</span><span>🛡️ 30 dias de garantia</span><span>✅ Compra segura</span><span>⚡ Acesso imediato</span><span>🍽️ +200 Receitas</span><span>📱 APP + PDFs</span></div><div><span>♾️ Acesso Vitalício</span><span>🛡️ 30 dias de garantia</span><span>✅ Compra segura</span><span>⚡ Acesso imediato</span><span>🍽️ +200 Receitas</span><span>📱 APP + PDFs</span></div></div></div>© <span id="year"></span> Receitas da Bia. Todos os direitos reservados.</footer>
 </main>
 
@@ -703,6 +760,13 @@ var t=new Date();t.setDate(t.getDate()+1);
 document.getElementById("offer-date").textContent=t.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"});
 document.getElementById("year").textContent=new Date().getFullYear();
 addEventListener("scroll",function(){var h=document.documentElement;document.getElementById("progress").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%"},{passive:true});
+
+// Barra fixa: aparece após o hero e some quando os planos estão à vista
+(function(){var bar=document.getElementById("sticky"),pl=document.getElementById("planos"),hero=document.querySelector(".hero"),inPlans=false,pastHero=false;
+function up(){bar.classList.toggle("show",pastHero&&!inPlans)}
+if(!("IntersectionObserver" in window))return;
+new IntersectionObserver(function(e){inPlans=e[0].isIntersecting;up()}).observe(pl);
+new IntersectionObserver(function(e){pastHero=!e[0].isIntersecting;up()}).observe(hero)})();
 
 // Scroll suave para #planos
 document.querySelectorAll('a[href="#planos"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById('planos');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
@@ -755,7 +819,7 @@ fbq('init',FB_PIXEL_ID);fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Receitas da Bia',currency:'BRL',value:17});
 document.querySelectorAll('a[href*="cakto"]').forEach(function(a){var rec=!!a.closest('.rec');var d={content_name:rec?'Receitas da Bia - Plano Completo':'Receitas da Bia - Plano Básico',content_ids:[rec?'completo':'basico'],content_type:'product',currency:'BRL',value:rec?27:17};a.addEventListener('click',function(){fbq('track','AddToCart',d);fbq('track','InitiateCheckout',d)})});
 }
-(function(){var go=function(){loadPixel();["scroll","pointerdown","touchstart","keydown"].forEach(function(e){removeEventListener(e,go)})};["scroll","pointerdown","touchstart","keydown"].forEach(function(e){addEventListener(e,go,{passive:true,once:true})});addEventListener("load",function(){setTimeout(loadPixel,4000)})})();
+loadPixel();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1065374819648474&ev=PageView&noscript=1" /></noscript>
 <script>
@@ -766,6 +830,5 @@ els.forEach(function(e){io.observe(e)});
 setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},6000);
 })();
 </script>
-<script src="https://hotmart-tracking-navy.vercel.app/hotmart-fb-tracking.js" async></script>
 </body>
 </html>
