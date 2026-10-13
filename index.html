@@ -13,6 +13,7 @@
 <meta property="og:url" content="https://receitas-indol.vercel.app/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#FFB224" />
+<link rel="canonical" href="https://receitas-indol.vercel.app/" />
 <link rel="icon" type="image/png" href="images/favicon.png" />
 <link rel="dns-prefetch" href="https://pay.cakto.com.br" />
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
@@ -191,7 +192,7 @@ footer{padding:24px 22px 40px;text-align:center;font-size:13px;color:var(--text-
 .plan-vs-diff{font-size:11px;font-weight:700;color:var(--cta-from);background:rgba(42,138,69,.1);border-radius:100px;padding:3px 10px;display:inline-block}
 .plan-vs-items{font-size:11px;font-weight:600;color:var(--text-soft);margin-top:6px;line-height:1.4}
 /* Performance: skip rendering off-screen sections */
-section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
+/* content-visibility removido: deslocava o destino do scroll dos botões */
 /* Touch targets min 44px */
 .cta{min-height:44px}
 .faq summary{min-height:44px}
